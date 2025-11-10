@@ -1,0 +1,12 @@
+.container {
+  height: 24px;
+  position: relative;
+  width: 24px;
+}
+.image {
+  height: 87.5%;
+  left: 16.67%;
+  position: absolute;
+  top: 6.25%;
+  width: 66.67%;
+}

@@ -1,0 +1,72 @@
+.divider {
+  position: relative;
+  left: 24px;
+} /* Color styles */
+.color-secondary-pure {
+  background-color: var(--brandsecondarypure);
+}
+.color-low-darker {
+  background-color: var(--neutrallowdarker);
+}
+.color-high-lighter {
+  background-color: var(--neutralhighlighter);
+}
+.color-high-pure {
+  background-color: var(--neutralhighpure);
+}
+.color-low-lighter {
+  background-color: var(--neutrallowlighter);
+} /* Orientation styles */
+.orientation-vertical {
+  width: 1px;
+  height: 128px;
+}
+.orientation-horizontal {
+  width: 1440px;
+} /* Horizontal with high-lighter or low-lighter color */
+.orientation-horizontal.color-high-lighter,
+.orientation-horizontal.color-low-lighter {
+  height: 1px;
+} /* Size styles */
+.size-medium {
+  height: 2px;
+}
+.size-large {
+  height: 4px;
+} /* Top positioning - extra-small light */
+.size-extra-small.theme-light {
+  top: 40px;
+} /* Top positioning - small light horizontal */
+.size-small.theme-light.orientation-horizontal {
+  top: 88px;
+} /* Top positioning - medium secondary-pure */
+.color-secondary-pure.size-medium {
+  top: 138px;
+} /* Top positioning - medium low-darker */
+.color-low-darker.size-medium {
+  top: 188px;
+} /* Top positioning - large secondary-pure */
+.color-secondary-pure.size-large {
+  top: 238px;
+} /* Top positioning - large low-darker */
+.color-low-darker.size-large {
+  top: 290px;
+} /* Top positioning - vertical low-lighter */
+.orientation-vertical.color-low-lighter {
+  top: 342px;
+} /* Top positioning - extra-small dark */
+.size-extra-small.theme-dark {
+  top: 518px;
+} /* Top positioning - small dark horizontal */
+.size-small.theme-dark.orientation-horizontal {
+  top: 566px;
+} /* Top positioning - medium high-pure */
+.color-high-pure.size-medium {
+  top: 615px;
+} /* Top positioning - large high-pure */
+.color-high-pure.size-large {
+  top: 665px;
+} /* Top positioning - vertical dark */
+.orientation-vertical.theme-dark {
+  top: 717px;
+}

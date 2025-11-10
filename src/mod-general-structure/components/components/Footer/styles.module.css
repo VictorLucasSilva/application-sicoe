@@ -1,0 +1,19 @@
+.footer {
+  align-items: center;
+  background-color: var(--colors-brand-primary-pure);
+  display: flex;
+  flex-direction: column;
+  height: 182px;
+  position: relative;
+}
+.content {
+  align-items: center;
+  background-color: var(--brandprimarypure);
+  display: flex;
+  flex: 0 0 auto;
+  gap: 32px;
+  justify-content: center;
+  padding: 8px 64px;
+  position: relative;
+  width: 1568px;
+}
