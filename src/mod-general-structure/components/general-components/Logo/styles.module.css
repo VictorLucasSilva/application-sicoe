@@ -1,11 +1,9 @@
-.container {
-  height: 40px;
-  width: 29px;
-}
+.container { height: 40px; width: 29px; }
 .image {
   height: 40px;
-  left: 0;
-  position: fixed;
-  top: 0;
   width: 29px;
+  position: relative; /* era fixed */
+  top: 0;
+  left: 0;
+  display: block;
 }

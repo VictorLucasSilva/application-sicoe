@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import { type JSX } from "react";
-import classes from "./styles.module.css"
+import type { JSX, CSSProperties } from "react";
+import classes from "./styles.module.css";
 
 interface Props {
   size: "large" | "extra-small" | "medium" | "small";
@@ -12,14 +12,17 @@ interface Props {
     | "low-darker"
     | "secondary-pure"
     | "high-lighter";
-  className: any;
+  className?: object;
+  style?: CSSProperties;
 }
+
 export const Divider = ({
   size,
   theme,
   orientation,
   color,
   className,
+  style,
 }: Props): JSX.Element => {
   const classNames = [
     classes.divider,
@@ -27,18 +30,15 @@ export const Divider = ({
     classes[`theme-${theme}`],
     classes[`orientation-${orientation}`],
     classes[`color-${color}`],
-    classes[`${orientation}-${color}`],
-    classes[`${size}-${theme}`],
-    classes[`${size}-${orientation}`],
-    classes[`${color}-${size}`],
-    classes[`${size}-${theme}-${orientation}`],
-    classes[`${orientation}-${theme}`],
-    className,
+    className || "",
   ]
     .filter(Boolean)
-    .join(" ");
-  return <div className={classNames} />;
+    .join(" ")
+    .trim();
+
+  return <div className={classNames} style={style} />;
 };
+
 Divider.propTypes = {
   size: PropTypes.oneOf(["large", "extra-small", "medium", "small"]),
   theme: PropTypes.oneOf(["dark", "light"]),

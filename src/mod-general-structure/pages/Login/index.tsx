@@ -1,22 +1,19 @@
 import { useEffect } from 'react';
-import { Header } from "../../components/components/Header"
-import { Screen } from "../../components/components/Screen"
-import { Footer } from "../../components/components/Footer"
+import { Header } from "../../components/components/Header";
+import { Screen } from "../../components/components/Screen";
+import { Footer } from "../../components/components/Footer";
+import classes from "./styles.module.css";
 
 export function Login() {
-  useEffect(() => {
-    document.title = 'Chronos Pomodoro';
-  }, []);
+  useEffect(() => { document.title = 'SICOE - Sistema de Controle de Estabelecimento'; }, []);
 
   return (
-    <>
-      <Header 
-        theme="dark"
-        type="main"
-        className={{}}
-        logotipoVector="vector-4.svg"/>
-      <Screen />
+    <div className={classes.page}>
+      <Header theme="dark" type="login" className={{}} logotipoVector="vector-4.svg" />
+      <main className={classes.main}>
+        <Screen />
+      </main>
       <Footer />
-    </>
+    </div>
   );
 }

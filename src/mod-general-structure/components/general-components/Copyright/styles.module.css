@@ -1,0 +1,6 @@
+.container { display: block; }
+.text {
+  color: var(--colors-neutral-high-pure); /* branco */
+  font-size: 14px;
+  opacity: .95;
+}

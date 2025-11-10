@@ -1,19 +1,15 @@
 .footer {
-  align-items: center;
-  background-color: var(--colors-brand-primary-pure);
+  width: 100%;
+  height: var(--bottombar-h);                     /* altura igual à foto */
+  background: var(--colors-brand-primary-pure);   /* azul */
+  border-top: 2px solid var(--brandsecondarypure);/* linha amarela colada em cima */
   display: flex;
-  flex-direction: column;
-  height: 182px;
-  position: relative;
+  align-items: center;
 }
-.content {
-  align-items: center;
-  background-color: var(--brandprimarypure);
+
+.inner {
+  width: 100%;
+  padding: 0 24px;
   display: flex;
-  flex: 0 0 auto;
-  gap: 32px;
-  justify-content: center;
-  padding: 8px 64px;
-  position: relative;
-  width: 1568px;
+  align-items: center;
 }

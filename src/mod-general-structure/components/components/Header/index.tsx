@@ -267,6 +267,7 @@ export const Header = ({
                 width: "100%",
               }
         }
+        style={{ width: "100%" }}
         color="secondary-pure"
         orientation="horizontal"
         size="medium"
