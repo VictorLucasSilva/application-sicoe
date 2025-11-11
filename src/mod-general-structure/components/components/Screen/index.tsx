@@ -1,12 +1,12 @@
 import { type JSX } from "react";
 import { Button } from "../../general-components/Button";
 import { Divider } from "../../general-components/Divider";
-import image from "../../../assets/images/Lock.svg";
+import image from "../../../assets/images/Person.svg";
 import classes from "./styles.module.css";
 import vector2 from "../../../assets/images/Lock.svg";
-import vector3 from "../../../assets/images/Lock.svg";
-import vector4 from "../../../assets/images/Lock.svg";
-import vector from "../../../assets/images/Lock.svg";
+import vector3 from "../../../assets/images/Visibility.svg";
+import vector4 from "../../../assets/images/Visibility.svg";
+import vector from "../../../assets/images/Person.svg";
 
 export const Screen = (): JSX.Element => {
   return (
@@ -19,8 +19,8 @@ export const Screen = (): JSX.Element => {
 
           <div className={classes.dividerWrapper}>
             <Divider
-              style={{ width: "100%" }}
-              color="low-lighter"         /* cinza claro, só dentro do card */
+              style={{ width: "99%" }}
+              color="low-lighter"        
               orientation="horizontal"
               size="small"
               theme="light"

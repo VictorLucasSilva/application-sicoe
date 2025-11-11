@@ -9,7 +9,7 @@ import area4 from "../../../assets/images/Lock.svg"
 import area5 from "../../../assets/images/Lock.svg"
 import area6 from "../../../assets/images/Lock.svg"
 import area from "../../../assets/images/Lock.svg"
-import image from "../../../assets/images/Lock.svg"
+import image from "../../../../../public/images/Logotipo.svg"
 import classes from "./styles.module.css";
 import vector5 from "../../../assets/images/Lock.svg"
 interface Props {
@@ -22,7 +22,7 @@ export const Header = ({
   theme,
   type,
   className,
-  logotipoVector = "vector-4.svg",
+  logotipoVector = "vector.svg",
 }: Props): JSX.Element => {
   return (
     <div
@@ -270,7 +270,7 @@ export const Header = ({
         style={{ width: "100%" }}
         color="secondary-pure"
         orientation="horizontal"
-        size="medium"
+        size="large"
         theme="light"
       />{" "}
     </div>

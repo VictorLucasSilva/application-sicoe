@@ -1,0 +1,62 @@
+.container {
+  align-items: flex-start;
+  border: 1px solid;
+  border-color: var(--neutrallowlighter);
+  border-radius: 8px;
+  display: flex;
+  position: relative;
+}
+.background {
+  background-color: var(--colors-neutral-mid-pure);
+  display: grid;
+  grid-template-columns: repeat(26, minmax(0, 1fr));
+  grid-template-rows: repeat(8, minmax(0, 1fr));
+  height: 873px;
+  position: relative;
+  width: 1728px;
+}
+.headerContainer {
+  align-items: flex-start;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  grid-column: 7 / 27;
+  grid-row: 2 / 7;
+  height: 100%;
+  justify-self: start;
+  position: relative;
+  width: 100%;
+}
+.headerText {
+  align-self: stretch;
+  color: transparent;
+  font-family: "BancoDoBrasil Titulos-Medium", Helvetica;
+  font-size: 70px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 70px;
+  margin-top: -1px;
+  position: relative;
+}
+.welcomeText {
+  color: #0000008f;
+  font-weight: 500;
+  line-height: 86.8px;
+}
+.nameText {
+  color: #465eff;
+  font-weight: 500;
+  line-height: 86.8px;
+}
+.breakText {
+  color: #0000008f;
+  font-family: "BancoDoBrasil Titulos-ExtraBold", Helvetica;
+  font-weight: 800;
+  line-height: 86.8px;
+}
+.selectText {
+  color: #0000008f;
+  font-family: "BancoDoBrasil Titulos-Regular", Helvetica;
+  font-size: 45px;
+  line-height: 63.4px;
+}

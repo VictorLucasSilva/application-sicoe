@@ -9,7 +9,7 @@ type CopyrightProps = {
 export const Copyright = ({ className }: CopyrightProps): JSX.Element => {
   return (
     <div className={`${classes.container} ${className ?? ""}`}>
-      <p className={classes.text}>© BB Tecnologia e serviços 2023</p>
+      <p className={classes.text}>© BB Tecnologia e serviços 2026</p>
     </div>
   );
 };
