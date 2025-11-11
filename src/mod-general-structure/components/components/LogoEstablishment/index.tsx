@@ -1,6 +1,6 @@
 import { type JSX } from "react";
-import classes from "./style.module.css";
-import union from "./union.svg";
+import classes from "./styles.module.css";
+import union from "../../../assets/images/Lock.svg"
 
 type LogoEstablishmentProps = {
     className?: object;

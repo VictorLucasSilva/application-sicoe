@@ -1,20 +1,21 @@
 import PropTypes from "prop-types";
-import { type JSX } from "react";
-import { useReducer } from "react";
+import { type JSX, type CSSProperties, useReducer } from "react";
 import { LogoContracts } from "../LogoContracts";
-import classes from "./style.module.css";
+import classes from "./styles.module.css";
+
 interface Props {
-  title: boolean;
-  titleLabel: string;
-  secondaryText: boolean;
-  secondaryContent: string;
-  status: "active" | "hover";
-  theme: "dark" | "light";
-  className: object;
-  icon: JSX.Element;
-  textClassName: any;
-  textClassNameOverride: any;
+  title?: boolean;
+  titleLabel?: string;
+  secondaryText?: boolean;
+  secondaryContent?: string;
+  status?: "active" | "hover";
+  theme?: "dark" | "light";
+  className?: CSSProperties;
+  icon?: JSX.Element;
+  textClassName?: CSSProperties;
+  textClassNameOverride?: CSSProperties;
 }
+
 export const CardHome = ({
   title = true,
   titleLabel = "Title",
@@ -27,7 +28,7 @@ export const CardHome = ({
     <LogoContracts
       className={{
         height: "128px",
-        marginTop: "-21.50px",
+        marginTop: "-8px",
         position: "relative",
         width: "128px",
       }}
@@ -41,6 +42,7 @@ export const CardHome = ({
     status: status || "active",
     theme: theme || "light",
   });
+
   return (
     <div
       className={`${classes.moduleCard} ${
@@ -49,15 +51,15 @@ export const CardHome = ({
         state.status === "hover" ? classes.statusHover : classes.statusActive
       }`}
       style={className}
-      onMouseEnter={() => {
-        dispatch("mouse_enter");
-      }}
-      onMouseLeave={() => {
-        dispatch("mouse_leave");
-      }}
+      onMouseEnter={() => dispatch("mouse_enter")}
+      onMouseLeave={() => dispatch("mouse_leave")}
+      role="button"
+      tabIndex={0}
     >
-      {" "}
-      {icon} <div className={classes.spacer} />{" "}
+      {icon}
+
+      <div className={classes.spacer} />
+
       {title && (
         <div
           className={`${classes.titleText} ${
@@ -65,35 +67,35 @@ export const CardHome = ({
           }`}
           style={textClassName}
         >
-          {" "}
-          {titleLabel}{" "}
+          {titleLabel}
         </div>
-      )}{" "}
+      )}
+
       {secondaryText && (
         <div
           className={`${classes.secondaryText} ${
-            state.theme === "dark"
-              ? classes.secondaryDark
-              : classes.secondaryLight
+            state.theme === "dark" ? classes.secondaryDark : classes.secondaryLight
           }`}
           style={textClassNameOverride}
         >
-          {" "}
-          {secondaryContent}{" "}
+          {secondaryContent}
         </div>
-      )}{" "}
+      )}
     </div>
   );
 };
+
 function reducer(state: any, action: any) {
   switch (action) {
     case "mouse_enter":
       return { ...state, status: "hover" };
     case "mouse_leave":
       return { ...state, status: "active" };
+    default:
+      return state;
   }
-  return state;
 }
+
 CardHome.propTypes = {
   title: PropTypes.bool,
   titleLabel: PropTypes.string,

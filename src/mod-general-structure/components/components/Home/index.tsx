@@ -1,89 +1,42 @@
-import { type JSX }from "react";
+import { type JSX } from "react";
 import { CardHome } from "../CardHome";
-import { SizeXxLargeColorBrandPrimary } from "./SizeXxLargeColorBrandPrimary";
-import { SizeXxLargeColorPrimary } from "./SizeXxLargeColorPrimary";
-import classes from "./style.module.css";
-export const Screen = (): JSX.Element => {
+import { LogoContracts } from "../LogoContracts";
+import { LogoEstablishment } from "../LogoEstablishment";
+import classes from "./styles.module.css";
+
+export const Home = (): JSX.Element => {
   return (
-    <div className={classes.container}>
-      {" "}
-      <div className={classes.background}>
-        {" "}
+    <section className={classes.wrapper}>
+      <div className={classes.hero}>
+        <h1 className={classes.title}>
+          <span className={classes.light}>Bem Vindo </span>
+          <span className={classes.name}>nome completo</span>
+          <span className={classes.light}>!</span>
+        </h1>
+        <p className={classes.subtitle}>Selecione o módulo:</p>
+      </div>
+
+      <div className={classes.grid}>
         <CardHome
-          className={{
-            alignSelf: "start",
-            gap: "8px",
-            gridColumn: "8 / 16",
-            gridRow: "8 / 22",
-            height: "100%",
-            justifySelf: "start",
-            left: "unset",
-            minHeight: "400px",
-            top: "unset",
-            width: "100%",
-          }}
-          icon={
-            <SizeXxLargeColorPrimary
-              className={{
-                height: "128px",
-                marginTop: "-8.38px",
-                position: "relative",
-                width: "128px",
-              }}
-            />
-          }
-          secondaryContent="Monitor de Notas Fiscais, Contratos com Fornecedores e PCA"
-          status="active"
-          textClassName={{ marginBottom: "unset" }}
-          textClassNameOverride={{ marginBottom: "-5.38px" }}
           theme="light"
+          status="active"
+          icon={<LogoContracts className={{ height: "128px", width: "128px" }} />}
           titleLabel="Monitoramento de Contratos"
-        />{" "}
+          secondaryContent="Monitor de Notas Fiscais, Contratos com Fornecedores e PCA"
+          textClassName={{ marginBottom: 0 }}
+          textClassNameOverride={{ marginTop: 8 }}
+        />
+
         <CardHome
-          className={{
-            alignSelf: "start",
-            gap: "8px",
-            gridColumn: "18 / 26",
-            gridRow: "8 / 22",
-            height: "100%",
-            justifySelf: "start",
-            left: "unset",
-            minHeight: "400px",
-            top: "unset",
-            width: "100%",
-          }}
-          icon={
-            <SizeXxLargeColorBrandPrimary
-              className={{
-                height: "128px",
-                marginTop: "-8.38px",
-                position: "relative",
-                width: "128px",
-              }}
-            />
-          }
-          secondaryContent="Gestão de Documentos, Unidades e Localidades Físicas da Empresa"
-          status="active"
-          textClassName={{ marginBottom: "unset" }}
-          textClassNameOverride={{ marginBottom: "-5.38px" }}
           theme="light"
+          status="active"
+          icon={<LogoEstablishment className={{ height: "128px", width: "128px" }} />}
           titleLabel="Controle de Estabelecimentos"
-        />{" "}
-        <div className={classes.headerContainer}>
-          {" "}
-          <p className={classes.headerText}>
-            {" "}
-            <span className={classes.welcomeText}>Bem Vindo </span>{" "}
-            <span className={classes.nameText}>nome completo</span>{" "}
-            <span className={classes.welcomeText}>!</span>{" "}
-            <span className={classes.breakText}>
-              {" "}
-              <br />{" "}
-            </span>{" "}
-            <span className={classes.selectText}>Selecione o módulo:</span>{" "}
-          </p>{" "}
-        </div>{" "}
-      </div>{" "}
-    </div>
+          secondaryContent="Gestão de Documentos, Unidades e Localidades Físicas da Empresa"
+          textClassName={{ marginBottom: 0 }}
+          textClassNameOverride={{ marginTop: 8 }}
+        />
+      </div>
+    </section>
   );
 };

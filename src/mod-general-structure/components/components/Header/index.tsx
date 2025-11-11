@@ -11,7 +11,7 @@ import area6 from "../../../assets/images/Lock.svg"
 import area from "../../../assets/images/Lock.svg"
 import image from "../../../../../public/images/Logotipo.svg"
 import classes from "./styles.module.css";
-import vector5 from "../../../assets/images/Lock.svg"
+import vector5 from "../../../../../public/images/Logotipo.svg"
 interface Props {
   theme: "dark" | "light";
   type: "cont" | "login" | "main" | "estab";
