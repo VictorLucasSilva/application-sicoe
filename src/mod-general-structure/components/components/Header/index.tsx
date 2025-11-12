@@ -3,15 +3,15 @@ import { type JSX } from "react";
 import { Divider } from "../../general-components/Divider";
 import { Logo } from "../../general-components/Logo";
 import { Text } from "../../general-components/Text";
-import area2 from "../../../assets/images/Lock.svg"
-import area3 from "../../../assets/images/Lock.svg"
-import area4 from "../../../assets/images/Lock.svg"
-import area5 from "../../../assets/images/Lock.svg"
-import area6 from "../../../assets/images/Lock.svg"
-import area from "../../../assets/images/Lock.svg"
-import image from "../../../../../public/images/Logotipo.svg"
+import area2 from "../../../assets/images/Lock.svg";
+import area3 from "../../../assets/images/Lock.svg";
+import area4 from "../../../assets/images/Lock.svg";
+import area5 from "../../../assets/images/Lock.svg";
+import area6 from "../../../assets/images/Lock.svg";
+import area from "../../../assets/images/Avatar.svg";
+import image from "../../../../../public/images/Logotipo.svg";
 import classes from "./styles.module.css";
-import vector5 from "../../../../../public/images/Logotipo.svg"
+import vector5 from "../../../../../public/images/Logotipo.svg";
 interface Props {
   theme: "dark" | "light";
   type: "cont" | "login" | "main" | "estab";
@@ -166,7 +166,7 @@ export const Header = ({
                   {" "}
                   <div className={classes.areaTextWrapper}>
                     {" "}
-                    <div className={classes.areaText}>Area Gerencial</div>{" "}
+                    <div className={classes.areaText}>Área Gerencial</div>{" "}
                     <div
                       className={`${classes.areaIcon} ${
                         classes[`areaIcon-${theme}-${type}`]
@@ -250,7 +250,7 @@ export const Header = ({
       </div>{" "}
       <Divider
         className={
-          theme === "dark"
+          theme === "dark" && type === "login"
             ? {
                 alignSelf: "stretch",
                 backgroundColor: "var(--colors-brand-primary-light)",
@@ -261,6 +261,7 @@ export const Header = ({
               }
             : {
                 alignSelf: "stretch",
+                backgroundColor: "var(--colors-brand-primary-light)",
                 left: "unset",
                 marginTop: "-2px",
                 top: "unset",
@@ -273,6 +274,7 @@ export const Header = ({
         size="large"
         theme="light"
       />{" "}
+      <div className={classes.bbDivider} aria-hidden />
     </div>
   );
 };

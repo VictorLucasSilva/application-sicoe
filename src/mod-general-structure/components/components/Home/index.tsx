@@ -20,7 +20,7 @@ export const Home = (): JSX.Element => {
         <CardHome
           theme="light"
           status="active"
-          icon={<LogoContracts className={{ height: 128, width: 128 }} color="#465EFF" />}
+          icon={<LogoContracts className={{ height: 90, width: 90 }} color="#465EFF" />}
           titleLabel="Monitoramento de Contratos"
           secondaryContent="Monitor de Notas Fiscais, Contratos com Fornecedores e PCA"
           textClassName={{ marginBottom: 0 }}
@@ -29,7 +29,7 @@ export const Home = (): JSX.Element => {
         <CardHome
           theme="light"
           status="active"
-          icon={<LogoEstablishment className={{ height: 128, width: 128 }} color="#465EFF" />}
+          icon={<LogoEstablishment className={{ height: 90, width: 90 }} color="#465EFF" />}
           titleLabel="Controle de Estabelecimentos"
           secondaryContent="Gestão de Documentos, Unidades e Localidades Físicas da Empresa"
           textClassName={{ marginBottom: 0 }}

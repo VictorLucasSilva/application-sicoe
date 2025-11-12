@@ -1,10 +1,10 @@
 .moduleCard{
   display:flex; flex-direction:column; align-items:center; justify-content:center;
 
-  width:350px;                 /* <<< largura igual à base */
+  width:340px;                
   min-height:320px;
   box-sizing: border-box;
-  padding:40px 48px;           /* padding um pouco menor para caber melhor */
+  padding:40px 48px;          
 
   border:3px solid #d6d6d6;
   border-radius:12px;
@@ -34,9 +34,9 @@
 
 .titleText{
   align-self:stretch;
-  margin:0 0 8px 0;
+  margin:15px 0 10px 0;
   font-family:"BancoDoBrasil Titulos-Medium", Helvetica, Arial, sans-serif;
-  font-size:22px; line-height:27.3px; font-weight:500;
+  font-size:20px; line-height:27.3px; font-weight:500;
 }
 .titleLight{ color:#111827; }
 .titleDark { color:var(--colors-neutral-high-darkest); }
@@ -44,7 +44,7 @@
 .secondaryText{
   align-self:stretch;
   font-family:"BancoDoBrasil Textos-Regular", Helvetica, Arial, sans-serif;
-  font-size:14px; line-height:20px;
+  font-size:13px; line-height:20px;
   color:#6B7280;
   white-space:normal;
 }
