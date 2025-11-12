@@ -1,59 +1,52 @@
-.moduleCard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.moduleCard{
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
 
-  min-height: 360px;
-  padding: 40px 48px;
+  width:350px;                 /* <<< largura igual à base */
+  min-height:320px;
+  box-sizing: border-box;
+  padding:40px 48px;           /* padding um pouco menor para caber melhor */
 
-  border: 1px solid var(--colors-neutral-low-lighter);
-  border-radius: 12px;
-  background: var(--colors-neutral-high-pure);
-
+  border:3px solid #d6d6d6;
+  border-radius:12px;
+  background:#FFFFFF;
   transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
-  cursor: pointer;
+  cursor:pointer;
 }
 
-.themeLight { background: var(--colors-neutral-high-pure); }
-.themeDark  { background: var(--colors-neutral-low-pure); }
+.themeLight{ background:#FFFFFF; }
+.themeDark { background:var(--colors-neutral-low-pure); }
 
-.statusActive.themeLight { border-color: var(--colors-neutral-low-lighter); }
-.statusActive.themeDark  { border-color: var(--colors-neutral-high-lighter); }
+.statusActive.themeLight{ border-color:#E6E8F0; }
+.statusActive.themeDark { border-color:var(--colors-neutral-high-lighter); }
 
-.statusHover.themeLight {
-  border-color: var(--colors-neutral-low-light);
-  box-shadow: var(--hover-light);
-  transform: translateY(-2px);
+.statusHover.themeLight{
+  border-color:#CBD2E1;
+  box-shadow:0 10px 24px rgba(0,0,0,.15);
+  transform:translateY(-2px);
 }
-.statusHover.themeDark {
-  border-color: var(--colors-neutral-high-light);
-  box-shadow: var(--hover-dark);
-  transform: translateY(-2px);
-}
-
-.spacer { height: 24px; width: 100%; }
-
-.titleText {
-  align-self: stretch;
-  margin: 0 0 6px 0;
-  font-family: "BancoDoBrasil Titulos-Medium", Helvetica;
-  font-size: 22px;
-  line-height: 27.3px;
-  font-weight: 500;
-  letter-spacing: 0;
+.statusHover.themeDark{
+  border-color:var(--colors-neutral-high-light);
+  box-shadow:0 10px 24px rgba(0,0,0,.18);
+  transform:translateY(-2px);
 }
 
-.titleLight { color: var(--neutrallowdarkest); }
-.titleDark  { color: var(--colors-neutral-high-darkest); }
+.spacer{ height:24px; width:100%; }
 
-.secondaryText {
-  align-self: stretch;
-  font-family: "BancoDoBrasil Textos-Regular", Helvetica;
-  font-size: 14px;
-  line-height: 20px;
-  white-space: normal;
+.titleText{
+  align-self:stretch;
+  margin:0 0 8px 0;
+  font-family:"BancoDoBrasil Titulos-Medium", Helvetica, Arial, sans-serif;
+  font-size:22px; line-height:27.3px; font-weight:500;
 }
+.titleLight{ color:#111827; }
+.titleDark { color:var(--colors-neutral-high-darkest); }
 
-.secondaryLight { color: var(--neutrallowmedium); }
-.secondaryDark  { color: var(--colors-neutral-high-medium); }
+.secondaryText{
+  align-self:stretch;
+  font-family:"BancoDoBrasil Textos-Regular", Helvetica, Arial, sans-serif;
+  font-size:14px; line-height:20px;
+  color:#6B7280;
+  white-space:normal;
+}
+.secondaryLight{ color:#6B7280; }
+.secondaryDark { color:var(--colors-neutral-high-medium); }

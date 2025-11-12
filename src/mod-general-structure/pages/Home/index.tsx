@@ -12,11 +12,9 @@ export function Home() {
   return (
     <div className={classes.page}>
       <Header theme="dark" type="main" className={{}} logotipoVector="vector-4.svg" />
-
       <main className={classes.main}>
         <HomeScreen />
       </main>
-
       <Footer />
     </div>
   );

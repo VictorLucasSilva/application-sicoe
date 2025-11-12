@@ -26,12 +26,7 @@ export const CardHome = ({
   className,
   icon = (
     <LogoContracts
-      className={{
-        height: "128px",
-        marginTop: "-8px",
-        position: "relative",
-        width: "128px",
-      }}
+      className={{ height: "128px", width: "128px", position: "relative" }}
       color="#465EFF"
     />
   ),
@@ -47,9 +42,7 @@ export const CardHome = ({
     <div
       className={`${classes.moduleCard} ${
         state.theme === "dark" ? classes.themeDark : classes.themeLight
-      } ${
-        state.status === "hover" ? classes.statusHover : classes.statusActive
-      }`}
+      } ${state.status === "hover" ? classes.statusHover : classes.statusActive}`}
       style={className}
       onMouseEnter={() => dispatch("mouse_enter")}
       onMouseLeave={() => dispatch("mouse_leave")}
@@ -57,9 +50,7 @@ export const CardHome = ({
       tabIndex={0}
     >
       {icon}
-
       <div className={classes.spacer} />
-
       {title && (
         <div
           className={`${classes.titleText} ${
@@ -70,7 +61,6 @@ export const CardHome = ({
           {titleLabel}
         </div>
       )}
-
       {secondaryText && (
         <div
           className={`${classes.secondaryText} ${
@@ -87,12 +77,9 @@ export const CardHome = ({
 
 function reducer(state: any, action: any) {
   switch (action) {
-    case "mouse_enter":
-      return { ...state, status: "hover" };
-    case "mouse_leave":
-      return { ...state, status: "active" };
-    default:
-      return state;
+    case "mouse_enter": return { ...state, status: "hover" };
+    case "mouse_leave": return { ...state, status: "active" };
+    default: return state;
   }
 }
 

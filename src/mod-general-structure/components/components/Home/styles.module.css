@@ -1,34 +1,59 @@
-.wrapper {
-  width: 100%;
-  max-width: 1120px;
+/* ====== container da seção ====== */
+.wrapper{
+
+  --card-w: 436px;
+  --grid-gap: 32px;
+  width:100%;
+  max-width: calc(var(--card-w) * 2 + var(--grid-gap));
+  margin: 0 auto; 
 }
 
-.hero {
-  margin: 8px 0 28px;
+.hero{
+  width:100%;
+  margin: 12px auto 24px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;     
+  padding-left: 0px;         
 }
 
-.title {
-  margin: 0;
-  font-family: "BancoDoBrasil Titulos-Medium", Helvetica;
-  font-size: 56px;
-  line-height: 1.1;
-  font-weight: 500;
-  letter-spacing: 0;
+.title{
+  margin:0;
+  font-family:"BancoDoBrasil Titulos-Medium", Helvetica, Arial, sans-serif;
+  font-size:55px;
+  line-height:86.8px;          /* mesma altura visual do print */
+  font-weight:500;
+  letter-spacing:0;
+  text-align:left;
 }
 
-.light { color: #0000008f; }
-.name  { color: var(--colors-brand-secondary-pure); }
+.light{ color:#0000008f; }
+.name { color:#465EFF; }       /* azul do mock */
 
-.subtitle {
-  margin-top: 12px;
-  font-family: "BancoDoBrasil Titulos-Regular", Helvetica;
-  font-size: 28px;
-  color: #0000008f;
+.subtitle{
+  margin-top:10px;
+  font-family:"BancoDoBrasil Titulos-Regular", Helvetica, Arial, sans-serif;
+  font-size:32px;
+  line-height:42px;
+  color:#0000008f;
+  text-align:left;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(320px, 1fr));
-  gap: 32px;
-  align-items: stretch;
+.grid{
+  display:grid;
+  grid-template-columns: repeat(2, var(--card-w)); /* 2 colunas de 436px */
+  justify-content:center;  /* grid inteiro centralizado na página */
+  margin-left: 40px;
+  align-items:stretch;
+}
+
+/* ====== responsivo ====== */
+@media (max-width: 980px){
+  .wrapper{ max-width: 100%; }
+  .hero{ align-items:center; padding-left:0; }
+  .title, .subtitle{ text-align:center; }
+  .grid{
+    grid-template-columns: minmax(280px, 1fr);
+    justify-items: center;
+  }
 }

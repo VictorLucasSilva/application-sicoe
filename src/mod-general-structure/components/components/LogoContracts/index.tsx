@@ -1,17 +1,37 @@
-import { type JSX } from "react";
-import classes from "./styles.module.css";
-import union from "../../../assets/images/Lock.svg"
+import { type CSSProperties } from "react";
 
-type LogoContractsProps = {
-    className?: object;
-    color?: string;
-}
+type Props = {
+  className?: CSSProperties;
+  color?: string;
+  size?: number;
+};
 
-export const LogoContracts = ({ className }: LogoContractsProps): JSX.Element => {
+export const LogoContracts = ({
+  className,
+  color = "#465EFF",   // azul do layout
+  size = 128,
+}: Props) => {
   return (
-    <div className={`${classes.container} ${className ?? ""}`}>
-      {" "}
-      <img className={classes.image} alt="Union" src={union} />{" "}
-    </div>
+    <svg
+      style={className}
+      width={size}
+      height={size}
+      viewBox="0 0 128 128"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="Monitoramento de Contratos"
+    >
+      {/* moldura nos cantos */}
+      <g stroke={color} strokeWidth="8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 44V20h24" />
+        <path d="M92 20h24v24" />
+        <path d="M116 84v24H92" />
+        <path d="M36 108H12V84" />
+      </g>
+
+      {/* pena/caneta */}
+      <path d="M72 40l16 16-28 28H44V84z" fill={color} />
+      <path d="M44 84h16" stroke={color} strokeWidth="8" strokeLinecap="round" />
+    </svg>
   );
 };
