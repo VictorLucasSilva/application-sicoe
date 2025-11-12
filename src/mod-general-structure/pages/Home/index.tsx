@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { Header } from "../../components/components/Header";
-import { Footer } from "../../components/components/Footer";
+import { Header } from "../../components/general-components/Header";
+import { Footer } from "../../components/general-components/Footer";
 import { Home as HomeScreen } from "../../components/components/Home";
 import classes from "./styles.module.css";
 

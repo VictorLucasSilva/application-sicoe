@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { Header } from "../../components/components/Header";
+import { Header } from "../../components/general-components/Header";
 import { Screen } from "../../components/components/Screen";
-import { Footer } from "../../components/components/Footer";
+import { Footer } from "../../components/general-components/Footer";
 import classes from "./styles.module.css";
 
 export function Login() {

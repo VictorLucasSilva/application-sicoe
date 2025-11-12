@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import { type JSX } from "react";
-import { Divider } from "../../general-components/Divider";
-import { Logo } from "../../general-components/Logo";
-import { Text } from "../../general-components/Text";
+import { Divider } from "../Divider";
+import { Logo } from "../Logo";
+import { Text } from "../Text";
 import area2 from "../../../assets/images/Lock.svg";
 import area3 from "../../../assets/images/Lock.svg";
 import area4 from "../../../assets/images/Lock.svg";
