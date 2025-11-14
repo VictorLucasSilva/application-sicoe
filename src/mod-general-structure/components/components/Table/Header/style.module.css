@@ -1,0 +1,37 @@
+.container {
+  align-items: flex-start;
+  border-bottom-style: solid;
+  border-bottom-width: 0.5px;
+  border-color: var(--neutrallowlighter);
+  display: flex;
+  position: relative;
+}
+.cell {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  gap: 8px;
+  padding: 12px;
+  position: relative;
+}
+.label {
+  color: var(--neutrallowdarkest);
+  flex: 1;
+  font-family: var(--body-MD-medium-font-family);
+  font-size: var(--body-MD-medium-font-size);
+  font-style: var(--body-MD-medium-font-style);
+  font-weight: var(--body-MD-medium-font-weight);
+  letter-spacing: var(--body-MD-medium-letter-spacing);
+  line-height: var(--body-MD-medium-line-height);
+  margin-bottom: -4.9px;
+  margin-top: -5.9px;
+  position: relative;
+}
+.icon {
+  flex: 0 0 auto;
+  margin-bottom: -5.4px;
+  margin-top: -5.4px;
+  position: relative;
+}

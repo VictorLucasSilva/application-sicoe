@@ -1,0 +1,13 @@
+.container {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 2px 4px;
+  position: relative;
+}
+.icon {
+  height: 7.79px;
+  position: relative;
+  width: 14.59px;
+}

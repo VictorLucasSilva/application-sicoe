@@ -1,0 +1,64 @@
+.tableCell {
+  position: relative;
+  left: 16px;
+}
+.tableCell.type-header,
+.tableCell.type-action-icons,
+.tableCell.type-actions-title,
+.tableCell.type-avatar,
+.tableCell.type-badge,
+.tableCell.type-button,
+.tableCell.type-checkbox,
+.tableCell.type-hyperlink,
+.tableCell.type-icon,
+.tableCell.type-progress-bar,
+.tableCell.type-radio-button,
+.tableCell.type-rating,
+.tableCell.type-switch,
+.tableCell.type-tag-label,
+.tableCell.type-text-1-line,
+.tableCell.type-text-2-lines {
+  display: flex;
+}
+.tableCell.type-text-1-line,
+.tableCell.type-text-2-lines {
+  flex-direction: column;
+}
+.tableCell.type-header {
+  gap: 8px;
+}
+.tableCell.type-action-icons,
+.tableCell.type-actions-title,
+.tableCell.type-avatar,
+.tableCell.type-badge,
+.tableCell.type-button,
+.tableCell.type-checkbox,
+.tableCell.type-hyperlink,
+.tableCell.type-icon,
+.tableCell.type-progress-bar,
+.tableCell.type-radio-button,
+.tableCell.type-rating,
+.tableCell.type-switch,
+.tableCell.type-tag-label {
+  gap: 16px;
+}
+.tableCell.type-empty.spacing-default {
+  height: 48px;
+}
+.tableCell.type-empty.spacing-small {
+  height: 40px;
+}
+.tableCell.type-action-icons,
+.tableCell.type-actions-title,
+.tableCell.type-avatar,
+.tableCell.type-badge,
+.tableCell.type-checkbox,
+.tableCell.type-icon,
+.tableCell.type-progress-bar,
+.tableCell.type-radio-button,
+.tableCell.type-rating,
+.tableCell.type-switch,
+.tableCell.type-text-1-line,
+.tableCell.type-text-2-lines {
+  justify-content: center;
+}
