@@ -12,7 +12,7 @@ interface Props {
   iconerSizeMediumColorClassName?: any;
   divClassName?: any;
 }
-export const SectionTitle = ({
+export const PageTitle = ({
   text = "Section Title",
   theme,
   className,
@@ -61,7 +61,7 @@ export const SectionTitle = ({
     </div>
   );
 };
-SectionTitle.propTypes = {
+PageTitle.propTypes = {
   text: PropTypes.string,
   theme: PropTypes.oneOf(["dark", "light"]),
   polygon: PropTypes.string,

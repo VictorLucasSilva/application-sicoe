@@ -1,0 +1,93 @@
+.container {
+  border-radius: 20px;
+  display: flex;
+  height: 40px;
+  position: relative;
+  width: 40px;
+}
+.container.navigate-right {
+  justify-content: flex-end;
+}
+.container.navigate-left {
+  left: 16px;
+}
+.container.navigate-right {
+  left: 64px;
+}
+.container.continuation {
+  left: 112px;
+}
+.container.selected-page {
+  left: 160px;
+}
+.container.default-page {
+  left: 208px;
+}
+.container.hover-page {
+  left: 256px;
+}
+.container.light {
+  top: 16px;
+}
+.container.dark {
+  top: 72px;
+}
+.container.selected-page.light {
+  background-color: var(--brandprimarypure);
+}
+.container.selected-page.dark {
+  background-color: var(--brandprimarylight);
+}
+.container.default-page.light {
+  background-color: var(--neutrallowlightest);
+}
+.container.default-page.dark {
+  background-color: var(--neutralhighlighter);
+}
+.container.hover-page.light {
+  background-color: var(--neutrallowlighter);
+}
+.container.hover-page.dark {
+  background-color: var(--neutralhighlight);
+}
+.day {
+  height: 24px;
+  margin-left: 8px;
+  margin-top: 8px;
+  text-align: center;
+  width: 24px;
+}
+.day-continuation {
+  font-family: var(--caption-SM-regular-font-family);
+  font-size: var(--caption-SM-regular-font-size);
+  font-style: var(--caption-SM-regular-font-style);
+  font-weight: var(--caption-SM-regular-font-weight);
+  letter-spacing: var(--caption-SM-regular-letter-spacing);
+  line-height: var(--caption-SM-regular-line-height);
+}
+.day-default-page,
+.day-hover-page,
+.day-selected-page {
+  font-family: var(--body-MD-medium-font-family);
+  font-size: var(--body-MD-medium-font-size);
+  font-style: var(--body-MD-medium-font-style);
+  font-weight: var(--body-MD-medium-font-weight);
+  letter-spacing: var(--body-MD-medium-letter-spacing);
+  line-height: var(--body-MD-medium-line-height);
+}
+.day-continuation.light,
+.day-default-page.light,
+.day-hover-page.light {
+  color: var(--neutrallowmedium);
+}
+.day-continuation.dark,
+.day-default-page.dark,
+.day-hover-page.dark {
+  color: var(--neutralhighmedium);
+}
+.day-selected-page.light {
+  color: var(--neutralhighdarkest);
+}
+.day-selected-page.dark {
+  color: var(--neutrallowdarkest);
+}

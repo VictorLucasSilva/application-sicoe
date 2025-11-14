@@ -1,0 +1,12 @@
+.container {
+  height: 24px;
+  position: relative;
+  width: 24px;
+}
+.vector {
+  height: 50%;
+  left: 34.56%;
+  position: absolute;
+  top: 25%;
+  width: 30.87%;
+}
