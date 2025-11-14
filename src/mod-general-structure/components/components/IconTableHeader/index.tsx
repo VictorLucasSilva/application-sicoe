@@ -1,13 +1,13 @@
 import { type JSX} from "react";
 import classes from "./style.module.css";
-import Lock from "../../../../assets/images/Lock.svg"
-import Person from "../../../assets/images/Person.svg"
+import Down from "../../../../assets/images/Lock.svg"
+import Up from "../../../assets/images/Lock.svg"
 export const IconTableHeader = (): JSX.Element => {
   return (
     <div className={classes.container}>
       {" "}
-      <img className={classes.icon} alt="Lock" src={Lock} />{" "}
-      <img className={classes.icon} alt="Person" src={Person} />{" "}
+      <img className={classes.icon} alt="Up" src={Up} />{" "}
+      <img className={classes.icon} alt="Down" src={Down} />{" "}
     </div>
   );
 };

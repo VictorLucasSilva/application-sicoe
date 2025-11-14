@@ -2,12 +2,12 @@ import PropTypes from "prop-types";
 import { type JSX } from "react";
 import { Person } from "../Person";
 import classes from "./style.module.css";
-import button2 from "../../../assets/images/Lock.svg"
-import button from "../../../assets/images/Lock.svg"
-import caixa2 from "../../../assets/images/Lock.svg"
-import caixa from "../../../assets/images/Lock.svg"
-import image1 from "../../../assets/images/Lock.svg"
-import pequeno from "../../../assets/images/Lock.svg"
+import button2 from "./button-2.svg";
+import button from "./button.svg";
+import caixa2 from "./caixa-2.svg";
+import caixa from "./caixa.svg";
+import image1 from "./image.png";
+import pequeno from "./pequeno.png";
 interface Props {
   sort: boolean;
   help: boolean;
