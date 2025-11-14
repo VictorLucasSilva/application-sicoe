@@ -4,13 +4,11 @@
   flex-direction: column;
   background: var(--colors-neutral-high-darker);
 }
-
 .main {
   flex: 1;              
   display: flex;
   flex-direction: column;
 }
-
 .copyRow {
   display: flex;
   align-items: center;

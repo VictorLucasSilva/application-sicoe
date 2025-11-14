@@ -1,0 +1,120 @@
+.iconer {
+  background-size: 100% 100%;
+  position: relative;
+}
+.size-small {
+  height: 24px;
+  width: 24px;
+  top: 20px;
+}
+.size-medium {
+  height: 32px;
+  width: 32px;
+  top: 20px;
+}
+.size-large {
+  height: 48px;
+  width: 48px;
+  top: 20px;
+}
+.size-x-large {
+  height: 96px;
+  width: 96px;
+  top: 88px;
+} 
+.variant-small-high {
+  background-image: url(image.svg);
+  left: 64px;
+}
+.variant-small-brand-primary {
+  background-image: url(select-all-23.svg);
+  left: 108px;
+}
+.variant-small-brand-primary-lighter {
+  background-image: url(select-all-13.svg);
+  left: 152px;
+}
+.variant-small-brand-secondary {
+  background-image: url(select-all-14.svg);
+  left: 196px;
+}
+.variant-small-highlight {
+  background-image: url(select-all-21.svg);
+  left: 240px;
+}
+.variant-small-low {
+  background-image: url(select-all-2.svg);
+  left: 20px;
+}
+.variant-medium-low {
+  background-image: url(select-all-20.svg);
+  left: 284px;
+}
+.variant-medium-high {
+  background-image: url(select-all-12.svg);
+  left: 336px;
+}
+.variant-medium-brand-primary {
+  background-image: url(select-all-18.svg);
+  left: 388px;
+}
+.variant-medium-brand-primary-lighter {
+  background-image: url(select-all-11.svg);
+  left: 440px;
+}
+.variant-medium-brand-secondary {
+  background-image: url(select-all-6.svg);
+  left: 492px;
+}
+.variant-medium-highlight {
+  background-image: url(select-all-19.svg);
+  left: 544px;
+}
+.variant-large-low {
+  background-image: url(select-all-15.svg);
+  left: 596px;
+}
+.variant-large-high {
+  background-image: url(select-all-5.svg);
+  left: 664px;
+}
+.variant-large-brand-primary {
+  background-image: url(select-all.svg);
+  left: 732px;
+}
+.variant-large-brand-primary-lighter {
+  background-image: url(select-all-17.svg);
+  left: 800px;
+}
+.variant-large-brand-secondary {
+  background-image: url(select-all-9.svg);
+  left: 868px;
+}
+.variant-large-highlight {
+  background-image: url(select-all-22.svg);
+  left: 936px;
+}
+.variant-x-large-low {
+  background-image: url(select-all-2.svg);
+  left: 20px;
+}
+.variant-x-large-high {
+  background-image: url(select-all-8.svg);
+  left: 136px;
+}
+.variant-x-large-brand-primary {
+  background-image: url(select-all-7.svg);
+  left: 252px;
+}
+.variant-x-large-brand-primary-lighter {
+  background-image: url(select-all-10.svg);
+  left: 368px;
+}
+.variant-x-large-brand-secondary {
+  background-image: url(select-all-4.svg);
+  left: 484px;
+}
+.variant-x-large-highlight {
+  background-image: url(select-all-16.svg);
+  left: 600px;
+}
