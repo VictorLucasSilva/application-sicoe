@@ -4,9 +4,9 @@ import { ArrowDropDown } from "../ArrowDropdown";
 import { ChevronLeft } from "../ChevronLeft";
 import { ChevronRight } from "../ChevronRight";
 import { PagerAssets } from "../PagerAssets";
-import image from "./image.svg";
-import linha2 from "./linha-2.svg";
-import linha3 from "./linha-3.svg";
+import image from "../../../assets/images/Avatar.svg"
+import linha2 from "../../../assets/images/Lock.svg"
+import linha3 from "../../../assets/images/Person.svg"
 import classes from "./style.module.css";
 interface Props {
   type: "desktop" | "mobile";

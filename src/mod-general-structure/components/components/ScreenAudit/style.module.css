@@ -1,32 +1,47 @@
-.screenContainer {
-  align-items: flex-start;
-  background-color: var(--neutralhighpure);
-  border: 1px solid;
-  border-color: var(--neutrallowlighter);
-  border-radius: 8px;
+.screen {
   display: flex;
-  position: relative;
-}
-.mainGrid {
+  justify-content: center;
+  padding: 32px 0;
   background-color: var(--colors-neutral-mid-pure);
-  display: grid;
-  grid-template-columns: repeat(30, minmax(0, 1fr));
-  grid-template-rows: repeat(22, minmax(0, 1fr));
-  height: 893px;
-  position: relative;
-  width: 1728px;
 }
-.dividerContainer {
-  align-items: flex-start;
+
+.wrapper {
+  background-color: var(--neutralhighpure);
+  border-radius: 8px;
+  width: 95%;
+  max-width: 1500px;
+  padding: 32px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  grid-column: 3 / 31;
-  grid-row: 21 / 22;
-  height: 100%;
-  justify-content: center;
-  justify-self: end;
-  padding: 10px 32px;
-  position: relative;
-  width: 100%;
+  gap: 24px;
+}
+
+.title {
+  margin-bottom: 8px;
+}
+
+.tableCard {
+  border-radius: 8px;
+  border: 1px solid var(--neutrallowlighter);
+  overflow: hidden;
+  background-color: var(--neutralhighpure);
+}
+
+.footerArea {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.voltarWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.paginationWrapper {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
 }

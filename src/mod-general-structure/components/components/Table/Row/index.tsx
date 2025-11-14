@@ -1,5 +1,5 @@
 import { type JSX } from "react";
-import { TableCell } from "./TableCell";
+import { TableCell } from "../../TableCell";
 export const RowTableAudit = (): JSX.Element => {
   return (
     <div

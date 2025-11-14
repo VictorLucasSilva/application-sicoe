@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import { type JSX } from "react";
-import { IconPlaceholder } from "./IconPlaceholder";
-import classes from "./TableCell.module.css";
-import button2 from "./button-2.svg";
-import button from "./button.svg";
-import caixa2 from "./caixa-2.svg";
-import caixa from "./caixa.svg";
-import image1 from "./image.png";
-import pequeno from "./pequeno.png";
+import { Person } from "../Person";
+import classes from "./style.module.css";
+import button2 from "../../../assets/images/Lock.svg"
+import button from "../../../assets/images/Lock.svg"
+import caixa2 from "../../../assets/images/Lock.svg"
+import caixa from "../../../assets/images/Lock.svg"
+import image1 from "../../../assets/images/Lock.svg"
+import pequeno from "../../../assets/images/Lock.svg"
 interface Props {
   sort: boolean;
   help: boolean;
@@ -37,9 +37,9 @@ interface Props {
   className: any;
 }
 export const TableCell = ({
-  sort = false,
-  help = false,
-  avatarText = false,
+ // sort = false,
+ // help = false,
+ // avatarText = false,
   title = "Título",
   text = "Texto",
   actionsTitle = true,
@@ -134,9 +134,9 @@ export const TableCell = ({
           {type === "action-icons" && (
             <>
               {" "}
-              <IconPlaceholder className={classes.iconPlaceholder} />{" "}
-              <IconPlaceholder className={classes.iconPlaceholder} />{" "}
-              <IconPlaceholder className={classes.iconPlaceholder} />{" "}
+              <Person className={classes.iconPlaceholder} />{" "}
+              <Person className={classes.iconPlaceholder} />{" "}
+              <Person className={classes.iconPlaceholder} />{" "}
             </>
           )}{" "}
           {type === "rating" && (
@@ -190,7 +190,7 @@ export const TableCell = ({
         </>
       )}{" "}
       {type === "icon" && (
-        <IconPlaceholder className={classes.iconPlaceholder} />
+        <Person className={classes.iconPlaceholder} />
       )}{" "}
       {type === "actions-title" && (
         <>

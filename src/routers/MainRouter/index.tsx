@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { Login } from '../../mod-general-structure/pages/Login';
 import { Home } from '../../mod-general-structure/pages/Home';
+import { Audit } from '../../mod-general-structure/pages/Audit';
 import { useEffect } from 'react';
 
 function ScrollToTop() {
@@ -19,6 +20,7 @@ export function MainRouter() {
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/home' element={<Home />} />
+        <Route path='/Auditoria' element={<Audit />} />
       </Routes>
       <ScrollToTop />
     </BrowserRouter>

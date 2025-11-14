@@ -1,6 +1,6 @@
 import { type JSX } from "react";
 import classes from "./style.module.css";
-import vector from "./vector.svg";
+import vector from "../../../../assets/images/Lock.svg"
 export const IconB = (): JSX.Element => {
   return (
     <div className={classes.container}>
