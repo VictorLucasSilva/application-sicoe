@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { type JSX } from "react";
 import { Iconer } from "../IconPage";
 import classes from "./style.module.css";
-import image from "./image.svg";
+import image from "../../../assets/images/Lock.svg"
 interface Props {
   text: string;
   theme: "dark" | "light";

@@ -1,3 +1,4 @@
+// src/mod-general-structure/components/components/ScreenAudit/index.tsx
 import { type JSX } from "react";
 
 import { PageTitle } from "../PageTitle";
@@ -10,11 +11,11 @@ import { IconB } from "../ButtonIcon/IconB";
 
 import classes from "./style.module.css";
 
+// components/ScreenAudit/index.tsx
 export const ScreenAudit = (): JSX.Element => {
   return (
     <div className={classes.screen}>
       <div className={classes.wrapper}>
-
         <PageTitle
           text="Auditoria"
           theme="light"
@@ -27,6 +28,10 @@ export const ScreenAudit = (): JSX.Element => {
           <RowTableAudit />
         </div>
 
+        <div className={classes.paginationArea}>
+          <Pagination type="desktop" theme="light" />
+        </div>
+
         <Divider
           size="medium"
           theme="light"
@@ -36,36 +41,21 @@ export const ScreenAudit = (): JSX.Element => {
         />
 
         <div className={classes.footerArea}>
-          <div className={classes.voltarWrapper}>
-            <ButtonIcon
-              text="VOLTAR"
-              icon={<IconB />}
-              className={{
-                display: "inline-flex",
-                paddingInline: 24,
-                paddingBlock: 10,
-              }}
-              textClassName={{}}
-            />
-          </div>
-
-          <div className={classes.paginationWrapper}>
-            <Pagination
-              type="desktop"
-              theme="light"
-              className={{}}                           
-              registrosClassName={{}}                  
-              linha="linha.svg"
-              pagesClassName={{}}                      
-              pagerAssetsTypeNavigateLeftClassName={{}}         
-              pagerAssetsTypeNavigateLeftClassNameOverride={{}}  
-              pagerAssetsTypeNavigateRightClassName={{}}       
-            />
-          </div>
+          <ButtonIcon
+            text="VOLTAR"
+            icon={<IconB />}
+            className={{
+              display: "inline-flex",
+              paddingInline: 24,
+              paddingBlock: 10,
+            }}
+            textClassName={{}}
+          />
         </div>
       </div>
     </div>
   );
 };
+
 
 export const Screen = ScreenAudit;

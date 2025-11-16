@@ -1,32 +1,34 @@
-import PropTypes from "prop-types";
-import { type JSX } from "react";
-import { IconB } from "../ButtonIcon/IconB";
+// src/mod-general-structure/components/components/ButtonIcon/index.tsx
+import { type JSX, type CSSProperties } from "react";
+import { IconB } from "./IconB";
 import classes from "./style.module.css";
+
 interface Props {
-  text: string;
-  className: any;
-  icon: JSX.Element;
-  textClassName: any;
+  text?: string;
+  className?: CSSProperties;      // estilos inline opcionais para o botão
+  icon?: JSX.Element;             // ícone opcional
+  textClassName?: CSSProperties;  // estilos inline opcionais para o texto
 }
+
 export const ButtonIcon = ({
   text = "button",
   className,
   icon = (
     <IconB
-      className={{ height: "24px", position: "relative", width: "24px" }}
+      className={{
+        height: 24,
+        width: 24,
+      }}
     />
   ),
   textClassName,
 }: Props): JSX.Element => {
   return (
     <button className={classes.button} style={className}>
-      {" "}
-      {icon}{" "}
-      <div className={classes.text} style={textClassName}>
-        {" "}
-        {text}{" "}
-      </div>{" "}
+      {icon}
+      <span className={classes.text} style={textClassName}>
+        {text}
+      </span>
     </button>
   );
 };
-ButtonDefault.propTypes = { text: PropTypes.string };

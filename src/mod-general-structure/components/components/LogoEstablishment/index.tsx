@@ -1,10 +1,9 @@
 import { type CSSProperties } from "react";
-import svgimagem from "../../../../../public/images/LogoEstablishment.svg"
 
 type Props = {
-  className?: CSSProperties; 
-  color?: string;             
-  size?: number;              
+  className?: CSSProperties; // style extra
+  color?: string;
+  size?: number;
 };
 
 export const LogoEstablishment = ({
@@ -13,13 +12,13 @@ export const LogoEstablishment = ({
 }: Props) => {
   return (
     <img
-      src={svgimagem}
+      src="/images/LogoEstablishment.svg"  // vem de public/images
       alt="Controle de Estabelecimentos"
       style={{
         width: size,
         height: size,
         display: "block",
-        ...className,          
+        ...(className ?? {}),
       }}
       aria-label="Controle de Estabelecimentos"
     />

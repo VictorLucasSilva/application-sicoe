@@ -1,11 +1,17 @@
+/* src/mod-general-structure/components/components/ButtonIcon/IconB/style.module.css */
+
 .container {
   height: 20px;
   width: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .image {
   height: 100%;
-  left: 0;
-  position: fixed;
-  top: 0;
   width: 100%;
+  object-fit: contain;
+  position: relative;
+  display: block;
 }

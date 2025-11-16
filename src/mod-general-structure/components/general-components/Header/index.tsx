@@ -3,21 +3,23 @@ import { type JSX } from "react";
 import { Divider } from "../Divider";
 import { Logo } from "../Logo";
 import { Text } from "../Text";
+
 import area2 from "../../../assets/images/Lock.svg";
 import area3 from "../../../assets/images/Lock.svg";
 import area4 from "../../../assets/images/Lock.svg";
 import area5 from "../../../assets/images/Lock.svg";
 import area6 from "../../../assets/images/Lock.svg";
 import area from "../../../assets/images/Avatar.svg";
-import image from "../../../../../public/images/Logotipo.svg";
+
 import classes from "./styles.module.css";
-import vector5 from "../../../../../public/images/Logotipo.svg";
+
 interface Props {
   theme: "dark" | "light";
   type: "cont" | "login" | "main" | "estab";
-  className: any;
+  className: any;           // usado como style
   logotipoVector: string;
 }
+
 export const Header = ({
   theme,
   type,
@@ -31,18 +33,14 @@ export const Header = ({
       } ${classes[`header-${theme}-${type}`]}`}
       style={className}
     >
-      {" "}
       <div
         className={`${classes.headerContent} ${
           classes[`headerContent-${type}`]
         }`}
       >
-        {" "}
         {["cont", "estab", "main"].includes(type) && (
           <>
-            {" "}
             <div className={classes.leftSection}>
-              {" "}
               {theme === "light" && ["cont", "estab"].includes(type) && (
                 <Text
                   className={{
@@ -74,10 +72,10 @@ export const Header = ({
                   type="title"
                   weight="n-a"
                 />
-              )}{" "}
+              )}
+
               {theme === "light" && type === "main" && (
                 <>
-                  {" "}
                   <Logo
                     application="internal"
                     className={{
@@ -89,7 +87,7 @@ export const Header = ({
                     orientation="vertical"
                     size="smaller"
                     vector="vector-3.svg"
-                  />{" "}
+                  />
                   <Text
                     className={{
                       display: "inline-flex",
@@ -115,40 +113,38 @@ export const Header = ({
                     }}
                     type="title"
                     weight="n-a"
-                  />{" "}
+                  />
                 </>
-              )}{" "}
+              )}
+
               {theme === "dark" && ["cont", "estab"].includes(type) && (
                 <div className={classes.titleContainer}>
-                  {" "}
                   <div className={classes.titleDark}>
-                    {" "}
-                    {type === "estab" && <>Controle de Estabelecimentos</>}{" "}
-                    {type === "cont" && <>Monitoramento de Contratos</>}{" "}
-                  </div>{" "}
+                    {type === "estab" && <>Controle de Estabelecimentos</>}
+                    {type === "cont" && <>Monitoramento de Contratos</>}
+                  </div>
                 </div>
-              )}{" "}
+              )}
+
               {theme === "dark" && type === "main" && (
                 <>
-                  {" "}
                   <div className={classes.logoContainer}>
-                    {" "}
                     <img
                       className={classes.vectorImage}
                       alt="Vector"
-                      src={vector5}
-                    />{" "}
-                  </div>{" "}
+                      src="../../../../../public/images/Logotipo.svg" 
+                    />
+                  </div>
                   <div className={classes.titleContainer}>
-                    {" "}
-                    <div className={classes.titleDark}>SICOE</div>{" "}
-                  </div>{" "}
+                    <div className={classes.titleDark}>SICOE</div>
+                  </div>
                 </>
-              )}{" "}
-            </div>{" "}
-            <div className={classes.spacer} />{" "}
+              )}
+            </div>
+            <div className={classes.spacer} />
           </>
-        )}{" "}
+        )}
+
         {(type === "cont" ||
           type === "estab" ||
           type === "main" ||
@@ -158,25 +154,20 @@ export const Header = ({
               classes[`rightSection-${type}`]
             }`}
           >
-            {" "}
             {["cont", "estab", "main"].includes(type) && (
               <>
-                {" "}
                 <div className={classes.areaContainer}>
-                  {" "}
                   <div className={classes.areaTextWrapper}>
-                    {" "}
-                    <div className={classes.areaText}>Área Gerencial</div>{" "}
+                    <div className={classes.areaText}>Área Gerencial</div>
                     <div
                       className={`${classes.areaIcon} ${
                         classes[`areaIcon-${theme}-${type}`]
                       }`}
-                    />{" "}
-                  </div>{" "}
-                </div>{" "}
-                <div className={classes.divider} />{" "}
+                    />
+                  </div>
+                </div>
+                <div className={classes.divider} />
                 <div className={classes.areaImageWrapper}>
-                  {" "}
                   <img
                     className={classes.areaImage}
                     alt="Area"
@@ -193,18 +184,22 @@ export const Header = ({
                         ? area
                         : area2
                     }
-                  />{" "}
-                </div>{" "}
+                  />
+                </div>
               </>
-            )}{" "}
+            )}
             {type === "login" && (
-              <img className={classes.loginImage} alt="Vector" src={image} />
-            )}{" "}
+              <img
+                className={classes.loginImage}
+                alt="Vector"
+                src="../../../../../public/images/Logotipo.svg" 
+              />
+            )}
           </div>
-        )}{" "}
+        )}
+
         {theme === "light" && type === "login" && (
           <>
-            {" "}
             <Logo
               application="internal"
               className={{ flex: "0 0 auto", left: "unset", top: "unset" }}
@@ -212,7 +207,7 @@ export const Header = ({
               orientation="vertical"
               size="smaller"
               vector={logotipoVector}
-            />{" "}
+            />
             <Text
               className={{
                 display: "inline-flex",
@@ -238,46 +233,37 @@ export const Header = ({
               }}
               type="title"
               weight="n-a"
-            />{" "}
+            />
           </>
-        )}{" "}
+        )}
+
         {theme === "dark" && type === "login" && (
           <div className={classes.titleContainer}>
-            {" "}
-            <div className={classes.titleDark}>SICOE</div>{" "}
+            <div className={classes.titleDark}>SICOE</div>
           </div>
-        )}{" "}
-      </div>{" "}
+        )}
+      </div>
+
       <Divider
-        className={
-          theme === "dark" && type === "login"
-            ? {
-                alignSelf: "stretch",
-                backgroundColor: "var(--colors-brand-primary-light)",
-                left: "unset",
-                marginTop: "-2px",
-                top: "unset",
-                width: "100%",
-              }
-            : {
-                alignSelf: "stretch",
-                backgroundColor: "var(--colors-brand-primary-light)",
-                left: "unset",
-                marginTop: "-2px",
-                top: "unset",
-                width: "100%",
-              }
-        }
+        className={{
+          alignSelf: "stretch",
+          backgroundColor: "var(--colors-brand-primary-light)",
+          left: "unset",
+          marginTop: "-2px",
+          top: "unset",
+          width: "100%",
+        }}
         style={{ width: "100%" }}
         color="secondary-pure"
         orientation="horizontal"
         size="large"
         theme="light"
-      />{" "}
+      />
       <div className={classes.bbDivider} aria-hidden />
     </div>
   );
 };
+
 Header.propTypes = {
   theme: PropTypes.oneOf(["dark", "light"]),
   type: PropTypes.oneOf(["cont", "login", "main", "estab"]),

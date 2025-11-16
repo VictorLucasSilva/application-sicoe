@@ -1,3 +1,4 @@
+/* src/mod-general-structure/components/components/ScreenAudit/style.module.css */
 .screen {
   display: flex;
   justify-content: center;
@@ -28,20 +29,15 @@
   background-color: var(--neutralhighpure);
 }
 
-.footerArea {
+/* linha de paginação (texto + páginas) */
+.paginationArea {
   margin-top: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
-.voltarWrapper {
+/* botão VOLTAR alinhado à esquerda abaixo da linha azul */
+.footerArea {
+  margin-top: 16px;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
-}
-
-.paginationWrapper {
-  display: flex;
-  justify-content: flex-end;
-  flex: 1;
 }

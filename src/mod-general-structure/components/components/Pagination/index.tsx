@@ -1,412 +1,132 @@
-import PropTypes from "prop-types";
-import { type JSX } from "react";
+// src/mod-general-structure/components/components/Pagination/index.tsx
+import { type CSSProperties, type JSX } from "react";
 import { ArrowDropDown } from "../ArrowDropdown";
-import { ChevronLeft } from "../ChevronLeft";
-import { ChevronRight } from "../ChevronRight";
 import { PagerAssets } from "../PagerAssets";
-import image from "./image.svg";
-import linha2 from "./linha-2.svg";
-import linha3 from "./linha-3.svg";
+import image from "../../../assets/images/Lock.svg";
+import linha2 from "../../../assets/images/Lock.svg";
+import linha3 from "../../../assets/images/Lock.svg";
 import classes from "./style.module.css";
-interface Props {
-  type: "desktop" | "mobile";
-  theme: "dark" | "light";
-  className: any;
-  registrosClassName: any;
-  linha: string;
-  pagesClassName: any;
-  pagerAssetsTypeNavigateLeftClassName: any;
-  pagerAssetsTypeNavigateLeftClassNameOverride: any;
-  pagerAssetsTypeNavigateRightClassName: any;
-}
+
+type Props = {
+  type?: "desktop" | "mobile";
+  theme?: "dark" | "light";
+  style?: CSSProperties;
+  registrosStyle?: CSSProperties;
+  pagesStyle?: CSSProperties;
+};
+
 export const Pagination = ({
-  type,
-  theme,
-  className,
-  registrosClassName,
-  linha = "linha.svg",
-  pagesClassName,
-  pagerAssetsTypeNavigateLeftClassName,
-  pagerAssetsTypeNavigateLeftClassNameOverride,
-  pagerAssetsTypeNavigateRightClassName,
+  type = "desktop",
+  theme = "light",
+  style,
+  registrosStyle,
+  pagesStyle,
 }: Props): JSX.Element => {
   return (
     <div
-      className={`${classes.pager} ${classes[`pager--${type}`]} ${
-        classes[`pager--${theme}`]
-      } ${classes[`pager--${type}--${theme}`]}`}
-      style={className}
+      className={`${classes.pager} ${classes[`pager--${type}`]}`}
+      style={style}
     >
-      {" "}
+      {/* DESKTOP – igual ao layout da imagem */}
       {type === "desktop" && (
         <>
-          {" "}
-          <div className={classes.registros} style={registrosClassName}>
-            {" "}
+          <div className={classes.registros} style={registrosStyle}>
             <div
               className={`${classes.registrosText} ${
                 classes[`registrosText--${theme}`]
               }`}
             >
-              {" "}
-              Registros por página{" "}
-            </div>{" "}
+              Registros por página
+            </div>
+
             <div className={classes.dropdown}>
-              {" "}
               <div className={classes.dropdownInner}>
-                {" "}
                 <div className={classes.dropdownContent}>
-                  {" "}
                   <div
                     className={`${classes.dropdownValue} ${
                       classes[`dropdownValue--${theme}`]
                     }`}
                   >
-                    {" "}
-                    10{" "}
-                  </div>{" "}
-                  <div className={classes.dropdownSpacer} />{" "}
+                    10
+                  </div>
+                  <div className={classes.dropdownSpacer} />
                   <ArrowDropDown
                     className={{
                       height: "24px",
                       position: "relative",
                       width: "24px",
                     }}
-                    color={theme === "dark" ? "white" : "black"}
-                    opacity="0.25"
-                  />{" "}
-                </div>{" "}
-              </div>{" "}
+                  />
+                </div>
+              </div>
               <img
                 className={classes.dropdownLine}
                 alt="Linha"
-                src={theme === "dark" ? linha2 : linha}
-              />{" "}
-            </div>{" "}
+                src={theme === "dark" ? linha2 : image}
+              />
+            </div>
+
             <p
               className={`${classes.registrosInfo} ${
                 classes[`registrosInfo--${theme}`]
               }`}
             >
-              {" "}
-              Exibindo 10 registros de 140{" "}
-            </p>{" "}
-          </div>{" "}
-          <div className={classes.pages} style={pagesClassName}>
-            {" "}
-            {theme === "light" && (
-              <>
-                {" "}
-                <PagerAssets
-                  chevronLeftStyleOverrideClassName={{
-                    height: "24px",
-                    left: "8px",
-                    position: "absolute",
-                    top: "8px",
-                    width: "24px",
-                  }}
-                  className={pagerAssetsTypeNavigateLeftClassName}
-                  theme="light"
-                  type="navigate-left"
-                />{" "}
-                <PagerAssets
-                  className={{ display: "unset", left: "unset", top: "unset" }}
-                  dayClassName={{
-                    height: "unset",
-                    left: "8px",
-                    marginLeft: "unset",
-                    marginTop: "unset",
-                    position: "absolute",
-                    top: "8px",
-                  }}
-                  theme="light"
-                  type="selected-page"
-                />{" "}
-                <PagerAssets
-                  className={{ display: "unset", left: "unset", top: "unset" }}
-                  dayClassName={{
-                    height: "unset",
-                    left: "8px",
-                    marginLeft: "unset",
-                    marginTop: "unset",
-                    position: "absolute",
-                    top: "8px",
-                  }}
-                  text="2"
-                  theme="light"
-                  type="default-page"
-                />{" "}
-                <PagerAssets
-                  className={{ display: "unset", left: "unset", top: "unset" }}
-                  dayClassName={{
-                    height: "unset",
-                    left: "8px",
-                    marginLeft: "unset",
-                    marginTop: "unset",
-                    position: "absolute",
-                    top: "8px",
-                  }}
-                  text="3"
-                  theme="light"
-                  type="default-page"
-                />{" "}
-                <PagerAssets
-                  className={{ display: "unset", left: "unset", top: "unset" }}
-                  dayClassName={{
-                    height: "unset",
-                    left: "8px",
-                    marginLeft: "unset",
-                    marginTop: "unset",
-                    position: "absolute",
-                    top: "8px",
-                  }}
-                  text="4"
-                  theme="light"
-                  type="default-page"
-                />{" "}
-                <PagerAssets
-                  className={{ display: "unset", left: "unset", top: "unset" }}
-                  dayClassName={{
-                    height: "unset",
-                    left: "8px",
-                    marginLeft: "unset",
-                    marginTop: "unset",
-                    position: "absolute",
-                    top: "8px",
-                  }}
-                  text="5"
-                  theme="light"
-                  type="default-page"
-                />{" "}
-                <PagerAssets
-                  className={pagerAssetsTypeNavigateLeftClassNameOverride}
-                  dayClassName={{
-                    height: "unset",
-                    left: "8px",
-                    marginLeft: "unset",
-                    marginTop: "unset",
-                    position: "absolute",
-                    top: "8px",
-                  }}
-                  theme="light"
-                  type="continuation"
-                />{" "}
-                <PagerAssets
-                  className={{ display: "unset", left: "unset", top: "unset" }}
-                  dayClassName={{
-                    height: "unset",
-                    left: "8px",
-                    marginLeft: "unset",
-                    marginTop: "unset",
-                    position: "absolute",
-                    top: "8px",
-                  }}
-                  text="17"
-                  theme="light"
-                  type="default-page"
-                />{" "}
-                <PagerAssets
-                  chevronRightStyleOverrideClassName={{
-                    height: "24px",
-                    position: "absolute",
-                    right: "8px",
-                    top: "8px",
-                    width: "24px",
-                  }}
-                  className={pagerAssetsTypeNavigateRightClassName}
-                  theme="light"
-                  type="navigate-right"
-                />{" "}
-              </>
-            )}{" "}
-            {theme === "dark" && (
-              <>
-                {" "}
-                <div className={classes.pageButton}>
-                  {" "}
-                  <ChevronLeft
-                    className={{
-                      height: "24px",
-                      left: "8px",
-                      position: "absolute",
-                      top: "8px",
-                      width: "24px",
-                    }}
-                    color="white"
-                  />{" "}
-                </div>{" "}
-                <div
-                  className={`${classes.pageButton} ${classes.pageButtonSelected}`}
-                >
-                  {" "}
-                  <div className={classes.pageButtonTextSelected}>1</div>{" "}
-                </div>{" "}
-                <div
-                  className={`${classes.pageButton} ${classes.pageButtonDefault}`}
-                >
-                  {" "}
-                  <div className={classes.pageButtonTextDefault}>2</div>{" "}
-                </div>{" "}
-                <div
-                  className={`${classes.pageButton} ${classes.pageButtonDefault}`}
-                >
-                  {" "}
-                  <div className={classes.pageButtonTextDefault}>3</div>{" "}
-                </div>{" "}
-                <div
-                  className={`${classes.pageButton} ${classes.pageButtonDefault}`}
-                >
-                  {" "}
-                  <div className={classes.pageButtonTextDefault}>4</div>{" "}
-                </div>{" "}
-                <div
-                  className={`${classes.pageButton} ${classes.pageButtonDefault}`}
-                >
-                  {" "}
-                  <div className={classes.pageButtonTextDefault}>5</div>{" "}
-                </div>{" "}
-                <div className={classes.pageButton}>
-                  {" "}
-                  <div className={classes.pageContinuation}>...</div>{" "}
-                </div>{" "}
-                <div
-                  className={`${classes.pageButton} ${classes.pageButtonDefault}`}
-                >
-                  {" "}
-                  <div className={classes.pageButtonTextDefault}>17</div>{" "}
-                </div>{" "}
-                <div className={classes.pageButton}>
-                  {" "}
-                  <ChevronRight
-                    className={{
-                      height: "24px",
-                      position: "absolute",
-                      right: "8px",
-                      top: "8px",
-                      width: "24px",
-                    }}
-                    color="white"
-                  />{" "}
-                </div>{" "}
-              </>
-            )}{" "}
-          </div>{" "}
+              Exibindo 10 registros de 140
+            </p>
+          </div>
+
+          <div className={classes.pages} style={pagesStyle}>
+            <PagerAssets type="navigate-left" theme={theme} />
+            <PagerAssets type="selected-page" theme={theme} text="1" />
+            <PagerAssets type="default-page" theme={theme} text="2" />
+            <PagerAssets type="default-page" theme={theme} text="3" />
+            <PagerAssets type="default-page" theme={theme} text="4" />
+            <PagerAssets type="default-page" theme={theme} text="5" />
+            <PagerAssets type="continuation" theme={theme} />
+            <PagerAssets type="default-page" theme={theme} text="17" />
+            <PagerAssets type="navigate-right" theme={theme} />
+          </div>
         </>
-      )}{" "}
+      )}
+
+      {/* MOBILE – deixa como estava, só acertando tipos */}
       {type === "mobile" && (
         <>
-          {" "}
           <div
             className={`${classes.mobileRegistros} ${
               classes[`mobileRegistros--${theme}`]
             }`}
           >
-            {" "}
-            17 registros de 30{" "}
-          </div>{" "}
+            17 registros de 30
+          </div>
+
           <div className={classes.mobileDropdown}>
-            {" "}
             <div className={classes.mobileDropdownInner}>
-              {" "}
               <div className={classes.mobileDropdownContent}>
-                {" "}
                 <div
                   className={`${classes.mobileDropdownValue} ${
                     classes[`mobileDropdownValue--${theme}`]
                   }`}
                 >
-                  {" "}
-                  Página 1{" "}
-                </div>{" "}
+                  Página 1
+                </div>
                 <ArrowDropDown
                   className={{
                     height: "24px",
                     position: "relative",
                     width: "24px",
                   }}
-                  color={theme === "dark" ? "white" : "black"}
-                  opacity="0.25"
-                />{" "}
-              </div>{" "}
-            </div>{" "}
+                />
+              </div>
+            </div>
             <img
               className={classes.mobileDropdownLine}
               alt="Linha"
               src={theme === "dark" ? linha3 : image}
-            />{" "}
-          </div>{" "}
+            />
+          </div>
         </>
-      )}{" "}
-      {type === "mobile" && theme === "light" && (
-        <>
-          {" "}
-          <PagerAssets
-            chevronLeftStyleOverrideClassName={{
-              height: "24px",
-              left: "8px",
-              position: "absolute",
-              top: "8px",
-              width: "24px",
-            }}
-            className={{ display: "unset", left: "unset", top: "unset" }}
-            theme="light"
-            type="navigate-left"
-          />{" "}
-          <PagerAssets
-            chevronRightStyleOverrideClassName={{
-              height: "24px",
-              position: "absolute",
-              right: "8px",
-              top: "8px",
-              width: "24px",
-            }}
-            className={{
-              display: "unset",
-              justifyContent: "unset",
-              left: "unset",
-              top: "unset",
-            }}
-            theme="light"
-            type="navigate-right"
-          />{" "}
-        </>
-      )}{" "}
-      {type === "mobile" && theme === "dark" && (
-        <>
-          {" "}
-          <div className={classes.mobilePageButton}>
-            {" "}
-            <ChevronLeft
-              className={{
-                height: "24px",
-                left: "8px",
-                position: "absolute",
-                top: "8px",
-                width: "24px",
-              }}
-              color="white"
-            />{" "}
-          </div>{" "}
-          <div className={classes.mobilePageButton}>
-            {" "}
-            <ChevronRight
-              className={{
-                height: "24px",
-                position: "absolute",
-                right: "8px",
-                top: "8px",
-                width: "24px",
-              }}
-              color="white"
-            />{" "}
-          </div>{" "}
-        </>
-      )}{" "}
+      )}
     </div>
   );
-};
-Pager.propTypes = {
-  type: PropTypes.oneOf(["desktop", "mobile"]),
-  theme: PropTypes.oneOf(["dark", "light"]),
-  linha: PropTypes.string,
 };

@@ -1,62 +1,55 @@
+/* src/mod-general-structure/components/components/PagerAssets/style.module.css */
+
 .container {
   border-radius: 20px;
   display: flex;
   height: 40px;
-  position: relative;
   width: 40px;
+  align-items: center;
+  justify-content: center;
 }
-.container.navigate-right {
-  justify-content: flex-end;
-}
-.container.navigate-left {
-  left: 16px;
-}
-.container.navigate-right {
-  left: 64px;
-}
-.container.continuation {
-  left: 112px;
-}
-.container.selected-page {
-  left: 160px;
-}
-.container.default-page {
-  left: 208px;
-}
-.container.hover-page {
-  left: 256px;
-}
-.container.light {
-  top: 16px;
-}
-.container.dark {
-  top: 72px;
-}
+
+/* cores por tipo/tema (igual layout) */
+
 .container.selected-page.light {
   background-color: var(--brandprimarypure);
 }
+
 .container.selected-page.dark {
   background-color: var(--brandprimarylight);
 }
-.container.default-page.light {
+
+.container.default-page.light,
+.container.hover-page.light,
+.container.continuation.light {
   background-color: var(--neutrallowlightest);
 }
-.container.default-page.dark {
+
+.container.default-page.dark,
+.container.hover-page.dark,
+.container.continuation.dark {
   background-color: var(--neutralhighlighter);
 }
-.container.hover-page.light {
-  background-color: var(--neutrallowlighter);
+
+/* navegação (< e >) usa mesmo fundo das páginas padrão 
+.container.light {
+
 }
-.container.hover-page.dark {
-  background-color: var(--neutralhighlight);
+
+.container.dark {
 }
+*/
+/* texto dentro das bolinhas */
+
 .day {
   height: 24px;
-  margin-left: 8px;
-  margin-top: 8px;
-  text-align: center;
   width: 24px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .day-continuation {
   font-family: var(--caption-SM-regular-font-family);
   font-size: var(--caption-SM-regular-font-size);
@@ -65,6 +58,7 @@
   letter-spacing: var(--caption-SM-regular-letter-spacing);
   line-height: var(--caption-SM-regular-line-height);
 }
+
 .day-default-page,
 .day-hover-page,
 .day-selected-page {
@@ -75,19 +69,23 @@
   letter-spacing: var(--body-MD-medium-letter-spacing);
   line-height: var(--body-MD-medium-line-height);
 }
+
 .day-continuation.light,
 .day-default-page.light,
 .day-hover-page.light {
   color: var(--neutrallowmedium);
 }
+
 .day-continuation.dark,
 .day-default-page.dark,
 .day-hover-page.dark {
   color: var(--neutralhighmedium);
 }
+
 .day-selected-page.light {
   color: var(--neutralhighdarkest);
 }
+
 .day-selected-page.dark {
   color: var(--neutrallowdarkest);
 }
