@@ -5,6 +5,8 @@
 .color-high-lighter   { background-color: var(--neutralhighlighter); }
 .color-high-pure      { background-color: var(--neutralhighpure); }
 .color-low-lighter    { background-color: var(--neutrallowlighter); }
+.color-low-lighter    { background-color: var(--neutrallowlighter); }
+.color-primary-pure    { background-color: var(--brandprimarypure); }
 
 .orientation-vertical   { width: 1px; height: 100%; }
 .orientation-horizontal { width: 100%; max-width: 100%; height: 1px; }

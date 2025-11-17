@@ -1,25 +1,22 @@
+// src/mod-general-structure/components/components/PageTitle/index.tsx
 import PropTypes from "prop-types";
-import { type JSX } from "react";
-import { Iconer } from "../IconPage";
+import { type JSX, type ReactNode } from "react";
 import classes from "./style.module.css";
-import image from "../../../assets/images/Lock.svg"
+
 interface Props {
-  text: string;
+  text?: string;
   theme: "dark" | "light";
+  icon?: ReactNode;
   className?: any;
-  groupClassName?: any;
-  polygon: string;
-  iconerSizeMediumColorClassName?: any;
-  divClassName?: any;
+  textClassName?: any;
 }
+
 export const PageTitle = ({
   text = "Section Title",
   theme,
+  icon,
   className,
-  groupClassName,
-  polygon = "polygon-11.svg",
-  iconerSizeMediumColorClassName,
-  divClassName,
+  textClassName,
 }: Props): JSX.Element => {
   return (
     <div
@@ -27,42 +24,20 @@ export const PageTitle = ({
         theme === "dark" ? classes.containerDark : classes.containerLight
       } ${className || ""}`}
     >
-      {" "}
-      <div
-        className={`${classes.group} ${
-          theme === "dark" ? classes.groupDark : classes.groupLight
-        } ${groupClassName || ""}`}
-      >
-        {" "}
-        <img
-          className={`${classes.polygon} ${
-            theme === "light" ? classes.polygonLight : classes.polygonDark
-          }`}
-          alt="Polygon"
-          src={theme === "light" ? polygon : image}
-        />{" "}
-        {theme === "light" && (
-          <Iconer
-            className={iconerSizeMediumColorClassName}
-            color="brand-primary"
-            size="medium"
-          />
-        )}{" "}
-        {theme === "dark" && <div className={classes.iconDark} />}{" "}
-      </div>{" "}
+      {icon && <div className={classes.iconWrapper}>{icon}</div>}
+
       <div
         className={`${classes.textWrapper} ${
           theme === "dark" ? classes.textWrapperDark : classes.textWrapperLight
-        } ${divClassName || ""}`}
+        } ${textClassName || ""}`}
       >
-        {" "}
-        {text}{" "}
-      </div>{" "}
+        {text}
+      </div>
     </div>
   );
 };
+
 PageTitle.propTypes = {
   text: PropTypes.string,
   theme: PropTypes.oneOf(["dark", "light"]),
-  polygon: PropTypes.string,
 };

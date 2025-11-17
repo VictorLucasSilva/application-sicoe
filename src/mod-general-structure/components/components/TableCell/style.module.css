@@ -1,7 +1,18 @@
 .tableCell {
+  /* sem deslocamento lateral */
   position: relative;
-  left: 16px;
+  left: 0;
+
+  display: flex;
+  flex: 1;
+  box-sizing: border-box;
+
+  /* mesmo padding do header (12px em todos os lados) */
+  padding: 3px 12px;
 }
+
+/* tipos gerais ----------------------------------------------------- */
+
 .tableCell.type-header,
 .tableCell.type-action-icons,
 .tableCell.type-actions-title,
@@ -14,51 +25,176 @@
 .tableCell.type-progress-bar,
 .tableCell.type-radio-button,
 .tableCell.type-rating,
-.tableCell.type-switch,
+.tableCell.type-switch {
+  justify-content: center;
+  align-items: center;
+}
+
+/* texto simples & tag label ocupam a célula toda */
 .tableCell.type-tag-label,
 .tableCell.type-text-1-line,
 .tableCell.type-text-2-lines {
-  display: flex;
-}
-.tableCell.type-text-1-line,
-.tableCell.type-text-2-lines {
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
-.tableCell.type-header {
-  gap: 8px;
+
+/* texto em 1 linha fica lado a lado (ex.: "Texto") */
+.tableCell.type-text-1-line {
+  flex-direction: row;
 }
+
+/* Data/Hora em 2 linhas (fica uma coluninha dentro da célula) */
+.tableCell.type-text-2-lines {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* altura das linhas (≈ 48px igual ao layout de referência) */
+.tableCell.spacing-default {
+  min-height: 1px;
+}
+
+.tableCell.spacing-small {
+  min-height: 0.1px;
+}
+
+/* containers internos ----------------------------------------------- */
+
+.innerContainer {
+  display: flex;
+  align-items: center;
+}
+
+/* usada só no tipo text-2-lines */
+.innerContainerText2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* TAG LABEL (coluna Perfil) ---------------------------------------- */
+
+.contentWrapper-tag-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 12px;
+  border-radius: 5px;
+  background-color: var(--brandprimarylighter); /* azul claro */
+  color: var(--brandprimarypure);               /* texto azul mais forte */
+  font-family: var(--body-XS-medium-font-family);
+  font-size: var(--body-XS-medium-font-size);
+  font-weight: var(--body-XS-medium-font-weight);
+  line-height: var(--body-XS-medium-line-height);
+}
+
+.tagLabelText {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--brandprimarypure);
+  white-space: nowrap;
+}
+
+/* outras variantes que já existiam podem continuar assim */
 .tableCell.type-action-icons,
 .tableCell.type-actions-title,
 .tableCell.type-avatar,
 .tableCell.type-badge,
 .tableCell.type-button,
 .tableCell.type-checkbox,
-.tableCell.type-hyperlink,
 .tableCell.type-icon,
 .tableCell.type-progress-bar,
 .tableCell.type-radio-button,
 .tableCell.type-rating,
-.tableCell.type-switch,
-.tableCell.type-tag-label {
+.tableCell.type-switch {
   gap: 16px;
-}
-.tableCell.type-empty.spacing-default {
-  height: 48px;
-}
-.tableCell.type-empty.spacing-small {
-  height: 40px;
-}
-.tableCell.type-action-icons,
-.tableCell.type-actions-title,
-.tableCell.type-avatar,
-.tableCell.type-badge,
-.tableCell.type-checkbox,
-.tableCell.type-icon,
-.tableCell.type-progress-bar,
-.tableCell.type-radio-button,
-.tableCell.type-rating,
-.tableCell.type-switch,
-.tableCell.type-text-1-line,
-.tableCell.type-text-2-lines {
   justify-content: center;
+}
+
+/* DATA/HORA duas linhas -------------------------------------------- */
+
+.text2LinesContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.text2LinesMain {
+  /* data (linha de cima) */
+  color: var(--neutrallowdarkest);
+  font-family: var(--body-MD-regular-font-family);
+  font-size: var(--body-MD-regular-font-size);
+  line-height: var(--body-MD-regular-line-height);
+}
+
+.text2LinesSecondary {
+  /* hora (linha de baixo) */
+  color: var(--light-mode-greys6);
+  font-family: var(--body-XS-regular-font-family);
+  font-size: var(--body-XS-regular-font-size);
+  line-height: var(--body-MD-regular-font-family);
+}
+
+/* placeholders que você já usava ----------------------------------- */
+
+.avatarImage {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+}
+
+.avatarBadge {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #00c853;
+}
+
+.iconPlaceholder {
+  width: 16px;
+  height: 16px;
+}
+
+.actionsTitleText {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--neutrallowdarkest);
+}
+
+/* progress bar, rating, etc – mantive simples para não quebrar nada */
+
+.ratingStar {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  background: #ffd54f;
+}
+
+.progressPercentage {
+  font-size: 12px;
+  margin-right: 4px;
+}
+
+.progressBarContainer {
+  width: 80px;
+  height: 6px;
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressBarBackground {
+  width: 100%;
+  height: 100%;
+  background: #e0e0e0;
+}
+
+.progressBarFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: var(--brandprimarypure);
 }

@@ -6,10 +6,11 @@
   width: 100%;
 }
 
+/* alinhamento igual ao layout */
 .pager--desktop {
   align-items: center;
-  padding: 16px 0 0 0;
   justify-content: space-between;
+  padding: 8px 0 0 0;
 }
 
 .pager--mobile {
@@ -19,11 +20,12 @@
   padding: 8px 0;
 }
 
+/* lado esquerdo: textos + seletor 10 */
 .registros {
   align-items: center;
   display: flex;
   flex: 1;
-  gap: 16px;
+  gap: 24px;
   position: relative;
 }
 
@@ -34,7 +36,6 @@
   font-weight: var(--caption-SM-regular-font-weight);
   letter-spacing: var(--caption-SM-regular-letter-spacing);
   line-height: var(--caption-SM-regular-line-height);
-  position: relative;
   white-space: nowrap;
   width: fit-content;
 }
@@ -47,36 +48,19 @@
   color: var(--neutrallowmedium);
 }
 
+/* seletor "10" com underline azul */
 .dropdown {
+  display: inline-flex;
   align-items: center;
-  box-shadow: var(--sombras-shadow-hover);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  width: 80px;
+  min-width: 64px;
 }
 
 .dropdownInner {
-  align-items: flex-start;
-  align-self: stretch;
   display: flex;
-  flex: 0 0 auto;
-  flex-direction: column;
-  gap: 4px;
-  padding: 8px 8px 6px;
-  position: relative;
-  width: 100%;
-}
-
-.dropdownContent {
   align-items: center;
-  align-self: stretch;
-  display: flex;
-  flex: 0 0 auto;
   gap: 8px;
-  position: relative;
-  width: 100%;
+  padding: 0 0 4px 0;
+  border-bottom: 2px solid var(--brandprimarypure);
 }
 
 .dropdownValue {
@@ -87,7 +71,6 @@
   letter-spacing: var(--body-MD-regular-letter-spacing);
   line-height: var(--body-MD-regular-line-height);
   margin-top: -1px;
-  position: relative;
   white-space: nowrap;
   width: fit-content;
 }
@@ -100,20 +83,6 @@
   color: var(--neutrallowdarkest);
 }
 
-.dropdownSpacer {
-  flex: 1;
-  flex-grow: 1;
-  height: 24px;
-  position: relative;
-}
-
-.dropdownLine {
-  align-self: stretch;
-  height: 2px;
-  position: relative;
-  width: 100%;
-}
-
 .registrosInfo {
   font-family: var(--caption-SM-regular-font-family);
   font-size: var(--caption-SM-regular-font-size);
@@ -121,7 +90,6 @@
   font-weight: var(--caption-SM-regular-font-weight);
   letter-spacing: var(--caption-SM-regular-letter-spacing);
   line-height: var(--caption-SM-regular-line-height);
-  position: relative;
   white-space: nowrap;
   width: fit-content;
 }
@@ -134,11 +102,12 @@
   color: var(--neutrallowmedium);
 }
 
+/* bolinhas de página à direita */
 .pages {
   align-items: center;
   display: inline-flex;
   flex: 0 0 auto;
-  gap: 4px;
+  gap: 8px;
   padding: 0 4px 0 0;
   position: relative;
 }
@@ -151,7 +120,6 @@
   font-weight: var(--tiny-XXS-medium-font-weight);
   letter-spacing: var(--tiny-XXS-medium-letter-spacing);
   line-height: var(--tiny-XXS-medium-line-height);
-  position: relative;
   white-space: nowrap;
   width: fit-content;
 }
@@ -202,7 +170,6 @@
   letter-spacing: var(--caption-SM-regular-letter-spacing);
   line-height: var(--caption-SM-regular-line-height);
   margin-top: -1px;
-  position: relative;
   white-space: nowrap;
   width: fit-content;
 }

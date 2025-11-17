@@ -1,21 +1,24 @@
 /* src/mod-general-structure/components/components/ScreenAudit/style.module.css */
+
 .screen {
   display: flex;
   justify-content: center;
-  padding: 32px 0;
-  background-color: var(--colors-neutral-mid-pure);
+  width: 100%;
+  background-color: transparent;
 }
 
 .wrapper {
-  background-color: var(--neutralhighpure);
-  border-radius: 8px;
-  width: 95%;
-  max-width: 1500px;
-  padding: 32px;
+  width: 100%;
+  max-width: 1568px;
+  margin: 0 auto;
+  padding: 0 64px;
   box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
   gap: 24px;
+  background-color: transparent;
+  border-radius: 0;
 }
 
 .title {
@@ -23,20 +26,22 @@
 }
 
 .tableCard {
-  border-radius: 8px;
-  border: 1px solid var(--neutrallowlighter);
-  overflow: hidden;
-  background-color: var(--neutralhighpure);
+  width: 100%;
+  border-radius: 0;
+  border: none;
+  overflow: visible;
+  background-color: transparent;
 }
 
-/* linha de paginação (texto + páginas) */
+/* dá um respiro maior da tabela pra paginação,
+   parecido com o da tela de referência */
 .paginationArea {
-  margin-top: 8px;
+  margin-top: 24px;
 }
 
-/* botão VOLTAR alinhado à esquerda abaixo da linha azul */
+/* botão VOLTAR logo abaixo da linha, alinhado à esquerda */
 .footerArea {
-  margin-top: 16px;
+  margin: 15px 15px;
   display: flex;
   justify-content: flex-start;
   align-items: center;

@@ -1,16 +1,16 @@
+/* src/mod-general-structure/components/components/ArrowDropdown/style.module.css */
+
 .container {
-  background-image: url(vector.svg);
-  background-size: 100% 100%;
   height: 24px;
-  left: -11607px;
-  position: relative;
-  top: -7859px;
   width: 24px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .image {
-  height: 20.83%;
-  left: 29.17%;
-  position: absolute;
-  top: 41.67%;
-  width: 41.67%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }

@@ -1,7 +1,7 @@
 import { type JSX} from "react";
 import classes from "./style.module.css";
-import Down from "../../../assets/images/Lock.svg"
-import Up from "../../../assets/images/Lock.svg"
+import Down from "../../../../../public/images/Down.svg"
+import Up from "../../../../../public/images/Up.svg"
 export const IconTableHeader = (): JSX.Element => {
   return (
     <div className={classes.container}>

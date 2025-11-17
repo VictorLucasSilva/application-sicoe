@@ -11,7 +11,8 @@ interface Props {
     | "low-lighter"
     | "low-darker"
     | "secondary-pure"
-    | "high-lighter";
+    | "high-lighter"
+    | "primary-pure";
   className?: object;
   style?: CSSProperties;
 }
@@ -49,5 +50,6 @@ Divider.propTypes = {
     "low-darker",
     "secondary-pure",
     "high-lighter",
+    "primary-pure",
   ]),
 };

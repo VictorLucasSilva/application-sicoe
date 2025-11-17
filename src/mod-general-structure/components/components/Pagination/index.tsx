@@ -2,8 +2,6 @@
 import { type CSSProperties, type JSX } from "react";
 import { ArrowDropDown } from "../ArrowDropdown";
 import { PagerAssets } from "../PagerAssets";
-import image from "../../../assets/images/Lock.svg";
-import linha2 from "../../../assets/images/Lock.svg";
 import linha3 from "../../../assets/images/Lock.svg";
 import classes from "./style.module.css";
 
@@ -31,39 +29,33 @@ export const Pagination = ({
       {type === "desktop" && (
         <>
           <div className={classes.registros} style={registrosStyle}>
-            <div
+            <span
               className={`${classes.registrosText} ${
                 classes[`registrosText--${theme}`]
               }`}
             >
               Registros por página
-            </div>
+            </span>
 
+            {/* seletor "10" com linha embaixo */}
             <div className={classes.dropdown}>
               <div className={classes.dropdownInner}>
-                <div className={classes.dropdownContent}>
-                  <div
-                    className={`${classes.dropdownValue} ${
-                      classes[`dropdownValue--${theme}`]
-                    }`}
-                  >
-                    10
-                  </div>
-                  <div className={classes.dropdownSpacer} />
-                  <ArrowDropDown
-                    className={{
-                      height: "24px",
-                      position: "relative",
-                      width: "24px",
-                    }}
-                  />
-                </div>
+                <span
+                  className={`${classes.dropdownValue} ${
+                    classes[`dropdownValue--${theme}`]
+                  }`}
+                >
+                  10
+                </span>
+
+                <ArrowDropDown
+                  className={{
+                    height: "16px",
+                    width: "16px",
+                    position: "relative",
+                  }}
+                />
               </div>
-              <img
-                className={classes.dropdownLine}
-                alt="Linha"
-                src={theme === "dark" ? linha2 : image}
-              />
             </div>
 
             <p
@@ -75,6 +67,7 @@ export const Pagination = ({
             </p>
           </div>
 
+          {/* bolinhas da paginação à direita */}
           <div className={classes.pages} style={pagesStyle}>
             <PagerAssets type="navigate-left" theme={theme} />
             <PagerAssets type="selected-page" theme={theme} text="1" />
@@ -89,7 +82,7 @@ export const Pagination = ({
         </>
       )}
 
-      {/* MOBILE – deixa como estava, só acertando tipos */}
+      {/* MOBILE – mantido, só tipagem/código limpo */}
       {type === "mobile" && (
         <>
           <div
@@ -103,13 +96,13 @@ export const Pagination = ({
           <div className={classes.mobileDropdown}>
             <div className={classes.mobileDropdownInner}>
               <div className={classes.mobileDropdownContent}>
-                <div
+                <span
                   className={`${classes.mobileDropdownValue} ${
                     classes[`mobileDropdownValue--${theme}`]
                   }`}
                 >
                   Página 1
-                </div>
+                </span>
                 <ArrowDropDown
                   className={{
                     height: "24px",
@@ -122,7 +115,7 @@ export const Pagination = ({
             <img
               className={classes.mobileDropdownLine}
               alt="Linha"
-              src={theme === "dark" ? linha3 : image}
+              src={linha3}
             />
           </div>
         </>

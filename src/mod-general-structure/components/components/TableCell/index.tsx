@@ -2,19 +2,23 @@ import PropTypes from "prop-types";
 import { type JSX } from "react";
 import { Person } from "../Person";
 import classes from "./style.module.css";
-import button2 from "../../../assets/images/Lock.svg"
-import button from "../../../assets/images/Lock.svg"
-import caixa2 from "../../../assets/images/Lock.svg"
-import caixa from "../../../assets/images/Lock.svg"
-import image1 from "../../../assets/images/Lock.svg"
-import pequeno from "../../../assets/images/Lock.svg"
+
+import button2 from "../../../assets/images/Lock.svg";
+import button from "../../../assets/images/Lock.svg";
+import caixa2 from "../../../assets/images/Lock.svg";
+import caixa from "../../../assets/images/Lock.svg";
+import image1 from "../../../assets/images/Lock.svg";
+import pequeno from "../../../assets/images/Lock.svg";
+
 interface Props {
-  sort: boolean;
-  help: boolean;
-  avatarText: boolean;
-  title: string;
-  text: string;
-  actionsTitle: boolean;
+  sort?: boolean;
+  help?: boolean;
+  avatarText?: boolean;
+  title?: string;
+  text?: string;
+  /** texto da segunda linha (ex.: "mm:ss") */
+  secondaryText?: string;
+  actionsTitle?: boolean;
   type:
     | "rating"
     | "icon"
@@ -34,14 +38,16 @@ interface Props {
     | "badge"
     | "header";
   spacing: "small" | "default";
-  className: any;
+  className?: any;
 }
+
 export const TableCell = ({
- // sort = false,
- // help = false,
- // avatarText = false,
+  //sort = false, 
+  //help = false,
+  //avatarText = false,
   title = "Título",
   text = "Texto",
+  secondaryText = "",
   actionsTitle = true,
   type,
   spacing,
@@ -53,7 +59,6 @@ export const TableCell = ({
         classes[`spacing-${spacing}`]
       } ${className || ""}`}
     >
-      {" "}
       {(type === "action-icons" ||
         type === "avatar" ||
         type === "badge" ||
@@ -69,23 +74,24 @@ export const TableCell = ({
         type === "text-1-line") && (
         <div
           className={`${classes.innerContainer} ${
-            classes[`innerContainer-${type}`]
+            classes[`innerContainer-${type}`] || ""
           }`}
         >
-          {" "}
-          {type === "header" && <>{title}</>}{" "}
-          {type === "text-1-line" && <>{text}</>}{" "}
+          {type === "header" && <>{title}</>}
+
+          {type === "text-1-line" && <>{text}</>}
+
           {type === "avatar" && (
             <>
-              {" "}
               <img
                 className={classes.avatarImage}
                 alt="Avatar imagem"
                 src={spacing === "small" ? image1 : pequeno}
-              />{" "}
-              <div className={classes.avatarBadge} />{" "}
+              />
+              <div className={classes.avatarBadge} />
             </>
-          )}{" "}
+          )}
+
           {(type === "badge" ||
             type === "button" ||
             type === "checkbox" ||
@@ -95,25 +101,25 @@ export const TableCell = ({
             type === "tag-label") && (
             <div
               className={`${classes.contentWrapper} ${
-                classes[`contentWrapper-${type}`]
+                classes[`contentWrapper-${type}`] || ""
               }`}
             >
-              {" "}
-              {type === "badge" && <>99+</>}{" "}
+              {type === "badge" && <>99+</>}
+
               {["button", "switch"].includes(type) && (
                 <div
                   className={`${classes.buttonSwitch} ${
-                    classes[`buttonSwitch-${type}`]
+                    classes[`buttonSwitch-${type}`] || ""
                   }`}
                 >
-                  {" "}
-                  {type === "button" && <>BUTTON</>}{" "}
+                  {type === "button" && <>BUTTON</>}
                 </div>
-              )}{" "}
+              )}
+
               {["checkbox", "radio-button"].includes(type) && (
                 <img
                   className={`${classes.checkboxRadio} ${
-                    classes[`checkboxRadio-${type}`]
+                    classes[`checkboxRadio-${type}`] || ""
                   }`}
                   alt="Button"
                   src={
@@ -126,92 +132,89 @@ export const TableCell = ({
                       : button
                   }
                 />
-              )}{" "}
-              {type === "hyperlink" && <>Link</>}{" "}
-              {type === "tag-label" && <>Tag Label</>}{" "}
+              )}
+
+              {type === "hyperlink" && <>Link</>}
+
+              {type === "tag-label" && <>Tag Label</>}
             </div>
-          )}{" "}
+          )}
+
           {type === "action-icons" && (
             <>
-              {" "}
-              <Person className={classes.iconPlaceholder} />{" "}
-              <Person className={classes.iconPlaceholder} />{" "}
-              <Person className={classes.iconPlaceholder} />{" "}
+              <Person className={classes.iconPlaceholder} />
+              <Person className={classes.iconPlaceholder} />
+              <Person className={classes.iconPlaceholder} />
             </>
-          )}{" "}
+          )}
+
           {type === "rating" && (
             <>
-              {" "}
               <div
                 className={`${classes.ratingStar} ${
                   classes[`ratingStar-1-${spacing}`]
                 }`}
-              />{" "}
+              />
               <div
                 className={`${classes.ratingStar} ${
                   classes[`ratingStar-2-${spacing}`]
                 }`}
-              />{" "}
+              />
               <div
                 className={`${classes.ratingStar} ${
                   classes[`ratingStar-3-${spacing}`]
                 }`}
-              />{" "}
+              />
               <div
                 className={`${classes.ratingStar} ${
                   classes[`ratingStar-4-${spacing}`]
                 }`}
-              />{" "}
+              />
               <div
                 className={`${classes.ratingStar} ${
                   classes[`ratingStar-5-${spacing}`]
                 }`}
-              />{" "}
+              />
             </>
-          )}{" "}
+          )}
+
           {type === "progress-bar" && (
             <>
-              {" "}
-              <div className={classes.progressPercentage}>50%</div>{" "}
+              <div className={classes.progressPercentage}>50%</div>
               <div className={classes.progressBarContainer}>
-                {" "}
-                <div className={classes.progressBarBackground} />{" "}
-                <div className={classes.progressBarFill} />{" "}
-              </div>{" "}
+                <div className={classes.progressBarBackground} />
+                <div className={classes.progressBarFill} />
+              </div>
             </>
-          )}{" "}
+          )}
         </div>
-      )}{" "}
+      )}
+
       {type === "text-2-lines" && (
-        <>
-          {" "}
-          <div className={classes.text2LinesMain}>{text}</div>{" "}
-          <div className={classes.text2LinesSecondary}>Texto</div>{" "}
-        </>
-      )}{" "}
-      {type === "icon" && (
-        <Person className={classes.iconPlaceholder} />
-      )}{" "}
-      {type === "actions-title" && (
-        <>
-          {" "}
-          <>
-            {" "}
-            {actionsTitle && (
-              <div className={classes.actionsTitleText}>Ações</div>
-            )}{" "}
-          </>{" "}
-        </>
-      )}{" "}
+        <div
+          className={`${classes.innerContainer} ${classes.innerContainerText2}`}
+        >
+          <div className={classes.text2LinesMain}>{text}</div>
+          <div className={classes.text2LinesSecondary}>{secondaryText}</div>
+        </div>
+      )}
+
+      {type === "icon" && <Person className={classes.iconPlaceholder} />}
+
+      {type === "actions-title" && actionsTitle && (
+        <div className={classes.actionsTitleText}>Ações</div>
+      )}
     </div>
   );
 };
+
 TableCell.propTypes = {
   sort: PropTypes.bool,
   help: PropTypes.bool,
   avatarText: PropTypes.bool,
   title: PropTypes.string,
   text: PropTypes.string,
+  secondaryText: PropTypes.string,
   actionsTitle: PropTypes.bool,
   type: PropTypes.oneOf([
     "rating",

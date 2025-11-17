@@ -16,8 +16,8 @@ export const ButtonIcon = ({
   icon = (
     <IconB
       className={{
-        height: 24,
-        width: 24,
+        height: 16,
+        width: 16,
       }}
     />
   ),

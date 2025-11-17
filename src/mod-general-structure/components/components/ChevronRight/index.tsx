@@ -1,7 +1,7 @@
 // src/mod-general-structure/components/components/ChevronRight/index.tsx
 import { type CSSProperties, type JSX } from "react";
 import classes from "./style.module.css";
-import vector from "../../../assets/images/Lock.svg";
+import vector from "../../../../../public/images/chevron_right.svg";
 
 type Props = {
   className?: CSSProperties;

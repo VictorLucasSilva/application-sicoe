@@ -1,6 +1,6 @@
 // src/mod-general-structure/components/components/ArrowDropdown/index.tsx
 import { type CSSProperties, type JSX } from "react";
-import image from "../../../assets/images/Lock.svg";
+import image from "../../../../../public/images/arrow_drop_down.svg";
 import classes from "./style.module.css";
 
 type Props = {

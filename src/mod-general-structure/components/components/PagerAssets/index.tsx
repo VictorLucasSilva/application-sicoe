@@ -18,6 +18,12 @@ type Props = {
   text?: string;
 };
 
+// tamanho do “quadradinho” onde ficam as setas
+const chevronSize: CSSProperties = {
+  width: 24,
+  height: 24,
+};
+
 export const PagerAssets = ({
   type,
   theme,
@@ -25,32 +31,31 @@ export const PagerAssets = ({
   dayClassName,
   text,
 }: Props): JSX.Element => {
+  // SETA ESQUERDA – só a seta, sem bolinha de fundo
   if (type === "navigate-left") {
     return (
       <div
-        className={`${classes.container} ${classes[theme]} ${
-          classes["default-page"]
-        }`}
+        className={`${classes.nav} ${classes[theme]}`}
         style={className}
       >
-        <ChevronLeft />
+        <ChevronLeft className={chevronSize} />
       </div>
     );
   }
 
+  // SETA DIREITA – só a seta, sem bolinha de fundo
   if (type === "navigate-right") {
     return (
       <div
-        className={`${classes.container} ${classes[theme]} ${
-          classes["default-page"]
-        }`}
+        className={`${classes.nav} ${classes[theme]}`}
         style={className}
       >
-        <ChevronRight />
+        <ChevronRight className={chevronSize} />
       </div>
     );
   }
 
+  // conteúdo de texto das páginas / "..."
   let content = text;
 
   if (!content) {
@@ -65,6 +70,7 @@ export const PagerAssets = ({
     }
   }
 
+  // PÁGINAS NUMERADAS E "..."
   return (
     <div
       className={`${classes.container} ${classes[type]} ${classes[theme]}`}
@@ -72,7 +78,7 @@ export const PagerAssets = ({
     >
       <div
         className={`${classes.day} ${classes[`day-${type}`]} ${
-          classes[`day-${theme}`]
+          classes[theme]
         }`}
         style={dayClassName}
       >

@@ -1,10 +1,10 @@
 // src/mod-general-structure/components/components/ButtonIcon/IconB/index.tsx
 import { type JSX, type CSSProperties } from "react";
 import classes from "./style.module.css";
-import vector from "../../../../assets/images/Lock.svg";
+import vector from "../../../../../../public/images/chevron_left.svg";
 
 type Props = {
-  className?: CSSProperties; 
+  className?: CSSProperties;
 };
 
 export const IconB = ({ className }: Props): JSX.Element => {

@@ -17,7 +17,6 @@
   --body-MD-regular-font-weight: 400;
   --body-MD-regular-letter-spacing: 0px;
   --body-MD-regular-line-height: 134.0000033378601%;
-  --brandprimarylighter: rgba(176, 186, 255, 1);
   --brandprimarypure: rgba(70, 94, 255, 1);
   --brandsecondarypure: rgba(252, 252, 48, 1);
   --caption-caption2-regular-font-family: "Source Sans Pro", Helvetica;
@@ -106,7 +105,7 @@
   --body-MD-regular-letter-spacing: 0px;
   --body-MD-regular-line-height: 134.0000033378601%;
   --brandprimarydark: rgba(12, 27, 130, 1);
-  --brandprimarylighter: rgba(176, 186, 255, 1);
+  --brandprimarylighter: rgba(176, 186, 255, 0.685);
   --brandprimarypure: rgba(70, 94, 255, 1);
   --brandsecondarypure: rgba(252, 252, 48, 1);
   --caption-SM-regular-font-family: "BancoDoBrasil Textos", Helvetica;

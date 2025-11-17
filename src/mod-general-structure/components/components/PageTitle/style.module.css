@@ -1,0 +1,42 @@
+/* src/mod-general-structure/components/components/PageTitle/style.module.css */
+
+/* ícone + texto na mesma linha */
+.container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.containerLight {
+  color: var(--brandprimarypure);
+}
+
+.containerDark {
+  color: var(--colors-neutral-high-pure);
+}
+
+/* wrapper do ícone (recebe AuditTitleIcon, etc.) */
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* texto "Auditoria" */
+.textWrapper {
+  display: flex;
+  align-items: center;
+  font-family: var(--heading-XXL-font-family);
+  font-size: var(--heading-XXL-font-size);
+  font-weight: var(--heading-XXL-font-weight);
+  letter-spacing: var(--heading-XXL-letter-spacing);
+  line-height: var(--heading-XXL-line-height);
+}
+
+.textWrapperLight {
+  color: var(--brandprimarypure);
+}
+
+.textWrapperDark {
+  color: var(--colors-neutral-high-pure);
+}

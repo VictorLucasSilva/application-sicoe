@@ -1,12 +1,20 @@
+/* src/mod-general-structure/components/components/ChevronRight/style.module.css */
+
 .container {
   height: 24px;
-  position: relative;
   width: 24px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+/* aumenta a seta e centraliza certinho */
 .vector {
-  height: 50%;
-  left: 34.56%;
   position: absolute;
-  top: 25%;
-  width: 30.87%;
+  width: 70%;
+  height: 70%;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
 }
