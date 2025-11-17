@@ -1,7 +1,7 @@
 import { type CSSProperties } from "react";
 
 type Props = {
-  className?: CSSProperties; // style extra
+  className?: CSSProperties; 
   color?: string;
   size?: number;
 };
@@ -12,7 +12,7 @@ export const LogoEstablishment = ({
 }: Props) => {
   return (
     <img
-      src="/images/LogoEstablishment.svg"  // vem de public/images
+      src="/images/LogoEstablishment.svg"  
       alt="Controle de Estabelecimentos"
       style={{
         width: size,

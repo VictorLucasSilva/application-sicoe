@@ -13,7 +13,8 @@ interface IconerProps {
     | "highlight"
     | "brand-primary"
     | "brand-primary-lighter"
-    | "brand-secondary";
+    | "brand-secondary"
+    | "brand-primary-1";
   className?: any;
 }
 
@@ -35,19 +36,16 @@ Iconer.propTypes = {
     "high",
     "highlight",
     "brand-primary",
+    "brand-primary-1",
     "brand-primary-lighter",
     "brand-secondary",
   ]),
 };
 
-// ==== Ícones de título de página (losango + ícone dentro) ====
-
-// você pode reutilizar esse padrão para outras páginas depois
 interface TitleIconProps {
   className?: string;
 }
 
-/** Ícone da página de Auditoria (losango amarelo + pictograma azul) */
 export const AuditTitleIcon = ({ className }: TitleIconProps): JSX.Element => {
   return (
     <div className={`${classes.titleIconWrapper} ${className || ""}`}>
@@ -55,6 +53,19 @@ export const AuditTitleIcon = ({ className }: TitleIconProps): JSX.Element => {
       <Iconer
         size="medium"
         color="brand-primary"
+        className={classes.titleIcon}
+      />
+    </div>
+  );
+};
+
+export const EmailTitleIcon = ({ className }: TitleIconProps): JSX.Element => {
+  return (
+    <div className={`${classes.titleIconWrapper} ${className || ""}`}>
+      <img src={polygonSvg} alt="" className={classes.titlePolygon} />
+      <Iconer
+        size="medium"
+        color="brand-primary-1"
         className={classes.titleIcon}
       />
     </div>

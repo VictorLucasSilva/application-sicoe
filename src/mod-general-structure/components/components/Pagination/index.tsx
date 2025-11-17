@@ -1,4 +1,3 @@
-// src/mod-general-structure/components/components/Pagination/index.tsx
 import { type CSSProperties, type JSX } from "react";
 import { ArrowDropDown } from "../ArrowDropdown";
 import { PagerAssets } from "../PagerAssets";
@@ -25,7 +24,6 @@ export const Pagination = ({
       className={`${classes.pager} ${classes[`pager--${type}`]}`}
       style={style}
     >
-      {/* DESKTOP – igual ao layout da imagem */}
       {type === "desktop" && (
         <>
           <div className={classes.registros} style={registrosStyle}>
@@ -36,8 +34,6 @@ export const Pagination = ({
             >
               Registros por página
             </span>
-
-            {/* seletor "10" com linha embaixo */}
             <div className={classes.dropdown}>
               <div className={classes.dropdownInner}>
                 <span
@@ -67,7 +63,6 @@ export const Pagination = ({
             </p>
           </div>
 
-          {/* bolinhas da paginação à direita */}
           <div className={classes.pages} style={pagesStyle}>
             <PagerAssets type="navigate-left" theme={theme} />
             <PagerAssets type="selected-page" theme={theme} text="1" />
@@ -82,7 +77,6 @@ export const Pagination = ({
         </>
       )}
 
-      {/* MOBILE – mantido, só tipagem/código limpo */}
       {type === "mobile" && (
         <>
           <div

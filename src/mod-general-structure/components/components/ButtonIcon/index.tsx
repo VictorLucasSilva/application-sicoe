@@ -5,9 +5,9 @@ import classes from "./style.module.css";
 
 interface Props {
   text?: string;
-  className?: CSSProperties;      // estilos inline opcionais para o botão
-  icon?: JSX.Element;             // ícone opcional
-  textClassName?: CSSProperties;  // estilos inline opcionais para o texto
+  className?: CSSProperties;      
+  icon?: JSX.Element;             
+  textClassName?: CSSProperties;  
 }
 
 export const ButtonIcon = ({

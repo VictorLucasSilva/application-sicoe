@@ -1,6 +1,3 @@
-/* src/mod-general-structure/components/components/PageTitle/style.module.css */
-
-/* ícone + texto na mesma linha */
 .container {
   display: flex;
   align-items: center;
@@ -15,14 +12,12 @@
   color: var(--colors-neutral-high-pure);
 }
 
-/* wrapper do ícone (recebe AuditTitleIcon, etc.) */
 .iconWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* texto "Auditoria" */
 .textWrapper {
   display: flex;
   align-items: center;

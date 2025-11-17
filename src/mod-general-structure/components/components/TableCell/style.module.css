@@ -1,17 +1,11 @@
 .tableCell {
-  /* sem deslocamento lateral */
   position: relative;
   left: 0;
-
   display: flex;
   flex: 1;
   box-sizing: border-box;
-
-  /* mesmo padding do header (12px em todos os lados) */
-  padding: 3px 12px;
+  padding: 1px 12px;
 }
-
-/* tipos gerais ----------------------------------------------------- */
 
 .tableCell.type-header,
 .tableCell.type-action-icons,
@@ -30,7 +24,6 @@
   align-items: center;
 }
 
-/* texto simples & tag label ocupam a célula toda */
 .tableCell.type-tag-label,
 .tableCell.type-text-1-line,
 .tableCell.type-text-2-lines {
@@ -39,50 +32,42 @@
   align-items: flex-start;
 }
 
-/* texto em 1 linha fica lado a lado (ex.: "Texto") */
 .tableCell.type-text-1-line {
   flex-direction: row;
 }
 
-/* Data/Hora em 2 linhas (fica uma coluninha dentro da célula) */
 .tableCell.type-text-2-lines {
   align-items: flex-start;
   justify-content: flex-start;
 }
 
-/* altura das linhas (≈ 48px igual ao layout de referência) */
 .tableCell.spacing-default {
-  min-height: 1px;
+  min-height: 0.1px;
 }
 
 .tableCell.spacing-small {
   min-height: 0.1px;
 }
 
-/* containers internos ----------------------------------------------- */
-
 .innerContainer {
   display: flex;
   align-items: center;
 }
 
-/* usada só no tipo text-2-lines */
 .innerContainerText2 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-/* TAG LABEL (coluna Perfil) ---------------------------------------- */
-
 .contentWrapper-tag-label {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 2px 12px;
+  padding: 1px 12px;
   border-radius: 5px;
-  background-color: var(--brandprimarylighter); /* azul claro */
-  color: var(--brandprimarypure);               /* texto azul mais forte */
+  background-color: var(--brandprimarylighter); 
+  color: var(--brandprimarypure);               
   font-family: var(--body-XS-medium-font-family);
   font-size: var(--body-XS-medium-font-size);
   font-weight: var(--body-XS-medium-font-weight);
@@ -92,12 +77,11 @@
 .tagLabelText {
   font-size: 12px;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1;
   color: var(--brandprimarypure);
   white-space: nowrap;
 }
 
-/* outras variantes que já existiam podem continuar assim */
 .tableCell.type-action-icons,
 .tableCell.type-actions-title,
 .tableCell.type-avatar,
@@ -113,15 +97,12 @@
   justify-content: center;
 }
 
-/* DATA/HORA duas linhas -------------------------------------------- */
-
 .text2LinesContainer {
   display: flex;
   flex-direction: column;
 }
 
 .text2LinesMain {
-  /* data (linha de cima) */
   color: var(--neutrallowdarkest);
   font-family: var(--body-MD-regular-font-family);
   font-size: var(--body-MD-regular-font-size);
@@ -129,14 +110,11 @@
 }
 
 .text2LinesSecondary {
-  /* hora (linha de baixo) */
   color: var(--light-mode-greys6);
   font-family: var(--body-XS-regular-font-family);
   font-size: var(--body-XS-regular-font-size);
   line-height: var(--body-MD-regular-font-family);
 }
-
-/* placeholders que você já usava ----------------------------------- */
 
 .avatarImage {
   width: 24px;
@@ -161,8 +139,6 @@
   font-weight: 500;
   color: var(--neutrallowdarkest);
 }
-
-/* progress bar, rating, etc – mantive simples para não quebrar nada */
 
 .ratingStar {
   width: 12px;

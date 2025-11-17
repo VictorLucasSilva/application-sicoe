@@ -28,7 +28,6 @@ export const Screen = (): JSX.Element => {
           </div>
 
           <div className={classes.contentWrapper}>
-            {/* Campo 1 (ativo) */}
             <div className={classes.inputContainer}>
               <div className={`${classes.inputContent} ${classes.inputActive}`}>
                 <div className={classes.iconWrapper}>
@@ -43,7 +42,6 @@ export const Screen = (): JSX.Element => {
               </div>
             </div>
 
-            {/* Campo 2 (senha) */}
             <div className={classes.passwordContainer}>
               <div className={classes.passwordContent}>
                 <div className={classes.passwordIconWrapper}>
@@ -82,7 +80,6 @@ export const Screen = (): JSX.Element => {
               theme="light"
             />
           </div>
-          {/* (não há Divider extra aqui fora do card) */}
         </div>
       </div>
     </div>

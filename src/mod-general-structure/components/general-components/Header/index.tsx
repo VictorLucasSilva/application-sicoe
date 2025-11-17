@@ -16,7 +16,7 @@ import classes from "./styles.module.css";
 interface Props {
   theme: "dark" | "light";
   type: "cont" | "login" | "main" | "estab";
-  className: any;           // usado como style
+  className: any;         
   logotipoVector: string;
 }
 

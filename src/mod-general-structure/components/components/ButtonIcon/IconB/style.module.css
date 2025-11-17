@@ -13,7 +13,5 @@
   width: 100%;
   object-fit: contain;
   display: block;
-
-  /* garante seta branca mesmo se o SVG for escuro */
   filter: brightness(0) invert(1);
 }

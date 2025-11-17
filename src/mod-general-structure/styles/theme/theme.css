@@ -1,23 +1,23 @@
 :root {
   --body-MD-bold-font-family: "BancoDoBrasil Textos", Helvetica;
-  --body-MD-bold-font-size: 18px;
   --body-MD-bold-font-style: normal;
   --body-MD-bold-font-weight: 700;
   --body-MD-bold-letter-spacing: 0.4000000059604645px;
   --body-MD-bold-line-height: 134.0000033378601%;
   --body-MD-medium-font-family: "BancoDoBrasil Textos", Helvetica;
-  --body-MD-medium-font-size: 18px;
+  --body-MD-medium-font-size: 1.5rem;
   --body-MD-medium-font-style: normal;
   --body-MD-medium-font-weight: 500;
   --body-MD-medium-letter-spacing: 0px;
   --body-MD-medium-line-height: 134.0000033378601%;
   --body-MD-regular-font-family: "BancoDoBrasil Textos", Helvetica;
-  --body-MD-regular-font-size: 18px;
+  --body-MD-regular-font-size: 1.3rem;
   --body-MD-regular-font-style: normal;
   --body-MD-regular-font-weight: 400;
   --body-MD-regular-letter-spacing: 0px;
   --body-MD-regular-line-height: 134.0000033378601%;
   --brandprimarypure: rgba(70, 94, 255, 1);
+  --body-XS-regular-font-size: 1.150rem;
   --brandsecondarypure: rgba(252, 252, 48, 1);
   --caption-caption2-regular-font-family: "Source Sans Pro", Helvetica;
   --caption-caption2-regular-font-size: 14px;
@@ -36,7 +36,7 @@
   --colors-neutral-high-darker: rgba(255, 255, 255, 0.75);
   --colors-neutral-high-pure: rgba(255, 255, 255, 1);
   --heading-XXL-font-family: "BancoDoBrasil Titulos", Helvetica;
-  --heading-XXL-font-size: 26px;
+  --heading-XXL-font-size: 2.5rem;
   --heading-XXL-font-style: normal;
   --heading-XXL-font-weight: 500;
   --heading-XXL-letter-spacing: 0px;
@@ -87,19 +87,17 @@
   --neutrallowmedium: rgba(0, 0, 0, 0.56);
 
   --body-MD-bold-font-family: "BancoDoBrasil Textos", Helvetica;
-  --body-MD-bold-font-size: 18px;
+  --body-MD-bold-font-size: 1.4rem;
   --body-MD-bold-font-style: normal;
   --body-MD-bold-font-weight: 700;
   --body-MD-bold-letter-spacing: 0.4000000059604645px;
   --body-MD-bold-line-height: 134.0000033378601%;
   --body-MD-medium-font-family: "BancoDoBrasil Textos", Helvetica;
-  --body-MD-medium-font-size: 18px;
   --body-MD-medium-font-style: normal;
   --body-MD-medium-font-weight: 500;
   --body-MD-medium-letter-spacing: 0px;
   --body-MD-medium-line-height: 134.0000033378601%;
   --body-MD-regular-font-family: "BancoDoBrasil Textos", Helvetica;
-  --body-MD-regular-font-size: 18px;
   --body-MD-regular-font-style: normal;
   --body-MD-regular-font-weight: 400;
   --body-MD-regular-letter-spacing: 0px;

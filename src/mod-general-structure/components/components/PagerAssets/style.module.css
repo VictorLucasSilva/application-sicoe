@@ -1,21 +1,18 @@
 /* src/mod-general-structure/components/components/PagerAssets/style.module.css */
 
-/* área clicável padrão (40x40) */
 .container {
   border-radius: 999px;
   display: flex;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   align-items: center;
   justify-content: center;
 }
 
-/* NAVIGAÇÃO – só a seta, sem bolinha cinza */
 .nav {
   background-color: transparent;
 }
 
-/* bolinhas cinza das páginas "normais" */
 .container.default-page.light,
 .container.hover-page.light {
   background-color: var(--neutrallowlightest);
@@ -26,7 +23,6 @@
   background-color: var(--neutralhighlighter);
 }
 
-/* bolinha azul da página selecionada */
 .container.selected-page.light {
   background-color: var(--brandprimarypure);
 }
@@ -35,13 +31,11 @@
   background-color: var(--brandprimarylight);
 }
 
-/* "..." sem bolinha – só o texto */
 .container.continuation.light,
 .container.continuation.dark {
   background-color: transparent;
 }
 
-/* texto dentro (números / ...) */
 .day {
   height: 24px;
   width: 24px;
@@ -51,7 +45,6 @@
   justify-content: center;
 }
 
-/* fonte do "..." */
 .day-continuation {
   font-family: var(--caption-SM-regular-font-family);
   font-size: var(--caption-SM-regular-font-size);
@@ -61,7 +54,6 @@
   line-height: var(--caption-SM-regular-line-height);
 }
 
-/* fonte dos números 1,2,3,4,5,17 */
 .day-default-page,
 .day-hover-page,
 .day-selected-page {
@@ -73,22 +65,18 @@
   line-height: var(--body-MD-medium-line-height);
 }
 
-/* cores LIGHT – igual layout original */
 .day-continuation.light,
 .day-default-page.light,
 .day-hover-page.light {
-  /* números das bolinhas cinza + "..." */
   color: var(--neutrallowmedium);
 }
 
-/* cores DARK (caso use tema escuro depois) */
 .day-continuation.dark,
 .day-default-page.dark,
 .day-hover-page.dark {
   color: var(--neutralhighmedium);
 }
 
-/* número da página selecionada (1) em branco */
 .day-selected-page.light {
   color: #ffffff;
 }

@@ -16,7 +16,6 @@ interface Props {
   avatarText?: boolean;
   title?: string;
   text?: string;
-  /** texto da segunda linha (ex.: "mm:ss") */
   secondaryText?: string;
   actionsTitle?: boolean;
   type:

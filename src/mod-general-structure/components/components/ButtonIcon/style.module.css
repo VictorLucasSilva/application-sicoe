@@ -1,7 +1,6 @@
 /* src/mod-general-structure/components/components/ButtonIcon/style.module.css */
 
 .button {
-  /* reset básico */
   all: unset;
   box-sizing: border-box;
 
@@ -9,12 +8,10 @@
   align-items: center;
   justify-content: center;
   gap: 4px;
-
-  min-height: 40px;
-  padding: 5px 20px 4px 10px;
+  padding: 2px 15px 0px 5px;
+  margin-left: 40px; 
   border-radius: 999px;
 
-  /* pill azul igual ao da tela (mesma cor da página selecionada) */
   background-color: var(--brandprimarypure);
   cursor: pointer;
 }
@@ -29,7 +26,7 @@
   display: flex;
   justify-content: center;
 
-  color: #ffffff; /* texto branco, igual à foto */
+  color: #ffffff; 
 
   font-family: var(--body-MD-bold-font-family);
   font-size: var(--body-MD-bold-font-size);

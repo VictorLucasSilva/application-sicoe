@@ -1,26 +1,23 @@
-/* src/mod-general-structure/components/components/Pagination/style.module.css */
-
 .pager {
   display: flex;
   position: relative;
   width: 100%;
+  padding: 0 6rem;
 }
 
-/* alinhamento igual ao layout */
 .pager--desktop {
   align-items: center;
   justify-content: space-between;
-  padding: 8px 0 0 0;
+  padding: 0 6rem;
 }
 
 .pager--mobile {
   align-items: center;
   gap: 8px;
   justify-content: flex-end;
-  padding: 8px 0;
+  padding: 0 6rem;
 }
 
-/* lado esquerdo: textos + seletor 10 */
 .registros {
   align-items: center;
   display: flex;
@@ -48,7 +45,6 @@
   color: var(--neutrallowmedium);
 }
 
-/* seletor "10" com underline azul */
 .dropdown {
   display: inline-flex;
   align-items: center;
@@ -102,7 +98,6 @@
   color: var(--neutrallowmedium);
 }
 
-/* bolinhas de página à direita */
 .pages {
   align-items: center;
   display: inline-flex;
@@ -112,7 +107,6 @@
   position: relative;
 }
 
-/* estilos mobile mantidos */
 .mobileRegistros {
   font-family: var(--tiny-XXS-medium-font-family);
   font-size: var(--tiny-XXS-medium-font-size);

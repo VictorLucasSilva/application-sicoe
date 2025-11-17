@@ -7,15 +7,17 @@
   border-radius:0;
   box-shadow: none;
 }
+
 .screenContainer {
   background-color: var(--colors-neutral-high-darker);
   min-height: calc(100vh - var(--header-h) - var(--bottombar-h) - 40px); 
   width: 100%;
   display: flex;
-  align-items: center;   /* centraliza vertical */
-  justify-content: center; /* centraliza horizontal */
+  align-items: center;  
+  justify-content: center; 
   padding: 24px;
 }
+
 .card {
   background-color: var(--colors-neutral-high-pure);
   border: 1px solid var(--neutrallowlighter);
@@ -30,6 +32,7 @@
   width: 480px;         
   max-width: 90vw;
 }
+
 .header {
   align-items: flex-start;
   align-self: stretch;
@@ -42,6 +45,7 @@
   position: relative;
   width: 100%;
 }
+
 .headerTitle {
   align-self: stretch;
   color: var(--neutrallowdarkest);
@@ -54,6 +58,7 @@
   margin-top: -1px;
   position: relative;
 }
+
 .dividerWrapper {
   align-items: center;
   align-self: stretch;
@@ -64,6 +69,7 @@
   position: relative;
   width: 100%;
 }
+
 .contentWrapper {
   align-items: center;
   align-self: stretch;
@@ -79,7 +85,6 @@
 }
 
 .inputContainer { width: 416px; margin-bottom: 20px}
-
 .inputContent {
   display: flex;
   align-items: center;
@@ -101,11 +106,10 @@
 
 .vectorIcon { height: 100%; left: 13587.5%; top: -1154.86%; width: 100%; position: absolute; }
 .imageIcon  { height: 66.67%;  left: 16.67%;   top: 16.67%;   width: 66.67%;  position: absolute; }
-
 .inputText {
   color: transparent;
   font-family: var(--body-MD-regular-font-family);
-  font-size: var(--body-MD-regular-font-size);
+  font-size: 16px;
   line-height: var(--body-MD-regular-line-height);
   position: relative;
   width: 288px;
@@ -114,17 +118,14 @@
 .inputCursor { color: #465eff; }
 .inputPlaceholder { color: #00000040; }
 .inputSpacer { flex: 1; height: 24px; }
-
-/* ---------- Campo 2 (senha) ---------- */
 .passwordContainer { width: 416px; margin: 15px;}
-
 .passwordContent {
   display: flex;
   align-items: center;
   gap: 8px;
   height: 24px;
   padding: 6px 0 21px;
-  border-bottom: 1px solid var(--neutrallowlighter); /* cinza fino */
+  border-bottom: 1px solid var(--neutrallowlighter);
 }
 
 .passwordIconWrapper { width: 24px; height: 24px; position: relative; }
@@ -132,15 +133,15 @@
 .passwordLabel {
   color: var(--neutrallowmedium);
   font-family: var(--body-MD-regular-font-family);
-  font-size: var(--body-MD-regular-font-size);
+  font-size: 18px;
   line-height: var(--body-MD-regular-line-height);
   white-space: nowrap;
 }
+
 .passwordSpacer { flex: 1; height: 24px; }
 .passwordVisibilityWrapper { width: 24px; height: 24px; position: relative; overflow: hidden; }
 .passwordVisibilityIcon1 { height: 100%; left: 12020.83%; top: -1588.19%; width: 100%; position: absolute; }
 .passwordVisibilityIcon2 { height: 62.5%; left: 4.17%; top: 16.67%; width: 91.67%; position: absolute; }
-
 .passwordHint { width: 100%; padding: 8px 0 0; }
 .passwordHintText {
   color: var(--neutrallowmedium);

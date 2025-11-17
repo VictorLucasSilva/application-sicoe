@@ -1,29 +1,28 @@
 import { type JSX } from "react";
-
 import { PageTitle } from "../PageTitle";
-import { TableHeader } from "../Table/Header";
-import { RowTableAudit } from "../Table/Row";
+import { TableHeaderEmail } from "../Table/Header";
+import { RowTableEmail } from "../Table/Row";
 import { Pagination } from "../Pagination";
 import { Divider } from "../../general-components/Divider";
 import { ButtonIcon } from "../ButtonIcon";
 import { IconB } from "../ButtonIcon/IconB";
-import { AuditTitleIcon } from "../IconPage";
+import { EmailTitleIcon } from "../IconPage";
 
 import classes from "./style.module.css";
 
-export const ScreenAudit = (): JSX.Element => {
+export const ScreenEmail = (): JSX.Element => {
   return (
     <div className={classes.screen}>
       <div className={classes.wrapper}>
         <PageTitle
-          text="Auditoria"
+          text="Envio de E-mails"
           theme="light"
-          icon={<AuditTitleIcon />}
+          icon={<EmailTitleIcon />}
           className={classes.title}
         />
         <div className={classes.tableCard}>
-          <TableHeader />
-          <RowTableAudit />
+          <TableHeaderEmail />
+          <RowTableEmail />
         </div>
         <div className={classes.paginationArea}>
           <Pagination type="desktop" theme="light" />
@@ -53,4 +52,4 @@ export const ScreenAudit = (): JSX.Element => {
   );
 };
 
-export const Screen = ScreenAudit;
+export const Screen = ScreenEmail;

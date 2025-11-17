@@ -1,9 +1,8 @@
-/* src/mod-general-structure/components/components/Table/Row/style.module.css */
-
 .tableBody {
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding: 0 6rem;
 }
 
 .row {
@@ -12,13 +11,12 @@
   border-bottom: 0.5px solid var(--neutrallowlighter);
 }
 
-/* mesmas larguras do header ---------------------------------------- */
 /*  ID        -> 8%
     Login    -> 18%
     Perfil   -> 18%
     Ação     -> 18%
     Objeto   -> 18%
-    Data/Hora-> 20%  (a soma dá 100%) */
+    Data/Hora-> 20%*/
 
 .row > :nth-child(1) {
   flex: 0 0 8%;
@@ -36,4 +34,34 @@
 .row > :nth-child(6) {
   flex: 0 0 1%;
   max-width: 20%;
+}
+
+.rowemail {
+  display: flex;
+  align-items: center;
+  border-bottom: 0.5px solid var(--neutrallowlighter);
+}
+
+/*  ID        -> 8%
+    Login    -> 18%
+    Perfil   -> 18%
+    Ação     -> 18%
+    Objeto   -> 18%
+    Data/Hora-> 20%*/
+
+.rowemail > :nth-child(1) {
+  flex: 0 0 16%;
+  max-width: 16%;
+}
+
+.rowemail > :nth-child(2),
+.rowemail > :nth-child(3),
+.rowemail > :nth-child(4) {
+  flex: 0 0 21%;
+  max-width: 21%;
+}
+
+.rowemail > :nth-child(5) {
+  flex: 0 0 21%;
+  max-width: 21%;
 }
