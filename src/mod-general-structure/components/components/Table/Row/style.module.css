@@ -1,3 +1,5 @@
+/* src/mod-general-structure/components/components/Table/Row/style.module.css */
+
 .tableBody {
   width: 100%;
   display: flex;
@@ -5,18 +7,12 @@
   padding: 0 6rem;
 }
 
+/* AUDIT (6 colunas) */
 .row {
   display: flex;
   align-items: center;
   border-bottom: 0.5px solid var(--neutrallowlighter);
 }
-
-/*  ID        -> 8%
-    Login    -> 18%
-    Perfil   -> 18%
-    Ação     -> 18%
-    Objeto   -> 18%
-    Data/Hora-> 20%*/
 
 .row > :nth-child(1) {
   flex: 0 0 8%;
@@ -32,22 +28,16 @@
 }
 
 .row > :nth-child(6) {
-  flex: 0 0 1%;
+  flex: 0 0 20%;
   max-width: 20%;
 }
 
+/* EMAIL (5 colunas) */
 .rowemail {
   display: flex;
   align-items: center;
   border-bottom: 0.5px solid var(--neutrallowlighter);
 }
-
-/*  ID        -> 8%
-    Login    -> 18%
-    Perfil   -> 18%
-    Ação     -> 18%
-    Objeto   -> 18%
-    Data/Hora-> 20%*/
 
 .rowemail > :nth-child(1) {
   flex: 0 0 16%;
@@ -64,4 +54,100 @@
 .rowemail > :nth-child(5) {
   flex: 0 0 21%;
   max-width: 21%;
+}
+
+/* USERS (7 colunas: Nome, Usuário, UOR, Perfil, Status, Fim, Ícones) */
+.rowUser {
+  display: flex;
+  align-items: center;
+  border-bottom: 0.5px solid var(--neutrallowlighter);
+}
+
+.rowUser > :nth-child(1),
+.rowUser > :nth-child(2),
+.rowUser > :nth-child(3),
+.rowUser > :nth-child(4) {
+  flex: 0 0 16%;
+  max-width: 16%;
+  padding: 6px 12px;
+}
+
+.rowUser > :nth-child(5) {
+  flex: 0 0 12%;
+  max-width: 12%;
+  padding: 6px 12px;
+}
+
+.rowUser > :nth-child(6) {
+  flex: 0 0 16%;
+  max-width: 16%;
+  padding: 6px 12px;
+}
+
+.rowUser > :nth-child(7) {
+  flex: 0 0 8%;
+  max-width: 8%;
+  padding: 6px 12px;
+}
+
+/* STATUS – radio + texto "Ativo" */
+.statusCell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px; /* menos altura de linha */
+  box-sizing: border-box;
+}
+
+.statusRadio {
+  margin: 0;
+  width: 18px;   /* um pouco maior */
+  height: 18px;  /* um pouco maior */
+  accent-color: #000000; 
+}
+
+.statusLabel {
+  font-family: var(--body-MD-regular-font-family);
+  font-size: var(--body-MD-regular-font-size);
+  font-style: var(--body-MD-regular-font-style);
+  font-weight: var(--body-MD-regular-font-weight);
+  letter-spacing: var(--body-MD-regular-letter-spacing);
+  line-height: var(--body-MD-regular-line-height);
+  color: var(--neutrallowdarkest);
+}
+
+/* ÍCONES DA ÚLTIMA COLUNA */
+.actionsCell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.actionIcon {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+/* Tag Label (tela de usuários) */
+.tagCell {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  /* o padding e largura já vêm do .rowUser > :nth-child(4) */
+}
+
+.tagLabel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background-color: #000000d7;       /* fundo preto */
+  color: #ffffff;                  /* texto branco */
+  font-family: var(--caption-XS-regular-font-family);
+  font-size: var(--caption-XS-regular-font-size);
+  line-height: var(--caption-XS-regular-line-height);
+  white-space: nowrap;
 }

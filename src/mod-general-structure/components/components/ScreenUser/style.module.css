@@ -1,3 +1,5 @@
+/* src/mod-general-structure/components/components/ScreenUser/style.module.css */
+
 .screen {
   display: flex;
   justify-content: center;
@@ -6,36 +8,164 @@
 }
 
 .wrapper {
-  width: 100%;
+  width: 100%;      /* centraliza o conteúdo e iguala laterais */
   max-width: 90%;
   box-sizing: border-box;
-
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 8px;
   background-color: transparent;
-  border-radius: 0;
+}
+
+/* TÍTULO + BUSCA + FILTROS NA MESMA LINHA */
+.topRow {
+  margin: 0rem 0rem 3rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
 }
 
 .title {
-  margin-bottom: 8px;
+  flex: 0 0 auto;
+  margin: 0;
 }
+
+.searchFilterGroup {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-left: 20rem; /* move a barra de busca + filtros um pouco pra direita */
+}
+
+/* -------------------------------------------------------
+   BUSCA  (sem background, só border-bottom)
+-------------------------------------------------------- */
+
+.searchWrapper {
+  flex: 1;
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+
+  background: transparent;                 /* sem fundo cinza */
+  border-radius: 0;
+  padding: 0 0 6px 0;
+  border-bottom: 1px solid var(--neutrallowlighter);
+  box-shadow: none;
+}
+
+.searchIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.searchIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--body-MD-regular-font-family);
+  font-size: var(--body-MD-regular-font-size);
+  color: var(--neutrallowdarkest);
+}
+
+.searchInput::placeholder {
+  color: var(--neutrallowmedium);
+}
+
+/* -------------------------------------------------------
+   EXIBIR FILTROS
+-------------------------------------------------------- */
+
+.filterButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.filterIconImg {
+  width: 18px;
+  height: 18px;
+}
+
+.filterText {
+  font-family: var(--caption-SM-regular-font-family);
+  font-size: var(--caption-SM-regular-font-size);
+  font-style: var(--caption-SM-regular-font-style);
+  font-weight: var(--caption-SM-regular-font-weight);
+  letter-spacing: var(--caption-SM-regular-letter-spacing);
+  line-height: var(--caption-SM-regular-line-height);
+  color: var(--neutrallowmedium);
+}
+
+.filterBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--brandprimarypure);
+  color: #ffffff;
+  font-family: var(--tiny-XXS-medium-font-family);
+  font-size: var(--tiny-XXS-medium-font-size);
+  font-style: var(--tiny-XXS-medium-font-style);
+  font-weight: var(--tiny-XXS-medium-font-weight);
+  letter-spacing: var(--tiny-XXS-medium-letter-spacing);
+  line-height: var(--tiny-XXS-medium-line-height);
+}
+
+/* -------------------------------------------------------
+   TABELA + PAGINAÇÃO
+-------------------------------------------------------- */
 
 .tableCard {
   width: 100%;
   border-radius: 0;
   border: none;
   overflow: visible;
+  padding: 0 2rem;
   background-color: transparent;
 }
 
 .paginationArea {
-  margin-top: 0px;
+  margin: 1.5rem 1.5rem 1rem 1.5rem;
 }
 
+/* -------------------------------------------------------
+   RODAPÉ COM BOTÕES
+-------------------------------------------------------- */
+
 .footerArea {
-  margin: 0px 0px 0px 15px;
+  margin: 15px 4rem 0;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+  gap: 16px;
+}
+
+/* Botão CADASTRAR NOVO USUÁRIO
+   – mesma “altura visual” do VOLTAR */
+.newUserButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 20px;
+  border-radius: 999px;
+}
+
+.newUserInlineIcon {
+  width: 16px;
+  height: 16px;
 }

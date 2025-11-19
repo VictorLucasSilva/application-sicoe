@@ -87,7 +87,10 @@ export const TableHeaderUser = (): JSX.Element => {
         <div className={classes.label}>Fim da Vigência</div>
         <IconTableHeader className={classes.icon} />
       </div>
+      {/* Coluna de ícones (sem label) */}
+      <div className={classes.celluser}>
+        <div className={classes.label}></div>
+      </div>
     </div>
   );
 };
-
