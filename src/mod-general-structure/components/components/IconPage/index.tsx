@@ -72,6 +72,19 @@ export const EmailTitleIcon = ({ className }: TitleIconProps): JSX.Element => {
   );
 };
 
+export const UserTitleIcon = ({ className }: TitleIconProps): JSX.Element => {
+  return (
+    <div className={`${classes.titleIconWrapper} ${className || ""}`}>
+      <img src={polygonSvg} alt="" className={classes.titlePolygon} />
+      <Iconer
+        size="medium"
+        color="brand-primary-1"
+        className={classes.titleIcon}
+      />
+    </div>
+  );
+};
+
 // Exemplo para futuras páginas (é só copiar e trocar o color ou o CSS):
 // export const ContractsTitleIcon = ({ className }: TitleIconProps): JSX.Element => (
 //   <div className={`${classes.titleIconWrapper} ${className || ""}`}>

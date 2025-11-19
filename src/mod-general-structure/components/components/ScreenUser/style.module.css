@@ -1,0 +1,41 @@
+.screen {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: transparent;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 90%;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+.title {
+  margin-bottom: 8px;
+}
+
+.tableCard {
+  width: 100%;
+  border-radius: 0;
+  border: none;
+  overflow: visible;
+  background-color: transparent;
+}
+
+.paginationArea {
+  margin-top: 0px;
+}
+
+.footerArea {
+  margin: 0px 0px 0px 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}

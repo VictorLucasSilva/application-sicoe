@@ -1,5 +1,4 @@
 /* src/mod-general-structure/components/components/ChevronLeft/style.module.css */
-
 .container {
   height: 24px;
   width: 24px;
@@ -9,7 +8,6 @@
   justify-content: center;
 }
 
-/* aumenta a seta e centraliza certinho */
 .vector {
   position: absolute;
   width: 70%;

@@ -50,3 +50,29 @@ export const RowTableEmail = (): JSX.Element => {
     </div>
   );
 };
+
+export const RowTableUser = (): JSX.Element => {
+  return (
+    <div className={classes.tableBody}>
+      {rows.map((_, index) => (
+        <div key={index} className={classes.row}>
+          <TableCell spacing="default" text="Texto" type="text-1-line" />
+          <TableCell spacing="default" text="Texto" type="text-1-line" />
+          <TableCell
+            spacing="default"
+            text="Tag Label"
+            type="tag-label"
+          />
+          <TableCell spacing="default" text="Texto" type="text-1-line" />
+          <TableCell spacing="default" text="Texto" type="text-1-line" />
+          <TableCell
+            spacing="small"
+            text="dd/mm/aaaa"
+            secondaryText="mm:ss"
+            type="text-2-lines"
+          />
+        </div>
+      ))}
+    </div>
+  );
+};
