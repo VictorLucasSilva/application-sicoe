@@ -4,8 +4,7 @@ import { Button } from "../../../../general-components/Button";
 import { Divider } from "../../../../general-components/Divider";
 import { IconClear } from "../../../../general-components/IconSvg/IconClear";
 import { IconCheck } from "../../../../general-components/IconSvg/IconCheck";
-import { ChipOld } from "./ChipOld";
-import linha from "./linha.svg";
+import image from "../../../../../../../public/images/Down.svg";
 import classes from "./style.module.css";
 
 export const ModalWriteUserRelation = (): JSX.Element => {

@@ -95,15 +95,15 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 12px; /* menos altura de linha */
+  padding: 6px 12px;
   box-sizing: border-box;
 }
 
 .statusRadio {
   margin: 0;
-  width: 18px;   /* um pouco maior */
-  height: 18px;  /* um pouco maior */
-  accent-color: #000000; 
+  width: 18px;
+  height: 18px;
+  accent-color: #000000;
 }
 
 .statusLabel {
@@ -135,7 +135,6 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  /* o padding e largura já vêm do .rowUser > :nth-child(4) */
 }
 
 .tagLabel {
@@ -144,10 +143,28 @@
   justify-content: center;
   padding: 2px 8px;
   border-radius: 4px;
-  background-color: #000000d7;       /* fundo preto */
-  color: #ffffff;                  /* texto branco */
+  background-color: #000000d7;
+  color: #ffffff;
   font-family: var(--caption-XS-regular-font-family);
   font-size: var(--caption-XS-regular-font-size);
   line-height: var(--caption-XS-regular-line-height);
   white-space: nowrap;
+}
+
+/* ---------- OVERLAY DO MODAL EDITAR USUÁRIO ---------- */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.25); /* fundo escurecido */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000; /* acima da tela toda */
+}
+
+.modalWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

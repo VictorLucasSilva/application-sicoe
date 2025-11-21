@@ -2,7 +2,7 @@ import { type JSX } from "react";
 import { ModalHeader } from "../../components/components/Modais/MadalConfirmation/ModalHeader";
 import { ModalScreen } from "../../components/components/Modais/MadalConfirmation/ModalScreen";
 import { Divider } from "../../components/general-components/Divider";
-import classes from "./style.module.css"
+import classes from "../style.module.css";
 
 
 export const ModalUserRelation = (): JSX.Element => {

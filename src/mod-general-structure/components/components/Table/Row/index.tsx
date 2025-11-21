@@ -1,4 +1,3 @@
-// src/mod-general-structure/components/components/Table/Row/index.tsx
 import { type JSX } from "react";
 import { TableCell } from "../../TableCell";
 import classes from "./style.module.css";
@@ -51,8 +50,13 @@ export const RowTableEmail = (): JSX.Element => {
   );
 };
 
-/* USERS */
-export const RowTableUser = (): JSX.Element => {
+/* ---- USERS ---- */
+
+type RowTableUserProps = {
+  onEditClick?: () => void;
+};
+
+export const RowTableUser = ({ onEditClick }: RowTableUserProps): JSX.Element => {
   return (
     <div className={classes.tableBody}>
       {rows.map((_, index) => (
@@ -82,11 +86,24 @@ export const RowTableUser = (): JSX.Element => {
             text="dd/mm/aaaa"
             type="text-1-line"
           />
-          {/* Ícones genéricos de ação */}
+          {/* Ícones de ação */}
           <div className={classes.actionsCell}>
-            <img src={estuser} alt="Ação" className={classes.actionIcon} />
-            <img src={update} alt="Ação" className={classes.actionIcon} />
-            <img src={exclude} alt="Ação" className={classes.actionIcon} />
+            <img
+              src={estuser}
+              alt="Estabelecimentos do usuário"
+              className={classes.actionIcon}
+            />
+            <img
+              src={update}
+              alt="Editar usuário"
+              className={classes.actionIcon}
+              onClick={onEditClick}
+            />
+            <img
+              src={exclude}
+              alt="Excluir usuário"
+              className={classes.actionIcon}
+            />
           </div>
         </div>
       ))}

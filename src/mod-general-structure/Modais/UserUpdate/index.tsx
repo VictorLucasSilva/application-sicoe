@@ -8,7 +8,7 @@ import { Button } from "../../components/general-components/Button";
 import classes from "./style.module.css"
 
 
-export const ModalUserRelation = (): JSX.Element => {
+export const ModalWriteUserUpdate = (): JSX.Element => {
   return (
     <>
       <ModalHeader>

@@ -1,5 +1,4 @@
-// src/mod-general-structure/components/components/ScreenUser/index.tsx
-import { type JSX } from "react";
+import { type JSX, useState } from "react";
 
 import { PageTitle } from "../PageTitle";
 import { TableHeaderUser } from "../Table/Header";
@@ -11,13 +10,25 @@ import { IconB } from "../ButtonIcon/IconB";
 import { Button } from "../../general-components/Button";
 import { UserTitleIcon } from "../IconPage";
 
+import { ModalWriteUserUpdate } from "../Modais/ModalWrite/UserUpdate";
+
 import search from "../../../../../public/images/search.svg";
 import fill from "../../../../../public/images/Filter.svg";
-import add from "../../../assets/images/add.svg"
+import add from "../../../assets/images/add.svg";
 
 import classes from "./style.module.css";
 
 export const ScreenUser = (): JSX.Element => {
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+
+  const openEditModal = (): void => {
+    setIsEditModalOpen(true);
+  };
+
+  const closeEditModal = (): void => {
+    setIsEditModalOpen(false);
+  };
+
   return (
     <div className={classes.screen}>
       <div className={classes.wrapper}>
@@ -51,7 +62,7 @@ export const ScreenUser = (): JSX.Element => {
 
         <div className={classes.tableCard}>
           <TableHeaderUser />
-          <RowTableUser />
+          <RowTableUser onEditClick={openEditModal} />
         </div>
 
         <div className={classes.paginationArea}>
@@ -63,7 +74,7 @@ export const ScreenUser = (): JSX.Element => {
           theme="light"
           orientation="horizontal"
           color="primary-pure"
-          style={{ width: "100%"}}
+          style={{ width: "100%" }}
         />
 
         <div className={classes.footerArea}>
@@ -97,6 +108,8 @@ export const ScreenUser = (): JSX.Element => {
           />
         </div>
       </div>
+
+      {isEditModalOpen && <ModalWriteUserUpdate onClose={closeEditModal} />}
     </div>
   );
 };
