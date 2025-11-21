@@ -13,7 +13,7 @@ interface Props {
     | "secondary-pure"
     | "high-lighter"
     | "primary-pure";
-  className?: object;
+  className?: object | String;
   style?: CSSProperties;
 }
 

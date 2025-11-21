@@ -14,7 +14,8 @@ interface IconerProps {
     | "brand-primary"
     | "brand-primary-lighter"
     | "brand-secondary"
-    | "brand-primary-1";
+    | "brand-primary-1"
+    | "brand-primary-2";
   className?: any;
 }
 
@@ -37,6 +38,7 @@ Iconer.propTypes = {
     "highlight",
     "brand-primary",
     "brand-primary-1",
+    "brand-primary-2",
     "brand-primary-lighter",
     "brand-secondary",
   ]),
@@ -78,21 +80,9 @@ export const UserTitleIcon = ({ className }: TitleIconProps): JSX.Element => {
       <img src={polygonSvg} alt="" className={classes.titlePolygon} />
       <Iconer
         size="medium"
-        color="brand-primary-1"
+        color="brand-primary-2"
         className={classes.titleIcon}
       />
     </div>
   );
 };
-
-// Exemplo para futuras páginas (é só copiar e trocar o color ou o CSS):
-// export const ContractsTitleIcon = ({ className }: TitleIconProps): JSX.Element => (
-//   <div className={`${classes.titleIconWrapper} ${className || ""}`}>
-//     <img src={polygonSvg} alt="" className={classes.titlePolygon} />
-//     <Iconer
-//       size="medium"
-//       color="brand-secondary"
-//       className={classes.titleIcon}
-//     />
-//   </div>
-// );

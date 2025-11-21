@@ -1,0 +1,186 @@
+.chip {
+  align-items: center;
+  border-radius: 32px;
+  display: inline-flex;
+  justify-content: center;
+  position: relative;
+}
+.chip--table {
+  padding: 4px 4px 4px 8px;
+}
+.chip--action {
+  padding: 4px 12px 4px 4px;
+}
+.chip--filter.chip--selected {
+  padding: 4px 12px 4px 8px;
+  gap: 4px;
+}
+.chip--input.chip--avatar-on,
+.chip--input.chip--icon-on {
+  padding: 4px 8px 4px 4px;
+}
+.chip--input.chip--icon-off.chip--avatar-off {
+  padding: 4px 8px 4px 12px;
+}
+.chip--choice,
+.chip--filter:not(.chip--selected) {
+  padding: 4px 12px;
+}
+.chip {
+  gap: 8px;
+}
+.chip--filter.chip--selected.chip--light {
+  gap: 4px;
+}
+.chip--dark.chip--selected {
+  background-color: var(--highlightlight);
+}
+.chip--dark.chip--hover {
+  background-color: var(--neutralhighlighter);
+}
+.chip--dark.chip--active,
+.chip--dark.chip--focus.chip--action {
+  background-color: var(--neutralhighlightest);
+}
+.chip--light.chip--selected {
+  background-color: var(--highlightpure);
+}
+.chip--light.chip--hover {
+  background-color: var(--neutrallowlighter);
+}
+.chip--light.chip--active,
+.chip--light.chip--focus {
+  background-color: var(--neutrallowlightest);
+}
+.chip--focus {
+  border: 2px solid;
+}
+.chip--focus.chip--light,
+.chip--focus.chip--table {
+  border-color: var(--highlightpure);
+}
+.chip--focus.chip--dark.chip--action,
+.chip--focus.chip--dark.chip--choice,
+.chip--focus.chip--dark.chip--filter,
+.chip--focus.chip--dark.chip--input {
+  border-color: var(--highlightlight);
+}
+.chip--light.chip--disabled {
+  opacity: 0.3;
+}
+.avatarPlaceholder {
+  height: 24px;
+  position: relative;
+  width: 36px;
+}
+.iconPlaceholder {
+  height: 24px;
+  position: relative;
+  width: 24px;
+}
+.filterListIcon {
+  height: 24px;
+  position: relative;
+  width: 24px;
+}
+.text {
+  font-family: var(--caption-SM-regular-font-family);
+  font-size: var(--caption-SM-regular-font-size);
+  font-style: var(--caption-SM-regular-font-style);
+  font-weight: var(--caption-SM-regular-font-weight);
+  letter-spacing: var(--caption-SM-regular-letter-spacing);
+  line-height: var(--caption-SM-regular-line-height);
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+.text--active,
+.text--disabled,
+.text--hover,
+.text--selected.text--choice,
+.text--selected.text--filter {
+  margin-top: -1px;
+}
+.text--table.text--selected {
+  margin-top: -2px;
+}
+.text--choice.text--active.text--light,
+.text--filter.text--active.text--light,
+.text--choice.text--focus.text--light,
+.text--filter.text--focus.text--light,
+.text--choice.text--hover.text--light,
+.text--filter.text--hover.text--light,
+.text--disabled.text--light,
+.text--action.text--light,
+.text--input.text--light {
+  color: var(--neutrallowdarkest);
+}
+.text--active.text--dark,
+.text--focus.text--dark,
+.text--hover.text--dark,
+.text--selected.text--light {
+  color: var(--neutralhighdarkest);
+}
+.text--table.text--active.text--light,
+.text--table.text--focus.text--light,
+.text--table.text--hover.text--light {
+  color: var(--neutrallowmedium);
+}
+.text--filter.text--disabled.text--dark {
+  color: var(--neutralhighmedium);
+}
+.text--choice.text--disabled.text--dark {
+  color: var(--neutralhighlight);
+}
+.badge {
+  align-items: center;
+  background-color: var(--brandprimarypure);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 24px;
+  justify-content: center;
+  position: relative;
+  width: 24px;
+}
+.badgeText {
+  color: var(--neutralhighpure);
+  font-family: var(--tiny-XXS-semibold-font-family);
+  font-size: var(--tiny-XXS-semibold-font-size);
+  font-style: var(--tiny-XXS-semibold-font-style);
+  font-weight: var(--tiny-XXS-semibold-font-weight);
+  letter-spacing: var(--tiny-XXS-semibold-letter-spacing);
+  line-height: var(--tiny-XXS-semibold-line-height);
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+.clearIcon {
+  height: 16px;
+  position: relative;
+  width: 16px;
+}
+.tablePlaceholder--light-selected {
+  background-color: var(--neutrallowdark);
+  border-radius: 16px;
+  height: 24px;
+  position: relative;
+  width: 24px;
+}
+.tablePlaceholder--light-focus,
+.tablePlaceholder--light-hover {
+  background-color: var(--brandprimarypure);
+  border-radius: 16px;
+  height: 24px;
+  position: relative;
+  width: 24px;
+}
+.tablePlaceholder--dark-active,
+.tablePlaceholder--dark-focus,
+.tablePlaceholder--dark-hover,
+.tablePlaceholder--dark-selected {
+  height: 24px;
+  position: relative;
+  width: 24px;
+}

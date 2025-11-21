@@ -1,0 +1,248 @@
+import PropTypes from "prop-types";
+import { type JSX } from "react";
+import { IconLogotipoInternal } from "../IconSvg/IconLogoTipoInternal";
+import image from "./image.svg";
+import progress2 from "./progress-2.svg";
+import progress3 from "./progress-3.svg";
+import progress4 from "./progress-4.svg";
+import progress5 from "./progress-5.svg";
+import progress6 from "./progress-6.svg";
+import progress7 from "./progress-7.svg";
+import progress9 from "./progress-9.svg";
+import progress10 from "./progress-10.svg";
+import progress11 from "./progress-11.svg";
+import progress12 from "./progress-12.svg";
+import progress13 from "./progress-13.svg";
+import progress14 from "./progress-14.svg";
+import progress15 from "./progress-15.svg";
+import progress16 from "./progress-16.svg";
+import progress17 from "./progress-17.svg";
+import progress18 from "./progress-18.svg";
+import progress19 from "./progress-19.svg";
+import progress20 from "./progress-20.svg";
+import progress21 from "./progress-21.svg";
+import progress22 from "./progress-22.svg";
+import progress23 from "./progress-23.svg";
+import progress24 from "./progress-24.svg";
+import progress25 from "./progress-25.svg";
+import progress26 from "./progress-26.svg";
+import progress27 from "./progress-27.svg";
+import progress28 from "./progress-28.svg";
+import progress29 from "./progress-29.svg";
+import progress30 from "./progress-30.svg";
+import progress31 from "./progress-31.svg";
+import classes from "./style.module.css";
+interface Props {
+  type: "spinner" | "spinner-button";
+  size: "large" | "medium" | "small";
+  theme: "dark" | "light";
+  animation: "right" | "left" | "top" | "bottom";
+  className: any;
+  progress: string;
+  progressClassName: any;
+  logotipoInternalLogotipoInternalClassName: any;
+}
+export const SpinnerLoading = ({
+  type,
+  size,
+  theme,
+  animation,
+  className,
+  progress = "progress-8.svg",
+  progressClassName,
+  logotipoInternalLogotipoInternalClassName,
+}: Props): JSX.Element => {
+  const containerClass = [
+    classes.container,
+    classes[`size-${size}`],
+    classes[`type-${type}`],
+    classes[`theme-${theme}`],
+    classes[`animation-${animation}`],
+  ].join(" ");
+  const innerContainerClass = [
+    classes.innerContainer,
+    classes[`innerContainer-size-${size}`],
+    classes[`innerContainer-animation-${animation}`],
+  ].join(" ");
+  const progressImageClass = [
+    classes.progressImage,
+    classes[`progressImage-size-${size}`],
+    classes[`progressImage-animation-${animation}`],
+  ].join(" ");
+  const dotClass = [
+    classes.dot,
+    classes[`dot-size-${size}`],
+    classes[`dot-theme-${theme}`],
+    classes[`dot-type-${type}`],
+  ].join(" ");
+  const largeInnerContainerClass = [
+    classes.largeInnerContainer,
+    classes[`largeInnerContainer-animation-${animation}`],
+  ].join(" ");
+  const largeProgressImageClass = [
+    classes.largeProgressImage,
+    classes[`largeProgressImage-animation-${animation}`],
+  ].join(" ");
+  const largeProgressClass = [
+    classes.largeProgress,
+    classes[`largeProgress-theme-${theme}`],
+  ].join(" ");
+  const darkOverlayClass = [
+    classes.darkOverlay,
+    classes[`darkOverlay-animation-${animation}`],
+  ].join(" ");
+  return (
+    <div className={containerClass} style={className}>
+      {" "}
+      {["medium", "small"].includes(size) && (
+        <div className={innerContainerClass}>
+          {" "}
+          <img
+            className={progressImageClass}
+            alt="Progress"
+            src={
+              type === "spinner" &&
+              theme === "light" &&
+              animation === "top" &&
+              size === "small"
+                ? progress
+                : type === "spinner" &&
+                  theme === "light" &&
+                  size === "small" &&
+                  animation === "right"
+                ? image
+                : type === "spinner" &&
+                  theme === "light" &&
+                  size === "small" &&
+                  animation === "bottom"
+                ? progress2
+                : type === "spinner" &&
+                  animation === "left" &&
+                  theme === "light" &&
+                  size === "small"
+                ? progress3
+                : animation === "top" && theme === "light" && size === "medium"
+                ? progress4
+                : theme === "light" &&
+                  size === "medium" &&
+                  animation === "right"
+                ? progress5
+                : theme === "light" &&
+                  size === "medium" &&
+                  animation === "bottom"
+                ? progress6
+                : animation === "left" && theme === "light" && size === "medium"
+                ? progress7
+                : animation === "top" &&
+                  theme === "light" &&
+                  type === "spinner-button"
+                ? progress12
+                : animation === "right" &&
+                  theme === "light" &&
+                  type === "spinner-button"
+                ? progress13
+                : theme === "light" &&
+                  type === "spinner-button" &&
+                  animation === "bottom"
+                ? progress14
+                : animation === "left" &&
+                  theme === "light" &&
+                  type === "spinner-button"
+                ? progress15
+                : type === "spinner" &&
+                  animation === "top" &&
+                  size === "small" &&
+                  theme === "dark"
+                ? progress16
+                : type === "spinner" &&
+                  animation === "right" &&
+                  size === "small" &&
+                  theme === "dark"
+                ? progress17
+                : type === "spinner" &&
+                  size === "small" &&
+                  theme === "dark" &&
+                  animation === "bottom"
+                ? progress18
+                : type === "spinner" &&
+                  animation === "left" &&
+                  size === "small" &&
+                  theme === "dark"
+                ? progress19
+                : animation === "top" && theme === "dark" && size === "medium"
+                ? progress20
+                : animation === "right" && theme === "dark" && size === "medium"
+                ? progress21
+                : theme === "dark" &&
+                  size === "medium" &&
+                  animation === "bottom"
+                ? progress22
+                : animation === "left" && theme === "dark" && size === "medium"
+                ? progress23
+                : animation === "top" &&
+                  theme === "dark" &&
+                  type === "spinner-button"
+                ? progress28
+                : animation === "right" &&
+                  theme === "dark" &&
+                  type === "spinner-button"
+                ? progress29
+                : theme === "dark" &&
+                  type === "spinner-button" &&
+                  animation === "bottom"
+                ? progress30
+                : animation === "left" &&
+                  theme === "dark" &&
+                  type === "spinner-button"
+                ? progress31
+                : undefined
+            }
+          />{" "}
+          <div className={dotClass} />{" "}
+        </div>
+      )}{" "}
+      {size === "large" && (
+        <div className={largeInnerContainerClass}>
+          {" "}
+          <img
+            className={largeProgressImageClass}
+            alt="Progress"
+            src={
+              theme === "light" && animation === "right"
+                ? progress9
+                : theme === "light" && animation === "bottom"
+                ? progress10
+                : animation === "left" && theme === "light"
+                ? progress11
+                : animation === "top" && theme === "dark"
+                ? progress24
+                : animation === "right" && theme === "dark"
+                ? progress25
+                : theme === "dark" && animation === "bottom"
+                ? progress26
+                : animation === "left" && theme === "dark"
+                ? progress27
+                : progress
+            }
+          />{" "}
+          <div className={largeProgressClass} style={progressClassName} />{" "}
+        </div>
+      )}{" "}
+      {theme === "light" && size === "large" && (
+        <IconLogotipoInternal
+          className={logotipoInternalLogotipoInternalClassName}
+        />
+      )}{" "}
+      {theme === "dark" && size === "large" && (
+        <div className={darkOverlayClass} />
+      )}{" "}
+    </div>
+  );
+};
+SpinnerLoading.propTypes = {
+  type: PropTypes.oneOf(["spinner", "spinner-button"]),
+  size: PropTypes.oneOf(["large", "medium", "small"]),
+  theme: PropTypes.oneOf(["dark", "light"]),
+  animation: PropTypes.oneOf(["right", "left", "top", "bottom"]),
+  progress: PropTypes.string,
+};

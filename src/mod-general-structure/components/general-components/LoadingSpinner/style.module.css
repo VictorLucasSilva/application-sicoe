@@ -1,0 +1,264 @@
+.container {
+  position: relative;
+  transform: rotate(-90deg);
+}
+.container.size-small {
+  height: 24px;
+  width: 24px;
+  left: 52px;
+}
+.container.size-medium {
+  height: 48px;
+  width: 48px;
+  left: 40px;
+}
+.container.size-large {
+  height: 96px;
+  width: 96px;
+  left: 16px;
+}
+.container.type-spinner.theme-light.animation-top.size-small {
+  top: 16px;
+}
+.container.type-spinner.theme-light.size-small.animation-right {
+  top: 56px;
+}
+.container.type-spinner.theme-light.size-small.animation-bottom {
+  top: 96px;
+}
+.container.type-spinner.animation-left.theme-light.size-small {
+  top: 136px;
+}
+.container.animation-top.theme-light.size-medium {
+  top: 176px;
+}
+.container.theme-light.size-medium.animation-right {
+  top: 240px;
+}
+.container.theme-light.size-medium.animation-bottom {
+  top: 304px;
+}
+.container.animation-left.theme-light.size-medium {
+  top: 368px;
+}
+.container.animation-top.theme-light.size-large {
+  top: 432px;
+}
+.container.animation-right.theme-light.size-large {
+  top: 544px;
+}
+.container.theme-light.animation-bottom.size-large {
+  top: 656px;
+}
+.container.animation-left.theme-light.size-large {
+  top: 768px;
+}
+.container.animation-top.theme-light.type-spinner-button {
+  top: 880px;
+}
+.container.animation-right.theme-light.type-spinner-button {
+  top: 920px;
+}
+.container.theme-light.type-spinner-button.animation-bottom {
+  top: 960px;
+}
+.container.animation-left.theme-light.type-spinner-button {
+  top: 1000px;
+}
+.container.type-spinner.animation-top.size-small.theme-dark {
+  top: 1040px;
+}
+.container.type-spinner.animation-right.size-small.theme-dark {
+  top: 1080px;
+}
+.container.type-spinner.size-small.theme-dark.animation-bottom {
+  top: 1120px;
+}
+.container.type-spinner.animation-left.size-small.theme-dark {
+  top: 1160px;
+}
+.container.animation-top.theme-dark.size-medium {
+  top: 1200px;
+}
+.container.animation-right.theme-dark.size-medium {
+  top: 1264px;
+}
+.container.theme-dark.size-medium.animation-bottom {
+  top: 1328px;
+}
+.container.animation-left.theme-dark.size-medium {
+  top: 1392px;
+}
+.container.animation-top.theme-dark.size-large {
+  top: 1456px;
+}
+.container.animation-right.theme-dark.size-large {
+  top: 1568px;
+}
+.container.theme-dark.animation-bottom.size-large {
+  top: 1680px;
+}
+.container.animation-left.theme-dark.size-large {
+  top: 1792px;
+}
+.container.animation-top.theme-dark.type-spinner-button {
+  top: 1904px;
+}
+.container.animation-right.theme-dark.type-spinner-button {
+  top: 1944px;
+}
+.container.theme-dark.type-spinner-button.animation-bottom {
+  top: 1984px;
+}
+.container.animation-left.theme-dark.type-spinner-button {
+  top: 2024px;
+}
+.innerContainer {
+  position: relative;
+}
+.innerContainer.innerContainer-size-medium {
+  height: 48px;
+  left: calc(50% - 24px);
+  top: calc(50% - 24px);
+}
+.innerContainer.innerContainer-size-small {
+  height: 24px;
+  left: calc(50% - 12px);
+  top: calc(50% - 12px);
+}
+.innerContainer.innerContainer-animation-top {
+  transform: rotate(-90.16deg);
+}
+.innerContainer.innerContainer-animation-bottom {
+  transform: rotate(90deg);
+}
+.innerContainer.innerContainer-animation-left {
+  transform: rotate(-180deg);
+}
+.progressImage {
+  position: absolute;
+}
+.progressImage.progressImage-size-medium {
+  height: 48px;
+  width: 48px;
+  left: calc(50% - 24px);
+  top: calc(50% - 24px);
+}
+.progressImage.progressImage-size-small {
+  height: 24px;
+  width: 24px;
+  left: calc(50% - 12px);
+  top: calc(50% - 12px);
+}
+.progressImage.progressImage-animation-top {
+  transform: rotate(90.16deg);
+}
+.progressImage.progressImage-animation-bottom {
+  transform: rotate(-90deg);
+}
+.progressImage.progressImage-animation-left {
+  transform: rotate(180deg);
+}
+.dot {
+  position: absolute;
+}
+.dot.dot-size-medium {
+  border-radius: 2px;
+  height: 4px;
+  width: 4px;
+  left: calc(50% - 2px);
+  top: calc(50% + 20px);
+}
+.dot.dot-size-small {
+  border-radius: 1px;
+  height: 2px;
+  width: 2px;
+  left: calc(50% - 1px);
+  top: calc(50% + 10px);
+}
+.dot.dot-theme-light.dot-type-spinner-button {
+  background-color: #040404;
+}
+.dot.dot-type-spinner.dot-theme-dark {
+  background-color: var(--brandsecondarypure);
+}
+.dot.dot-theme-dark.dot-type-spinner-button {
+  background-color: #fbfbfb;
+}
+.dot.dot-theme-light.dot-type-spinner {
+  background-color: var(--colors-brand-primary-pure);
+}
+.largeInnerContainer {
+  position: absolute;
+  left: calc(50% - 48px);
+  top: calc(50% - 48px);
+}
+.largeInnerContainer.largeInnerContainer-animation-top {
+  height: 97px;
+  width: 97px;
+  transform: rotate(-90.16deg);
+}
+.largeInnerContainer.largeInnerContainer-animation-bottom {
+  height: 96px;
+  width: 96px;
+  transform: rotate(90deg);
+}
+.largeInnerContainer.largeInnerContainer-animation-left {
+  height: 96px;
+  width: 96px;
+  transform: rotate(-180deg);
+}
+.largeInnerContainer.largeInnerContainer-animation-right {
+  height: 96px;
+  width: 96px;
+}
+.largeProgressImage {
+  height: 96px;
+  width: 96px;
+  position: absolute;
+  left: calc(50% - 48px);
+  top: calc(50% - 48px);
+}
+.largeProgressImage.largeProgressImage-animation-top {
+  transform: rotate(90.16deg);
+}
+.largeProgressImage.largeProgressImage-animation-bottom {
+  transform: rotate(-90deg);
+}
+.largeProgressImage.largeProgressImage-animation-left {
+  transform: rotate(180deg);
+}
+.largeProgress {
+  border-radius: 6px;
+  height: 12px;
+  width: 12px;
+  left: calc(50% - 6px);
+  position: absolute;
+  top: calc(50% + 36px);
+}
+.largeProgress.largeProgress-theme-dark {
+  background-color: var(--brandsecondarypure);
+}
+.largeProgress.largeProgress-theme-light {
+  background-color: var(--colors-brand-primary-pure);
+}
+.darkOverlay {
+  height: 16px;
+  width: 53px;
+  left: calc(50% - 26px);
+  position: absolute;
+  top: calc(50% - 8px);
+  transform: rotate(90deg);
+}
+.darkOverlay.darkOverlay-animation-top {
+  opacity: 0.75;
+}
+.darkOverlay.darkOverlay-animation-right {
+  opacity: 0.75;
+}
+.darkOverlay.darkOverlay-animation-bottom {
+  opacity: 0.55;
+}
+.darkOverlay.darkOverlay-animation-left {
+  opacity: 0.25;
+}

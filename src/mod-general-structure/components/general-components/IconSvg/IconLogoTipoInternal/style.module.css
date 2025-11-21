@@ -1,0 +1,11 @@
+.container {
+  height: 16px;
+  width: 52px;
+}
+.image {
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}

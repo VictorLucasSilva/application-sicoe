@@ -1,0 +1,195 @@
+.modalEditar {
+  align-items: flex-start;
+  background-color: var(--neutralhighpure);
+  border: 1px solid;
+  border-color: var(--neutrallowlighter);
+  border-radius: 8px;
+  box-shadow: var(--sombras-shadow-level-1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 787px;
+}
+.header {
+  align-items: flex-start;
+  align-self: stretch;
+  background-color: transparent;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 0px 0px;
+  position: relative;
+  width: 100%;
+}
+.headerTop {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  padding: 0px 24px;
+  position: relative;
+  width: 100%;
+}
+.title {
+  color: var(--brandprimarypure);
+  font-family: var(--heading-XXL-font-family);
+  font-size: var(--heading-XXL-font-size);
+  font-style: var(--heading-XXL-font-style);
+  font-weight: var(--heading-XXL-font-weight);
+  letter-spacing: var(--heading-XXL-letter-spacing);
+  line-height: var(--heading-XXL-line-height);
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+.content {
+  align-items: flex-start;
+  align-self: stretch;
+  border-color: var(--neutrallowlighter);
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-right-style: solid;
+  border-right-width: 1px;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 32px;
+  position: relative;
+  width: 100%;
+}
+.userLabel {
+  align-self: stretch;
+  color: var(--colors-neutral-low-medium);
+  font-family: var(--body-LG-regular-font-family);
+  font-size: var(--body-LG-regular-font-size);
+  font-style: var(--body-LG-regular-font-style);
+  font-weight: var(--body-LG-regular-font-weight);
+  letter-spacing: var(--body-LG-regular-letter-spacing);
+  line-height: var(--body-LG-regular-line-height);
+  margin-top: -1px;
+  position: relative;
+}
+.fieldsContainer {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 32px;
+  position: relative;
+  width: 100%;
+}
+.fieldWrapper {
+  align-items: center;
+  box-shadow: var(--sombras-shadow-hover);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+}
+.fieldWrapper2 {
+  align-items: flex-start;
+  box-shadow: var(--sombras-shadow-hover);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+}
+.fieldInner {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 8px 6px;
+  position: relative;
+  width: 100%;
+}
+.fieldLabel {
+  color: var(--colors-neutral-low-darkest);
+  font-family: "BancoDoBrasil Textos-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 23px;
+  margin-right: -22.5px;
+  margin-top: -1px;
+  position: relative;
+  width: 352px;
+}
+.fieldLabel2 {
+  align-self: stretch;
+  color: var(--colors-neutral-low-darkest);
+  font-family: "BancoDoBrasil Textos-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 23px;
+  margin-top: -1px;
+  position: relative;
+}
+.fieldContent {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  position: relative;
+  width: 100%;
+}
+.fieldPlaceholder {
+  color: var(--colors-neutral-low-light);
+  font-family: "BancoDoBrasil Textos-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 24.1px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+.fieldSpacer {
+  flex: 1;
+  flex-grow: 1;
+  height: 24px;
+  position: relative;
+}
+.fieldLine {
+  align-self: stretch;
+  height: 2px;
+  position: relative;
+  width: 100%;
+}
+.footer {
+  align-items: flex-start;
+  align-self: stretch;
+  background-color: transparent;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: flex-end;
+  padding: 0px 0px 16px;
+  position: relative;
+  width: 100%;
+}
+.footerButtons {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 16px;
+  justify-content: flex-end;
+  padding: 0px 24px;
+  position: relative;
+  width: 100%;
+}
+
+
