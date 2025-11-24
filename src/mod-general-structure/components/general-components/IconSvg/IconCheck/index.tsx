@@ -1,5 +1,5 @@
 import { type JSX } from "react";
-import image from "./image.svg";
+import image from "../../../../../../public/images/Down.svg"
 import classes from "./style.module.css";
 
 type IconCheckProps = {

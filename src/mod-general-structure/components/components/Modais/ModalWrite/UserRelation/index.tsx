@@ -1,139 +1,144 @@
 import { type JSX } from "react";
+import type React from "react";
+
 import { ArrowDropDown } from "../../../ArrowDropdown";
 import { Button } from "../../../../general-components/Button";
 import { Divider } from "../../../../general-components/Divider";
 import { IconClear } from "../../../../general-components/IconSvg/IconClear";
-import { IconCheck } from "../../../../general-components/IconSvg/IconCheck";
-import image from "../../../../../../../public/images/Down.svg";
+
 import classes from "./style.module.css";
 
-export const ModalWriteUserRelation = (): JSX.Element => {
+type ModalWriteUserRelationProps = {
+  onClose?: () => void;
+  onSave?: () => void;
+};
+
+export const ModalWriteUserRelation = ({
+  onClose,
+  onSave,
+}: ModalWriteUserRelationProps): JSX.Element => {
+  const handleOverlayClick = (): void => {
+    if (onClose) onClose();
+  };
+
+  const handleCardClick = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+  ): void => {
+    // não fecha ao clicar dentro do card
+    event.stopPropagation();
+  };
+
+  const handleSaveClick = (): void => {
+    if (onSave) onSave();
+  };
+
   return (
-    <div className={classes.modal}>
-      <header className={classes.header}>        
-        <div className={classes.headerTop}>
-          <div className={classes.title}>Acesso aos Estabelecimentos</div>
-        </div>
-        <Divider
-          className={{
-            alignSelf: "stretch",
-            left: "unset",
-            top: "unset",
-            width: "100%",
-          }}
-          color="low-lighter"
-          orientation="horizontal"
-          size="small"
-          theme="light"
-        />
-      </header>
-      <div className={classes.content}>
-        <div className={classes.userLabel}>Usuário</div>
-        <div className={classes.dropdownWrapper}>
-          <div className={classes.dropdownInput}>
-            <div className={classes.dropdownLabel}>
-              Dropdown com múltipla seleção
-            </div>
-            <div className={classes.dropdownChips}>
-              
-              <ChipOld
-                avatar="off"
-                className={{ flex: "0 0 auto", left: "unset", top: "unset" }}
-                icon="off"
-                status="active"
-                text="Opção 2"
-                theme="light"
-                type="input"
-              />
-              <div className={classes.spacer} />
-              <IconClear
-                className={{
-                  height: "24px",
-                  position: "relative",
-                  width: "24px",
-                }}
-                opacity="0.65"
-              />
-              <ArrowDropDown
-                className={{
-                  height: "24px",
-                  position: "relative",
-                  width: "24px",
-                }}
-              />
+    <div className={classes.overlay} onClick={handleOverlayClick}>
+      <div className={classes.modal} onClick={handleCardClick}>
+        {/* HEADER */}
+        <header className={classes.header}>
+          <div className={classes.headerTop}>
+            <div className={classes.title}>Acesso aos Estabelecimentos</div>
+
+            <button
+              type="button"
+              className={classes.closeButton}
+              aria-label="Fechar modal"
+              onClick={onClose}
+            >
+              ×
+            </button>
+          </div>
+
+          <Divider
+            className={{
+              alignSelf: "stretch",
+              left: "unset",
+              top: "unset",
+              width: "100%",
+            }}
+            color="low-lighter"
+            orientation="horizontal"
+            size="small"
+            theme="light"
+          />
+        </header>
+
+        {/* CONTEÚDO */}
+        <div className={classes.content}>
+          {/* BLOCO "USUÁRIO" + TEXT FIELD */}
+          <div className={classes.userBlock}>
+            <div className={classes.userLabel}>Usuário</div>
+
+            <div className={classes.textField}>
+              <div className={classes.textFieldLabel}>Text field ativo</div>
+              <div className={classes.textFieldValue}>Digitando</div>
             </div>
           </div>
-          <img className={classes.linha} alt="Linha" src={linha} />
-          <div className={classes.dropdownMenu}>
-            
-            <div className={classes.dropdownMenuInner}>
-              
-              <div className={classes.dropdownOption}>
-                
-                <div className={classes.optionText}>Opção 1</div>
+
+          {/* DROPDOWN COM MÚLTIPLA SELEÇÃO (FECHADO, SÓ COM CHIPS) */}
+          <div className={classes.dropdownSection}>
+            <div className={classes.dropdownLabel}>
+              Dropdown com múltipla seleção – com mais itens
+            </div>
+
+            <div className={classes.dropdownField}>
+              <div className={classes.chipsRow}>
+                <span className={classes.chip}>Opção 1 ×</span>
+                <span className={classes.chip}>Opção 2 ×</span>
+                <span className={classes.chip}>Opção 5 ×</span>
               </div>
-              <div className={classes.dropdownOptionSelected}>
-                
-                <div className={classes.optionText}>
-                  Opção 2 já selecionada
-                </div>
-                <IconCheck
+
+              <div className={classes.dropdownIcons}>
+                <IconClear
                   className={{
                     height: "24px",
                     position: "relative",
                     width: "24px",
                   }}
-                  color="#7B8CFF"
+                  opacity="0.65"
                 />
-              </div>
-              <div className={classes.dropdownOption}>
-                
-                <div className={classes.optionText}>Opção 3</div>
-              </div>
-              <div className={classes.dropdownOption}>
-                
-                <div className={classes.optionText}>Opção 4</div>
-              </div>
-              <div className={classes.dropdownOption}>
-                
-                <div className={classes.optionText}>Opção 5</div>
-              </div>
-              <div className={classes.dropdownOption}>
-                
-                <div className={classes.optionText}>Opção 6</div>
+                <ArrowDropDown
+                  className={{
+                    height: "24px",
+                    position: "relative",
+                    width: "24px",
+                  }}
+                />
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <footer className={classes.footer}>
-        
-        <Divider
-          className={{
-            alignSelf: "stretch",
-            left: "unset",
-            top: "unset",
-            width: "100%",
-          }}
-          color="low-lighter"
-          orientation="horizontal"
-          size="small"
-          theme="light"
-        />
-        <div className={classes.footerButtons}>
-          
-          <Button
-            className={{ flex: "0 0 auto", left: "unset", top: "unset" }}
-            hierarchy="primary"
-            icon="off"
+
+        {/* FOOTER */}
+        <footer className={classes.footer}>
+          <Divider
+            className={{
+              alignSelf: "stretch",
+              left: "unset",
+              top: "unset",
+              width: "100%",
+            }}
+            color="low-lighter"
+            orientation="horizontal"
             size="small"
-            status="default"
-            text="on"
-            text1="SALVAR"
             theme="light"
           />
-        </div>
-      </footer>
+          <div className={classes.footerButtons}>
+            <Button
+              className={{ flex: "0 0 auto", left: "unset", top: "unset" }}
+              hierarchy="primary"
+              icon="off"
+              size="small"
+              status="default"
+              text="on"
+              text1="SALVAR"
+              theme="light"
+              onClick={handleSaveClick}
+            />
+          </div>
+        </footer>
+      </div>
     </div>
   );
 };

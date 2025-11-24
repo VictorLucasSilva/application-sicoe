@@ -11,16 +11,14 @@
 
 /* CARD DO MODAL */
 .modalEditar {
-  align-items: flex-start;
   background-color: var(--neutralhighpure);
-  border-radius: 8px;
+  border-radius: 16px;
+  border: 1px solid var(--neutrallowlighter);
   box-shadow: var(--sombras-shadow-level-1);
   display: flex;
   flex-direction: column;
-  position: relative;
-
-  width: 860px;          /* mais largo, parecido com o layout */
-  max-width: 90vw;
+  width: min(1120px, calc(100vw - 80px));
+  max-height: calc(100vh - 96px);
 }
 
 /* CABEÇALHO */
@@ -31,7 +29,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 24px 0 0;
+  padding: 24px 32px 0;
   width: 100%;
 }
 
@@ -40,7 +38,6 @@
   align-self: stretch;
   display: flex;
   justify-content: space-between;
-  padding: 0 32px 0 32px;
   width: 100%;
 }
 
@@ -53,7 +50,6 @@
   letter-spacing: var(--heading-XXL-letter-spacing);
   line-height: var(--heading-XXL-line-height);
   margin-top: -1px;
-  white-space: nowrap;
 }
 
 /* BOTÃO DE FECHAR (X) */
@@ -77,8 +73,8 @@
   align-self: stretch;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 24px 40px 32px 40px;
+  gap: 24px;
+  padding: 24px 32px 32px;
   width: 100%;
 }
 
@@ -95,31 +91,19 @@
 }
 
 /* LINHA COM PERFIL / VIGÊNCIA */
-.fieldsContainer {
-  align-items: flex-start;
+.fieldsRow {
+  align-items: flex-end;
   align-self: stretch;
   display: flex;
-  gap: 32px;
+  gap: 80px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--neutrallowlighter);
   width: 100%;
 }
 
-.fieldWrapper,
-.fieldWrapper2 {
-  align-items: center;
-  box-shadow: var(--sombras-shadow-hover);
-  display: flex;
+.field {
   flex: 1;
-  flex-direction: column;
-}
-
-.fieldInner {
-  align-items: flex-start;
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 8px 8px 6px;
-  width: 100%;
+  min-width: 0;
 }
 
 .fieldLabel {
@@ -131,21 +115,11 @@
   margin-top: -1px;
 }
 
-.fieldLabel2 {
-  color: var(--colors-neutral-low-darkest);
-  font-family: "BancoDoBrasil Textos-Regular", Helvetica;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 23px;
-  margin-top: -1px;
-}
-
-.fieldContent {
+.fieldInput {
   align-items: center;
-  align-self: stretch;
   display: flex;
   gap: 8px;
-  width: 100%;
+  margin-top: 4px;
 }
 
 .fieldPlaceholder {
@@ -154,19 +128,12 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 24.1px;
-  margin-top: -1px;
   white-space: nowrap;
 }
 
 .fieldSpacer {
   flex: 1;
   height: 24px;
-}
-
-.fieldLine {
-  align-self: stretch;
-  height: 2px;
-  width: 100%;
 }
 
 /* RODAPÉ */
@@ -178,7 +145,7 @@
   flex-direction: column;
   gap: 16px;
   justify-content: flex-end;
-  padding: 0 0 16px;
+  padding: 0 32px 24px;
   width: 100%;
 }
 
@@ -188,6 +155,5 @@
   display: flex;
   gap: 16px;
   justify-content: flex-end;
-  padding: 0 32px;
   width: 100%;
 }

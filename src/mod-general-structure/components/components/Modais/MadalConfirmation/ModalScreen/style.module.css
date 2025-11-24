@@ -1,8 +1,6 @@
 .container {
   align-items: flex-start;
   background-color: var(--neutralhighpure);
-  border: 1px solid;
-  border-color: var(--neutrallowlighter);
   display: flex;
   gap: 16px;
   position: relative;
@@ -10,13 +8,13 @@
 
 .content {
   align-items: flex-start;
+  align-self: stretch;
   display: flex;
   flex: 1;
   flex-direction: column;
-  flex-grow: 1;
-  gap: 24px;
-  padding: 24px;
-  position: relative;
+  gap: 16px;
+  padding: 24px 32px 24px;
+  width: 100%;
 }
 
 .text {
@@ -29,5 +27,4 @@
   letter-spacing: var(--body-LG-regular-letter-spacing);
   line-height: var(--body-LG-regular-line-height);
   margin-top: -1px;
-  position: relative;
 }

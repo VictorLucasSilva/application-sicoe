@@ -1,3 +1,4 @@
+// src/mod-general-structure/components/components/ScreenUser/index.tsx
 import { type JSX, useState } from "react";
 
 import { PageTitle } from "../PageTitle";
@@ -11,6 +12,10 @@ import { Button } from "../../general-components/Button";
 import { UserTitleIcon } from "../IconPage";
 
 import { ModalWriteUserUpdate } from "../Modais/ModalWrite/UserUpdate";
+import { ModalWriteUserRelation } from "../Modais/ModalWrite/UserRelation";
+import { UserUpdConfirmation } from "../../components/Modais/MadalConfirmation/UserUpdConfirmation"
+import { UserDelConfirmation } from "../../components/Modais/MadalConfirmation/UserDelConfirmation"
+import { UserRelConfirmation } from "../../components/Modais/MadalConfirmation/UserRelConfirmation"
 
 import search from "../../../../../public/images/search.svg";
 import fill from "../../../../../public/images/Filter.svg";
@@ -20,6 +25,12 @@ import classes from "./style.module.css";
 
 export const ScreenUser = (): JSX.Element => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
+
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isRelationModalOpen, setIsRelationModalOpen] = useState(false); // 👈 NOVO
+  const [isRelationConfirmModalOpen, setIsRelationConfirmModalOpen] =
+    useState(false); // 👈 NOVO
 
   const openEditModal = (): void => {
     setIsEditModalOpen(true);
@@ -27,6 +38,51 @@ export const ScreenUser = (): JSX.Element => {
 
   const closeEditModal = (): void => {
     setIsEditModalOpen(false);
+  };
+
+  // chamado quando clicar em SALVAR dentro do modal de edição
+  const handleSaveFromEditModal = (): void => {
+    setIsEditModalOpen(false);
+    setIsConfirmModalOpen(true);
+  };
+
+  const handleConfirmUpdate = (): void => {
+    // aqui depois você coloca a chamada de API / submit real
+    setIsConfirmModalOpen(false);
+  };
+
+  // 👇 HANDLERS DE EXCLUSÃO
+  const openDeleteModal = (): void => {
+    setIsDeleteModalOpen(true);
+  };
+
+  const closeDeleteModal = (): void => {
+    setIsDeleteModalOpen(false);
+  };
+
+  const handleConfirmDelete = (): void => {
+    // aqui entra sua chamada de API para excluir
+    setIsDeleteModalOpen(false);
+  };
+
+  // 👇 HANDLERS DE RELAÇÃO (estabelecimentos)
+  const openRelationModal = (): void => {
+    setIsRelationModalOpen(true);
+  };
+
+  const closeRelationModal = (): void => {
+    setIsRelationModalOpen(false);
+  };
+
+  const handleSaveFromRelationModal = (): void => {
+    // fecha relação e abre confirmação
+    setIsRelationModalOpen(false);
+    setIsRelationConfirmModalOpen(true);
+  };
+
+  const handleConfirmRelation = (): void => {
+    // aqui você chama a API de salvar relação se quiser
+    setIsRelationConfirmModalOpen(false);
   };
 
   return (
@@ -62,7 +118,9 @@ export const ScreenUser = (): JSX.Element => {
 
         <div className={classes.tableCard}>
           <TableHeaderUser />
-          <RowTableUser onEditClick={openEditModal} />
+          {/* ícone de editar chama openEditModal */}
+          <RowTableUser onEditClick={openEditModal} onDeleteClick={openDeleteModal} onRelationClick={openRelationModal}/>
+          
         </div>
 
         <div className={classes.paginationArea}>
@@ -109,7 +167,45 @@ export const ScreenUser = (): JSX.Element => {
         </div>
       </div>
 
-      {isEditModalOpen && <ModalWriteUserUpdate onClose={closeEditModal} />}
+      {/* MODAL DE EDIÇÃO (Editar Usuário) */}
+      {isEditModalOpen && (
+        <ModalWriteUserUpdate
+          onClose={closeEditModal}
+          onSave={handleSaveFromEditModal}
+        />
+      )}
+
+      {/* MODAL DE CONFIRMAÇÃO */}
+      {isConfirmModalOpen && (
+        <UserUpdConfirmation
+          onConfirm={handleConfirmUpdate}
+          onClose={handleConfirmUpdate}
+        />
+      )}
+
+      {/* MODAL DE CONFIRMAÇÃO DE EXCLUSÃO */}
+      {isDeleteModalOpen && (
+        <UserDelConfirmation
+          onConfirm={handleConfirmDelete}
+          onClose={closeDeleteModal}
+        />
+      )}
+
+      {/* MODAL DE RELAÇÃO DE ESTABELECIMENTOS */}
+      {isRelationModalOpen && (
+        <ModalWriteUserRelation
+          onClose={closeRelationModal}
+          onSave={handleSaveFromRelationModal}
+        />
+      )}
+
+      {/* MODAL DE CONFIRMAÇÃO DA RELAÇÃO */}
+      {isRelationConfirmModalOpen && (
+        <UserRelConfirmation
+          onConfirm={handleConfirmRelation}
+          onClose={handleConfirmRelation}
+        />
+      )}
     </div>
   );
 };

@@ -1,0 +1,30 @@
+.header {
+  align-items: flex-start;
+  align-self: stretch;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 24px 0;
+  width: 100%;
+}
+
+.headerContent {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.title {
+  color: var(--brandprimarypure);
+  font-family: var(--heading-XXL-font-family);
+  font-size: var(--heading-XXL-font-size);
+  font-style: var(--heading-XXL-font-style);
+  font-weight: var(--heading-XXL-font-weight);
+  letter-spacing: var(--heading-XXL-letter-spacing);
+  line-height: var(--heading-XXL-line-height);
+  margin-top: -1px;
+  white-space: nowrap;
+}

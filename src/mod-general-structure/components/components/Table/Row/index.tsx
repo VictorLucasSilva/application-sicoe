@@ -1,3 +1,4 @@
+// src/mod-general-structure/components/components/Table/Row/index.tsx
 import { type JSX } from "react";
 import { TableCell } from "../../TableCell";
 import classes from "./style.module.css";
@@ -54,9 +55,15 @@ export const RowTableEmail = (): JSX.Element => {
 
 type RowTableUserProps = {
   onEditClick?: () => void;
+  onDeleteClick?: () => void;
+  onRelationClick?: () => void; // 👈 NOVO
 };
 
-export const RowTableUser = ({ onEditClick }: RowTableUserProps): JSX.Element => {
+export const RowTableUser = ({
+  onEditClick,
+  onDeleteClick,
+  onRelationClick,
+}: RowTableUserProps): JSX.Element => {
   return (
     <div className={classes.tableBody}>
       {rows.map((_, index) => (
@@ -81,17 +88,14 @@ export const RowTableUser = ({ onEditClick }: RowTableUserProps): JSX.Element =>
             <span className={classes.statusLabel}>Ativo</span>
           </div>
           {/* Fim da Vigência */}
-          <TableCell
-            spacing="default"
-            text="dd/mm/aaaa"
-            type="text-1-line"
-          />
+          <TableCell spacing="default" text="dd/mm/aaaa" type="text-1-line" />
           {/* Ícones de ação */}
           <div className={classes.actionsCell}>
             <img
               src={estuser}
               alt="Estabelecimentos do usuário"
               className={classes.actionIcon}
+              onClick={onRelationClick} // 👈 ABRE MODAL DE RELAÇÃO
             />
             <img
               src={update}
@@ -103,6 +107,7 @@ export const RowTableUser = ({ onEditClick }: RowTableUserProps): JSX.Element =>
               src={exclude}
               alt="Excluir usuário"
               className={classes.actionIcon}
+              onClick={onDeleteClick}
             />
           </div>
         </div>

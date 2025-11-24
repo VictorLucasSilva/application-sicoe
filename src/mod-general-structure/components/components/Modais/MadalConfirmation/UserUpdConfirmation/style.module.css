@@ -1,0 +1,22 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+.modal {
+  width: min(1120px, calc(100vw - 80px));
+  max-height: calc(100vh - 96px);
+  background-color: var(--neutralhighpure);
+  border-radius: 16px;
+  border: 1px solid var(--neutrallowlighter);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.16);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
