@@ -1,0 +1,54 @@
+.container {
+  align-items: flex-end;
+  border-radius: 8px;
+  box-shadow: var(--sombras-shadow-hover);
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+}
+.polygonWrapper {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  padding: 0px 16px 0px 0px;
+  position: relative;
+}
+.polygon {
+  height: 16px;
+  position: relative;
+  width: 24px;
+}
+.menu {
+  align-items: flex-start;
+  background-color: var(--colors-brand-primary-pure);
+  border-radius: 8px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  position: relative;
+}
+.topBorder {
+  background-color: #465eff;
+  border-radius: 8px 8px 0px 0px;
+  height: 8px;
+  position: relative;
+  width: 296px;
+}
+.menuItem {
+  align-items: center;
+  background-color: #465eff;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 16px;
+  padding: 12px 16px;
+  position: relative;
+  width: 296px;
+}
+.bottomBorder {
+  background-color: #465eff;
+  border-radius: 0px 0px 8px 8px;
+  height: 8px;
+  position: relative;
+  width: 296px;
+}

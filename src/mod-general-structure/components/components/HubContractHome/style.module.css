@@ -1,0 +1,7 @@
+.hub {
+  background-color: var(--colors-neutral-mid-pure);
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  grid-template-rows: repeat(1, minmax(0, 1fr));
+  position: relative;
+}

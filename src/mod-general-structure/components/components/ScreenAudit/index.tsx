@@ -1,13 +1,13 @@
 import { type JSX } from "react";
 
-import { PageTitle } from "../PageTitle";
+import { PageTitle } from "../../general-components/PageTitle";
 import { TableHeader } from "../Table/Header";
 import { RowTableAudit } from "../Table/Row";
 import { Pagination } from "../Pagination";
 import { Divider } from "../../general-components/Divider";
-import { ButtonIcon } from "../ButtonIcon";
-import { IconB } from "../ButtonIcon/IconB";
-import { AuditTitleIcon } from "../IconPage";
+import { ButtonIcon } from "../../general-components/ButtonIcon";
+import { IconB } from "../../general-components/ButtonIcon/IconB";
+import { AuditTitleIcon } from "../../general-components/IconPage";
 
 import classes from "./style.module.css";
 

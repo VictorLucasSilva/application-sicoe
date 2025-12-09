@@ -1,25 +1,22 @@
-// src/mod-general-structure/components/components/ScreenUser/index.tsx
 import { type JSX, useState } from "react";
-
-import { PageTitle } from "../PageTitle";
+import { PageTitle } from "../../general-components/PageTitle";
 import { TableHeaderUser } from "../Table/Header";
 import { RowTableUser } from "../Table/Row";
 import { Pagination } from "../Pagination";
 import { Divider } from "../../general-components/Divider";
-import { ButtonIcon } from "../ButtonIcon";
-import { IconB } from "../ButtonIcon/IconB";
+import { ButtonIcon } from "../../general-components/ButtonIcon";
+import { IconB } from "../../general-components/ButtonIcon/IconB";
 import { Button } from "../../general-components/Button";
-import { UserTitleIcon } from "../IconPage";
-
+import { UserTitleIcon } from "../../general-components/IconPage";
 import { ModalWriteUserUpdate } from "../Modais/ModalWrite/UserUpdate";
 import { ModalWriteUserRelation } from "../Modais/ModalWrite/UserRelation";
 import { UserUpdConfirmation } from "../../components/Modais/MadalConfirmation/UserUpdConfirmation"
 import { UserDelConfirmation } from "../../components/Modais/MadalConfirmation/UserDelConfirmation"
 import { UserRelConfirmation } from "../../components/Modais/MadalConfirmation/UserRelConfirmation"
 
-import search from "../../../../../public/images/search.svg";
-import fill from "../../../../../public/images/Filter.svg";
-import add from "../../../assets/images/add.svg";
+import search from "../../../../../public/icons/search.svg";
+import fill from "../../../../../public/icons/filter.svg";
+import add from "../../../../../public/icons/plus.svg";
 
 import classes from "./style.module.css";
 
@@ -28,9 +25,9 @@ export const ScreenUser = (): JSX.Element => {
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
 
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [isRelationModalOpen, setIsRelationModalOpen] = useState(false); // 👈 NOVO
+  const [isRelationModalOpen, setIsRelationModalOpen] = useState(false); 
   const [isRelationConfirmModalOpen, setIsRelationConfirmModalOpen] =
-    useState(false); // 👈 NOVO
+    useState(false); 
 
   const openEditModal = (): void => {
     setIsEditModalOpen(true);
@@ -40,18 +37,15 @@ export const ScreenUser = (): JSX.Element => {
     setIsEditModalOpen(false);
   };
 
-  // chamado quando clicar em SALVAR dentro do modal de edição
   const handleSaveFromEditModal = (): void => {
     setIsEditModalOpen(false);
     setIsConfirmModalOpen(true);
   };
 
   const handleConfirmUpdate = (): void => {
-    // aqui depois você coloca a chamada de API / submit real
     setIsConfirmModalOpen(false);
   };
 
-  // 👇 HANDLERS DE EXCLUSÃO
   const openDeleteModal = (): void => {
     setIsDeleteModalOpen(true);
   };
@@ -61,11 +55,9 @@ export const ScreenUser = (): JSX.Element => {
   };
 
   const handleConfirmDelete = (): void => {
-    // aqui entra sua chamada de API para excluir
     setIsDeleteModalOpen(false);
   };
 
-  // 👇 HANDLERS DE RELAÇÃO (estabelecimentos)
   const openRelationModal = (): void => {
     setIsRelationModalOpen(true);
   };
@@ -75,13 +67,11 @@ export const ScreenUser = (): JSX.Element => {
   };
 
   const handleSaveFromRelationModal = (): void => {
-    // fecha relação e abre confirmação
     setIsRelationModalOpen(false);
     setIsRelationConfirmModalOpen(true);
   };
 
   const handleConfirmRelation = (): void => {
-    // aqui você chama a API de salvar relação se quiser
     setIsRelationConfirmModalOpen(false);
   };
 
@@ -118,7 +108,6 @@ export const ScreenUser = (): JSX.Element => {
 
         <div className={classes.tableCard}>
           <TableHeaderUser />
-          {/* ícone de editar chama openEditModal */}
           <RowTableUser onEditClick={openEditModal} onDeleteClick={openDeleteModal} onRelationClick={openRelationModal}/>
           
         </div>
@@ -167,7 +156,6 @@ export const ScreenUser = (): JSX.Element => {
         </div>
       </div>
 
-      {/* MODAL DE EDIÇÃO (Editar Usuário) */}
       {isEditModalOpen && (
         <ModalWriteUserUpdate
           onClose={closeEditModal}
@@ -175,7 +163,6 @@ export const ScreenUser = (): JSX.Element => {
         />
       )}
 
-      {/* MODAL DE CONFIRMAÇÃO */}
       {isConfirmModalOpen && (
         <UserUpdConfirmation
           onConfirm={handleConfirmUpdate}
@@ -183,7 +170,6 @@ export const ScreenUser = (): JSX.Element => {
         />
       )}
 
-      {/* MODAL DE CONFIRMAÇÃO DE EXCLUSÃO */}
       {isDeleteModalOpen && (
         <UserDelConfirmation
           onConfirm={handleConfirmDelete}
@@ -191,7 +177,6 @@ export const ScreenUser = (): JSX.Element => {
         />
       )}
 
-      {/* MODAL DE RELAÇÃO DE ESTABELECIMENTOS */}
       {isRelationModalOpen && (
         <ModalWriteUserRelation
           onClose={closeRelationModal}
@@ -199,7 +184,6 @@ export const ScreenUser = (): JSX.Element => {
         />
       )}
 
-      {/* MODAL DE CONFIRMAÇÃO DA RELAÇÃO */}
       {isRelationConfirmModalOpen && (
         <UserRelConfirmation
           onConfirm={handleConfirmRelation}

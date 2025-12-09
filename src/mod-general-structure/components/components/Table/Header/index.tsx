@@ -1,5 +1,5 @@
 import { type JSX } from "react";
-import { IconTableHeader } from "../../IconTableHeader";
+import { IconTableHeader } from "../../../general-components/IconSvg/IconTableHeader";
 import classes from "./style.module.css";
 
 export const TableHeader = (): JSX.Element => {

@@ -1,10 +1,11 @@
 import { type JSX } from "react";
-import image from "../../../../../../public/images/Down.svg"
+import image from "../../../../../../public/icons/search.svg";
 import classes from "./style.module.css";
 
 type IconCheckProps = {
     className ?: Object;
     color?: String;
+    size?: String;
 }
 
 export const IconCheck = ({ className }: IconCheckProps): JSX.Element => {

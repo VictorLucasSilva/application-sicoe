@@ -1,5 +1,5 @@
 import { type JSX } from "react";
-import iconClear from "../../../../../../public/images/Filter.svg"
+import iconClear from "../../../../../../public/icons/filter.svg";
 import classes from "./style.module.css";
 
 type IconClearProps = {

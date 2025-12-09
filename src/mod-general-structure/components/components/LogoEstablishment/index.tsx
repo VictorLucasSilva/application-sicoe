@@ -12,7 +12,7 @@ export const LogoEstablishment = ({
 }: Props) => {
   return (
     <img
-      src="/images/LogoEstablishment.svg"  
+      src="/icons/logo-establishment.svg" 
       alt="Controle de Estabelecimentos"
       style={{
         width: size,

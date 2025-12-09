@@ -3,12 +3,12 @@ import { type JSX } from "react";
 import { Person } from "../Person";
 import classes from "./style.module.css";
 
-import button2 from "../../../assets/images/Lock.svg";
-import button from "../../../assets/images/Lock.svg";
-import caixa2 from "../../../assets/images/Lock.svg";
-import caixa from "../../../assets/images/Lock.svg";
-import image1 from "../../../assets/images/Lock.svg";
-import pequeno from "../../../assets/images/Lock.svg";
+import button2 from "../../../assets/icons/icon-no-mod/no-mod-login-lock.svg";
+import button from "../../../assets/icons/icon-no-mod/no-mod-login-lock.svg";
+import caixa2 from "../../../assets/icons/icon-no-mod/no-mod-login-lock.svg";
+import caixa from "../../../assets/icons/icon-no-mod/no-mod-login-lock.svg";
+import image1 from "../../../assets/icons/icon-no-mod/no-mod-login-lock.svg";
+import pequeno from "../../../assets/icons/icon-no-mod/no-mod-login-lock.svg";
 
 interface Props {
   sort?: boolean;

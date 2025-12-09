@@ -8,12 +8,14 @@ type ModalFooterProps = {
   className?: string;
   onConfirm?: () => void;
   children?: ReactNode;
+  confirmButtonClassName?: string; // nova prop
 };
 
 export const ModalFooter = ({
   className,
   onConfirm,
   children,
+  confirmButtonClassName,
 }: ModalFooterProps): JSX.Element => {
   const handleConfirmClick = (): void => {
     if (onConfirm) onConfirm();
@@ -32,10 +34,9 @@ export const ModalFooter = ({
       <div className={`${classes.buttonContainer} ${className ?? ""}`}>
         {children}
 
-        {/* wrapper cuidando do clique */}
         <div onClick={handleConfirmClick}>
           <Button
-            className={classes.button}
+            className={`${classes.button} ${confirmButtonClassName ?? ""}`}
             hierarchy="primary"
             icon="off"
             size="small"

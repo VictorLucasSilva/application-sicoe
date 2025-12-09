@@ -1,7 +1,7 @@
 import { type JSX } from "react";
 import type React from "react";
 
-import { ArrowDropDown } from "../../../ArrowDropdown";
+import { ArrowDropDown } from "../../../../general-components/ArrowDropdown";
 import { Button } from "../../../../general-components/Button";
 import { Divider } from "../../../../general-components/Divider";
 import { IconClear } from "../../../../general-components/IconSvg/IconClear";
@@ -24,7 +24,6 @@ export const ModalWriteUserRelation = ({
   const handleCardClick = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
   ): void => {
-    // não fecha ao clicar dentro do card
     event.stopPropagation();
   };
 
@@ -35,7 +34,6 @@ export const ModalWriteUserRelation = ({
   return (
     <div className={classes.overlay} onClick={handleOverlayClick}>
       <div className={classes.modal} onClick={handleCardClick}>
-        {/* HEADER */}
         <header className={classes.header}>
           <div className={classes.headerTop}>
             <div className={classes.title}>Acesso aos Estabelecimentos</div>
@@ -64,9 +62,7 @@ export const ModalWriteUserRelation = ({
           />
         </header>
 
-        {/* CONTEÚDO */}
         <div className={classes.content}>
-          {/* BLOCO "USUÁRIO" + TEXT FIELD */}
           <div className={classes.userBlock}>
             <div className={classes.userLabel}>Usuário</div>
 
@@ -76,7 +72,6 @@ export const ModalWriteUserRelation = ({
             </div>
           </div>
 
-          {/* DROPDOWN COM MÚLTIPLA SELEÇÃO (FECHADO, SÓ COM CHIPS) */}
           <div className={classes.dropdownSection}>
             <div className={classes.dropdownLabel}>
               Dropdown com múltipla seleção – com mais itens
@@ -84,9 +79,9 @@ export const ModalWriteUserRelation = ({
 
             <div className={classes.dropdownField}>
               <div className={classes.chipsRow}>
-                <span className={classes.chip}>Opção 1 ×</span>
-                <span className={classes.chip}>Opção 2 ×</span>
-                <span className={classes.chip}>Opção 5 ×</span>
+                <button className={classes.chip}>Opção 1 ×</button>
+                <button className={classes.chip}>Opção 2 ×</button>
+                <button className={classes.chip}>Opção 5 ×</button>
               </div>
 
               <div className={classes.dropdownIcons}>
@@ -110,7 +105,6 @@ export const ModalWriteUserRelation = ({
           </div>
         </div>
 
-        {/* FOOTER */}
         <footer className={classes.footer}>
           <Divider
             className={{

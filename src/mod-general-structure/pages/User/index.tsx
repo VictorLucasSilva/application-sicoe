@@ -4,7 +4,7 @@ import { Footer } from "../../components/general-components/Footer";
 import { Screen } from "../../components/components/ScreenUser";
 import classes from "./styles.module.css";
 
-export function ScreenUser() {
+export function User() {
   useEffect(() => {
     document.title = "SICOE - Sistema de Controle de Estabelecimento";
   }, []);
@@ -13,7 +13,7 @@ export function ScreenUser() {
     <div className={classes.page}>
       <Header theme="dark" type="main" className={{}} logotipoVector="vector-4.svg" />
       <main className={classes.main}>
-        <Screen />
+      <Screen />
       </main>
       <Footer />
     </div>

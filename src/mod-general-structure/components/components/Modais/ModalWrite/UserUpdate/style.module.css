@@ -1,4 +1,3 @@
-/* OVERLAY ESCURO POR TRÁS DO MODAL */
 .overlay {
   position: fixed;
   inset: 0;
@@ -9,7 +8,6 @@
   z-index: 1000;
 }
 
-/* CARD DO MODAL */
 .modalEditar {
   background-color: var(--neutralhighpure);
   border-radius: 16px;
@@ -21,7 +19,6 @@
   max-height: calc(100vh - 96px);
 }
 
-/* CABEÇALHO */
 .header {
   align-items: flex-start;
   align-self: stretch;
@@ -52,7 +49,6 @@
   margin-top: -1px;
 }
 
-/* BOTÃO DE FECHAR (X) */
 .closeButton {
   border: none;
   background: transparent;
@@ -67,7 +63,6 @@
   color: var(--neutrallowdarkest);
 }
 
-/* CONTEÚDO */
 .content {
   align-items: flex-start;
   align-self: stretch;
@@ -90,7 +85,6 @@
   margin-top: -1px;
 }
 
-/* LINHA COM PERFIL / VIGÊNCIA */
 .fieldsRow {
   align-items: flex-end;
   align-self: stretch;
@@ -120,6 +114,8 @@
   display: flex;
   gap: 8px;
   margin-top: 4px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid rgb(182, 182, 182);
 }
 
 .fieldPlaceholder {
@@ -136,7 +132,6 @@
   height: 24px;
 }
 
-/* RODAPÉ */
 .footer {
   align-items: flex-start;
   align-self: stretch;

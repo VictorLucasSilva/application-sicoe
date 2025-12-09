@@ -1,7 +1,7 @@
 import { type CSSProperties, type JSX } from "react";
-import { ArrowDropDown } from "../ArrowDropdown";
+import { ArrowDropDown } from "../../general-components/ArrowDropdown";
 import { PagerAssets } from "../PagerAssets";
-import linha3 from "../../../assets/images/Lock.svg";
+import linha3 from "../../../assets/icons/icon-no-mod/no-mod-login-lock.svg"
 import classes from "./style.module.css";
 
 type Props = {

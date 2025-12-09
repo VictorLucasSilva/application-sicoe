@@ -1,4 +1,3 @@
-/* OVERLAY ESCURECIDO IGUAL OUTROS MODAIS */
 .overlay {
   position: fixed;
   inset: 0;
@@ -10,7 +9,6 @@
   background-color: rgba(0, 0, 0, 0.35);
 }
 
-/* CARD DO MODAL – MESMO ESTILO DO EDITAR USUÁRIO */
 .modal {
   background-color: var(--neutralhighpure);
   border-radius: 16px;
@@ -22,7 +20,6 @@
   max-height: calc(100vh - 96px);
 }
 
-/* HEADER */
 .header {
   align-items: flex-start;
   align-self: stretch;
@@ -57,7 +54,6 @@
   width: fit-content;
 }
 
-/* BOTÃO X */
 .closeButton {
   background: transparent;
   border: none;
@@ -71,7 +67,6 @@
   color: var(--neutrallowdarkest);
 }
 
-/* CONTEÚDO GERAL */
 .content {
   align-items: flex-start;
   align-self: stretch;
@@ -82,7 +77,6 @@
   width: 100%;
 }
 
-/* BLOCO "USUÁRIO" */
 .userBlock {
   display: flex;
   flex-direction: column;
@@ -101,7 +95,6 @@
   margin-top: -1px;
 }
 
-/* TEXT FIELD "TEXT FIELD ATIVO" */
 .textField {
   display: flex;
   flex-direction: column;
@@ -129,7 +122,6 @@
   border-bottom: 2px solid var(--brandprimarypure);
 }
 
-/* DROPDOWN COM MÚLTIPLA SELEÇÃO (FECHADO) */
 .dropdownSection {
   width: 100%;
   display: flex;
@@ -147,7 +139,6 @@
   line-height: var(--caption-XS-regular-line-height);
 }
 
-/* LINHA COM OS CHIPS + ÍCONES À DIREITA */
 .dropdownField {
   display: flex;
   align-items: center;
@@ -170,6 +161,9 @@
   font-weight: var(--body-MD-regular-font-weight);
   line-height: var(--body-MD-regular-line-height);
   color: var(--colors-neutral-low-darkest);
+  border-radius: 20px;
+  border: 1px solid var(--colors-neutral-low-darkest);
+  padding: 10px;
 }
 
 .dropdownIcons {
@@ -178,7 +172,6 @@
   gap: 4px;
 }
 
-/* FOOTER */
 .footer {
   align-items: flex-start;
   align-self: stretch;

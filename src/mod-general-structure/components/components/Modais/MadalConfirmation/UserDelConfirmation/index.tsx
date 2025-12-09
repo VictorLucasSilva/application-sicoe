@@ -20,16 +20,18 @@ export const UserDelConfirmation = ({
   const handleCardClick = (
     event: ReactMouseEvent<HTMLDivElement>,
   ): void => {
-    // não fecha ao clicar dentro do card
     event.stopPropagation();
   };
 
   return (
     <div className={classes.overlay} onClick={handleOverlayClick}>
       <div className={classes.modal} onClick={handleCardClick}>
-        <ModalHeader>Confirmar Ação</ModalHeader>
+      <ModalHeader>
+        <span className={classes.redText}>Confirmar Ação</span>
+      </ModalHeader>
         <ModalScreen />
-        <ModalFooter onConfirm={onConfirm} />
+        <ModalFooter onConfirm={onConfirm} 
+        confirmButtonClassName={classes.dangerButton} />
       </div>
     </div>
   );

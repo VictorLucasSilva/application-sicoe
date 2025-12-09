@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Header } from "../../components/general-components/Header";
 import { Footer } from "../../components/general-components/Footer";
-import { Home as HomeScreen } from "../../components/components/Home";
+import { ScreenHome } from "../../components/components/Home";
 import classes from "./styles.module.css";
 
 export function Home() {
@@ -13,7 +13,7 @@ export function Home() {
     <div className={classes.page}>
       <Header theme="dark" type="main" className={{}} logotipoVector="vector-4.svg" />
       <main className={classes.main}>
-        <HomeScreen />
+        <ScreenHome />
       </main>
       <Footer />
     </div>

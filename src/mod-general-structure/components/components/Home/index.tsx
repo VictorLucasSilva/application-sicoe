@@ -4,7 +4,7 @@ import { LogoContracts } from "../LogoContracts";
 import { LogoEstablishment } from "../LogoEstablishment";
 import classes from "./styles.module.css";
 
-export const Home = (): JSX.Element => {
+export const ScreenHome = (): JSX.Element => {
   return (
     <section className={classes.wrapper}>
       <header className={classes.hero}>

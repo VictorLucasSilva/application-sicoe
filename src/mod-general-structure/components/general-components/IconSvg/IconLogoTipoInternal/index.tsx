@@ -1,6 +1,6 @@
 import  { type JSX } from "react";
 import classes from "./style.module.css";
-import vector from "../../../../../../public/images/Filter.svg"
+import vector from "../../../../../../public/icons/filter.svg";
 
 type IconLogotipoInternalProps = {
     className?: String;

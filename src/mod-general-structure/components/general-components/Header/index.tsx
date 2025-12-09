@@ -4,12 +4,12 @@ import { Divider } from "../Divider";
 import { Logo } from "../Logo";
 import { Text } from "../Text";
 
-import area2 from "../../../assets/images/Lock.svg";
-import area3 from "../../../assets/images/Lock.svg";
-import area4 from "../../../assets/images/Lock.svg";
-import area5 from "../../../assets/images/Lock.svg";
-import area6 from "../../../assets/images/Lock.svg";
-import area from "../../../assets/images/Avatar.svg";
+import area2 from "../../../assets/icons/icon-no-mod/no-mod-login-lock.svg";
+import area3 from "../../../assets/icons/icon-no-mod/no-mod-login-avatar.svg";
+import area4 from "../../../assets/icons/icon-no-mod/no-mod-login-lock.svg";
+import area5 from "../../../assets/icons/icon-no-mod/no-mod-login-lock.svg";
+import area6 from "../../../assets/icons/icon-no-mod/no-mod-login-avatar.svg";
+import area from "../../../assets/icons/icon-no-mod/no-mod-login-avatar.svg";
 
 import classes from "./styles.module.css";
 
@@ -132,7 +132,7 @@ export const Header = ({
                     <img
                       className={classes.vectorImage}
                       alt="Vector"
-                      src="../../../../../public/images/Logotipo.svg" 
+                      src="../../../../../public/icons/logo-yellow.svg"
                     />
                   </div>
                   <div className={classes.titleContainer}>
@@ -192,7 +192,7 @@ export const Header = ({
               <img
                 className={classes.loginImage}
                 alt="Vector"
-                src="../../../../../public/images/Logotipo.svg" 
+                src="../../../../../public/icons/logo-yellow.svg"
               />
             )}
           </div>

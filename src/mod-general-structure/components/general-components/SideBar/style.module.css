@@ -1,0 +1,110 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--sombras-shadow-hover);
+  height: 231px;
+  padding: 8px 0px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.level-primary {
+  align-items: flex-start;
+  width: 339px;
+}
+.level-collapsed {
+  align-items: center;
+  width: 64px;
+}
+.theme-dark {
+  background-color: var(--colors-neutral-mid-dark);
+}
+.theme-light {
+  background-color: var(--colors-neutral-high-pure);
+}
+.level-primary.selected-PCA.theme-dark,
+.level-primary.selected-default.theme-dark.type-estab,
+.level-primary.selected-default.theme-light {
+  left: 152px;
+}
+.level-collapsed.selected-home.theme-light.type-cont,
+.level-collapsed.selected-home.type-estab {
+  left: 555px;
+}
+.level-primary.selected-home.theme-dark.type-estab,
+.level-primary.selected-home.theme-light {
+  left: 683px;
+}
+.level-collapsed.selected-PCA,
+.level-collapsed.selected-documentos {
+  left: 1086px;
+}
+.level-primary.selected-PCA,
+.level-primary.selected-documentos {
+  left: 1214px;
+}
+.level-collapsed.selected-default,
+.level-collapsed.selected-unidades {
+  left: 1617px;
+}
+.level-primary.selected-default,
+.level-primary.selected-unidades {
+  left: 1745px;
+}
+.level-collapsed.selected-estabelecimentos,
+.level-collapsed.selected-home {
+  left: 2148px;
+}
+.level-primary.selected-estabelecimentos,
+.level-primary.selected-home {
+  left: 2276px;
+}
+.type-estab.theme-light {
+  top: 24px;
+}
+.type-estab.theme-dark {
+  top: 319px;
+}
+.selected-PCA.theme-light,
+.selected-default.type-cont,
+.selected-home.type-cont {
+  top: 614px;
+}
+.theme-dark.selected-PCA {
+  top: 909px;
+}
+.menuItem {
+  align-self: stretch;
+  height: 56px;
+  position: relative;
+  width: 100%;
+}
+.menuItemDefault {
+  background-color: var(--colors-neutral-mid-pure);
+}
+.menuItemSelectedDark {
+  background-color: var(--colors-neutral-mid-darker);
+}
+.menuItemLast {
+  margin-bottom: -10px;
+}
+.divider {
+  background-color: var(--neutralhighlighter);
+  height: 1px;
+  position: relative;
+}
+.dividerCollapsed {
+  align-self: stretch;
+  width: 100%;
+}
+.dividerPrimary {
+  width: 296px;
+}
+.emptyMenuItem {
+  align-self: stretch;
+  height: 56px;
+  position: relative;
+  width: 100%;
+}
+.emptyMenuItemLast {
+  margin-bottom: -10px;
+}

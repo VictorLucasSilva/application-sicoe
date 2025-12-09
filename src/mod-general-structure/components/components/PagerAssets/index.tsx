@@ -1,7 +1,7 @@
 // src/mod-general-structure/components/components/PagerAssets/index.tsx
 import { type CSSProperties, type JSX } from "react";
-import { ChevronLeft } from "../ChevronLeft";
-import { ChevronRight } from "../ChevronRight";
+import { ChevronLeft } from "../../general-components/ChevronLeft";
+import { ChevronRight } from "../../general-components/ChevronRight";
 import classes from "./style.module.css";
 
 type Props = {

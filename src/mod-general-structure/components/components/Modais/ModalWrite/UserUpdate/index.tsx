@@ -1,5 +1,5 @@
 import { type JSX } from "react";
-import { ArrowDropDown } from "../../../ArrowDropdown";
+import { ArrowDropDown } from "../../../../general-components/ArrowDropdown";
 import { Button } from "../../../../general-components/Button";
 import { Divider } from "../../../../general-components/Divider";
 import { IconCalendar } from "../../../../general-components/IconSvg/IconCalendar";
@@ -19,7 +19,6 @@ export const ModalWriteUserUpdate = ({ onClose, onSave }: Props): JSX.Element =>
   const handleCardClick = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
   ): void => {
-    // impede fechar ao clicar dentro do card
     event.stopPropagation();
   };
 
@@ -30,7 +29,6 @@ export const ModalWriteUserUpdate = ({ onClose, onSave }: Props): JSX.Element =>
   return (
     <div className={classes.overlay} onClick={handleOverlayClick}>
       <div className={classes.modalEditar} onClick={handleCardClick}>
-        {/* HEADER */}
         <header className={classes.header}>
           <div className={classes.headerTop}>
             <h2 className={classes.title}>Editar Usuário</h2>
@@ -59,12 +57,9 @@ export const ModalWriteUserUpdate = ({ onClose, onSave }: Props): JSX.Element =>
           />
         </header>
 
-        {/* CONTEÚDO */}
         <div className={classes.content}>
           <div className={classes.userLabel}>Usuário</div>
-
           <div className={classes.fieldsRow}>
-            {/* PERFIL */}
             <div className={classes.field}>
               <div className={classes.fieldLabel}>Perfil</div>
               <div className={classes.fieldInput}>
@@ -80,7 +75,6 @@ export const ModalWriteUserUpdate = ({ onClose, onSave }: Props): JSX.Element =>
               </div>
             </div>
 
-            {/* VIGÊNCIA */}
             <div className={classes.field}>
               <div className={classes.fieldLabel}>Vigência</div>
               <div className={classes.fieldInput}>
@@ -92,27 +86,14 @@ export const ModalWriteUserUpdate = ({ onClose, onSave }: Props): JSX.Element =>
                     position: "relative",
                     width: "24px",
                   }}
-                  opacity="0.25"
+                  opacity="0.90"
                 />
               </div>
             </div>
           </div>
         </div>
 
-        {/* FOOTER */}
         <footer className={classes.footer}>
-          <Divider
-            className={{
-              alignSelf: "stretch",
-              left: "unset",
-              top: "unset",
-              width: "100%",
-            }}
-            color="low-lighter"
-            orientation="horizontal"
-            size="small"
-            theme="light"
-          />
 
           <div className={classes.footerButtons}>
             <Button

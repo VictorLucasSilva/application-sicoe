@@ -1,6 +1,6 @@
 import { type JSX } from "react";
 import classes from "./styles.module.css";
-import person from "../../../assets/images/Person.svg";
+import person from "../../../assets/icons/icon-no-mod/no-mod-login-person.svg";
 
 type PersonProps = {
   className?: string;

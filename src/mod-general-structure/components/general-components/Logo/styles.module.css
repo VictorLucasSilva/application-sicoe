@@ -2,7 +2,7 @@
 .image {
   height: 40px;
   width: 29px;
-  position: relative; /* era fixed */
+  position: relative; 
   top: 0;
   left: 0;
   display: block;

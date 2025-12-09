@@ -2,9 +2,9 @@
 import { type JSX } from "react";
 import { TableCell } from "../../TableCell";
 import classes from "./style.module.css";
-import estuser from "../../../../assets/images/Button.svg";
-import update from "../../../../assets/images/Update.svg";
-import exclude from "../../../../assets/images/Exclude.svg";
+import estuser from "../../../../assets/icons/icon-no-mod/no-mod-user-estab-plus.svg";
+import update from "../../../../../../public/icons/pen.svg";
+import exclude from "../../../../assets/icons/icon-no-mod/no-mod-user-block.svg";
 
 const rows = Array.from({ length: 10 });
 

@@ -1,0 +1,77 @@
+.container {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  left: 16px;
+  padding: 8px 16px;
+  position: relative;
+  top: 16px;
+  width: 296px;
+}
+.hoverLight {
+  background-color: var(--neutrallowlightest);
+  top: 88px;
+}
+.pressedLight {
+  background-color: var(--neutrallowlighter);
+  top: 160px;
+}
+.selectedLight {
+  background-color: var(--colors-neutral-mid-pure);
+  top: 232px;
+}
+.hoverDark {
+  background-color: var(--colors-neutral-high-lightest);
+  top: 376px;
+}
+.pressedDark {
+  background-color: var(--colors-neutral-high-lighter);
+  top: 448px;
+}
+.selectedDark {
+  background-color: var(--colors-neutral-mid-darker);
+  top: 520px;
+}
+.indicator {
+  height: 40px;
+  position: relative;
+  width: 4px;
+}
+.indicatorSelectedLight {
+  background-color: var(--brandprimarypure);
+}
+.indicatorSelectedDark {
+  background-color: var(--brandsecondarypure);
+}
+.textWrapper {
+  align-items: flex-start;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+}
+.text {
+  font-family: var(--body-MD-medium-font-family);
+  font-size: var(--body-MD-medium-font-size);
+  font-style: var(--body-MD-medium-font-style);
+  font-weight: var(--body-MD-medium-font-weight);
+  letter-spacing: var(--body-MD-medium-letter-spacing);
+  line-height: var(--body-MD-medium-line-height);
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+.textSelectedLight {
+  color: var(--brandprimarypure);
+}
+.textDark {
+  color: var(--neutralhighdarkest);
+}
+.textSelectedDark {
+  color: var(--brandsecondarypure);
+}
+.textDefault {
+  color: var(--neutrallowdarkest);
+}

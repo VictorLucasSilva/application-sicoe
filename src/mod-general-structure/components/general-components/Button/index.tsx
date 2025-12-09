@@ -1,4 +1,3 @@
-// src/mod-general-structure/components/general-components/Button/index.tsx
 import { type JSX, type ReactNode, type CSSProperties } from "react";
 import classes from "./styles.module.css";
 
@@ -13,9 +12,9 @@ type ButtonProps = {
   text?: string;
   text1?: string;
   theme?: string;
-  iconLeft?: ReactNode;      // ícone opcional à esquerda do texto
-  iconRight?: ReactNode;     // se você quiser usar depois
-  onClick?: () => void;      // 👈 importante
+  iconLeft?: ReactNode;      
+  iconRight?: ReactNode;     
+  onClick?: () => void;      
 };
 
 export const Button = ({
@@ -24,11 +23,9 @@ export const Button = ({
   iconLeft,
   onClick,
 }: ButtonProps): JSX.Element => {
-  // se className for string, uso como classe
   const classNameString =
     typeof className === "string" ? className : "";
 
-  // se className for objeto, uso como style inline
   const style: CSSProperties | undefined =
     className && typeof className === "object"
       ? className

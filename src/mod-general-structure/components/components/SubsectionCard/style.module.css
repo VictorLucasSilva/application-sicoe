@@ -1,0 +1,16 @@
+.container {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  position: relative;
+}
+.section {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  gap: 16px;
+  height: 101.25px;
+  padding: 8px 0px;
+  position: relative;
+}

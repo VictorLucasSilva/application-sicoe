@@ -12,7 +12,7 @@ export const LogoContracts = ({
 }: Props) => {
   return (
     <img
-      src="/images/LogoContracts.svg"
+      src="/icons/logo-contract.svg" 
       alt="Monitoramento de Contratos"
       style={{
         width: size,

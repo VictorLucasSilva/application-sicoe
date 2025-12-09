@@ -1,0 +1,65 @@
+.container {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  left: 20px;
+  position: relative;
+}
+.containerDark {
+  top: 90px;
+  width: 424px;
+}
+.containerLight {
+  top: 20px;
+  width: 432px;
+}
+.group {
+  position: relative;
+  width: 54px;
+}
+.groupDark {
+  height: 42.91px;
+}
+.groupLight {
+  height: 42px;
+}
+.polygon {
+  height: 37px;
+  left: 0;
+  position: absolute;
+  width: 54px;
+}
+.polygonLight {
+  top: 5px;
+}
+.polygonDark {
+  top: 6px;
+}
+.darkIcon {
+  height: 32px;
+  left: 20px;
+  position: absolute;
+  top: 0;
+  width: 32px;
+}
+.textWrapper {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  font-family: "BancoDoBrasil Titulos-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  height: 50px;
+  justify-content: center;
+  letter-spacing: 0;
+  line-height: 51.2px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+}
+.textWrapperDark {
+  color: var(--colors-neutral-high-darkest);
+}
+.textWrapperLight {
+  color: var(--colors-brand-primary-pure);
+}

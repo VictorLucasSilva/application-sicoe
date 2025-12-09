@@ -1,0 +1,101 @@
+.microCard {
+  align-items: center;
+  border: 2px solid;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100px;
+  justify-content: center;
+  position: relative;
+  width: 164px;
+}
+.themeLight {
+  background-color: var(--colors-neutral-high-pure);
+}
+.themeDark {
+  background-color: var(--colors-neutral-low-pure);
+}
+.elevationOff.themeLight {
+  border-color: var(--colors-neutral-low-lighter);
+  left: 18px;
+  top: 18px;
+}
+.elevationOff.themeDark {
+  border-color: var(--colors-neutral-high-lighter);
+  left: 18px;
+  top: 130px;
+}
+.elevationOn.themeLight {
+  border-color: var(--colors-neutral-low-light);
+  box-shadow: var(--sombras-shadow-level-2);
+  left: 194px;
+  top: 18px;
+}
+.elevationOn.themeDark {
+  border-color: var(--colors-neutral-high-light);
+  left: 194px;
+  top: 130px;
+}
+.titleContainer {
+  align-items: center;
+  align-self: stretch;
+  border-radius: 8px;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  justify-content: center;
+  padding: 0px 16px;
+  position: relative;
+  width: 100%;
+}
+.titleText {
+  font-family: "BancoDoBrasil Titulos-Medium", Helvetica;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 32.2px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+.titleTextLight {
+  color: var(--neutrallowdarkest);
+}
+.titleTextDark {
+  color: var(--neutralhighdarkest);
+}
+.complementaryContainer {
+  align-items: center;
+  align-self: stretch;
+  border-radius: 8px;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  justify-content: center;
+  padding: 0px 16px;
+  position: relative;
+  width: 100%;
+}
+.iconPlaceholder {
+  height: 24px;
+  position: relative;
+  width: 24px;
+}
+.complementaryText {
+  font-family: "BancoDoBrasil Textos-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 21.4px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+.complementaryTextLight {
+  color: var(--colors-neutral-low-medium);
+}
+.complementaryTextDark {
+  color: var(--neutralhighmedium);
+}

@@ -4,10 +4,10 @@ import classes from "./styles.module.css";
 type LogotipoProps = {
   application?: string;
   color?: string;
-  className?: CSSProperties;  // você passa um objeto de estilo
+  className?: CSSProperties;  
   orientation?: string;
   size?: string;
-  vector?: string;            // por enquanto não usamos, se quiser depois ajustamos
+  vector?: string;            
 };
 
 export const Logo = ({ className }: LogotipoProps): JSX.Element => {
@@ -16,7 +16,7 @@ export const Logo = ({ className }: LogotipoProps): JSX.Element => {
       <img
         className={classes.image}
         alt="Vector"
-        src="/images/Logotipo.svg"   // asset em public/images
+        src="/icons/logo-yellow.svg"
       />
     </div>
   );

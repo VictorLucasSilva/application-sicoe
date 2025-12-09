@@ -1,0 +1,16 @@
+.container {
+  background-image: url(vector.svg);
+  background-size: 100% 100%;
+  height: 24px;
+  left: -4117px;
+  position: relative;
+  top: -7564px;
+  width: 24px;
+}
+.image {
+  height: 50%;
+  left: 12.5%;
+  position: absolute;
+  top: 25%;
+  width: 75%;
+}
