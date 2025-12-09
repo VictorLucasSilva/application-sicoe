@@ -1,56 +1,57 @@
+/* src/mod-general-structure/components/general-components/SidebarAssets/style.module.css */
+
 .container {
-  align-items: center;
   display: flex;
-  gap: 8px;
-  left: 16px;
-  padding: 8px 16px;
-  position: relative;
-  top: 16px;
-  width: 296px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
-.hoverLight {
-  background-color: var(--neutrallowlightest);
-  top: 88px;
+
+/* Tema claro / escuro */
+.light {
+  background-color: transparent;
 }
-.pressedLight {
-  background-color: var(--neutrallowlighter);
-  top: 160px;
+
+.light:hover {
+  background-color: #e9ecff; /* hover leve, igual protótipo */
 }
+
+.dark {
+  background-color: transparent;
+}
+
+.dark:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Selecionado */
 .selectedLight {
-  background-color: var(--colors-neutral-mid-pure);
-  top: 232px;
+  background-color: #ebebeb;
 }
-.hoverDark {
-  background-color: var(--colors-neutral-high-lightest);
-  top: 376px;
-}
-.pressedDark {
-  background-color: var(--colors-neutral-high-lighter);
-  top: 448px;
-}
-.selectedDark {
-  background-color: var(--colors-neutral-mid-darker);
-  top: 520px;
-}
+
+
+/* Barrinha amarela da seleção */
 .indicator {
-  height: 40px;
-  position: relative;
-  width: 4px;
+  width: 3px;
+  height: 28px;
+  border-radius: 999px;
+  background-color: transparent;
 }
-.indicatorSelectedLight {
-  background-color: var(--brandprimarypure);
+
+.indicatorSelected {
+  background-color: #465eff; /* amarelo da maquete */
 }
-.indicatorSelectedDark {
-  background-color: var(--brandsecondarypure);
-}
+
+/* Texto do item */
 .textWrapper {
-  align-items: flex-start;
   display: flex;
   flex: 1;
-  flex-direction: column;
-  flex-grow: 1;
-  position: relative;
+  align-items: center;
 }
+
 .text {
   font-family: var(--body-MD-medium-font-family);
   font-size: var(--body-MD-medium-font-size);
@@ -58,20 +59,10 @@
   font-weight: var(--body-MD-medium-font-weight);
   letter-spacing: var(--body-MD-medium-letter-spacing);
   line-height: var(--body-MD-medium-line-height);
-  margin-top: -1px;
-  position: relative;
   white-space: nowrap;
-  width: fit-content;
+  color: #4a4a4a;
 }
-.textSelectedLight {
-  color: var(--brandprimarypure);
-}
-.textDark {
-  color: var(--neutralhighdarkest);
-}
-.textSelectedDark {
-  color: var(--brandsecondarypure);
-}
-.textDefault {
-  color: var(--neutrallowdarkest);
+
+.textSelected {
+  color: #465eff; /* azul do layout */
 }

@@ -1,8 +1,8 @@
 // src/mod-general-structure/components/components/IconTableHeader/index.tsx
 import { type JSX } from "react";
 import classes from "./style.module.css";
-import Down from "../../../../../public/icons/arrow-down-filled.svg"
-import Up from "../../../../../public/icons/arrow-up-filled.svg"
+import Down from "../../../../../../public/icons/arrow-down-filled.svg"
+import Up from "../../../../../../public/icons/arrow-up-filled.svg"
 
 type Props = {
   className?: string; // permite passar classes extras
