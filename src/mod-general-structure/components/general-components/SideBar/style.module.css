@@ -29,5 +29,4 @@
   flex-direction: column;
   gap: 4px;
   width: 100%;
-  padding-top: 24px; /* distância do header até o primeiro item */
 }

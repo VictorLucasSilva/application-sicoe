@@ -1,6 +1,6 @@
 import { type JSX } from "react";
 import classes from "./style.module.css";
-import vector from "../../../../../../public/icons/filter.svg";
+import vector from "../../../../assets/icons/icon-contract/contract-sidebar-home.svg";
 
 type IconHomeContractProps = {
   className: object;

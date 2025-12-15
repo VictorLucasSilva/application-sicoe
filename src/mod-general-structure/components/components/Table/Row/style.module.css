@@ -7,7 +7,6 @@
   padding: 0 6rem;
 }
 
-/* AUDIT (6 colunas) */
 .row {
   display: flex;
   align-items: center;
@@ -32,7 +31,6 @@
   max-width: 20%;
 }
 
-/* EMAIL (5 colunas) */
 .rowemail {
   display: flex;
   align-items: center;
@@ -56,7 +54,6 @@
   max-width: 21%;
 }
 
-/* USERS (7 colunas: Nome, Usuário, UOR, Perfil, Status, Fim, Ícones) */
 .rowUser {
   display: flex;
   align-items: center;
@@ -90,7 +87,6 @@
   padding: 6px 12px;
 }
 
-/* STATUS – radio + texto "Ativo" */
 .statusCell {
   display: flex;
   align-items: center;
@@ -116,7 +112,6 @@
   color: var(--neutrallowdarkest);
 }
 
-/* ÍCONES DA ÚLTIMA COLUNA */
 .actionsCell {
   display: flex;
   align-items: center;
@@ -130,7 +125,6 @@
   cursor: pointer;
 }
 
-/* Tag Label (tela de usuários) */
 .tagCell {
   display: flex;
   align-items: center;
@@ -151,16 +145,14 @@
   white-space: nowrap;
 }
 
-/* ---------- OVERLAY DO MODAL EDITAR USUÁRIO ---------- */
-
 .modalOverlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.25); /* fundo escurecido */
+  background-color: rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2000; /* acima da tela toda */
+  z-index: 2000; 
 }
 
 .modalWrapper {

@@ -5,6 +5,7 @@ import classes from "./style.module.css";
 import estuser from "../../../../assets/icons/icon-no-mod/no-mod-user-estab-plus.svg";
 import update from "../../../../../../public/icons/pen.svg";
 import exclude from "../../../../assets/icons/icon-no-mod/no-mod-user-block.svg";
+import { Radio } from "../../Radio";
 
 const rows = Array.from({ length: 10 });
 
@@ -51,12 +52,10 @@ export const RowTableEmail = (): JSX.Element => {
   );
 };
 
-/* ---- USERS ---- */
-
 type RowTableUserProps = {
   onEditClick?: () => void;
   onDeleteClick?: () => void;
-  onRelationClick?: () => void; // 👈 NOVO
+  onRelationClick?: () => void; 
 };
 
 export const RowTableUser = ({
@@ -68,34 +67,22 @@ export const RowTableUser = ({
     <div className={classes.tableBody}>
       {rows.map((_, index) => (
         <div key={index} className={classes.rowUser}>
-          {/* Nome */}
           <TableCell spacing="default" text="Texto" type="text-1-line" />
-          {/* Usuário */}
           <TableCell spacing="default" text="Texto" type="text-1-line" />
-          {/* UOR */}
           <TableCell spacing="default" text="Texto" type="text-1-line" />
-          {/* Perfil - Tag Label preta */}
           <div className={classes.tagCell}>
             <span className={classes.tagLabel}>Tag Label</span>
           </div>
-          {/* Status - radio + texto */}
-          <div className={classes.statusCell}>
-            <input
-              type="radio"
-              className={classes.statusRadio}
-              defaultChecked
-            />
-            <span className={classes.statusLabel}>Ativo</span>
-          </div>
-          {/* Fim da Vigência */}
+          <Radio
+            label="Ativo"
+          />
           <TableCell spacing="default" text="dd/mm/aaaa" type="text-1-line" />
-          {/* Ícones de ação */}
           <div className={classes.actionsCell}>
             <img
               src={estuser}
               alt="Estabelecimentos do usuário"
               className={classes.actionIcon}
-              onClick={onRelationClick} // 👈 ABRE MODAL DE RELAÇÃO
+              onClick={onRelationClick} 
             />
             <img
               src={update}

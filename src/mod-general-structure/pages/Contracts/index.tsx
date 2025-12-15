@@ -12,7 +12,7 @@ export function ContratosHome() {
 
   return (
     <div className={classes.page}>
-      {/* HEADER AZUL IGUAL À MAQUETE */}
+
       <Header
         theme="dark"
         type="cont"
@@ -20,14 +20,8 @@ export function ContratosHome() {
         logotipoVector="vector-4.svg"
       />
 
-      {/* ÁREA ABAIXO DO HEADER = SIDEBAR + CONTEÚDO */}
       <div className={classes.content}>
-        {/* 
-          Sidebar:
-          - começa COLAPSADA (só ícones, como na 3ª imagem)
-          - fica fixa na lateral esquerda
-          - expande no hover (comportamento já implementado no componente)
-        */}
+
         <SidebarMenu
           type="cont"
           level="collapsed"
@@ -41,13 +35,11 @@ export function ContratosHome() {
           }}
         />
 
-        {/* CONTEÚDO CENTRAL (cards + lista de contratos) */}
         <main className={classes.main}>
           <ScreenContractsHome />
         </main>
       </div>
 
-      {/* FOOTER AZUL NO RODAPÉ, COMO NA 3ª IMAGEM */}
       <Footer />
     </div>
   );

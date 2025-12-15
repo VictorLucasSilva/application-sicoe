@@ -7,6 +7,7 @@ import { Divider } from "../../general-components/Divider";
 import { ButtonIcon } from "../../general-components/ButtonIcon";
 import { IconB } from "../../general-components/ButtonIcon/IconB";
 import { EmailTitleIcon } from "../../general-components/IconPage";
+import { Filter } from "../../components/Filter"
 
 import classes from "./style.module.css";
 
@@ -20,6 +21,7 @@ export const ScreenEmail = (): JSX.Element => {
           icon={<EmailTitleIcon />}
           className={classes.title}
         />
+        <Filter/>
         <div className={classes.tableCard}>
           <TableHeaderEmail />
           <RowTableEmail />

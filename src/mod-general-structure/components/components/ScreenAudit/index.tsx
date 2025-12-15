@@ -8,6 +8,7 @@ import { Divider } from "../../general-components/Divider";
 import { ButtonIcon } from "../../general-components/ButtonIcon";
 import { IconB } from "../../general-components/ButtonIcon/IconB";
 import { AuditTitleIcon } from "../../general-components/IconPage";
+import { Filter } from "../../components/Filter"
 
 import classes from "./style.module.css";
 
@@ -15,12 +16,15 @@ export const ScreenAudit = (): JSX.Element => {
   return (
     <div className={classes.screen}>
       <div className={classes.wrapper}>
+        <div className={classes.sectionTitle}>
         <PageTitle
           text="Auditoria"
           theme="light"
           icon={<AuditTitleIcon />}
           className={classes.title}
         />
+        <Filter/>
+        </div>
         <div className={classes.tableCard}>
           <TableHeader />
           <RowTableAudit />

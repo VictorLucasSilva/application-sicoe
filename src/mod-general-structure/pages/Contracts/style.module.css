@@ -1,27 +1,21 @@
 .page {
-  /* página ocupa a tela inteira, com header em cima e footer embaixo */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background: var(--colors-neutral-high-lightest);
 }
 
-/* área entre header e footer */
 .content {
   flex: 1;
   display: flex;
   align-items: stretch;
-  gap: 16px;
 }
 
-/* coluna principal (situação dos contratos + lista) */
 .main {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
-
-  /* rolagem só no conteúdo principal, não na página inteira */
   overflow-y: auto;
 }

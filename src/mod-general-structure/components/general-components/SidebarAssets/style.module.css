@@ -10,13 +10,12 @@
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Tema claro / escuro */
 .light {
   background-color: transparent;
 }
 
 .light:hover {
-  background-color: #e9ecff; /* hover leve, igual protótipo */
+  background-color: #f1f1f1; 
 }
 
 .dark {
@@ -27,13 +26,11 @@
   background-color: rgba(255, 255, 255, 0.08);
 }
 
-/* Selecionado */
 .selectedLight {
-  background-color: #ebebeb;
+  background-color: #f1f1f1;
 }
 
 
-/* Barrinha amarela da seleção */
 .indicator {
   width: 3px;
   height: 28px;
@@ -42,10 +39,9 @@
 }
 
 .indicatorSelected {
-  background-color: #465eff; /* amarelo da maquete */
+  background-color: #465eff;
 }
 
-/* Texto do item */
 .textWrapper {
   display: flex;
   flex: 1;
@@ -64,5 +60,5 @@
 }
 
 .textSelected {
-  color: #465eff; /* azul do layout */
+  color: #465eff;
 }

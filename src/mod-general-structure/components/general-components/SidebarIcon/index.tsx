@@ -1,6 +1,6 @@
 import { type JSX } from "react";
 import classes from "./style.module.css";
-import vector from "../../../assets/icons/icon-no-mod/no-mod-login-lock.svg"
+import vector from "../../../assets/icons/icon-no-mod/no-mod-login-avatar.svg"
 
 type SidebarIconProps = {
   color?: "low";

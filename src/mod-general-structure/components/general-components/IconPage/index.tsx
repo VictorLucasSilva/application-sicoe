@@ -15,7 +15,9 @@ interface IconerProps {
     | "brand-primary-lighter"
     | "brand-secondary"
     | "brand-primary-1"
-    | "brand-primary-2";
+    | "brand-primary-2"
+    | "brand-primary-cont-1"
+    | "brand-primary-cont-2";
   className?: any;
 }
 
@@ -39,6 +41,8 @@ Iconer.propTypes = {
     "brand-primary",
     "brand-primary-1",
     "brand-primary-2",
+    "brand-primary-cont-1",
+    "brand-primary-cont-2",
     "brand-primary-lighter",
     "brand-secondary",
   ]),
@@ -81,6 +85,32 @@ export const UserTitleIcon = ({ className }: TitleIconProps): JSX.Element => {
       <Iconer
         size="medium"
         color="brand-primary-2"
+        className={classes.titleIcon}
+      />
+    </div>
+  );
+};
+
+export const ContractHomeTitle1 = ({ className }: TitleIconProps): JSX.Element => {
+  return (
+    <div className={`${classes.titleIconWrapper} ${className || ""}`}>
+      <img src={polygonSvg} alt="" className={classes.titlePolygon} />
+      <Iconer
+        size="medium"
+        color="brand-primary-cont-1"
+        className={classes.titleIcon}
+      />
+    </div>
+  );
+};
+
+export const ContractHomeTitle2 = ({ className }: TitleIconProps): JSX.Element => {
+  return (
+    <div className={`${classes.titleIconWrapper} ${className || ""}`}>
+      <img src={polygonSvg} alt="" className={classes.titlePolygon} />
+      <Iconer
+        size="medium"
+        color="brand-primary-cont-2"
         className={classes.titleIcon}
       />
     </div>

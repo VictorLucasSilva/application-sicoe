@@ -1,0 +1,24 @@
+.statusCell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  box-sizing: border-box;
+}
+
+.statusRadio {
+  margin: 0;
+  width: 18px;
+  height: 18px;
+  accent-color: #000000;
+}
+
+.statusLabel {
+  font-family: var(--body-MD-regular-font-family);
+  font-size: var(--body-MD-regular-font-size);
+  font-style: var(--body-MD-regular-font-style);
+  font-weight: var(--body-MD-regular-font-weight);
+  letter-spacing: var(--body-MD-regular-letter-spacing);
+  line-height: var(--body-MD-regular-line-height);
+  color: var(--neutrallowdarkest);
+}

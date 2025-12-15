@@ -37,7 +37,7 @@ export const ModalWriteUserRelation = ({
       <div className={classes.modal} onClick={handleCardClick}>
         <header className={classes.header}>
           <div className={classes.headerTop}>
-            <div className={classes.title}>Filtro Usuário</div>
+            <div className={classes.title}>Filtro E-mail</div>
 
             <button
               type="button"
@@ -64,14 +64,36 @@ export const ModalWriteUserRelation = ({
         </header>
 
         <div className={classes.content}>
+          <div className={classes.userBlockInline}>
+            <div className={classes.userBlock}>
+              <div className={classes.userLabel}>Tipo</div>
+              <div className={classes.textField}>
+                <div className={classes.textFieldLabel}>
+                  Selecione um ou mais tipos
+                </div>
+                <div className={classes.chipsRow}>
+                  <button className={classes.chipSelected}>
+                    Em Análise | Administradores
+                  </button>
+                  <button className={classes.chip}>
+                    Pendências | Usuários
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className={classes.userBlock}>
+              <InputData title="Data" />
+            </div>
+          </div>
+
           <div className={classes.dropdownSection}>
             <div className={classes.dropdownLabel}></div>
-            <div className={classes.userLabel}>Nome</div>
+            <div className={classes.userLabel}>Destino</div>
             <div className={classes.dropdownLabel}>Itens selecionados</div>
             <div className={classes.dropdownField}>
               <div className={classes.chipsRow}>
                 <button className={classes.chipSelected}>
-                  Victor Lucas da Silva ×
+                  ext-vlucas.silva ×
                 </button>
               </div>
 
@@ -102,81 +124,55 @@ export const ModalWriteUserRelation = ({
               }}
               color="low-lighter"
               orientation="horizontal"
-              size="small"
+              size="medium"
               theme="light"
             />
           </div>
-          <div className={classes.userBlockInline}>
-            <div className={classes.userBlock}>
-              <div className={classes.userLabel}>Status</div>
-              <div className={classes.textField}>
-                <div className={classes.textFieldLabel}>
-                  Selecione um ou mais itens
-                </div>
-                <div className={classes.chipsRow}>
-                  <button className={classes.chipSelected}>Ativo</button>
-                  <button className={classes.chip}>Inativo</button>
-                </div>
+          <div className={classes.dropdownSection}>
+            <div className={classes.dropdownLabel}></div>
+            <div className={classes.userLabel}>Objeto</div>
+            <div className={classes.dropdownLabel}>Itens selecionados</div>
+            <div className={classes.dropdownField}>
+              <div className={classes.chipsRow}>
+                <button className={classes.chipSelected}>
+                  AVBC | MATRIZ ×
+                </button>
+                <button className={classes.chipSelected}>
+                  AVBC | FILIAL - BELO HORIZONTE ×
+                </button>
+              </div>
+
+              <div className={classes.dropdownIcons}>
+                <IconClear
+                  className={{
+                    height: "24px",
+                    position: "relative",
+                    width: "24px",
+                  }}
+                  opacity="0.65"
+                />
+                <ArrowDropDown
+                  className={{
+                    height: "24px",
+                    position: "relative",
+                    width: "24px",
+                  }}
+                />
               </div>
             </div>
-            <div className={classes.userBlock}>
-              <div className={classes.userLabel}>Envio de E-mail</div>
-              <div className={classes.textField}>
-                <div className={classes.textFieldLabel}>
-                  Selecione um ou mais itens
-                </div>
-                <div className={classes.chipsRow}>
-                  <button className={classes.chipSelected}>Ativo</button>
-                  <button className={classes.chip}>Inativo</button>
-                </div>
-              </div>
-            </div>
+            <Divider
+              className={{
+                alignSelf: "stretch",
+                left: "unset",
+                top: "unset",
+                width: "100%",
+              }}
+              color="low-lighter"
+              orientation="horizontal"
+              size="medium"
+              theme="light"
+            />
           </div>
-          <Divider
-            className={{
-              alignSelf: "stretch",
-              left: "unset",
-              top: "unset",
-              width: "100%",
-            }}
-            color="low-lighter"
-            orientation="horizontal"
-            size="small"
-            theme="light"
-          />
-          <div className={classes.userBlockInline}>
-            <div className={classes.userBlock}>
-              <div className={classes.userLabel}>Perfil</div>
-              <div className={classes.textField}>
-                <div className={classes.textFieldLabel}>
-                  Selecione um ou mais perfis
-                </div>
-                <div className={classes.chipsRow}>
-                  <button className={classes.chipSelected}>
-                    Administrador
-                  </button>
-                  <button className={classes.chip}>Auditor</button>
-                  <button className={classes.chip}>Gerente Regional</button>
-                  <button className={classes.chip}>Usuário</button>
-                </div>
-              </div>
-            </div>
-            <div className={classes.userBlock}>
-              <InputData title="Fim da Vigência" />
-            </div>
-          </div>
-          <Divider
-            className={{
-              alignSelf: "stretch",
-              left: "unset",
-              top: "unset",
-              width: "100%",
-            }}
-            color="low-lighter"
-            orientation="horizontal"
-            size="medium"
-            theme="light"
-          />
         </div>
         <footer className={classes.footer}>
           <div className={classes.footerButtons}>
@@ -187,7 +183,7 @@ export const ModalWriteUserRelation = ({
               size="small"
               status="default"
               text="on"
-              text1="Aplicar Filtros"
+              text1="Filtrar"
               theme="light"
               onClick={handleSaveClick}
             />

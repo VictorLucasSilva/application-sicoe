@@ -37,7 +37,7 @@ export const ModalWriteUserRelation = ({
       <div className={classes.modal} onClick={handleCardClick}>
         <header className={classes.header}>
           <div className={classes.headerTop}>
-            <div className={classes.title}>Filtro Usuário</div>
+            <div className={classes.title}>Filtro Auditoria</div>
 
             <button
               type="button"
@@ -64,14 +64,36 @@ export const ModalWriteUserRelation = ({
         </header>
 
         <div className={classes.content}>
+          <div className={classes.userBlockInline}>
+            <div className={classes.userBlock}>
+              <div className={classes.userLabel}>Perfil</div>
+              <div className={classes.textField}>
+                <div className={classes.textFieldLabel}>
+                  Selecione um ou mais perfis
+                </div>
+                <div className={classes.chipsRow}>
+                  <button className={classes.chipSelected}>
+                    Administrador
+                  </button>
+                  <button className={classes.chip}>Auditor</button>
+                  <button className={classes.chip}>Gerente Regional</button>
+                  <button className={classes.chip}>Usuário</button>
+                </div>
+              </div>
+            </div>
+            <div className={classes.userBlock}>
+              <InputData title="Data" />
+            </div>
+          </div>
+
           <div className={classes.dropdownSection}>
             <div className={classes.dropdownLabel}></div>
-            <div className={classes.userLabel}>Nome</div>
+            <div className={classes.userLabel}>Usuários</div>
             <div className={classes.dropdownLabel}>Itens selecionados</div>
             <div className={classes.dropdownField}>
               <div className={classes.chipsRow}>
                 <button className={classes.chipSelected}>
-                  Victor Lucas da Silva ×
+                  ext-vlucas.silva ×
                 </button>
               </div>
 
@@ -102,33 +124,23 @@ export const ModalWriteUserRelation = ({
               }}
               color="low-lighter"
               orientation="horizontal"
-              size="small"
+              size="medium"
               theme="light"
             />
           </div>
-          <div className={classes.userBlockInline}>
-            <div className={classes.userBlock}>
-              <div className={classes.userLabel}>Status</div>
-              <div className={classes.textField}>
-                <div className={classes.textFieldLabel}>
-                  Selecione um ou mais itens
-                </div>
-                <div className={classes.chipsRow}>
-                  <button className={classes.chipSelected}>Ativo</button>
-                  <button className={classes.chip}>Inativo</button>
-                </div>
+          <div className={classes.userBlock}>
+            <div className={classes.userLabel}>Ação</div>
+            <div className={classes.textField}>
+              <div className={classes.textFieldLabel}>
+                Selecione um ou mais itens
               </div>
-            </div>
-            <div className={classes.userBlock}>
-              <div className={classes.userLabel}>Envio de E-mail</div>
-              <div className={classes.textField}>
-                <div className={classes.textFieldLabel}>
-                  Selecione um ou mais itens
-                </div>
-                <div className={classes.chipsRow}>
-                  <button className={classes.chipSelected}>Ativo</button>
-                  <button className={classes.chip}>Inativo</button>
-                </div>
+              <div className={classes.chipsRow}>
+                <button className={classes.chip}>Cadastro</button>
+                <button className={classes.chip}>Alteração</button>
+                <button className={classes.chip}>Deleção</button>
+                <button className={classes.chip}>Liberação de Acesso</button>
+                <button className={classes.chipSelected}>Validação</button>
+                <button className={classes.chipSelected}>Invalidação</button>
               </div>
             </div>
           </div>
@@ -141,28 +153,22 @@ export const ModalWriteUserRelation = ({
             }}
             color="low-lighter"
             orientation="horizontal"
-            size="small"
+            size="medium"
             theme="light"
           />
-          <div className={classes.userBlockInline}>
-            <div className={classes.userBlock}>
-              <div className={classes.userLabel}>Perfil</div>
-              <div className={classes.textField}>
-                <div className={classes.textFieldLabel}>
-                  Selecione um ou mais perfis
-                </div>
-                <div className={classes.chipsRow}>
-                  <button className={classes.chipSelected}>
-                    Administrador
-                  </button>
-                  <button className={classes.chip}>Auditor</button>
-                  <button className={classes.chip}>Gerente Regional</button>
-                  <button className={classes.chip}>Usuário</button>
-                </div>
+          <div className={classes.userBlock}>
+            <div className={classes.userLabel}>Objeto</div>
+            <div className={classes.textField}>
+              <div className={classes.textFieldLabel}>
+                Selecione um ou mais itens
               </div>
-            </div>
-            <div className={classes.userBlock}>
-              <InputData title="Fim da Vigência" />
+              <div className={classes.chipsRow}>
+                <button className={classes.chip}>Estabelecimento</button>
+                <button className={classes.chipSelected}>Documento</button>
+                <button className={classes.chip}>Usuário</button>
+                <button className={classes.chip}>Vínculo Documento</button>
+                <button className={classes.chip}>Vínculo Usuário</button>
+              </div>
             </div>
           </div>
           <Divider

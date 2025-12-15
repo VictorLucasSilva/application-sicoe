@@ -72,6 +72,13 @@
 .variant-medium-brand-primary-2 {
   background-image: url("../../../assets/icons/icon-no-mod/no-mod-title_user.svg");
 }
+.variant-medium-brand-primary-cont-1 {
+  background-image: url("../../../assets/icons/icon-contract/contract-home-title-1.svg");
+}
+
+.variant-medium-brand-primary-cont-2 {
+  background-image: url("../../../assets/icons/icon-contract/contract-home-title-2.svg");
+}
 
 .variant-medium-brand-primary-lighter {
   background-image: url(select-all-11.svg);

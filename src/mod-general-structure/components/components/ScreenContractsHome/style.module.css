@@ -4,9 +4,9 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  background: #eeeeee; /* fundo branco igual à imagem real */
-  align-items: center; /* centraliza o container */
+  gap: 10px;
+  background: #f1f1f1; 
+  align-items: center; 
 }
 
 .section {
@@ -15,14 +15,14 @@
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 0px;
 }
 
 .sectionHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 2px;
+  padding-bottom: 20px;
 }
 
 .sectionTitleWrapper {
@@ -43,7 +43,7 @@
 .sectionMarker img {
   width: 26px;
   height: 26px;
-  filter: hue-rotate(0deg) brightness(1.1); /* deixa amarelo forte */
+  filter: hue-rotate(0deg) brightness(1.1); 
 }
 
 .sectionTitle {
@@ -55,13 +55,11 @@
   gap: 2px;
 }
 
-/* CARDS DE SITUAÇÃO */
-
 .statusGrid {
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
-  margin: 0 40px;
+  margin: 0 40px 0 50px;
   gap: 24px;
 }
 
@@ -88,8 +86,6 @@
   font-size: 13px;
   color: #757aa5;
 }
-
-/* BUSCA + FILTRO */
 
 .searchRow {
   display: flex;
@@ -124,8 +120,6 @@
   color: #c4c4c4;
 }
 
-/* BOTÃO EXIBIR FILTROS */
-
 .filterButton {
   display: inline-flex;
   align-items: center;
@@ -156,8 +150,6 @@
   align-items: center;
   justify-content: center;
 }
-
-/* LISTA DE CONTRATOS */
 
 .contractList {
   display: flex;
@@ -218,7 +210,6 @@
   background: #3f6bff;
 }
 
-/* Pequenos ajustes para telas menores (só para não quebrar feio) */
 @media (max-width: 1200px) {
   .contractRow {
     grid-template-columns: 2fr 2fr 1.5fr 1.2fr;
@@ -248,12 +239,12 @@
 }
 
 .subsectionListScroll::-webkit-scrollbar {
-  width: 4px;
+  width: 7px;
 }
 
 .subsectionListScroll::-webkit-scrollbar-thumb {
   border-radius: 999px;
-  background-color: rgba(0, 0, 0, 0.18);
+  background-color: rgba(0, 0, 0, 0.13);
 }
 
 .subsectionListScroll::-webkit-scrollbar-track {

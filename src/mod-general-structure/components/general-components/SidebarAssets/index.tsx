@@ -10,7 +10,7 @@ interface Props {
   text?: string;
   status?: "pressed" | "hover" | "selected" | "default";
   theme?: "dark" | "light";
-  className?: CSSProperties; // usado como style inline
+  className?: CSSProperties;
   override?: JSX.Element;
   onClick?: () => void;
 }

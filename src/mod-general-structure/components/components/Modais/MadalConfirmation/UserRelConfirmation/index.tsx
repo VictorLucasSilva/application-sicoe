@@ -1,8 +1,8 @@
 // src/mod-general-structure/components/components/Modais/ModalConfirmation/UserRelConfirmation/index.tsx
 import { type JSX } from "react";
-import { ModalHeader } from "../ModalHeader";
-import { ModalScreen } from "../ModalScreen";
-import { ModalFooter } from "../ModalFooter";
+import { ModalHeader } from "../../ModalBase/ModalHeader";
+import { ModalScreen } from "../../ModalBase/ModalScreen";
+import { ModalFooter } from "../../ModalBase/ModalFooter";
 import classes from "./style.module.css";
 
 type UserRelConfirmationProps = {
