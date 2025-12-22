@@ -1,0 +1,25 @@
+.container {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+}
+.circle {
+  background-color: var(--brandprimarymedium);
+  border-radius: 20px;
+  height: 40px;
+  position: relative;
+  width: 40px;
+  z-index: 1;
+}
+.line {
+  background-color: var(--brandprimarypure);
+  flex: 1;
+  flex-grow: 1;
+  margin-left: -92px;
+  margin-right: -92px;
+  position: relative;
+  transform: rotate(-90deg);
+  width: 224px;
+  z-index: 0;
+}

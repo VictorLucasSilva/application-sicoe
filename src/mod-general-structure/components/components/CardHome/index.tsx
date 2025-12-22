@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { type JSX, type CSSProperties, useReducer } from "react";
 import { LogoContracts } from "../LogoContracts";
 import classes from "./styles.module.css";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   title?: boolean;
@@ -14,6 +15,7 @@ interface Props {
   icon?: JSX.Element;
   textClassName?: CSSProperties;
   textClassNameOverride?: CSSProperties;
+  onClick?: () => void;  
 }
 
 export const CardHome = ({
@@ -30,6 +32,7 @@ export const CardHome = ({
       color="#465EFF"
     />
   ),
+  onClick,
   textClassName,
   textClassNameOverride,
 }: Props): JSX.Element => {
@@ -37,6 +40,12 @@ export const CardHome = ({
     status: status || "active",
     theme: theme || "light",
   });
+  const navigate = useNavigate(); 
+  const handleClick = () => { 
+    if (onClick) { onClick(); } 
+    else { navigate("");
+    }
+  };
 
   return (
     <div
@@ -46,6 +55,7 @@ export const CardHome = ({
       style={className}
       onMouseEnter={() => dispatch("mouse_enter")}
       onMouseLeave={() => dispatch("mouse_leave")}
+      onClick={handleClick}
       role="button"
       tabIndex={0}
     >

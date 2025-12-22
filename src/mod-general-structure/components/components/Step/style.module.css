@@ -219,15 +219,17 @@
 }
 .stepCaption-theme-dark.stepCaption-status-finished {
   flex: 1;
-  margin-right: -48px;
+  margin-right: 48px;
   width: 320px;
 }
 .stepCaption-theme-light {
   color: var(--neutrallowmedium);
 }
+
 .stepCaption-theme-dark {
   color: var(--neutralhighmedium);
 }
+
 .stepCaption-theme-dark.stepCaption-status-finished {
   font-family: var(--caption-XS-regular-font-family);
   font-size: var(--caption-XS-regular-font-size);

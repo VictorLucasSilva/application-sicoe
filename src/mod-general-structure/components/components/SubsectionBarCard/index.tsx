@@ -1,6 +1,11 @@
 import { type JSX } from "react";
 import { ContBarCard } from "../ContBar";
-export const SubsectionBarCard = (): JSX.Element => {
+
+type SubsectionBarCardProps = {
+  onInfoContractClick: () => void;
+} 
+
+export const SubsectionBarCard = ({ onInfoContractClick }: SubsectionBarCardProps): JSX.Element => {
   return (
     <div
       style={{
@@ -17,6 +22,7 @@ export const SubsectionBarCard = (): JSX.Element => {
         position: "relative",
         width: "100%",
       }}
+      onClick={onInfoContractClick}
     >
       <ContBarCard
         className={{
@@ -28,6 +34,7 @@ export const SubsectionBarCard = (): JSX.Element => {
           minWidth: "160px",
           top: "unset",
           width: "100%",
+          
         }}
         elevation="off"
         progress="zero"

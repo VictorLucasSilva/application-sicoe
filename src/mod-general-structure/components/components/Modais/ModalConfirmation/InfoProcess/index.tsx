@@ -37,7 +37,7 @@ export const ModalWriteUserRelation = ({
       <div className={classes.modal} onClick={handleCardClick}>
         <header className={classes.header}>
           <div className={classes.headerTop}>
-            <div className={classes.title}></div>
+            <div className={classes.title}>Acesso aos Estabelecimentos</div>
 
             <button
               type="button"

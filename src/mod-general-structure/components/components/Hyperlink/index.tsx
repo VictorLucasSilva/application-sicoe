@@ -1,13 +1,15 @@
 import PropTypes from "prop-types";
 import { type JSX } from "react";
 import { useReducer } from "react";
-import classes from "./Hyperlink.module.css";
+import classes from "./style.module.css";
+
 interface Props {
   type: "caption" | "inline" | "standalone";
   status: "pressed-visited" | "on-focus" | "default" | "hover" | "disabled";
   theme: "black" | "white" | "dark" | "light";
-  className?: string;
+  className?: object;
 }
+
 export const Hyperlink = ({
   type,
   status,

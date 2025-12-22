@@ -3,8 +3,10 @@ import { CardHome } from "../CardHome";
 import { LogoContracts } from "../LogoContracts";
 import { LogoEstablishment } from "../LogoEstablishment";
 import classes from "./styles.module.css";
+import { useNavigate } from "react-router-dom";
 
 export const ScreenHome = (): JSX.Element => {
+  const navigate = useNavigate();
   return (
     <section className={classes.wrapper}>
       <header className={classes.hero}>
@@ -25,6 +27,7 @@ export const ScreenHome = (): JSX.Element => {
           secondaryContent="Monitor de Notas Fiscais, Contratos com Fornecedores e PCA"
           textClassName={{ marginBottom: 0 }}
           textClassNameOverride={{ marginTop: 8 }}
+          onClick={() => navigate("/contratos/home")}
         />
         <CardHome
           theme="light"

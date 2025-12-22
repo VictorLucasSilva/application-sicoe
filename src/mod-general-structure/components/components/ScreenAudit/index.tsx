@@ -1,4 +1,4 @@
-import { type JSX } from "react";
+import { useState, type JSX } from "react";
 
 import { PageTitle } from "../../general-components/PageTitle";
 import { TableHeader } from "../Table/Header";
@@ -10,9 +10,26 @@ import { IconB } from "../../general-components/ButtonIcon/IconB";
 import { AuditTitleIcon } from "../../general-components/IconPage";
 import { Filter } from "../../components/Filter"
 
+import { ModalAuditFilter } from "../../components/Modais/ModalFilter/Audit";
+
 import classes from "./style.module.css";
 
 export const ScreenAudit = (): JSX.Element => {
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false) 
+
+  const openFilterModal = (): void => {
+    setIsFilterModalOpen(true)
+  }
+
+  const closeFilterModal = (): void => {
+    setIsFilterModalOpen(false);
+  }
+
+  const handleSaveFromFilterModal = (): void => {
+    setIsFilterModalOpen(false);
+  };
+
+
   return (
     <div className={classes.screen}>
       <div className={classes.wrapper}>
@@ -23,7 +40,9 @@ export const ScreenAudit = (): JSX.Element => {
           icon={<AuditTitleIcon />}
           className={classes.title}
         />
-        <Filter/>
+        <Filter
+          onFilterClick={openFilterModal}
+        />
         </div>
         <div className={classes.tableCard}>
           <TableHeader />
@@ -53,6 +72,12 @@ export const ScreenAudit = (): JSX.Element => {
           />
         </div>
       </div>
+      {isFilterModalOpen && (
+        <ModalAuditFilter 
+          onClose={closeFilterModal}
+          onSave={handleSaveFromFilterModal}
+        />
+      )}
     </div>
   );
 };

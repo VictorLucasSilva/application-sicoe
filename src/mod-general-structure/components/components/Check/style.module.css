@@ -1,16 +1,41 @@
 .container {
-  background-image: url(vector.svg);
-  background-size: 100% 100%;
-  height: 24px;
-  left: -5347px;
+  height: 34px;
   position: relative;
-  top: -7421px;
-  width: 24px;
+  width: 34px;
+  border: 1px solid var(--brandprimarypure);
+  background: var(--brandprimarypure);
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 .image {
-  height: 55.87%;
-  left: 14.21%;
+  height: 32px;
+  left: -.1%;
   position: absolute;
-  top: 23.29%;
-  width: 73.29%;
+  top: -.1%;
+  width: 32px;
+}
+
+.containerNum {
+  background-color: var(--brandprimarylightest);
+  border-radius:50%;
+  height: 34px;
+  position: relative;
+  width: 34px;
+  cursor: pointer;
+}
+
+.text {
+  color: var(--neutrallowmedium);
+  font-family: var(--subtitle-XL-medium-font-family);
+  font-size: var(--subtitle-XL-medium-font-size);
+  font-style: var(--subtitle-XL-medium-font-style);
+  font-weight: var(--subtitle-XL-medium-font-weight);
+  left: calc(50% - 7px);
+  letter-spacing: var(--subtitle-XL-medium-letter-spacing);
+  line-height: var(--subtitle-XL-medium-line-height);
+  position: absolute;
+  top: calc(50% - 16px);
+  white-space: nowrap;
+  width: 12px;
 }

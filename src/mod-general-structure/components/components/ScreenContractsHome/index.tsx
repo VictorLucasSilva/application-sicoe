@@ -1,10 +1,12 @@
-import { type JSX } from "react";
+import { useState, type JSX } from "react";
 import classes from "./style.module.css";
 
 import { PageTitle } from "../../general-components/PageTitle";
 import { ContractHomeTitle1, ContractHomeTitle2} from "../../general-components/IconPage";
 import { Filter } from  "../../components/Filter"
  
+import { ModalContractFilter } from "../../components/Modais/ModalFilter/ContractsHome";
+
 const statusCards = [
   { label: "Ativos" },
   { label: "Com saldo" },
@@ -14,10 +16,38 @@ const statusCards = [
 ];
 
 import { SubsectionBarCard } from "../SubsectionBarCard";
+import { ModalInfoContract } from "../Modais/ModalConfirmation/InfoContract"
 
 const contracts = Array.from({ length: 40 }, (_, index) => ({ id: index + 1 }));
 
 export const ScreenContractsHome = (): JSX.Element => {
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+  const [isInfoContractModalOpen, setIsInfoContractModalOpen] = useState(false);
+
+  const openFilterModal = (): void => {
+    setIsFilterModalOpen(true);
+  };
+
+  const closeFilterModal = (): void => {
+    setIsFilterModalOpen(false);
+  };
+
+  const handleSaveFromFilterModal = (): void => {
+    setIsFilterModalOpen(false);
+  };
+
+  const openInfoContractModal = (): void => {
+    setIsInfoContractModalOpen(true);
+  }
+
+  const closeInfoContractModal = (): void => {
+    setIsInfoContractModalOpen(false);
+  };
+
+  const handleSaveFromInfoContractModal = (): void => {
+    setIsInfoContractModalOpen(false);
+  };
+
   return (
     <div className={classes.screen}>
       <section className={classes.section}>
@@ -54,15 +84,32 @@ export const ScreenContractsHome = (): JSX.Element => {
               />
           </div>
         </header>
-          <Filter/>
+          <Filter
+          onFilterClick={openFilterModal}
+          />
         <div className={classes.subsectionListOuter}>
           <div className={classes.subsectionListScroll}>
             {contracts.map((contract) => (
-              <SubsectionBarCard key={contract.id} />
+              <SubsectionBarCard 
+              onInfoContractClick={openInfoContractModal}
+              key={contract.id} />
             ))}
           </div>
         </div>
       </section>
+      {isFilterModalOpen && (
+        <ModalContractFilter
+          onClose={closeFilterModal}
+          onSave={handleSaveFromFilterModal}
+        />
+      )}
+      {isInfoContractModalOpen && (
+        <ModalInfoContract
+        onClose={closeInfoContractModal}
+        onSave={handleSaveFromInfoContractModal}
+        />
+      )}
+
     </div>
   );
 };

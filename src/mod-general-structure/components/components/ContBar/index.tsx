@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { type JSX } from "react";
 import { useReducer } from "react";
-import { Divider } from "../../general-components/Divider"
+import { Divider } from "../../general-components/Divider";
 import classes from "./style.module.css";
 
 interface Props {
@@ -17,6 +17,7 @@ interface Props {
   theme: "dark" | "light";
   progress: "zero";
   className: any;
+  onInfoContractClick: () => void;
 }
 
 export const ContBarCard = ({
@@ -32,6 +33,7 @@ export const ContBarCard = ({
   theme,
   progress,
   className,
+  onInfoContractClick,
 }: Props): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, {
     status: status || "active",
@@ -53,6 +55,8 @@ export const ContBarCard = ({
       onMouseLeave={() => {
         dispatch("mouse_leave");
       }}
+
+      onClick={onInfoContractClick}
     >
       {" "}
       {title && (
@@ -137,10 +141,8 @@ export const ContBarCard = ({
               : ""
           }`}
         >
-          {" "}
           {state.theme === "light" && state.status === "active" && (
             <div className={classes.progressContainer}>
-              {" "}
               <div className={classes.progressBarBackground} />{" "}
               <div className={classes.progressBarForeground} />{" "}
             </div>
@@ -148,7 +150,6 @@ export const ContBarCard = ({
         </div>{" "}
       </div>{" "}
       <div className={classes.dividerWrapper}>
-        {" "}
         <Divider
           className={
             state.theme === "dark"
@@ -173,13 +174,11 @@ export const ContBarCard = ({
         />{" "}
       </div>{" "}
       <div className={classes.expirationSection}>
-        {" "}
         <div
           className={`${classes.expirationLabel} ${
             state.theme === "dark" ? classes.labelDark : classes.labelLight
           }`}
         >
-          {" "}
           Vencimento{" "}
         </div>{" "}
         <div
@@ -187,7 +186,6 @@ export const ContBarCard = ({
             state.theme === "dark" ? classes.valueDark : classes.valueLight
           }`}
         >
-          {" "}
           365 dias{" "}
         </div>{" "}
         <div
@@ -195,12 +193,10 @@ export const ContBarCard = ({
             state.theme === "dark" ? classes.dateDark : classes.dateLight
           }`}
         >
-          {" "}
           dd/mm/aaaa{" "}
         </div>{" "}
       </div>{" "}
       <div className={classes.dividerWrapper}>
-        {" "}
         <Divider
           className={
             state.theme === "dark"
@@ -225,13 +221,11 @@ export const ContBarCard = ({
         />{" "}
       </div>{" "}
       <div className={classes.accountSection}>
-        {" "}
         <div
           className={`${classes.accountLabel} ${
             state.theme === "dark" ? classes.labelDark : classes.labelLight
           }`}
         >
-          {" "}
           Conta&nbsp;&nbsp;Orcamentária{" "}
         </div>{" "}
         <div
@@ -239,12 +233,10 @@ export const ContBarCard = ({
             state.theme === "dark" ? classes.valueDark : classes.valueLight
           }`}
         >
-          {" "}
           99999-9{" "}
         </div>{" "}
       </div>{" "}
       <div className={classes.dividerWrapper}>
-        {" "}
         <Divider
           className={
             state.theme === "dark"

@@ -8,7 +8,7 @@ type ModalFooterProps = {
   className?: string;
   onConfirm?: () => void;
   children?: ReactNode;
-  confirmButtonClassName?: string; // nova prop
+  confirmButtonClassName?: string; 
 };
 
 export const ModalFooter = ({

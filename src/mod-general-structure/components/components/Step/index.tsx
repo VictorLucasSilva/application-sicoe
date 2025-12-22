@@ -1,11 +1,13 @@
 import PropTypes from "prop-types";
 import { type JSX } from "react";
-import classes from "./index.module.css";
+import classes from "./style.module.css";
 interface Props {
   application: "web" | "mobile";
   nodes: "two" | "three" | "four" | "one" | "five" | "six";
   theme: "dark" | "light";
   status: "finished" | "inactive" | "active";
+  process: "Aditivo" | "Contratação" | "Convocação de Remanescente" | "Acionamentos de Ata de Registro de Preço";
+  detailProcess: "Renovação" | "Acréscimo" | "supressão" | "reequilíbrio" | "Alteração Redacional" | "Novo Contrato";
   className: any;
 }
 export const Steps = ({
@@ -23,10 +25,8 @@ export const Steps = ({
         className || ""
       }`}
     >
-      {" "}
       {["one", "two"].includes(nodes) && (
         <>
-          {" "}
           <div
             className={`${classes.stepNode} ${
               classes[`stepNode-application-${application}`]
@@ -34,18 +34,16 @@ export const Steps = ({
               classes[`stepNode-theme-${theme}`]
             } ${classes[`stepNode-nodes-${nodes}`]}`}
           >
-            {" "}
             {application === "mobile" && (
               <div
                 className={`${classes.stepNumber} ${
                   classes[`stepNumber-status-${status}`]
                 } ${classes[`stepNumber-theme-${theme}`]}`}
               >
-                {" "}
-                {["active", "inactive"].includes(status) && <>1</>}{" "}
+                {["active", "inactive"].includes(status) && <>1</>}
               </div>
-            )}{" "}
-          </div>{" "}
+            )}
+          </div>
           <div
             className={`${classes.stepContent} ${
               classes[`stepContent-application-${application}`]
@@ -53,52 +51,47 @@ export const Steps = ({
               classes[`stepContent-theme-${theme}`]
             } ${classes[`stepContent-nodes-${nodes}`]}`}
           >
-            {" "}
             {application === "mobile" && (
               <>
-                {" "}
                 <div
                   className={`${classes.stepTitle} ${
                     classes[`stepTitle-status-${status}`]
                   } ${classes[`stepTitle-theme-${theme}`]}`}
                 >
-                  {" "}
-                  Nome do Step{" "}
-                </div>{" "}
+                  Nome do Step
+                </div>
                 <div
                   className={`${classes.stepCaption} ${
                     classes[`stepCaption-status-${status}`]
                   } ${classes[`stepCaption-theme-${theme}`]}`}
                 >
-                  {" "}
                   {["active", "inactive"].includes(status) && (
                     <>Etapa 1 de 6</>
-                  )}{" "}
-                  {status === "finished" && <>Etapa 6 de 6</>}{" "}
-                </div>{" "}
+                  )}
+                  {status === "finished" && <>Etapa 6 de 6</>}
+                </div>
               </>
-            )}{" "}
-          </div>{" "}
+            )}
+          </div>
         </>
-      )}{" "}
+      )}
       {["five", "four", "six", "three"].includes(nodes) && (
         <>
-          {" "}
           <div
             className={`${classes.emptyNode} ${
               classes[`emptyNode-nodes-${nodes}`]
             }`}
-          />{" "}
+          />
           <div
             className={`${classes.emptyNode} ${
               classes[`emptyNode-nodes-${nodes}`]
             } ${classes.emptyNode2}`}
-          />{" "}
+          />
           <div
             className={`${classes.emptyNode} ${
               classes[`emptyNode-nodes-${nodes}`]
             } ${classes.emptyNode3}`}
-          />{" "}
+          />
         </>
       )}{" "}
       {["five", "four", "six"].includes(nodes) && (

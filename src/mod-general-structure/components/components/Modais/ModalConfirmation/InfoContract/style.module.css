@@ -16,7 +16,7 @@
   box-shadow: var(--sombras-shadow-level-1);
   display: flex;
   flex-direction: column;
-  width: min(1120px, calc(100vw - 80px));
+  width: min(900px, calc(100vw - 80px));
   max-height: calc(100vh - 96px);
 }
 
@@ -223,27 +223,141 @@
 }
 
 .container {
+  align-items: flex-start;
+  border-color: var(--neutrallowlighter);
+  display: flex;
+  gap: 16px;
+  position: relative;
+}
+
+.infoSection {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+.infoBlock {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+.infoItem {
   align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 16px;
+  padding: 12px 16px 11.5px;
+  position: relative;
+  width: 100%;
+}
+.infoItemContent {
+  align-items: flex-start;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+}
+.infoRow {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 16px;
+  position: relative;
+  width: 100%;
+}
+.infoColumn {
+  align-items: flex-start;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+}
+.infoValueEnd {
+  align-items: flex-end;
   display: inline-flex;
+  flex: 0 0 auto;
   flex-direction: column;
   position: relative;
 }
-.circle {
-  background-color: var(--brandprimarypure);
-  border-radius: 20px;
-  height: 40px;
+.infoValueStart {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
   position: relative;
-  width: 40px;
-  z-index: 1;
 }
-.line {
-  background-color: var(--brandprimarypure);
-  flex: 1;
-  flex-grow: 1;
-  margin-left: -92px;
-  margin-right: -92px;
+.stepsContainer {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 10px;
   position: relative;
-  transform: rotate(-90deg);
-  width: 224px;
-  z-index: 0;
+  width: 100%;
+  margin: 15px 0;
+}
+
+.scrollbar {
+  align-self: stretch;
+  background-color: var(--neutrallowlightest);
+  position: relative;
+  width: 14px;
+}
+
+.scrollbarThumb {
+  background-color: var(--neutrallowlight);
+  border-radius: 4px;
+  height: calc(100% - 111px);
+  left: 3px;
+  position: relative;
+  width: calc(100% - 6px);
+}
+
+.text {
+  position: relative;
+  left: -30%;
+}
+
+.iconText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconLines {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.iconLinesCenter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.stepsLine {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stepsContent {
+  margin: auto;
 }

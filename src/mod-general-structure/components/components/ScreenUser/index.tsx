@@ -10,9 +10,10 @@ import { Button } from "../../general-components/Button";
 import { UserTitleIcon } from "../../general-components/IconPage";
 import { ModalWriteUserUpdate } from "../Modais/ModalWrite/UserUpdate";
 import { ModalWriteUserRelation } from "../Modais/ModalWrite/UserRelation";
-import { UserUpdConfirmation } from "../../components/Modais/MadalConfirmation/UserUpdConfirmation"
-import { UserDelConfirmation } from "../../components/Modais/MadalConfirmation/UserDelConfirmation"
-import { UserRelConfirmation } from "../../components/Modais/MadalConfirmation/UserRelConfirmation"
+import { UserUpdConfirmation } from "../Modais/ModalConfirmation/UserUpdConfirmation";
+import { UserDelConfirmation } from "../Modais/ModalConfirmation/UserDelConfirmation";
+import { UserRelConfirmation } from "../Modais/ModalConfirmation/UserRelConfirmation";
+import { ModalUserFilter } from "../../components/Modais/ModalFilter/User";
 
 import search from "../../../../../public/icons/search.svg";
 import fill from "../../../../../public/icons/filter.svg";
@@ -25,9 +26,9 @@ export const ScreenUser = (): JSX.Element => {
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
 
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [isRelationModalOpen, setIsRelationModalOpen] = useState(false); 
-  const [isRelationConfirmModalOpen, setIsRelationConfirmModalOpen] =
-    useState(false); 
+  const [isRelationModalOpen, setIsRelationModalOpen] = useState(false);
+  const [isRelationConfirmModalOpen, setIsRelationConfirmModalOpen] = useState(false);
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false) 
 
   const openEditModal = (): void => {
     setIsEditModalOpen(true);
@@ -75,6 +76,18 @@ export const ScreenUser = (): JSX.Element => {
     setIsRelationConfirmModalOpen(false);
   };
 
+  const openFilterModal = (): void => {
+    setIsFilterModalOpen(true)
+  }
+
+  const closeFilterModal = (): void => {
+    setIsFilterModalOpen(false);
+  }
+
+  const handleSaveFromFilterModal = (): void => {
+    setIsFilterModalOpen(false);
+  };
+
   return (
     <div className={classes.screen}>
       <div className={classes.wrapper}>
@@ -98,7 +111,7 @@ export const ScreenUser = (): JSX.Element => {
               />
             </div>
 
-            <button className={classes.filterButton} type="button">
+            <button className={classes.filterButton} type="button" onClick={openFilterModal}>
               <img src={fill} alt="" className={classes.filterIconImg} />
               <span className={classes.filterText}>Exibir filtros</span>
               <span className={classes.filterBadge}>1</span>
@@ -108,8 +121,11 @@ export const ScreenUser = (): JSX.Element => {
 
         <div className={classes.tableCard}>
           <TableHeaderUser />
-          <RowTableUser onEditClick={openEditModal} onDeleteClick={openDeleteModal} onRelationClick={openRelationModal}/>
-          
+          <RowTableUser
+            onEditClick={openEditModal}
+            onDeleteClick={openDeleteModal}
+            onRelationClick={openRelationModal}
+          />
         </div>
 
         <div className={classes.paginationArea}>
@@ -155,6 +171,13 @@ export const ScreenUser = (): JSX.Element => {
           />
         </div>
       </div>
+
+      {isFilterModalOpen && (
+        <ModalUserFilter
+          onClose={closeFilterModal}
+          onSave={handleSaveFromFilterModal}
+        />
+      )}
 
       {isEditModalOpen && (
         <ModalWriteUserUpdate

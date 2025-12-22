@@ -16,10 +16,12 @@ interface Props {
     | "huge"
     | "x-large"
     | "medium";
-  color: "low-primary" | "low-secondary" | "high-primary" | "high-secondary";
+  color: "low-primary" | "low-secondary" | "high-primary" | "high-secondary" | "brandprimarypure";
   weight: "semibold" | "regular" | "n-a" | "light";
   className: any;
-  text: string;
+  text?: string;
+  textClassName?: object;
+  text1?: string;
 }
 export const Text = ({
   type,
@@ -27,7 +29,7 @@ export const Text = ({
   color,
   weight,
   className,
-  text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean gravida nibh lectus. Ut leo nulla, faucibus vel porttitor vulputate, ornare tempor justo. Nulla dignissim erat ac ipsum mollis, a ullamcorper elit lobortis.",
+  text = "Lorem ipsum ",
 }: Props): JSX.Element => {
   const containerClasses = [
     classes.container,
@@ -44,6 +46,7 @@ export const Text = ({
     classes[`text-size-${size}`],
     classes[`text-type-${type}`],
     classes[`text-weight-${weight}`],
+    classes.text1,
   ]
     .filter(Boolean)
     .join(" ");
@@ -88,4 +91,5 @@ Text.propTypes = {
   ]),
   weight: PropTypes.oneOf(["semibold", "regular", "n-a", "light"]),
   text: PropTypes.string,
+  text1: PropTypes.string,
 };

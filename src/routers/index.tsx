@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-
 import { Login } from "../mod-general-structure/pages/Login";
 import { Home } from "../mod-general-structure/pages/Home";
 import { Audit } from "../mod-general-structure/pages/Audit";

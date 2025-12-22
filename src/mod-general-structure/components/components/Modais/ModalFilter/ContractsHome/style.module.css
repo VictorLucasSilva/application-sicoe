@@ -1,0 +1,227 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+.modal {
+  background-color: var(--neutralhighpure);
+  border-radius: 16px;
+  border: 1px solid var(--neutrallowlighter);
+  box-shadow: var(--sombras-shadow-level-1);
+  display: flex;
+  flex-direction: column;
+  width: min(1120px, calc(100vw - 80px));
+  max-height: calc(100vh - 96px);
+}
+
+.header {
+  align-items: flex-start;
+  align-self: stretch;
+  background-color: transparent;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 32px 0;
+  width: 100%;
+}
+
+.headerTop {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.title {
+  color: var(--brandprimarypure);
+  font-family: var(--heading-XXL-font-family);
+  font-size: var(--heading-XXL-font-size);
+  font-style: var(--heading-XXL-font-style);
+  font-weight: var(--heading-XXL-font-weight);
+  letter-spacing: var(--heading-XXL-letter-spacing);
+  line-height: var(--heading-XXL-line-height);
+  margin-top: -1px;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--colors-neutral-low-medium);
+}
+
+.closeButton:hover {
+  color: var(--neutrallowdarkest);
+}
+
+.content {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 32px 32px;
+  width: 100%;
+}
+
+.userBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.userBlockInline {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  width: 100%;
+}
+
+.userLabel {
+  color: var(--colors-neutral-low-medium);
+  font-family: var(--body-LG-regular-font-family);
+  font-size: var(--body-LG-regular-font-size);
+  font-style: var(--body-LG-regular-font-style);
+  font-weight: var(--body-LG-regular-font-weight);
+  letter-spacing: var(--body-LG-regular-letter-spacing);
+  line-height: var(--body-LG-regular-line-height);
+  margin-top: -1px;
+}
+
+.textField {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.textFieldLabel {
+  color: var(--brandprimarypure);
+  font-family: var(--caption-XS-regular-font-family);
+  font-size: var(--caption-XS-regular-font-size);
+  font-style: var(--caption-XS-regular-font-style);
+  font-weight: var(--caption-XS-regular-font-weight);
+  letter-spacing: var(--caption-XS-regular-letter-spacing);
+  line-height: var(--caption-XS-regular-line-height);
+}
+
+.textFieldValue {
+  font-family: "BancoDoBrasil Textos-Regular", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--colors-neutral-low-darkest);
+  padding-bottom: 6px;
+}
+
+.dropdownSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dropdownLabel {
+  color: var(--brandprimarypure);
+  font-family: var(--caption-XS-regular-font-family);
+  font-size: var(--caption-XS-regular-font-size);
+  font-style: var(--caption-XS-regular-font-style);
+  font-weight: var(--caption-XS-regular-font-weight);
+  letter-spacing: var(--caption-XS-regular-letter-spacing);
+  line-height: var(--caption-XS-regular-line-height);
+}
+
+.dropdownField {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 6px;
+}
+
+.chipsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  font-family: var(--body-MD-regular-font-family);
+  font-size: var(--body-chip-regular-font-size);
+  font-style: var(--body-MD-regular-font-style);
+  font-weight: var(--body-MD-regular-font-weight);
+  line-height: var(--body-MD-regular-line-height);
+  color: var(--colors-neutral-low-darkest);
+  background: #f3f3f3;
+  border-radius: 20px;
+  border: transparent;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.chip:hover {
+  color: var(--colors-neutral-low-darkest);
+  background: #d3d3d3;
+}
+
+.chip:focus {
+  color: white;
+  background: var(--brandprimarypure);
+}
+
+.chipSelected {
+  font-family: var(--body-MD-regular-font-family);
+  font-size: var(--body-chip-regular-font-size);
+  font-style: var(--body-MD-regular-font-style);
+  font-weight: var(--body-MD-regular-font-weight);
+  line-height: var(--body-MD-regular-line-height);
+  color: white;
+  background: #465eff;
+  border-radius: 20px;
+  border: transparent;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.dropdownIcons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer {
+  align-items: flex-start;
+  align-self: stretch;
+  background-color: transparent;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: flex-end;
+  padding: 0 32px 24px;
+  width: 100%;
+}
+
+.footerButtons {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 16px;
+  justify-content: flex-end;
+  width: 100%;
+}

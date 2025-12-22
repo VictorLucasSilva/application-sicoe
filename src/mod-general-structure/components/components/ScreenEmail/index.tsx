@@ -1,4 +1,4 @@
-import { type JSX } from "react";
+import { useState, type JSX } from "react";
 import { PageTitle } from "../../general-components/PageTitle";
 import { TableHeaderEmail } from "../Table/Header";
 import { RowTableEmail } from "../Table/Row";
@@ -8,10 +8,26 @@ import { ButtonIcon } from "../../general-components/ButtonIcon";
 import { IconB } from "../../general-components/ButtonIcon/IconB";
 import { EmailTitleIcon } from "../../general-components/IconPage";
 import { Filter } from "../../components/Filter"
+import { ModalEmailFilter } from "../../components/Modais/ModalFilter/Email";
 
 import classes from "./style.module.css";
 
 export const ScreenEmail = (): JSX.Element => {
+
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false) 
+
+  const openFilterModal = (): void => {
+    setIsFilterModalOpen(true)
+  }
+
+  const closeFilterModal = (): void => {
+    setIsFilterModalOpen(false);
+  }
+
+  const handleSaveFromFilterModal = (): void => {
+    setIsFilterModalOpen(false);
+  };
+
   return (
     <div className={classes.screen}>
       <div className={classes.wrapper}>
@@ -21,7 +37,9 @@ export const ScreenEmail = (): JSX.Element => {
           icon={<EmailTitleIcon />}
           className={classes.title}
         />
-        <Filter/>
+        <Filter
+          onFilterClick={openFilterModal}
+        />
         <div className={classes.tableCard}>
           <TableHeaderEmail />
           <RowTableEmail />
@@ -50,6 +68,12 @@ export const ScreenEmail = (): JSX.Element => {
           />
         </div>
       </div>
+      {isFilterModalOpen && (
+        <ModalEmailFilter
+          onClose={closeFilterModal}
+          onSave={handleSaveFromFilterModal}
+        />
+      )}
     </div>
   );
 };

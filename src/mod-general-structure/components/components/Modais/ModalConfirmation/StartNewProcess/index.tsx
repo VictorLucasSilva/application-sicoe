@@ -3,21 +3,18 @@ import type React from "react";
 
 import { Button } from "../../../../general-components/Button";
 import { Divider } from "../../../../general-components/Divider";
-import { Check } from "../../../Check";
-import { Text } from "../../../Text";
-import { Timeline } from "../../../Timeline";
 
 import classes from "./style.module.css";
 
-type ModalWriteUserRelationProps = {
+type ModalWriteNewProcessProps = {
   onClose?: () => void;
-  onSave?: () => void;
+  onNext?: () => void;
 };
 
-export const ModalWriteUserRelation = ({
+export const ModalWriteNewProcess = ({
   onClose,
-  onSave,
-}: ModalWriteUserRelationProps): JSX.Element => {
+  onNext,
+}: ModalWriteNewProcessProps): JSX.Element => {
   const handleOverlayClick = (): void => {
     if (onClose) onClose();
   };
@@ -28,8 +25,8 @@ export const ModalWriteUserRelation = ({
     event.stopPropagation();
   };
 
-  const handleSaveClick = (): void => {
-    if (onSave) onSave();
+  const handleNextClick = (): void => {
+    if (onNext) onNext();
   };
 
   return (
@@ -37,7 +34,7 @@ export const ModalWriteUserRelation = ({
       <div className={classes.modal} onClick={handleCardClick}>
         <header className={classes.header}>
           <div className={classes.headerTop}>
-            <div className={classes.title}></div>
+            <div className={classes.title}>Novo Processo</div>
 
             <button
               type="button"
@@ -58,42 +55,40 @@ export const ModalWriteUserRelation = ({
             }}
             color="low-lighter"
             orientation="horizontal"
-            size="small"
+            size="medium"
             theme="light"
           />
         </header>
-
         <div className={classes.content}>
-          {" "}
-          <Text
-            className={{
-              alignSelf: "stretch",
-              flex: "0 0 auto",
-              left: "unset",
-              top: "unset",
-              width: "100%",
-            }}
-            color="low-primary"
-            size="x-large"
-            text="Etapas de Renovação"
-            type="subtitle"
-            weight="semibold"
-          />{" "}
-          <Timeline
-            className={{
-              alignSelf: "stretch",
-              display: "flex",
-              flex: "0 0 auto",
-              left: "unset",
-              marginBottom: "-24.00px",
-              top: "unset",
-              width: "100%",
-            }}
-            icon="on"
-            override={<Check />}
-            side="right"
-            theme="light"
-          />{" "}
+          <div className={classes.infoContractNewProcess}>
+            <div className={classes.sectionInfoContract}>
+              <div className={classes.supplier}>Fornecedor</div>
+              <div className={classes.subSupplier}>
+                BB Tecnologia e Serviços
+              </div>
+            </div>
+            <div className={classes.sectionInfoContract}>
+              <div className={classes.dgco}>DGCO</div>
+              <div className={classes.subDgco}>0001/2025</div>
+            </div>
+            <div className={classes.sectionInfoContract}>
+              <div className={classes.dataExpire}>Data de Vencimento</div>
+              <div className={classes.subDataExpire}>12/05/2026</div>
+            </div>
+          </div>
+          <div className={classes.divider}></div>
+          <div className={classes.userBlock}>
+            <div className={classes.userLabel}>Definição do Processo</div>
+            <div className={classes.textField}>
+              <div className={classes.textFieldLabel}>Só um item pode ser selecionado</div>
+              <div className={classes.chipsRow}>
+                <button className={classes.chip}>Aditivo</button>
+                <button className={classes.chip}>Contratação</button>
+                <button className={classes.chip}>Convocação de Remanescente</button>
+                <button className={classes.chip}>Acionamentos de Ata de Registro de Preço</button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <footer className={classes.footer}>
@@ -106,7 +101,7 @@ export const ModalWriteUserRelation = ({
             }}
             color="low-lighter"
             orientation="horizontal"
-            size="small"
+            size="medium"
             theme="light"
           />
           <div className={classes.footerButtons}>
@@ -117,9 +112,9 @@ export const ModalWriteUserRelation = ({
               size="small"
               status="default"
               text="on"
-              text1="SALVAR"
+              text1="Próximo"
               theme="light"
-              onClick={handleSaveClick}
+              onClick={handleNextClick}
             />
           </div>
         </footer>

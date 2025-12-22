@@ -13,8 +13,9 @@
 .color-high-secondary {
   left: 4392px;
 }
-.color-low-primary {
+.color-brandprimarypure {
   left: 16px;
+  color: var(--brandprimarypure);
 } /* Size positioning - top */
 .size-XXX-huge {
   top: 16px;

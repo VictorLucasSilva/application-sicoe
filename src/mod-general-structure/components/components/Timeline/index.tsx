@@ -2,8 +2,7 @@ import PropTypes from "prop-types";
 import { type JSX } from "react";
 import { Check } from "../Check";
 import { Hyperlink } from "../Hyperlink";
-import { IconComponentNode } from "./IconComponentNode";
-import classes from "./Timeline.module.css";
+import classes from "./style.module.css";
 interface Props {
   side: "alternated" | "right" | "left";
   icon: "off" | "on";
@@ -16,17 +15,7 @@ export const Timeline = ({
   icon,
   theme,
   className,
-  override = (
-    <IconComponentNode
-      className={{
-        height: "24px",
-        left: "calc(50.00% - 12px)",
-        position: "absolute",
-        top: "calc(50.00% - 12px)",
-        width: "24px",
-      }}
-    />
-  ),
+  override,
 }: Props): JSX.Element => {
   return (
     <div
@@ -35,7 +24,6 @@ export const Timeline = ({
       } ${classes[`timeline--icon-${icon}`]}`}
       style={className}
     >
-      {" "}
       <div
         className={`${classes.timelineItem} ${
           classes[`timelineItem--${side}`]
@@ -43,11 +31,9 @@ export const Timeline = ({
           classes[`timelineItem--icon-${icon}`]
         }`}
       >
-        {" "}
         {(side === "alternated" ||
           (icon === "on" && side === "right" && theme === "light")) && (
           <>
-            {" "}
             <div
               className={`${classes.timelineContent} ${
                 classes[`timelineContent--${side}`]
@@ -55,10 +41,8 @@ export const Timeline = ({
                 classes[`timelineContent--icon-${icon}`]
               }`}
             >
-              {" "}
               {theme === "light" && icon === "on" && (
                 <>
-                  {" "}
                   <div
                     className={`${classes.timelineNode} ${
                       classes[`timelineNode--${side}`]
@@ -66,7 +50,6 @@ export const Timeline = ({
                       classes[`timelineNode--icon-${icon}`]
                     } ${classes["timelineNode--darker"]}`}
                   >
-                    {" "}
                     {side === "alternated" && (
                       <>
                         {" "}
@@ -105,7 +88,7 @@ export const Timeline = ({
                           />{" "}
                         </div>{" "}
                       </>
-                    )}{" "}
+                    )}
                     {side === "right" && (
                       <Check
                         className={{
@@ -127,7 +110,6 @@ export const Timeline = ({
                       classes["timelineBar--darker"]
                     }`}
                   >
-                    {" "}
                     {side === "alternated" && (
                       <>
                         {" "}
@@ -161,26 +143,21 @@ export const Timeline = ({
                 classes[`timelineContentRight--${side}`]
               }`}
             >
-              {" "}
               {side === "right" && (
                 <>
-                  {" "}
                   <div
                     className={`${classes.timelineBadge} ${classes["timelineBadge--medium"]}`}
                   >
-                    {" "}
                     <div className={classes.timelineBadgeText}>
                       {" "}
                       13/06/2022 às 11h00{" "}
                     </div>{" "}
                   </div>{" "}
                   <div className={classes.timelineDetailsRight}>
-                    {" "}
                     <div className={classes.timelineHeader}>
                       Header do item
                     </div>{" "}
                     <p className={classes.timelineDescription}>
-                      {" "}
                       Exemplo de etapa com nó concluído e com ícone. <br />{" "}
                       Exemplo de&nbsp;&nbsp;conteúdo detalhado. Com exceção do
                       nó e da barra, nenhum dos outros elementos são
@@ -211,7 +188,6 @@ export const Timeline = ({
           classes[`timelineItem--icon-${icon}`]
         }`}
       >
-        {" "}
         {(side === "alternated" ||
           (icon === "on" && side === "right" && theme === "light")) && (
           <>

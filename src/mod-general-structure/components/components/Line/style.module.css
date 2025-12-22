@@ -1,0 +1,80 @@
+.containerBlueLeft {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 1px;
+  padding: 3px 0px;
+  position: relative;
+  margin-left: 5px;
+}
+.imageBlueLeft {
+  align-self: stretch;
+  height: 4px;
+  margin-bottom: -5px;
+  margin-left: -2px;
+  margin-right: -2px;
+  margin-top: -2px;
+  position: relative;
+  width: 100%;
+}
+
+.containerBlueRight {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 1px;
+  padding: 2px 0px;
+  position: relative;
+  margin-right: 1px;
+}
+
+.imageBlueRight {
+  align-self: stretch;
+  height: 4px;
+  margin-bottom: -5px;
+  margin-left: -2px;
+  margin-right: -2px;
+  margin-top: -2px;
+  position: relative;
+  width: 100%;
+}
+
+.containerGrayLeft {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 1px;
+  padding: 2px 0px;
+  position: relative;
+  margin-left: 5px;
+}
+.imageGrayLeft {
+  align-self: stretch;
+  height: 4px;
+  margin-bottom: -5px;
+  margin-left: -2px;
+  margin-right: -2px;
+  margin-top: -2px;
+  position: relative;
+  width: 100%;
+}
+
+.containerGrayRight {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 1px;
+  padding: 2px 0px;
+  position: relative;
+  margin-right: 1px;
+}
+.imageGrayRight {
+  align-self: stretch;
+  height: 4px;
+  margin-bottom: -5px;
+  margin-left: -2px;
+  margin-right: -2px;
+  margin-top: -2px;
+  position: relative;
+  width: 100%;
+}

@@ -9,15 +9,15 @@ import { IconClear } from "../../../../general-components/IconSvg/IconClear";
 import classes from "./style.module.css";
 import { InputData } from "../../../InputData";
 
-type ModalWriteUserRelationProps = {
+type ModalFilterAuditProps = {
   onClose?: () => void;
   onSave?: () => void;
 };
 
-export const ModalWriteUserRelation = ({
+export const ModalAuditFilter = ({
   onClose,
   onSave,
-}: ModalWriteUserRelationProps): JSX.Element => {
+}: ModalFilterAuditProps): JSX.Element => {
   const handleOverlayClick = (): void => {
     if (onClose) onClose();
   };

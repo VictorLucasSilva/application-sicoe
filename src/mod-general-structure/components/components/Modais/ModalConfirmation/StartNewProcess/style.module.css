@@ -82,17 +82,21 @@
   flex-direction: column;
   gap: 8px;
   width: 100%;
+  padding: 20px;
+  margin: 10px;
 }
 
 .userLabel {
-  color: var(--colors-neutral-low-medium);
+  display: flex;
+  color: var(--brandprimarypure);
   font-family: var(--body-LG-regular-font-family);
-  font-size: var(--body-LG-regular-font-size);
+  font-size: 25px;
   font-style: var(--body-LG-regular-font-style);
-  font-weight: var(--body-LG-regular-font-weight);
+  font-weight: 500;
   letter-spacing: var(--body-LG-regular-letter-spacing);
   line-height: var(--body-LG-regular-line-height);
-  margin-top: -1px;
+  margin-bottom: 30px;
+  justify-content: center;
 }
 
 .textField {
@@ -103,13 +107,15 @@
 }
 
 .textFieldLabel {
+  display: flex;
   color: var(--brandprimarypure);
   font-family: var(--caption-XS-regular-font-family);
-  font-size: var(--caption-XS-regular-font-size);
+  font-size: 12px;
   font-style: var(--caption-XS-regular-font-style);
   font-weight: var(--caption-XS-regular-font-weight);
   letter-spacing: var(--caption-XS-regular-letter-spacing);
   line-height: var(--caption-XS-regular-line-height);
+  justify-content: center;
 }
 
 .textFieldValue {
@@ -117,7 +123,7 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 24px;
-  padding: 3px;
+  padding: 0 3px 3px 3px;
   border-radius: 5px;
   background: #f7f7f7;
   color: #757575;
@@ -152,6 +158,8 @@
 .chipsRow {
   display: flex;
   flex-wrap: wrap;
+  margin: 15px 0 15px 0;
+  justify-content: center;
   gap: 8px;
 }
 
@@ -222,28 +230,46 @@
   width: 100%;
 }
 
-.container {
-  align-items: center;
-  display: inline-flex;
+.infoContractNewProcess {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  margin: 25px 0 15px 0;
+}
+
+.dataExpire,
+.dgco,
+.supplier {
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: #313131;
+  font-family: var(--body-MD-regular-font-family);
+  margin-bottom: 5px;
+}
+
+.subDataExpire,
+.subDgco,
+.subSupplier {
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--brandprimarypure);
+  font-family: var(--body-MD-regular-font-family);
+}
+
+.sectionInfoContract {
+  display: flex;
   flex-direction: column;
-  position: relative;
+  align-items: center;
+  margin: 0 3rem;
 }
-.circle {
-  background-color: var(--brandprimarypure);
-  border-radius: 20px;
-  height: 40px;
-  position: relative;
-  width: 40px;
-  z-index: 1;
-}
-.line {
-  background-color: var(--brandprimarypure);
-  flex: 1;
-  flex-grow: 1;
-  margin-left: -92px;
-  margin-right: -92px;
-  position: relative;
-  transform: rotate(-90deg);
-  width: 224px;
-  z-index: 0;
+
+.divider {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  border-bottom: 1px solid #d8d8d8; 
+  width: 50%;
+  margin: 10px auto;
 }

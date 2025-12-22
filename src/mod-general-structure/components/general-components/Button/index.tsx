@@ -14,7 +14,7 @@ type ButtonProps = {
   theme?: string;
   iconLeft?: ReactNode;      
   iconRight?: ReactNode;     
-  onClick?: () => void;      
+  onClick?: () => void; 
 };
 
 export const Button = ({

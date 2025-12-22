@@ -9,15 +9,15 @@ import { IconClear } from "../../../../general-components/IconSvg/IconClear";
 import classes from "./style.module.css";
 import { InputData } from "../../../InputData";
 
-type ModalWriteUserRelationProps = {
+type ModalEmailFilterProps = {
   onClose?: () => void;
   onSave?: () => void;
 };
 
-export const ModalWriteUserRelation = ({
+export const ModalEmailFilter = ({
   onClose,
   onSave,
-}: ModalWriteUserRelationProps): JSX.Element => {
+}: ModalEmailFilterProps): JSX.Element => {
   const handleOverlayClick = (): void => {
     if (onClose) onClose();
   };
@@ -183,7 +183,7 @@ export const ModalWriteUserRelation = ({
               size="small"
               status="default"
               text="on"
-              text1="Filtrar"
+              text1="Aplicar Filtrar"
               theme="light"
               onClick={handleSaveClick}
             />
