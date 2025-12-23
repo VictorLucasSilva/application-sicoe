@@ -1,0 +1,127 @@
+.popover {
+  position: absolute;
+  left: 50%;
+  top: -30px;
+  transform: translate(-50%, -100%);
+  width: min(200px, 78vw);
+  background: var(--neutralhighpure);
+  border: 1px solid #cfcfcf;
+  border-radius: 14px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.10);
+  padding: 12px 12px 30px 12px;
+  z-index: 30;
+  overflow: visible;
+}
+.popover::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;            
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: var(--neutralhighpure);
+  transform: translateX(-50%) rotate(45deg);
+  border: 1px solid var(--neutralhighpure);
+  border-radius: 2px;
+  z-index: 2;
+}
+
+.popover::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -9px;
+  transform: translateX(-50%) rotate(45deg);
+  width: 16px;
+  height: 16px;
+  background: var(--neutralhighpure);
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-family: var(--body-MD-regular-font-family);
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 700;
+
+  color: var(--brandprimarypure);
+
+  max-width: 210px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.close {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--colors-neutral-low-medium);
+  padding: 2px 6px;
+}
+
+.close:hover {
+  color: var(--brandprimarypure);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.label {
+  font-family: var(--caption-XS-regular-font-family);
+  font-size: 12px;
+  color: var(--neutrallowmedium);
+}
+
+.value {
+  font-family: var(--caption-XS-regular-font-family);
+  font-size: 12px;
+  color: #313131;
+  font-weight: 600;
+}
+
+.section {
+  margin-top: 4px;
+  border-top: 1px solid var(--neutrallowlighter);
+  padding-top: 10px;
+}
+
+.sectionTitle {
+  font-family: var(--caption-XS-regular-font-family);
+  font-size: 12px;
+  color: var(--neutrallowmedium);
+  margin-bottom: 6px;
+}
+
+.obs {
+  font-family: var(--caption-XS-regular-font-family);
+  font-size: 12px;
+  line-height: 14px;
+  color: #313131;
+}

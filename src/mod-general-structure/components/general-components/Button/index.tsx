@@ -12,9 +12,10 @@ type ButtonProps = {
   text?: string;
   text1?: string;
   theme?: string;
-  iconLeft?: ReactNode;      
-  iconRight?: ReactNode;     
-  onClick?: () => void; 
+  iconLeft?: ReactNode;
+  iconRight?: ReactNode;
+  onClick?: () => void;
+  disabled?: boolean;
 };
 
 export const Button = ({
@@ -22,14 +23,12 @@ export const Button = ({
   text1,
   iconLeft,
   onClick,
+  disabled = false,
 }: ButtonProps): JSX.Element => {
-  const classNameString =
-    typeof className === "string" ? className : "";
+  const classNameString = typeof className === "string" ? className : "";
 
   const style: CSSProperties | undefined =
-    className && typeof className === "object"
-      ? className
-      : undefined;
+    className && typeof className === "object" ? className : undefined;
 
   return (
     <button
@@ -37,6 +36,8 @@ export const Button = ({
       className={`${classes.button} ${classNameString}`}
       style={style}
       onClick={onClick}
+      disabled={disabled}
+      aria-disabled={disabled}
     >
       {iconLeft && <span className={classes.iconLeft}>{iconLeft}</span>}
       <span className={classes.label}>{text1 ?? "ENTRAR"}</span>

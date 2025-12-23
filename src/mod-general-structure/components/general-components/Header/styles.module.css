@@ -178,3 +178,99 @@
   background: var(--brandsecondarypure); 
   margin-top: -4px;                    
 }
+
+/* ===== Dropdown Área Gerencial ===== */
+
+.areaDropdownWrapper {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.areaTrigger {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  border-radius: 10px;
+  padding: 4px 6px;
+}
+
+.areaTrigger:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.areaTrigger:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.25);
+  outline-offset: 2px;
+}
+
+.areaArrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.areaArrow img {
+  filter: none;
+}
+
+.areaDropdown {
+  position: absolute;
+  top: calc(100% + 15px);
+  right: 0;
+  min-width: 300px;
+  padding: 14px;
+  border-radius: 16px;
+  z-index: 999;
+  background: linear-gradient(180deg, var(--brandprimarypure) 0%, var(--brandprimarypure) 100%);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+.areaDropdown::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 26px;
+  width: 16px;
+  height: 16px;
+  transform: rotate(45deg);
+  border-radius: 4px;
+}
+
+.areaDropdownItem {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 12px;
+  border-radius: 12px;
+}
+
+.areaDropdownItem:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.areaDropdownIcon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.areaDropdownText {
+  color: #ffffff;
+  font-family: "BancoDoBrasil Textos-Medium", Helvetica;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}

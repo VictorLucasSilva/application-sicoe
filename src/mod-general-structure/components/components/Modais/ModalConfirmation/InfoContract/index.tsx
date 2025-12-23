@@ -1,50 +1,30 @@
-import { useState, type JSX } from "react";
+import { type JSX } from "react";
 import type React from "react";
 
 import { Button } from "../../../../general-components/Button";
 import { Divider } from "../../../../general-components/Divider";
-import { Check, CheckNumber } from "../../../Check";
-import {
-  BlueLineLeft,
-  BlueLineRight,
-  GrayLineLeft,
-  GrayLineRight,
-} from "../../../Line";
+import { ContractStepsProgress} from "../../../ContractStepsProgress";
 import { Text } from "../../../Text";
 
 import classes from "./style.module.css";
-import { ModalWriteNewProcess } from "../StartNewProcess";
 
 type ModalInfoContractProps = {
   onClose?: () => void;
   onSave?: () => void;
+  onStartProcess?: () => void; 
 };
 
 export const ModalInfoContract = ({
   onClose,
   onSave,
+  onStartProcess,
 }: ModalInfoContractProps): JSX.Element => {
-  const [isStartProcessModalOpen, setIsStartProcessModalOpen] = useState(false)
-
-  const openStartProcessModal = (): void => {
-    setIsStartProcessModalOpen(true);
-    onClose
-  }
-
-  const closeStartProcessModal = (): void => {
-    setIsStartProcessModalOpen(false);
-  }
-
-  const handleNextFromStartProcessModal = (): void => {
-    setIsStartProcessModalOpen(false);
-  }
-
   const handleOverlayClick = (): void => {
     if (onClose) onClose();
   };
 
   const handleCardClick = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
   ): void => {
     event.stopPropagation();
   };
@@ -53,6 +33,10 @@ export const ModalInfoContract = ({
     if (onSave) onSave();
   };
 
+  const handleStartProcessClick = (): void => {
+
+    if (onStartProcess) onStartProcess();
+  };
   return (
     <div className={classes.overlay} onClick={handleOverlayClick}>
       <div className={classes.modal} onClick={handleCardClick}>
@@ -98,19 +82,14 @@ export const ModalInfoContract = ({
             text="Informações do Contrato"
             type="subtitle"
             weight="semibold"
-          />{" "}
+          />
+
           <div className={classes.infoSection}>
-            {" "}
             <div className={classes.infoBlock}>
-              {" "}
               <div className={classes.infoItem}>
-                {" "}
                 <div className={classes.infoItemContent}>
-                  {" "}
                   <div className={classes.infoRow}>
-                    {" "}
                     <div className={classes.infoColumn}>
-                      {" "}
                       <Text
                         className={{
                           alignSelf: "stretch",
@@ -124,10 +103,9 @@ export const ModalInfoContract = ({
                         text1="Texto primário"
                         type="text"
                         weight="semibold"
-                      />{" "}
-                    </div>{" "}
+                      />
+                    </div>
                     <div className={classes.infoValueEnd}>
-                      {" "}
                       <Text
                         className={{
                           alignItems: "flex-end",
@@ -148,13 +126,12 @@ export const ModalInfoContract = ({
                         }}
                         type="text"
                         weight="regular"
-                      />{" "}
-                    </div>{" "}
-                  </div>{" "}
+                      />
+                    </div>
+                  </div>
+
                   <div className={classes.infoRow}>
-                    {" "}
                     <div className={classes.infoColumn}>
-                      {" "}
                       <Text
                         className={{
                           alignSelf: "stretch",
@@ -168,10 +145,9 @@ export const ModalInfoContract = ({
                         text1="Texto secundário"
                         type="text"
                         weight="regular"
-                      />{" "}
-                    </div>{" "}
+                      />
+                    </div>
                     <div className={classes.infoValueStart}>
-                      {" "}
                       <Text
                         className={{
                           alignItems: "flex-end",
@@ -192,11 +168,12 @@ export const ModalInfoContract = ({
                         }}
                         type="text"
                         weight="regular"
-                      />{" "}
-                    </div>{" "}
-                  </div>{" "}
-                </div>{" "}
-              </div>{" "}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <Divider
                 className={{
                   alignSelf: "stretch",
@@ -209,18 +186,14 @@ export const ModalInfoContract = ({
                 orientation="horizontal"
                 size="extra-small"
                 theme="light"
-              />{" "}
-            </div>{" "}
+              />
+            </div>
+
             <div className={classes.infoBlock}>
-              {" "}
               <div className={classes.infoItem}>
-                {" "}
                 <div className={classes.infoItemContent}>
-                  {" "}
                   <div className={classes.infoRow}>
-                    {" "}
                     <div className={classes.infoColumn}>
-                      {" "}
                       <Text
                         className={{
                           alignSelf: "stretch",
@@ -234,10 +207,9 @@ export const ModalInfoContract = ({
                         text1="Texto primário"
                         type="text"
                         weight="semibold"
-                      />{" "}
-                    </div>{" "}
+                      />
+                    </div>
                     <div className={classes.infoValueEnd}>
-                      {" "}
                       <Text
                         className={{
                           alignItems: "flex-end",
@@ -258,13 +230,12 @@ export const ModalInfoContract = ({
                         }}
                         type="text"
                         weight="regular"
-                      />{" "}
-                    </div>{" "}
-                  </div>{" "}
+                      />
+                    </div>
+                  </div>
+
                   <div className={classes.infoRow}>
-                    {" "}
                     <div className={classes.infoColumn}>
-                      {" "}
                       <Text
                         className={{
                           alignSelf: "stretch",
@@ -278,10 +249,9 @@ export const ModalInfoContract = ({
                         text1="Texto secundário"
                         type="text"
                         weight="regular"
-                      />{" "}
-                    </div>{" "}
+                      />
+                    </div>
                     <div className={classes.infoValueStart}>
-                      {" "}
                       <Text
                         className={{
                           alignItems: "flex-end",
@@ -302,11 +272,12 @@ export const ModalInfoContract = ({
                         }}
                         type="text"
                         weight="regular"
-                      />{" "}
-                    </div>{" "}
-                  </div>{" "}
-                </div>{" "}
-              </div>{" "}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <Divider
                 className={{
                   alignSelf: "stretch",
@@ -319,18 +290,14 @@ export const ModalInfoContract = ({
                 orientation="horizontal"
                 size="extra-small"
                 theme="light"
-              />{" "}
-            </div>{" "}
+              />
+            </div>
+
             <div className={classes.infoBlock}>
-              {" "}
               <div className={classes.infoItem}>
-                {" "}
                 <div className={classes.infoItemContent}>
-                  {" "}
                   <div className={classes.infoRow}>
-                    {" "}
                     <div className={classes.infoColumn}>
-                      {" "}
                       <Text
                         className={{
                           alignSelf: "stretch",
@@ -344,10 +311,9 @@ export const ModalInfoContract = ({
                         text1="Texto primário"
                         type="text"
                         weight="semibold"
-                      />{" "}
-                    </div>{" "}
+                      />
+                    </div>
                     <div className={classes.infoValueEnd}>
-                      {" "}
                       <Text
                         className={{
                           alignItems: "flex-end",
@@ -368,13 +334,12 @@ export const ModalInfoContract = ({
                         }}
                         type="text"
                         weight="regular"
-                      />{" "}
-                    </div>{" "}
-                  </div>{" "}
+                      />
+                    </div>
+                  </div>
+
                   <div className={classes.infoRow}>
-                    {" "}
                     <div className={classes.infoColumn}>
-                      {" "}
                       <Text
                         className={{
                           alignSelf: "stretch",
@@ -388,10 +353,9 @@ export const ModalInfoContract = ({
                         text1="Texto secundário"
                         type="text"
                         weight="regular"
-                      />{" "}
-                    </div>{" "}
+                      />
+                    </div>
                     <div className={classes.infoValueStart}>
-                      {" "}
                       <Text
                         className={{
                           alignItems: "flex-end",
@@ -412,11 +376,12 @@ export const ModalInfoContract = ({
                         }}
                         type="text"
                         weight="regular"
-                      />{" "}
-                    </div>{" "}
-                  </div>{" "}
-                </div>{" "}
-              </div>{" "}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <Divider
                 className={{
                   alignSelf: "stretch",
@@ -429,9 +394,10 @@ export const ModalInfoContract = ({
                 orientation="horizontal"
                 size="extra-small"
                 theme="light"
-              />{" "}
-            </div>{" "}
-          </div>{" "}
+              />
+            </div>
+          </div>
+
           <Text
             className={{
               alignSelf: "stretch",
@@ -446,132 +412,13 @@ export const ModalInfoContract = ({
             type="subtitle"
             weight="semibold"
           />
+
           <div className={classes.stepsContainer}>
-            <div className={classes.stepsContent}>
-              <div className={classes.stepsLine}>
-                <div className={classes.iconText}>
-                  <div className={classes.iconLines}>
-                    <div className={classes.icon}>
-                      <Check />
-                    </div>
-                    <div className={classes.lineLeft}>
-                      <BlueLineLeft />
-                    </div>
-                    <div className={classes.lineRight}>
-                      <BlueLineRight />
-                    </div>
-                  </div>
-                  <div className={classes.text}>
-                    <Text
-                      className={{
-                        alignSelf: "stretch",
-                        height: "24px",
-                        left: "unset",
-                        top: "unset",
-                        width: "100%",
-                      }}
-                      color="brandprimarypure"
-                      size="x-small"
-                      text="Step Inicial"
-                      type="text"
-                      weight="regular"
-                    />
-                  </div>
-                </div>
-                <div className={classes.iconText}>
-                  <div className={classes.iconLinesCenter}>
-                    <div className={classes.icon}>
-                      <Check />
-                    </div>
-                    <div className={classes.lineLeft}>
-                      <BlueLineLeft />
-                    </div>
-                    <div className={classes.lineRight}>
-                      <BlueLineRight />
-                    </div>
-                  </div>
-                  <div className={classes.text}>
-                    <Text
-                      className={{
-                        alignSelf: "stretch",
-                        height: "24px",
-                        left: "unset",
-                        top: "unset",
-                        width: "100%",
-                      }}
-                      color="brandprimarypure"
-                      size="x-small"
-                      text="Step Intermediario"
-                      type="text"
-                      weight="regular"
-                    />
-                  </div>
-                </div>
-                <div className={classes.iconText}>
-                  <div className={classes.iconLinesCenter}>
-                    <div className={classes.icon}>
-                      <Check />
-                    </div>
-                    <div className={classes.lineLeft}>
-                      <BlueLineLeft />
-                    </div>
-                    <div className={classes.lineRight}>
-                      <GrayLineRight />
-                    </div>
-                  </div>
-                  <div className={classes.text}>
-                    <Text
-                      className={{
-                        alignSelf: "stretch",
-                        height: "24px",
-                        left: "unset",
-                        top: "unset",
-                        width: "100%",
-                      }}
-                      color="brandprimarypure"
-                      size="x-small"
-                      text="Step Intermediario"
-                      type="text"
-                      weight="regular"
-                    />
-                  </div>
-                </div>
-                <div className={classes.iconText}>
-                  <div className={classes.iconLinesCenter}>
-                    <div className={classes.icon}>
-                      <CheckNumber number="4" />
-                    </div>
-                    <div className={classes.lineLeft}>
-                      <GrayLineLeft />
-                    </div>
-                    <div className={classes.lineRight}></div>
-                    <GrayLineRight />
-                    <div className={classes.icon}>
-                      <CheckNumber number="5" />
-                    </div>
-                  </div>
-                  <div className={classes.text}>
-                    <Text
-                      className={{
-                        alignSelf: "stretch",
-                        height: "24px",
-                        left: "unset",
-                        top: "unset",
-                        width: "100%",
-                      }}
-                      color="high-secondary"
-                      size="x-small"
-                      text="Step Intermediario"
-                      type="text"
-                      weight="regular"
-                    />
-                  </div>
-                </div>
-                <div className={classes.iconText}>
-                  <div className={classes.iconLinesCenter}></div>
-                </div>
-              </div>
-            </div>
+            <ContractStepsProgress 
+              process="ata" 
+              daysInProcess={120} 
+              observationsByStep={[]}
+            />
           </div>
         </div>
 
@@ -588,6 +435,7 @@ export const ModalInfoContract = ({
             size="small"
             theme="light"
           />
+
           <div className={classes.footerButtons}>
             <Button
               className={{ flex: "0 0 auto", left: "unset", top: "unset" }}
@@ -600,7 +448,7 @@ export const ModalInfoContract = ({
               theme="light"
               onClick={handleSaveClick}
             />
-            
+
             <Button
               className={{ flex: "0 0 auto", left: "unset", top: "unset" }}
               hierarchy="primary"
@@ -610,17 +458,11 @@ export const ModalInfoContract = ({
               text="on"
               text1="INICIAR PROCESSO"
               theme="dark"
-              onClick={openStartProcessModal}
+              onClick={handleStartProcessClick}
             />
           </div>
         </footer>
       </div>
-      {isStartProcessModalOpen && (
-        <ModalWriteNewProcess
-          onClose={closeStartProcessModal}
-          onNext={handleNextFromStartProcessModal}
-        />
-      )}
     </div>
   );
 };

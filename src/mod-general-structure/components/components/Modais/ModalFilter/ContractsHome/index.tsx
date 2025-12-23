@@ -1,4 +1,4 @@
-import { type JSX } from "react";
+import { type JSX, useEffect, useRef, useState } from "react";
 import type React from "react";
 
 import { ArrowDropDown } from "../../../../general-components/ArrowDropdown";
@@ -14,12 +14,42 @@ type ModalContractFilterProps = {
   onSave?: () => void;
 };
 
+const CLOSE_ANIM_MS = 220;
+
 export const ModalContractFilter = ({
   onClose,
   onSave,
 }: ModalContractFilterProps): JSX.Element => {
+  const [isClosing, setIsClosing] = useState(false);
+  const closeTimerRef = useRef<number | null>(null);
+
+  const requestClose = (): void => {
+    if (isClosing) return; // evita disparar 2x
+    setIsClosing(true);
+
+    // chama o onClose só depois da animação terminar
+    closeTimerRef.current = window.setTimeout(() => {
+      if (onClose) onClose();
+    }, CLOSE_ANIM_MS);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current);
+    };
+  }, []);
+
+  // (opcional) ESC fecha
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent): void => {
+      if (e.key === "Escape") requestClose();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isClosing]);
+
   const handleOverlayClick = (): void => {
-    if (onClose) onClose();
+    requestClose();
   };
 
   const handleCardClick = (
@@ -30,11 +60,22 @@ export const ModalContractFilter = ({
 
   const handleSaveClick = (): void => {
     if (onSave) onSave();
+    // se quiser fechar com animação após aplicar:
+    // requestClose();
   };
 
   return (
-    <div className={classes.overlay} onClick={handleOverlayClick}>
-      <div className={classes.modal} onClick={handleCardClick}>
+    <div
+      className={`${classes.overlay} ${isClosing ? classes.overlayClosing : ""}`}
+      onClick={handleOverlayClick}
+    >
+      <div
+        className={`${classes.modal} ${isClosing ? classes.modalClosing : ""}`}
+        onClick={handleCardClick}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Filtro de contratos"
+      >
         <header className={classes.header}>
           <div className={classes.headerTop}>
             <div className={classes.title}>Filtro Contratos</div>
@@ -43,7 +84,7 @@ export const ModalContractFilter = ({
               type="button"
               className={classes.closeButton}
               aria-label="Fechar modal"
-              onClick={onClose}
+              onClick={requestClose}
             >
               ×
             </button>
@@ -80,17 +121,22 @@ export const ModalContractFilter = ({
                 </div>
               </div>
             </div>
+
             <div className={classes.userBlock}>
               <InputData title="Vencimento" />
             </div>
           </div>
+
           <div className={classes.dropdownSection}>
             <div className={classes.dropdownLabel}></div>
             <div className={classes.userLabel}>Nome do Fornecedor</div>
             <div className={classes.dropdownLabel}>Itens selecionados</div>
+
             <div className={classes.dropdownField}>
               <div className={classes.chipsRow}>
-                <button className={classes.chipSelected}>BB Tecnologia e Serviços ×</button>
+                <button className={classes.chipSelected}>
+                  BB Tecnologia e Serviços ×
+                </button>
               </div>
 
               <div className={classes.dropdownIcons}>
@@ -111,6 +157,7 @@ export const ModalContractFilter = ({
                 />
               </div>
             </div>
+
             <Divider
               className={{
                 alignSelf: "stretch",
@@ -124,10 +171,12 @@ export const ModalContractFilter = ({
               theme="light"
             />
           </div>
+
           <div className={classes.dropdownSection}>
             <div className={classes.dropdownLabel}></div>
             <div className={classes.userLabel}>DGCO</div>
             <div className={classes.dropdownLabel}>Itens selecionados</div>
+
             <div className={classes.dropdownField}>
               <div className={classes.chipsRow}>
                 <button className={classes.chipSelected}>0000/2025 ×</button>
@@ -151,6 +200,7 @@ export const ModalContractFilter = ({
                 />
               </div>
             </div>
+
             <Divider
               className={{
                 alignSelf: "stretch",
@@ -164,6 +214,7 @@ export const ModalContractFilter = ({
               theme="light"
             />
           </div>
+
           <div className={classes.userBlock}>
             <div className={classes.userLabel}>Tipo</div>
             <div className={classes.textField}>
@@ -180,6 +231,7 @@ export const ModalContractFilter = ({
               </div>
             </div>
           </div>
+
           <Divider
             className={{
               alignSelf: "stretch",
@@ -193,6 +245,7 @@ export const ModalContractFilter = ({
             theme="light"
           />
         </div>
+
         <footer className={classes.footer}>
           <div className={classes.footerButtons}>
             <Button

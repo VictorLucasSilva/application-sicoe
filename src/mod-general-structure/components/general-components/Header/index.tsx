@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
-import { type JSX } from "react";
+import { type JSX, useEffect, useRef, useState } from "react";
+
 import { Divider } from "../Divider";
 import { Logo } from "../Logo";
 import { Text } from "../Text";
@@ -11,14 +12,63 @@ import area5 from "../../../assets/icons/icon-no-mod/no-mod-login-lock.svg";
 import area6 from "../../../assets/icons/icon-no-mod/no-mod-login-avatar.svg";
 import area from "../../../assets/icons/icon-no-mod/no-mod-login-avatar.svg";
 
+// ícones do dropdown (lado esquerdo)
+import iconUsers from "../../../assets/icons/icon-no-mod/no-mod-title_user.svg";
+import iconEmail from "../../../assets/icons/icon-no-mod/no-mod-title-email.svg";
+import iconAudit from "../../../assets/icons/icon-no-mod/no-mod-title-audit.svg";
+
 import classes from "./styles.module.css";
 
 interface Props {
   theme: "dark" | "light";
   type: "cont" | "login" | "main" | "estab";
-  className: any;         
+  className: any;
   logotipoVector: string;
 }
+
+type AreaMenuKey = "users" | "emails" | "audit";
+
+type AreaGerencialDropdownProps = {
+  onSelect: (key: AreaMenuKey) => void;
+};
+
+const AreaGerencialDropdown = ({
+  onSelect,
+}: AreaGerencialDropdownProps): JSX.Element => {
+  return (
+    <div className={classes.areaDropdown} role="menu" aria-label="Área gerencial">
+      <button
+        type="button"
+        className={classes.areaDropdownItem}
+        role="menuitem"
+        onClick={() => onSelect("users")}
+      >
+        <img className={classes.areaDropdownIcon} src={iconUsers} alt="" />
+        <span className={classes.areaDropdownText}>Gerenciar Usuários</span>
+      </button>
+
+      <button
+        type="button"
+        className={classes.areaDropdownItem}
+        role="menuitem"
+        onClick={() => onSelect("emails")}
+      >
+        <img className={classes.areaDropdownIcon} src={iconEmail} alt="" />
+        <span className={classes.areaDropdownText}>Envio de Emails</span>
+      </button>
+
+      <button
+        type="button"
+        className={classes.areaDropdownItem}
+        role="menuitem"
+        onClick={() => onSelect("audit")}
+      >
+        <img className={classes.areaDropdownIcon} src={iconAudit} alt="" />
+        <span className={classes.areaDropdownText}>Logs para Auditoria</span>
+      </button>
+    </div>
+  );
+};
 
 export const Header = ({
   theme,
@@ -26,6 +76,41 @@ export const Header = ({
   className,
   logotipoVector = "vector.svg",
 }: Props): JSX.Element => {
+  const [isAreaOpen, setIsAreaOpen] = useState(false);
+  const areaRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const onMouseDown = (e: MouseEvent): void => {
+      const target = e.target as Node | null;
+      if (!target) return;
+      if (areaRef.current && !areaRef.current.contains(target)) {
+        setIsAreaOpen(false);
+      }
+    };
+
+    const onKeyDown = (e: KeyboardEvent): void => {
+      if (e.key === "Escape") setIsAreaOpen(false);
+    };
+
+    document.addEventListener("mousedown", onMouseDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onMouseDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, []);
+
+  const handleAreaSelect = (key: AreaMenuKey): void => {
+    setIsAreaOpen(false);
+
+    // ✅ aqui você liga com sua navegação/rota depois (se quiser)
+    // Ex:
+    // if (key === "users") window.location.href = "/user";
+    // if (key === "emails") window.location.href = "/email";
+    // if (key === "audit") window.location.href = "/audit";
+    console.log("Área Gerencial:", key);
+  };
+
   return (
     <div
       className={`${classes.header} ${classes[`header-${theme}`]} ${
@@ -156,17 +241,24 @@ export const Header = ({
           >
             {["cont", "estab", "main"].includes(type) && (
               <>
-                <div className={classes.areaContainer}>
-                  <div className={classes.areaTextWrapper}>
-                    <div className={classes.areaText}>Área Gerencial</div>
-                    <div
-                      className={`${classes.areaIcon} ${
-                        classes[`areaIcon-${theme}-${type}`]
-                      }`}
-                    />
-                  </div>
+                <div className={classes.areaDropdownWrapper} ref={areaRef}>
+                  <button
+                    type="button"
+                    className={classes.areaTrigger}
+                    onClick={() => setIsAreaOpen((v) => !v)}
+                    aria-haspopup="menu"
+                    aria-expanded={isAreaOpen}
+                  >
+                    <span className={classes.areaText}>Área Gerencial</span>
+                  </button>
+
+                  {isAreaOpen && (
+                    <AreaGerencialDropdown onSelect={handleAreaSelect} />
+                  )}
                 </div>
+
                 <div className={classes.divider} />
+
                 <div className={classes.areaImageWrapper}>
                   <img
                     className={classes.areaImage}
@@ -188,6 +280,7 @@ export const Header = ({
                 </div>
               </>
             )}
+
             {type === "login" && (
               <img
                 className={classes.loginImage}

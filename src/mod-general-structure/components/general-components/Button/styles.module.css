@@ -16,15 +16,11 @@
   width: fit-content;
 }
 
-.label:hover {
-  color: #ffffff;
-}
-
 .button {
   align-items: center;
   border: 2px solid;
   border-color: #465eff;
-  background: white;
+  background: #ffffff;
   border-radius: 24px;
   display: inline-flex;
   gap: 12px;
@@ -34,16 +30,30 @@
   cursor: pointer;
 }
 
-.label:hover,
 .button:hover {
   border-color: #ffffff;
   background: #465eff;
+}
 
-  cursor: pointer;
+.button:hover .label {
+  color: #ffffff;
 }
 
 .iconLeft {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.button:disabled,
+.button:disabled:hover {
+  cursor: not-allowed;
+  opacity: 0.6;
+  border-color: #c7c7c7;
+  background: #f3f3f3;
+}
+
+.button:disabled .label,
+.button:disabled:hover .label {
+  color: #c7c7c7;
 }

@@ -1,0 +1,124 @@
+.wrapper {
+  --circle: 34px;
+  --pad: calc(var(--circle) / 2);
+  --steps: 4;
+  --labelW: clamp(56px, calc((100% - var(--circle)) / var(--steps)), 110px);
+  --edge: calc(var(--labelW) / 2);
+  --trackH: 7px;
+  --barGap: 8px;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  min-height: 120px;
+  overflow: visible;
+}
+
+.track {
+  position: absolute;
+  left: calc(var(--edge) + var(--pad));
+  right: calc(var(--edge) + var(--pad));
+  top: calc(var(--circle) + var(--barGap));
+  height: var(--trackH);
+  border-radius: 999px;
+  background: var(--brandprimarylightest);
+  border: 1px solid #dadada;
+  z-index: 1;
+}
+
+.fill {
+  position: absolute;
+  left: calc(var(--edge) + var(--pad));
+  top: calc(var(--circle) + var(--barGap));
+  height: var(--trackH);
+  border-radius: 999px;
+  background: var(--brandprimarypure);
+  z-index: 2;
+  transition: width 220ms ease;
+}
+
+.stepsLayer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.step {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: var(--labelW);
+}
+
+.stepFirst {
+  transform: translateX(0);
+  align-items: flex-start;
+  text-align: left;
+}
+
+.stepLast {
+  transform: translateX(-100%);
+  align-items: flex-end;
+  text-align: right;
+}
+
+.circleBtn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--circle);
+  height: var(--circle);
+}
+
+.circleBtn:disabled {
+  cursor: default;
+}
+
+.label {
+  width: var(--labelW);
+  margin-top: calc(var(--barGap) + var(--trackH) + 10px);
+  font-family: var(--caption-XS-regular-font-family);
+  font-size: 10px;
+  line-height: 12px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.labelDone {
+  color: var(--brandprimarypure);
+}
+
+.labelTodo {
+  color: var(--neutrallowmedium);
+}
+
+.final {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: var(--labelW);
+  text-align: center;
+}
+
+.finalLabel {
+  margin-top: calc(var(--barGap) + var(--trackH) + var(--circle) + 10px);
+  font-family: var(--caption-XS-regular-font-family);
+  font-size: 10px;
+  line-height: 12px;
+  white-space: nowrap;
+}
+
+.empty {
+  width: 100%;
+  height: 1px;
+}
