@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
 import { type JSX, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Divider } from "../Divider";
 import { Logo } from "../Logo";
 import { Text } from "../Text";
+import { ArrowDropDown } from "../ArrowDropdown";
 
 import area2 from "../../../assets/icons/icon-no-mod/no-mod-login-lock.svg";
 import area3 from "../../../assets/icons/icon-no-mod/no-mod-login-avatar.svg";
@@ -12,7 +14,7 @@ import area5 from "../../../assets/icons/icon-no-mod/no-mod-login-lock.svg";
 import area6 from "../../../assets/icons/icon-no-mod/no-mod-login-avatar.svg";
 import area from "../../../assets/icons/icon-no-mod/no-mod-login-avatar.svg";
 
-// ícones do dropdown (lado esquerdo)
+// Ícones do dropdown (lado esquerdo)
 import iconUsers from "../../../assets/icons/icon-no-mod/no-mod-title_user.svg";
 import iconEmail from "../../../assets/icons/icon-no-mod/no-mod-title-email.svg";
 import iconAudit from "../../../assets/icons/icon-no-mod/no-mod-title-audit.svg";
@@ -76,6 +78,8 @@ export const Header = ({
   className,
   logotipoVector = "vector.svg",
 }: Props): JSX.Element => {
+  const navigate = useNavigate();
+
   const [isAreaOpen, setIsAreaOpen] = useState(false);
   const areaRef = useRef<HTMLDivElement | null>(null);
 
@@ -83,6 +87,7 @@ export const Header = ({
     const onMouseDown = (e: MouseEvent): void => {
       const target = e.target as Node | null;
       if (!target) return;
+
       if (areaRef.current && !areaRef.current.contains(target)) {
         setIsAreaOpen(false);
       }
@@ -94,6 +99,7 @@ export const Header = ({
 
     document.addEventListener("mousedown", onMouseDown);
     document.addEventListener("keydown", onKeyDown);
+
     return () => {
       document.removeEventListener("mousedown", onMouseDown);
       document.removeEventListener("keydown", onKeyDown);
@@ -103,12 +109,20 @@ export const Header = ({
   const handleAreaSelect = (key: AreaMenuKey): void => {
     setIsAreaOpen(false);
 
-    // ✅ aqui você liga com sua navegação/rota depois (se quiser)
-    // Ex:
-    // if (key === "users") window.location.href = "/user";
-    // if (key === "emails") window.location.href = "/email";
-    // if (key === "audit") window.location.href = "/audit";
-    console.log("Área Gerencial:", key);
+    if (key === "users") {
+      navigate("/usuario"); 
+      return;
+    }
+
+    if (key === "emails") {
+      navigate("/email");
+      return;
+    }
+
+    if (key === "audit") {
+      navigate("/auditoria");
+      return;
+    }
   };
 
   return (
@@ -226,6 +240,7 @@ export const Header = ({
                 </>
               )}
             </div>
+
             <div className={classes.spacer} />
           </>
         )}
@@ -250,6 +265,9 @@ export const Header = ({
                     aria-expanded={isAreaOpen}
                   >
                     <span className={classes.areaText}>Área Gerencial</span>
+                    <span className={classes.areaArrow}>
+                      <ArrowDropDown />
+                    </span>
                   </button>
 
                   {isAreaOpen && (
@@ -352,6 +370,7 @@ export const Header = ({
         size="large"
         theme="light"
       />
+
       <div className={classes.bbDivider} aria-hidden />
     </div>
   );
