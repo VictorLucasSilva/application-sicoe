@@ -110,20 +110,25 @@ export const Header = ({
     setIsAreaOpen(false);
 
     if (key === "users") {
-      navigate("/usuario"); 
+      navigate("/auditoria"); // como você pediu
       return;
     }
-
     if (key === "emails") {
       navigate("/email");
       return;
     }
-
     if (key === "audit") {
       navigate("/auditoria");
       return;
     }
   };
+
+  const leftTitleIconSrc =
+    type === "cont"
+      ? "/icons/logo-contract.svg"
+      : type === "estab"
+      ? "/icons/logo-establishment.svg"
+      : "";
 
   return (
     <div
@@ -141,36 +146,40 @@ export const Header = ({
           <>
             <div className={classes.leftSection}>
               {theme === "light" && ["cont", "estab"].includes(type) && (
-                <Text
-                  className={{
-                    display: "inline-flex",
-                    flex: "0 0 auto",
-                    left: "unset",
-                    top: "unset",
-                    width: "unset",
-                  }}
-                  color="high-primary"
-                  size="XXX-huge"
-                  text={
-                    type === "cont"
-                      ? "Monitoramento de Contratos"
-                      : "Controle de Estabelecimentos"
-                  }
-                  textClassName={{
-                    alignSelf: "unset",
-                    color: "var(--colors-brand-secondary-pure)",
-                    fontFamily: "'BancoDoBrasil Titulos-Medium', Helvetica",
-                    fontSize: "24px",
-                    fontStyle: "unset",
-                    fontWeight: "500",
-                    letterSpacing: "0",
-                    lineHeight: "29.8px",
-                    whiteSpace: "nowrap",
-                    width: "fit-content",
-                  }}
-                  type="title"
-                  weight="n-a"
-                />
+                <div className={classes.titleWithIcon}>
+                  <img className={classes.titleLeftIcon} src={leftTitleIconSrc} alt="" />
+
+                  <Text
+                    className={{
+                      display: "inline-flex",
+                      flex: "0 0 auto",
+                      left: "unset",
+                      top: "unset",
+                      width: "unset",
+                    }}
+                    color="high-primary"
+                    size="XXX-huge"
+                    text={
+                      type === "cont"
+                        ? "Monitoramento de Contratos"
+                        : "Controle de Estabelecimentos"
+                    }
+                    textClassName={{
+                      alignSelf: "unset",
+                      color: "var(--colors-brand-secondary-pure)",
+                      fontFamily: "'BancoDoBrasil Titulos-Medium', Helvetica",
+                      fontSize: "24px",
+                      fontStyle: "unset",
+                      fontWeight: "500",
+                      letterSpacing: "0",
+                      lineHeight: "29.8px",
+                      whiteSpace: "nowrap",
+                      width: "fit-content",
+                    }}
+                    type="title"
+                    weight="n-a"
+                  />
+                </div>
               )}
 
               {theme === "light" && type === "main" && (
@@ -217,7 +226,8 @@ export const Header = ({
               )}
 
               {theme === "dark" && ["cont", "estab"].includes(type) && (
-                <div className={classes.titleContainer}>
+                <div className={classes.titleWithIcon}>
+                  <img className={classes.titleLeftIconDark} src={leftTitleIconSrc} alt="" />
                   <div className={classes.titleDark}>
                     {type === "estab" && <>Controle de Estabelecimentos</>}
                     {type === "cont" && <>Monitoramento de Contratos</>}
