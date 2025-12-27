@@ -84,7 +84,7 @@
 }
 
 .label {
-  width: var(--labelW);
+  width: 70px;
   margin-top: calc(var(--barGap) + var(--trackH) + 10px);
   font-family: var(--caption-XS-regular-font-family);
   font-size: 10px;

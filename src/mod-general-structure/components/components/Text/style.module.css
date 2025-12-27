@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-} /* Color positioning */
+} 
 .color-low-secondary {
   left: 1408px;
 }
@@ -16,7 +16,7 @@
 .color-brandprimarypure {
   left: 16px;
   color: var(--brandprimarypure);
-} /* Size positioning - top */
+} 
 .size-XXX-huge {
   top: 16px;
 }
@@ -70,7 +70,7 @@
 }
 .size-XX-small {
   top: 1704px;
-} /* Size widths */
+} 
 .size-XXX-huge,
 .size-XX-huge,
 .size-x-huge {

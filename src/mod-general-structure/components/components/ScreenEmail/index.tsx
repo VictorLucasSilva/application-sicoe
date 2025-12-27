@@ -7,22 +7,21 @@ import { Divider } from "../../general-components/Divider";
 import { ButtonIcon } from "../../general-components/ButtonIcon";
 import { IconB } from "../../general-components/ButtonIcon/IconB";
 import { EmailTitleIcon } from "../../general-components/IconPage";
-import { Filter } from "../../components/Filter"
+import { Filter } from "../../components/Filter";
 import { ModalEmailFilter } from "../../components/Modais/ModalFilter/Email";
 
 import classes from "./style.module.css";
 
 export const ScreenEmail = (): JSX.Element => {
-
-  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false) 
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
 
   const openFilterModal = (): void => {
-    setIsFilterModalOpen(true)
-  }
+    setIsFilterModalOpen(true);
+  };
 
   const closeFilterModal = (): void => {
     setIsFilterModalOpen(false);
-  }
+  };
 
   const handleSaveFromFilterModal = (): void => {
     setIsFilterModalOpen(false);
@@ -37,9 +36,7 @@ export const ScreenEmail = (): JSX.Element => {
           icon={<EmailTitleIcon />}
           className={classes.title}
         />
-        <Filter
-          onFilterClick={openFilterModal}
-        />
+        <Filter onFilterClick={openFilterModal} />
         <div className={classes.tableCard}>
           <TableHeaderEmail />
           <RowTableEmail />

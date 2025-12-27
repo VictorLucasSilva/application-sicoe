@@ -5,7 +5,6 @@ import { Button } from "../../../../general-components/Button";
 import { Divider } from "../../../../general-components/Divider";
 import { ContractStepsProgress} from "../../../ContractStepsProgress";
 import { Text } from "../../../Text";
-
 import classes from "./style.module.css";
 
 type ModalInfoContractProps = {
@@ -100,7 +99,7 @@ export const ModalInfoContract = ({
                         }}
                         color="low-primary"
                         size="medium"
-                        text1="Texto primário"
+                        text="Texto primário"
                         type="text"
                         weight="semibold"
                       />
@@ -117,7 +116,7 @@ export const ModalInfoContract = ({
                         }}
                         color="low-primary"
                         size="medium"
-                        text1="Valor"
+                        text="Valor"
                         textClassName={{
                           alignSelf: "unset",
                           textAlign: "right",
@@ -142,7 +141,7 @@ export const ModalInfoContract = ({
                         }}
                         color="low-secondary"
                         size="small"
-                        text1="Texto secundário"
+                        text="Texto secundário"
                         type="text"
                         weight="regular"
                       />
@@ -159,7 +158,7 @@ export const ModalInfoContract = ({
                         }}
                         color="low-secondary"
                         size="small"
-                        text1="Valor"
+                        text="Valor"
                         textClassName={{
                           alignSelf: "unset",
                           textAlign: "right",
@@ -204,7 +203,7 @@ export const ModalInfoContract = ({
                         }}
                         color="low-primary"
                         size="medium"
-                        text1="Texto primário"
+                        text="Texto primário"
                         type="text"
                         weight="semibold"
                       />
@@ -221,7 +220,7 @@ export const ModalInfoContract = ({
                         }}
                         color="low-primary"
                         size="medium"
-                        text1="Valor"
+                        text="Valor"
                         textClassName={{
                           alignSelf: "unset",
                           textAlign: "right",
@@ -233,7 +232,6 @@ export const ModalInfoContract = ({
                       />
                     </div>
                   </div>
-
                   <div className={classes.infoRow}>
                     <div className={classes.infoColumn}>
                       <Text
@@ -246,7 +244,7 @@ export const ModalInfoContract = ({
                         }}
                         color="low-secondary"
                         size="small"
-                        text1="Texto secundário"
+                        text="Texto secundário"
                         type="text"
                         weight="regular"
                       />
@@ -263,7 +261,7 @@ export const ModalInfoContract = ({
                         }}
                         color="low-secondary"
                         size="small"
-                        text1="Valor"
+                        text="Valor"
                         textClassName={{
                           alignSelf: "unset",
                           textAlign: "right",
@@ -308,7 +306,7 @@ export const ModalInfoContract = ({
                         }}
                         color="low-primary"
                         size="medium"
-                        text1="Texto primário"
+                        text="Texto primário"
                         type="text"
                         weight="semibold"
                       />
@@ -325,7 +323,7 @@ export const ModalInfoContract = ({
                         }}
                         color="low-primary"
                         size="medium"
-                        text1="Valor"
+                        text="Valor"
                         textClassName={{
                           alignSelf: "unset",
                           textAlign: "right",
@@ -350,7 +348,7 @@ export const ModalInfoContract = ({
                         }}
                         color="low-secondary"
                         size="small"
-                        text1="Texto secundário"
+                        text="Texto secundário"
                         type="text"
                         weight="regular"
                       />
@@ -367,7 +365,7 @@ export const ModalInfoContract = ({
                         }}
                         color="low-secondary"
                         size="small"
-                        text1="Valor"
+                        text="Valor"
                         textClassName={{
                           alignSelf: "unset",
                           textAlign: "right",
@@ -407,16 +405,16 @@ export const ModalInfoContract = ({
               width: "100%",
             }}
             color="low-primary"
-            size="x-large"
-            text="Etapas de Renovação"
+            size="x-huge"
             type="subtitle"
             weight="semibold"
+            text="Etapas de Contratação"
           />
 
           <div className={classes.stepsContainer}>
             <ContractStepsProgress 
-              process="ata" 
-              daysInProcess={120} 
+              process="contratacao" 
+              daysInProcess={32} 
               observationsByStep={[]}
             />
           </div>

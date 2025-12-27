@@ -14,12 +14,10 @@ import { UserUpdConfirmation } from "../Modais/ModalConfirmation/UserUpdConfirma
 import { UserDelConfirmation } from "../Modais/ModalConfirmation/UserDelConfirmation";
 import { UserRelConfirmation } from "../Modais/ModalConfirmation/UserRelConfirmation";
 import { ModalUserFilter } from "../../components/Modais/ModalFilter/User";
-
-import search from "../../../../../public/icons/search.svg";
-import fill from "../../../../../public/icons/filter.svg";
 import add from "../../../../../public/icons/plus.svg";
 
 import classes from "./style.module.css";
+import { Filter } from "../Filter";
 
 export const ScreenUser = (): JSX.Element => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -27,8 +25,9 @@ export const ScreenUser = (): JSX.Element => {
 
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isRelationModalOpen, setIsRelationModalOpen] = useState(false);
-  const [isRelationConfirmModalOpen, setIsRelationConfirmModalOpen] = useState(false);
-  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false) 
+  const [isRelationConfirmModalOpen, setIsRelationConfirmModalOpen] =
+    useState(false);
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
 
   const openEditModal = (): void => {
     setIsEditModalOpen(true);
@@ -77,12 +76,12 @@ export const ScreenUser = (): JSX.Element => {
   };
 
   const openFilterModal = (): void => {
-    setIsFilterModalOpen(true)
-  }
+    setIsFilterModalOpen(true);
+  };
 
   const closeFilterModal = (): void => {
     setIsFilterModalOpen(false);
-  }
+  };
 
   const handleSaveFromFilterModal = (): void => {
     setIsFilterModalOpen(false);
@@ -98,26 +97,8 @@ export const ScreenUser = (): JSX.Element => {
             icon={<UserTitleIcon />}
             className={classes.title}
           />
-
-          <div className={classes.searchFilterGroup}>
-            <div className={classes.searchWrapper}>
-              <div className={classes.searchIconWrapper}>
-                <img src={search} alt="" className={classes.searchIcon} />
-              </div>
-              <input
-                className={classes.searchInput}
-                type="text"
-                placeholder="Buscar..."
-              />
-            </div>
-
-            <button className={classes.filterButton} type="button" onClick={openFilterModal}>
-              <img src={fill} alt="" className={classes.filterIconImg} />
-              <span className={classes.filterText}>Exibir filtros</span>
-              <span className={classes.filterBadge}>1</span>
-            </button>
-          </div>
         </div>
+        <Filter onFilterClick={openFilterModal} className={classes.filter} />
 
         <div className={classes.tableCard}>
           <TableHeaderUser />

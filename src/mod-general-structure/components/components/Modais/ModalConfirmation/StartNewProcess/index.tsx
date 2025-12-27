@@ -8,8 +8,8 @@ import classes from "./style.module.css";
 
 type ModalWriteNewProcessProps = {
   onClose?: () => void;
-  onNext?: () => void; // Salvar
-  onBackToInfo?: () => void; // Voltar pro InfoContract
+  onNext?: () => void; 
+  onBackToInfo?: () => void; 
 };
 
 type ProcessKey = "aditivo" | "contratacao" | "remanescente" | "ata";
@@ -36,11 +36,13 @@ const PROCESS_STEPS: Record<ProcessKey, string[]> = {
     "Chamado para Envio dos insumos para GESUC",
     "PÓS Assinatura de Contrato envio de FQ/insumos complementares,",
   ],
+
   remanescente: [
     "Abertura de chamado",
     "Confecção de insumos - Preenchimento das FQs, saldo de nota técnica",
     "PÓS Assinatura de Contrato envio de FQ/insumos complementares,",
   ],
+
   ata: [
     "Elaboração da Nota técnica",
     "Preenchimento dos insumos",
@@ -51,9 +53,9 @@ const PROCESS_STEPS: Record<ProcessKey, string[]> = {
 
 type StepState = {
   observation: string;
-  defaultStartDate: string; // yyyy-mm-dd
-  startDate: string; // yyyy-mm-dd
-  acknowledgedManual: boolean; // ciência manual (check clicado)
+  defaultStartDate: string; 
+  startDate: string; 
+  acknowledgedManual: boolean; 
 };
 
 const MS_DAY = 24 * 60 * 60 * 1000;
@@ -153,18 +155,13 @@ export const ModalWriteNewProcess = ({
     if (onNext) onNext();
   };
 
-  // ✅ ao selecionar uma opção: desabilita as outras.
-  // ✅ para trocar: clique de novo na opção selecionada -> desseleciona e zera tudo.
   const handleSelectProcess = (key: ProcessKey): void => {
     setSelectedProcess((prev) => {
-      // clicou na mesma opção => desseleciona e zera tudo
       if (prev === key) {
         setStepsByProcess(buildInitialState(today));
         return null;
       }
 
-      // clicou em outra opção:
-      // só vai acontecer quando prev for null (porque as outras ficam disabled)
       return key;
     });
   };

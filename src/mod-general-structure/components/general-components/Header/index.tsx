@@ -13,8 +13,6 @@ import area4 from "../../../assets/icons/icon-no-mod/no-mod-login-lock.svg";
 import area5 from "../../../assets/icons/icon-no-mod/no-mod-login-lock.svg";
 import area6 from "../../../assets/icons/icon-no-mod/no-mod-login-avatar.svg";
 import area from "../../../assets/icons/icon-no-mod/no-mod-login-avatar.svg";
-
-// Ícones do dropdown (lado esquerdo)
 import iconUsers from "../../../assets/icons/icon-no-mod/no-mod-title_user.svg";
 import iconEmail from "../../../assets/icons/icon-no-mod/no-mod-title-email.svg";
 import iconAudit from "../../../assets/icons/icon-no-mod/no-mod-title-audit.svg";
@@ -110,7 +108,7 @@ export const Header = ({
     setIsAreaOpen(false);
 
     if (key === "users") {
-      navigate("/auditoria"); // como você pediu
+      navigate("/usuario"); 
       return;
     }
     if (key === "emails") {
@@ -275,9 +273,6 @@ export const Header = ({
                     aria-expanded={isAreaOpen}
                   >
                     <span className={classes.areaText}>Área Gerencial</span>
-                    <span className={classes.areaArrow}>
-                      <ArrowDropDown />
-                    </span>
                   </button>
 
                   {isAreaOpen && (

@@ -35,7 +35,6 @@ export const ScreenContractsHome = (): JSX.Element => {
   const closeInfoContractModal = (): void => setIsInfoContractModalOpen(false);
   const handleSaveFromInfoContractModal = (): void => setIsInfoContractModalOpen(false);
 
-  // ✅ ao clicar "INICIAR PROCESSO": fecha InfoContract e abre StartNewProcess
   const openStartProcessFromInfo = (): void => {
     setIsInfoContractModalOpen(false);
     setIsStartProcessModalOpen(true);
@@ -45,14 +44,12 @@ export const ScreenContractsHome = (): JSX.Element => {
     setIsStartProcessModalOpen(false);
   };
 
-  // ✅ botão "Voltar" do StartNewProcess abre o InfoContract de novo
   const backToInfoContract = (): void => {
     setIsStartProcessModalOpen(false);
     setIsInfoContractModalOpen(true);
   };
 
   const handleSaveFromStartProcessModal = (): void => {
-    // aqui você decide o que fazer ao salvar
     setIsStartProcessModalOpen(false);
   };
 

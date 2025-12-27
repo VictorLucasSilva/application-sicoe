@@ -10,11 +10,11 @@ type StepsByProcess = Record<ProcessKey, string[]>;
 type Props = {
     process: ProcessKey;
     daysInProcess: number;
-    daysPerStep?: number; // default 30
+    daysPerStep?: number; 
     stepsByProcess?: StepsByProcess;
 
     observationsByStep?: string[];
-    processStartDateISO?: string; // yyyy-mm-dd
+    processStartDateISO?: string; 
 };
 
 const DEFAULT_STEPS_BY_PROCESS: StepsByProcess = {

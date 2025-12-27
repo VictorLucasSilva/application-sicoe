@@ -19,7 +19,7 @@ interface Props {
   color: "low-primary" | "low-secondary" | "high-primary" | "high-secondary" | "brandprimarypure";
   weight: "semibold" | "regular" | "n-a" | "light";
   className: any;
-  text?: string;
+  text?: string | object;
   textClassName?: object;
   text1?: string;
 }
@@ -29,7 +29,7 @@ export const Text = ({
   color,
   weight,
   className,
-  text = "Lorem ipsum ",
+  text,
 }: Props): JSX.Element => {
   const containerClasses = [
     classes.container,
@@ -61,7 +61,7 @@ export const Text = ({
           size === "XXX-large" ||
           size === "huge" ||
           size === "x-huge" ||
-          size === "x-large") && <p>Lorem ipsum dolor sit amet</p>}{" "}
+          size === "x-large") && <p>{text}</p>}{" "}
         {type === "text" && <p>{text}</p>}{" "}
       </div>{" "}
     </div>
