@@ -29,63 +29,33 @@ export const ScreenUser = (): JSX.Element => {
     useState(false);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
 
-  const openEditModal = (): void => {
-    setIsEditModalOpen(true);
-  };
-
-  const closeEditModal = (): void => {
-    setIsEditModalOpen(false);
-  };
+  const openEditModal = (): void => setIsEditModalOpen(true);
+  const closeEditModal = (): void => setIsEditModalOpen(false);
 
   const handleSaveFromEditModal = (): void => {
     setIsEditModalOpen(false);
     setIsConfirmModalOpen(true);
   };
 
-  const handleConfirmUpdate = (): void => {
-    setIsConfirmModalOpen(false);
-  };
+  const handleConfirmUpdate = (): void => setIsConfirmModalOpen(false);
 
-  const openDeleteModal = (): void => {
-    setIsDeleteModalOpen(true);
-  };
+  const openDeleteModal = (): void => setIsDeleteModalOpen(true);
+  const closeDeleteModal = (): void => setIsDeleteModalOpen(false);
+  const handleConfirmDelete = (): void => setIsDeleteModalOpen(false);
 
-  const closeDeleteModal = (): void => {
-    setIsDeleteModalOpen(false);
-  };
-
-  const handleConfirmDelete = (): void => {
-    setIsDeleteModalOpen(false);
-  };
-
-  const openRelationModal = (): void => {
-    setIsRelationModalOpen(true);
-  };
-
-  const closeRelationModal = (): void => {
-    setIsRelationModalOpen(false);
-  };
+  const openRelationModal = (): void => setIsRelationModalOpen(true);
+  const closeRelationModal = (): void => setIsRelationModalOpen(false);
 
   const handleSaveFromRelationModal = (): void => {
     setIsRelationModalOpen(false);
     setIsRelationConfirmModalOpen(true);
   };
 
-  const handleConfirmRelation = (): void => {
-    setIsRelationConfirmModalOpen(false);
-  };
+  const handleConfirmRelation = (): void => setIsRelationConfirmModalOpen(false);
 
-  const openFilterModal = (): void => {
-    setIsFilterModalOpen(true);
-  };
-
-  const closeFilterModal = (): void => {
-    setIsFilterModalOpen(false);
-  };
-
-  const handleSaveFromFilterModal = (): void => {
-    setIsFilterModalOpen(false);
-  };
+  const openFilterModal = (): void => setIsFilterModalOpen(true);
+  const closeFilterModal = (): void => setIsFilterModalOpen(false);
+  const handleSaveFromFilterModal = (): void => setIsFilterModalOpen(false);
 
   return (
     <div className={classes.screen}>
@@ -97,8 +67,10 @@ export const ScreenUser = (): JSX.Element => {
             icon={<UserTitleIcon />}
             className={classes.title}
           />
+
+          {/* ✅ Filter agora fica ao lado do título */}
+          <Filter onFilterClick={openFilterModal} className={classes.filter} />
         </div>
-        <Filter onFilterClick={openFilterModal} className={classes.filter} />
 
         <div className={classes.tableCard}>
           <TableHeaderUser />
@@ -124,17 +96,8 @@ export const ScreenUser = (): JSX.Element => {
         <div className={classes.footerArea}>
           <ButtonIcon
             text="VOLTAR"
-            className={{
-              marginLeft: 0,
-            }}
-            icon={
-              <IconB
-                className={{
-                  width: 32,
-                  height: 32,
-                }}
-              />
-            }
+            className={{ marginLeft: 0 }}
+            icon={<IconB className={{ width: 32, height: 32 }} />}
           />
 
           <Button
@@ -154,45 +117,27 @@ export const ScreenUser = (): JSX.Element => {
       </div>
 
       {isFilterModalOpen && (
-        <ModalUserFilter
-          onClose={closeFilterModal}
-          onSave={handleSaveFromFilterModal}
-        />
+        <ModalUserFilter onClose={closeFilterModal} onSave={handleSaveFromFilterModal} />
       )}
 
       {isEditModalOpen && (
-        <ModalWriteUserUpdate
-          onClose={closeEditModal}
-          onSave={handleSaveFromEditModal}
-        />
+        <ModalWriteUserUpdate onClose={closeEditModal} onSave={handleSaveFromEditModal} />
       )}
 
       {isConfirmModalOpen && (
-        <UserUpdConfirmation
-          onConfirm={handleConfirmUpdate}
-          onClose={handleConfirmUpdate}
-        />
+        <UserUpdConfirmation onConfirm={handleConfirmUpdate} onClose={handleConfirmUpdate} />
       )}
 
       {isDeleteModalOpen && (
-        <UserDelConfirmation
-          onConfirm={handleConfirmDelete}
-          onClose={closeDeleteModal}
-        />
+        <UserDelConfirmation onConfirm={handleConfirmDelete} onClose={closeDeleteModal} />
       )}
 
       {isRelationModalOpen && (
-        <ModalWriteUserRelation
-          onClose={closeRelationModal}
-          onSave={handleSaveFromRelationModal}
-        />
+        <ModalWriteUserRelation onClose={closeRelationModal} onSave={handleSaveFromRelationModal} />
       )}
 
       {isRelationConfirmModalOpen && (
-        <UserRelConfirmation
-          onConfirm={handleConfirmRelation}
-          onClose={handleConfirmRelation}
-        />
+        <UserRelConfirmation onConfirm={handleConfirmRelation} onClose={handleConfirmRelation} />
       )}
     </div>
   );

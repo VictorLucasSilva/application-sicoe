@@ -1,4 +1,4 @@
-import { type JSX } from "react";
+import { type JSX, useEffect, useRef, useState } from "react";
 import type React from "react";
 
 import { ArrowDropDown } from "../../../../general-components/ArrowDropdown";
@@ -14,12 +14,41 @@ type ModalUserFilterProps = {
   onSave?: () => void;
 };
 
+const CLOSE_ANIM_MS = 220;
+
 export const ModalUserFilter = ({
   onClose,
   onSave,
 }: ModalUserFilterProps): JSX.Element => {
+  const [isClosing, setIsClosing] = useState(false);
+  const closeTimerRef = useRef<number | null>(null);
+
+  const requestClose = (): void => {
+    if (isClosing) return; 
+    setIsClosing(true);
+
+    closeTimerRef.current = window.setTimeout(() => {
+      if (onClose) onClose();
+    }, CLOSE_ANIM_MS);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent): void => {
+      if (e.key === "Escape") requestClose();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isClosing]);
+
   const handleOverlayClick = (): void => {
-    if (onClose) onClose();
+    requestClose();
   };
 
   const handleCardClick = (
@@ -33,8 +62,17 @@ export const ModalUserFilter = ({
   };
 
   return (
-    <div className={classes.overlay} onClick={handleOverlayClick}>
-      <div className={classes.modal} onClick={handleCardClick}>
+    <div
+      className={`${classes.overlay} ${isClosing ? classes.overlayClosing : ""}`}
+      onClick={handleOverlayClick}
+    >
+      <div
+        className={`${classes.modal} ${isClosing ? classes.modalClosing : ""}`}
+        onClick={handleCardClick}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Filtro de usuários"
+      >
         <header className={classes.header}>
           <div className={classes.headerTop}>
             <div className={classes.title}>Filtro Usuário</div>
@@ -43,7 +81,7 @@ export const ModalUserFilter = ({
               type="button"
               className={classes.closeButton}
               aria-label="Fechar modal"
-              onClick={onClose}
+              onClick={requestClose}
             >
               ×
             </button>
@@ -68,6 +106,7 @@ export const ModalUserFilter = ({
             <div className={classes.dropdownLabel}></div>
             <div className={classes.userLabel}>Nome</div>
             <div className={classes.dropdownLabel}>Itens selecionados</div>
+
             <div className={classes.dropdownField}>
               <div className={classes.chipsRow}>
                 <button className={classes.chipSelected}>
@@ -93,6 +132,7 @@ export const ModalUserFilter = ({
                 />
               </div>
             </div>
+
             <Divider
               className={{
                 alignSelf: "stretch",
@@ -106,6 +146,7 @@ export const ModalUserFilter = ({
               theme="light"
             />
           </div>
+
           <div className={classes.userBlockInline}>
             <div className={classes.userBlock}>
               <div className={classes.userLabel}>Status</div>
@@ -119,6 +160,7 @@ export const ModalUserFilter = ({
                 </div>
               </div>
             </div>
+
             <div className={classes.userBlock}>
               <div className={classes.userLabel}>Envio de E-mail</div>
               <div className={classes.textField}>
@@ -132,6 +174,7 @@ export const ModalUserFilter = ({
               </div>
             </div>
           </div>
+
           <Divider
             className={{
               alignSelf: "stretch",
@@ -144,6 +187,7 @@ export const ModalUserFilter = ({
             size="small"
             theme="light"
           />
+
           <div className={classes.userBlockInline}>
             <div className={classes.userBlock}>
               <div className={classes.userLabel}>Perfil</div>
@@ -152,19 +196,19 @@ export const ModalUserFilter = ({
                   Selecione um ou mais perfis
                 </div>
                 <div className={classes.chipsRow}>
-                  <button className={classes.chipSelected}>
-                    Administrador
-                  </button>
+                  <button className={classes.chipSelected}>Administrador</button>
                   <button className={classes.chip}>Auditor</button>
                   <button className={classes.chip}>Gerente Regional</button>
                   <button className={classes.chip}>Usuário</button>
                 </div>
               </div>
             </div>
+
             <div className={classes.userBlock}>
               <InputData title="Fim da Vigência" />
             </div>
           </div>
+
           <Divider
             className={{
               alignSelf: "stretch",
@@ -178,6 +222,7 @@ export const ModalUserFilter = ({
             theme="light"
           />
         </div>
+
         <footer className={classes.footer}>
           <div className={classes.footerButtons}>
             <Button

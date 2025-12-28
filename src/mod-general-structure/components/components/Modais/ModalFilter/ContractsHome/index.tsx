@@ -24,10 +24,9 @@ export const ModalContractFilter = ({
   const closeTimerRef = useRef<number | null>(null);
 
   const requestClose = (): void => {
-    if (isClosing) return; // evita disparar 2x
+    if (isClosing) return; 
     setIsClosing(true);
 
-    // chama o onClose só depois da animação terminar
     closeTimerRef.current = window.setTimeout(() => {
       if (onClose) onClose();
     }, CLOSE_ANIM_MS);
@@ -39,7 +38,6 @@ export const ModalContractFilter = ({
     };
   }, []);
 
-  // (opcional) ESC fecha
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent): void => {
       if (e.key === "Escape") requestClose();

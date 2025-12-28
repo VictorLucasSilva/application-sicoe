@@ -1,4 +1,4 @@
-import { type JSX } from "react";
+import { type JSX, useEffect, useRef, useState } from "react";
 import type React from "react";
 
 import { ArrowDropDown } from "../../../../general-components/ArrowDropdown";
@@ -14,12 +14,41 @@ type ModalFilterAuditProps = {
   onSave?: () => void;
 };
 
+const CLOSE_ANIM_MS = 220;
+
 export const ModalAuditFilter = ({
   onClose,
   onSave,
 }: ModalFilterAuditProps): JSX.Element => {
+  const [isClosing, setIsClosing] = useState(false);
+  const closeTimerRef = useRef<number | null>(null);
+
+  const requestClose = (): void => {
+    if (isClosing) return;
+    setIsClosing(true);
+
+    closeTimerRef.current = window.setTimeout(() => {
+      if (onClose) onClose();
+    }, CLOSE_ANIM_MS);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent): void => {
+      if (e.key === "Escape") requestClose();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isClosing]);
+
   const handleOverlayClick = (): void => {
-    if (onClose) onClose();
+    requestClose();
   };
 
   const handleCardClick = (
@@ -33,8 +62,17 @@ export const ModalAuditFilter = ({
   };
 
   return (
-    <div className={classes.overlay} onClick={handleOverlayClick}>
-      <div className={classes.modal} onClick={handleCardClick}>
+    <div
+      className={`${classes.overlay} ${isClosing ? classes.overlayClosing : ""}`}
+      onClick={handleOverlayClick}
+    >
+      <div
+        className={`${classes.modal} ${isClosing ? classes.modalClosing : ""}`}
+        onClick={handleCardClick}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Filtro de auditoria"
+      >
         <header className={classes.header}>
           <div className={classes.headerTop}>
             <div className={classes.title}>Filtro Auditoria</div>
@@ -43,7 +81,7 @@ export const ModalAuditFilter = ({
               type="button"
               className={classes.closeButton}
               aria-label="Fechar modal"
-              onClick={onClose}
+              onClick={requestClose}
             >
               ×
             </button>
@@ -90,6 +128,7 @@ export const ModalAuditFilter = ({
             <div className={classes.dropdownLabel}></div>
             <div className={classes.userLabel}>Usuários</div>
             <div className={classes.dropdownLabel}>Itens selecionados</div>
+
             <div className={classes.dropdownField}>
               <div className={classes.chipsRow}>
                 <button className={classes.chipSelected}>
@@ -115,6 +154,7 @@ export const ModalAuditFilter = ({
                 />
               </div>
             </div>
+
             <Divider
               className={{
                 alignSelf: "stretch",
@@ -128,6 +168,7 @@ export const ModalAuditFilter = ({
               theme="light"
             />
           </div>
+
           <div className={classes.userBlock}>
             <div className={classes.userLabel}>Ação</div>
             <div className={classes.textField}>
@@ -144,6 +185,7 @@ export const ModalAuditFilter = ({
               </div>
             </div>
           </div>
+
           <Divider
             className={{
               alignSelf: "stretch",
@@ -156,6 +198,7 @@ export const ModalAuditFilter = ({
             size="medium"
             theme="light"
           />
+
           <div className={classes.userBlock}>
             <div className={classes.userLabel}>Objeto</div>
             <div className={classes.textField}>
@@ -171,6 +214,7 @@ export const ModalAuditFilter = ({
               </div>
             </div>
           </div>
+
           <Divider
             className={{
               alignSelf: "stretch",
@@ -184,6 +228,7 @@ export const ModalAuditFilter = ({
             theme="light"
           />
         </div>
+
         <footer className={classes.footer}>
           <div className={classes.footerButtons}>
             <Button

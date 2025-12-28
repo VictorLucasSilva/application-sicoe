@@ -9,15 +9,15 @@ import { Timeline } from "../../../Timeline";
 
 import classes from "./style.module.css";
 
-type ModalWriteUserRelationProps = {
+type ModalInfoProcessProps = {
   onClose?: () => void;
   onSave?: () => void;
 };
 
-export const ModalWriteUserRelation = ({
+export const ModalInfoProcess = ({
   onClose,
   onSave,
-}: ModalWriteUserRelationProps): JSX.Element => {
+}: ModalInfoProcessProps): JSX.Element => {
   const handleOverlayClick = (): void => {
     if (onClose) onClose();
   };

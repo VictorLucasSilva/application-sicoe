@@ -10,6 +10,7 @@ import { SubsectionBarCard } from "../SubsectionBarCard";
 
 import { ModalInfoContract } from "../Modais/ModalConfirmation/InfoContract";
 import { ModalWriteNewProcess } from "../Modais/ModalConfirmation/StartNewProcess";
+import { ModalInfoProcess } from "../Modais/ModalConfirmation/InfoProcess"; 
 
 const statusCards = [
   { label: "Ativos" },
@@ -19,20 +20,29 @@ const statusCards = [
   { label: "Vencido" },
 ];
 
+const hasProcess = false;
+
 const contracts = Array.from({ length: 40 }, (_, index) => ({ id: index + 1 }));
 
 export const ScreenContractsHome = (): JSX.Element => {
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
 
   const [isInfoContractModalOpen, setIsInfoContractModalOpen] = useState(false);
+
   const [isStartProcessModalOpen, setIsStartProcessModalOpen] = useState(false);
 
+  const [isInfoProcessModalOpen, setIsInfoProcessModalOpen] = useState(false);
+
   const openFilterModal = (): void => setIsFilterModalOpen(true);
+
   const closeFilterModal = (): void => setIsFilterModalOpen(false);
+
   const handleSaveFromFilterModal = (): void => setIsFilterModalOpen(false);
 
   const openInfoContractModal = (): void => setIsInfoContractModalOpen(true);
+
   const closeInfoContractModal = (): void => setIsInfoContractModalOpen(false);
+
   const handleSaveFromInfoContractModal = (): void => setIsInfoContractModalOpen(false);
 
   const openStartProcessFromInfo = (): void => {
@@ -51,6 +61,15 @@ export const ScreenContractsHome = (): JSX.Element => {
 
   const handleSaveFromStartProcessModal = (): void => {
     setIsStartProcessModalOpen(false);
+  };
+
+  const openInfoProcessFromInfo = (): void => {
+    setIsInfoContractModalOpen(false);
+    setIsInfoProcessModalOpen(true);
+  };
+
+  const closeInfoProcessModal = (): void => {
+    setIsInfoProcessModalOpen(false);
   };
 
   return (
@@ -104,7 +123,10 @@ export const ScreenContractsHome = (): JSX.Element => {
       </section>
 
       {isFilterModalOpen && (
-        <ModalContractFilter onClose={closeFilterModal} onSave={handleSaveFromFilterModal} />
+        <ModalContractFilter
+          onClose={closeFilterModal}
+          onSave={handleSaveFromFilterModal}
+        />
       )}
 
       {isInfoContractModalOpen && (
@@ -112,6 +134,8 @@ export const ScreenContractsHome = (): JSX.Element => {
           onClose={closeInfoContractModal}
           onSave={handleSaveFromInfoContractModal}
           onStartProcess={openStartProcessFromInfo}
+          processCta={hasProcess ? "details" : "start"}
+          onOpenProcessDetails={openInfoProcessFromInfo}
         />
       )}
 
@@ -120,6 +144,13 @@ export const ScreenContractsHome = (): JSX.Element => {
           onClose={closeStartProcessModal}
           onBackToInfo={backToInfoContract}
           onNext={handleSaveFromStartProcessModal}
+        />
+      )}
+
+      {isInfoProcessModalOpen && (
+        <ModalInfoProcess
+          onClose={closeInfoProcessModal}
+          onSave={closeInfoProcessModal}
         />
       )}
     </div>

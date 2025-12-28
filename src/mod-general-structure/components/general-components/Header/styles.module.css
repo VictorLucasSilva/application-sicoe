@@ -8,10 +8,12 @@
   left: 0;
   width: 100%;
   z-index: 10;
+  --header-title-font-size: 1.5rem;   
+  --header-title-line-height: 1.9rem;
 }
 
 .header-dark {
-  background-color: var(--colors-brand-primary-pure);
+  background: linear-gradient(90deg, #465eff 0%, #154eeb 120%);
 }
 
 .header-light {
@@ -112,70 +114,6 @@
   gap: 8px;
 }
 
-.areaContainer {
-  align-items: flex-start;
-  display: inline-flex;
-  flex: 0 0 auto;
-  flex-direction: column;
-  position: relative;
-}
-
-.areaTextWrapper {
-  align-items: center;
-  display: inline-flex;
-  flex: 0 0 auto;
-  gap: 8px;
-  position: relative;
-}
-
-.areaText {
-  align-items: center;
-  color: var(--neutralhighdarkest);
-  display: flex;
-  font-family: "BancoDoBrasil Textos-Medium", Helvetica;
-  font-size: 18px;
-  font-weight: 500;
-  justify-content: center;
-  letter-spacing: 0;
-  line-height: 32px;
-  margin-top: -1px;
-  position: relative;
-  text-align: center;
-  white-space: nowrap;
-  width: fit-content;
-}
-
-.areaIcon {
-  background-size: 100% 100%;
-  height: 5px;
-  position: relative;
-  width: 10px;
-}
-
-.areaIcon-light-cont {
-  background-image: url(path-3.svg);
-}
-
-.areaIcon-light-main {
-  background-image: url(path-4.svg);
-}
-
-.areaIcon-light-estab {
-  background-image: url(path-2.svg);
-}
-
-.areaIcon-dark-estab {
-  background-image: url(path-5.svg);
-}
-
-.areaIcon-dark-cont {
-  background-image: url(path-6.svg);
-}
-
-.areaIcon-dark-main {
-  background-image: url(path.svg);
-}
-
 .divider {
   background-color: var(--neutralhighlighter);
   height: 32px;
@@ -183,21 +121,10 @@
   width: 2px;
 }
 
-.areaImageWrapper {
-  align-items: flex-start;
-  display: inline-flex;
-  flex: 0 0 auto;
-  justify-content: center;
-  position: relative;
-}
-
 .areaImage {
   height: 32px;
-  position: relative;
   width: 32px;
 }
-
-
 
 .loginImage {
   height: 40px;
@@ -212,6 +139,24 @@
   margin-top: -4px;
 }
 
+.titleWithIcon {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.7rem;
+}
+
+.titleLeftIcon,
+.titleLeftIconDark {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.titleLeftIconDark {
+  filter: brightness(0) saturate(100%) invert(92%) sepia(90%) saturate(1200%)
+    hue-rotate(2deg) brightness(105%) contrast(102%);
+}
+
 .areaDropdownWrapper {
   position: relative;
   display: inline-flex;
@@ -223,26 +168,50 @@
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   border-radius: 10px;
-  padding: 4px 6px;
+  padding: 6px 8px;
 }
 
 .areaTrigger:hover {
-  background: rgba(0, 0, 0, 0.04);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .areaTrigger:focus-visible {
-  outline: 2px solid rgba(0, 0, 0, 0.25);
+  outline: 2px solid rgba(255, 255, 255, 0.35);
   outline-offset: 2px;
 }
 
-.areaArrow {
-  display: inline-flex;
+.areaText {
   align-items: center;
-  justify-content: center;
+  color: var(--neutralhighpure);
+  display: flex;
+  font-family: "BancoDoBrasil Textos-Medium", Helvetica;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 2rem;
+  white-space: nowrap;
+  width: fit-content;
 }
 
+.dropdownArrowIcon {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+  transition: transform 160ms ease;
+  opacity: 0.95;
+}
+
+.dropdownArrowOpen {
+  transform: rotate(180deg);
+}
+
+.dropdownArrowProfile {
+  margin-left: 2px;
+}
+
+/* Dropdown Área */
 .areaDropdown {
   position: absolute;
   top: calc(100% + 12px);
@@ -284,38 +253,420 @@
 }
 
 .areaDropdownIcon {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   object-fit: contain;
   filter: brightness(0) invert(1);
 }
 
+/* ✅ dropdown menor */
 .areaDropdownText {
   color: #ffffff;
   font-family: "BancoDoBrasil Textos-Medium", Helvetica;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
   letter-spacing: 0;
-  line-height: 28px;
+  line-height: 22px;
   white-space: nowrap;
 }
 
-.titleWithIcon {
+/* ------------------------
+   PERFIL
+------------------------- */
+.profileWrapper {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.profileTrigger {
+  all: unset;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  border-radius: 999px;
+  padding: 6px 10px;
 }
 
-.titleLeftIcon {
-  width: 26px;
-  height: 26px;
-  object-fit: contain;
-  filter: brightness(0) invert(1); 
+.profileTrigger:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
-.titleLeftIconDark {
-  width: 26px;
-  height: 26px;
-  object-fit: contain;
+.profileDropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  min-width: 180px;
+  padding: 10px;
+  border-radius: 16px;
+  z-index: 999;
+  background: linear-gradient(180deg, var(--brandprimarypure) 0%, #1347d6 100%);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+.profileDropdown::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 26px;
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(180deg, var(--brandprimarypure) 0%, var(--brandprimarypure) 100%);
+  transform: rotate(45deg);
+  border-radius: 4px;
+}
+
+.profileDropdownItem {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.profileDropdownItem:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* ✅ dropdown menor */
+.profileDropdownText {
+  color: #ffffff;
+  font-family: "BancoDoBrasil Textos-Medium", Helvetica;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+/* ------------------------
+   NOTIFICAÇÕES
+------------------------- */
+.notifyWrapper {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.notifyTrigger {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 6px;
+  position: relative;
+}
+
+.notifyTrigger:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.notifyIcon {
+  width: 20px;
+  height: 20px;
   filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+
+.notifyBadge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--brandprimarylighter);
+  color: #465eff;
+  font-family: "BancoDoBrasil Textos-Medium", Helvetica;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Dropdown Notificações (azul) */
+.notifyDropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 280px;
+  padding: 14px;
+  border-radius: 16px;
+  z-index: 999;
+  background: linear-gradient(180deg, var(--brandprimarypure) 0%, #1347d6 100%);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+.notifyDropdown::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 22px;
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(180deg, var(--brandprimarypure) 0%, var(--brandprimarypure) 100%);
+  transform: rotate(45deg);
+  border-radius: 4px;
+}
+
+.notifyHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px 2px 10px;
+}
+
+.notifyTitle {
+  color: #ffffff;
+  font-family: "BancoDoBrasil Textos-Medium", Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.notifySubtitle {
+  color: rgba(255, 255, 255, 0.75);
+  font-family: "BancoDoBrasil Textos-Medium", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+/* ✅ divisória título/subtítulo vs lista */
+.notifyHeaderDivider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+  margin: 2px 0 10px;
+}
+
+/* ✅ scroll se passar de 5 */
+.notifyList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  max-height: 320px; /* ~5 itens */
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.notifyList::-webkit-scrollbar {
+  width: 6px;
+}
+.notifyList::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+}
+.notifyList::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+}
+
+.notifyItem {
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: left;
+  position: relative;
+}
+
+.notifyItem:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ✅ lida mais “clara” (menos destaque) */
+.notifyItemRead {
+  opacity: 0.65;
+}
+
+.notifyItemMain {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.notifyItemTextBlock {
+  flex: 1;
+  min-width: 0;
+}
+
+.notifyItemTitle {
+  color: #ffffff;
+  font-family: "BancoDoBrasil Textos-Medium", Helvetica;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 16px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.notifyItemMessage {
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: "BancoDoBrasil Textos-Medium", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2; /* ✅ padrão p/ compatibilidade */
+  -webkit-box-orient: vertical;
+}
+
+.notifyItemFooterRow {
+  margin-top:10px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.notifyReadMore {
+  color: rgba(252, 252, 48, 0.95);
+  font-family: "BancoDoBrasil Textos-Medium", Helvetica;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
+  text-decoration: underline;
+}
+
+.areaTriggerIcon {
+  display: none;
+}
+
+/* ✅ expandido: mostra tudo */
+.notifyItemExpanded .notifyItemTitle {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+.notifyItemExpanded .notifyItemMessage {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: initial;
+  line-clamp: initial;
+}
+
+.notifyMailButton {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 10px;
+  flex: 0 0 auto;
+}
+
+.notifyMailButton:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.notifyMailIcon {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+.titleLinkButton {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 12px;
+  padding: 0;
+}
+
+.titleLinkButton:hover {
+  background: transparent;
+}
+
+.titleLinkButton:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.35);
+  outline-offset: 3px;
+}
+/* ✅ não lida: mais destaque */
+.notifyItemUnread {
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(252, 252, 48, 0.22);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+  padding: 12px 12px 12px 2.1rem; 
+}
+
+.notifyItemUnread::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 0.7rem;
+  width: 3px;
+  border-radius: 999px;
+  background: var(--brandsecondarypure);
+  opacity: 0.95;
+}
+
+.notifyItemRead {
+  opacity: 0.62;
+}
+
+/* ✅ itens que não precisam expandir: sem “sensação” de clique */
+.notifyItemNoExpand {
+  cursor: default;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    --header-title-font-size: 1.25rem;    /* ✅ menor */
+    --header-title-line-height: 1.6rem;
+  }
+
+  /* esquerda: só o título (sem ícone) */
+  .titleLeftIcon,
+  .titleLeftIconDark {
+    display: none;
+  }
+
+  /* direita: ficar só com ícones (3 da direita) */
+  .areaText {
+    display: none;
+  }
+
+  /* esconder setinhas pra não virar 5 ícones */
+  .dropdownArrowIcon {
+    display: none;
+  }
+
+  /* mostrar ícone do botão Área Gerencial só no tablet */
+  .areaTriggerIcon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
+  }
+
+  /* compactar espaçamentos */
+  .rightSection {
+    gap: 0.6rem;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .areaTrigger,
+  .profileTrigger,
+  .notifyTrigger {
+    padding: 0.35rem;
+  }
 }

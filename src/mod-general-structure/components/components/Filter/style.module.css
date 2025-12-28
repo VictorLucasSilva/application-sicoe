@@ -2,32 +2,38 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 40px;
+  width: 100%;
+  min-width: 0;
   gap: 10px;
 }
 
 .searchInput {
   flex: 1;
-  max-width: 90%;
+  min-width: 0;
   height: 40px;
   border-bottom: 1.5px solid #cfcfcf;
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-left: 12px;
 }
 
 .searchIcon {
   width: 24px;
   height: 24px;
+  flex: 0 0 auto;
 }
 
 .searchInput input {
   flex: 1;
+  min-width: 0;
   border: none;
   outline: none;
   background: transparent;
   font-size: 15px;
+  color: #333;
+}
+
+.searchInput input::placeholder {
   color: #c4c4c4;
 }
 
@@ -43,6 +49,8 @@
   font-weight: 500;
   color: #333864;
   cursor: pointer;
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .filterIcon {

@@ -34,9 +34,8 @@
   flex-direction: column;
 
   width: min(560px, 100vw);
-  height: 95vh;
+  height: 100vh;
   max-height: 100vh;
-  margin: 15px;
   animation: slideInRight 220ms ease-out;
   transform: translateX(0);
 }
@@ -46,7 +45,6 @@
   to { transform: translateX(0); }
 }
 
-/* fecha: esquerda -> direita (saindo para a direita) */
 .modalClosing {
   animation: slideOutRight 220ms ease-in forwards;
 }

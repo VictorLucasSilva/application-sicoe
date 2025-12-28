@@ -1,4 +1,4 @@
-import { type JSX } from "react";
+import { type JSX, useEffect, useRef, useState } from "react";
 import type React from "react";
 
 import { ArrowDropDown } from "../../../../general-components/ArrowDropdown";
@@ -14,12 +14,41 @@ type ModalEmailFilterProps = {
   onSave?: () => void;
 };
 
+const CLOSE_ANIM_MS = 220;
+
 export const ModalEmailFilter = ({
   onClose,
   onSave,
 }: ModalEmailFilterProps): JSX.Element => {
+  const [isClosing, setIsClosing] = useState(false);
+  const closeTimerRef = useRef<number | null>(null);
+
+  const requestClose = (): void => {
+    if (isClosing) return;
+    setIsClosing(true);
+
+    closeTimerRef.current = window.setTimeout(() => {
+      if (onClose) onClose();
+    }, CLOSE_ANIM_MS);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent): void => {
+      if (e.key === "Escape") requestClose();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isClosing]);
+
   const handleOverlayClick = (): void => {
-    if (onClose) onClose();
+    requestClose();
   };
 
   const handleCardClick = (
@@ -33,8 +62,17 @@ export const ModalEmailFilter = ({
   };
 
   return (
-    <div className={classes.overlay} onClick={handleOverlayClick}>
-      <div className={classes.modal} onClick={handleCardClick}>
+    <div
+      className={`${classes.overlay} ${isClosing ? classes.overlayClosing : ""}`}
+      onClick={handleOverlayClick}
+    >
+      <div
+        className={`${classes.modal} ${isClosing ? classes.modalClosing : ""}`}
+        onClick={handleCardClick}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Filtro de e-mails"
+      >
         <header className={classes.header}>
           <div className={classes.headerTop}>
             <div className={classes.title}>Filtro E-mail</div>
@@ -43,7 +81,7 @@ export const ModalEmailFilter = ({
               type="button"
               className={classes.closeButton}
               aria-label="Fechar modal"
-              onClick={onClose}
+              onClick={requestClose}
             >
               ×
             </button>
@@ -75,9 +113,7 @@ export const ModalEmailFilter = ({
                   <button className={classes.chipSelected}>
                     Em Análise | Administradores
                   </button>
-                  <button className={classes.chip}>
-                    Pendências | Usuários
-                  </button>
+                  <button className={classes.chip}>Pendências | Usuários</button>
                 </div>
               </div>
             </div>
@@ -90,6 +126,7 @@ export const ModalEmailFilter = ({
             <div className={classes.dropdownLabel}></div>
             <div className={classes.userLabel}>Destino</div>
             <div className={classes.dropdownLabel}>Itens selecionados</div>
+
             <div className={classes.dropdownField}>
               <div className={classes.chipsRow}>
                 <button className={classes.chipSelected}>
@@ -115,6 +152,7 @@ export const ModalEmailFilter = ({
                 />
               </div>
             </div>
+
             <Divider
               className={{
                 alignSelf: "stretch",
@@ -128,15 +166,15 @@ export const ModalEmailFilter = ({
               theme="light"
             />
           </div>
+
           <div className={classes.dropdownSection}>
             <div className={classes.dropdownLabel}></div>
             <div className={classes.userLabel}>Objeto</div>
             <div className={classes.dropdownLabel}>Itens selecionados</div>
+
             <div className={classes.dropdownField}>
               <div className={classes.chipsRow}>
-                <button className={classes.chipSelected}>
-                  AVBC | MATRIZ ×
-                </button>
+                <button className={classes.chipSelected}>AVBC | MATRIZ ×</button>
                 <button className={classes.chipSelected}>
                   AVBC | FILIAL - BELO HORIZONTE ×
                 </button>
@@ -160,6 +198,7 @@ export const ModalEmailFilter = ({
                 />
               </div>
             </div>
+
             <Divider
               className={{
                 alignSelf: "stretch",
@@ -174,6 +213,7 @@ export const ModalEmailFilter = ({
             />
           </div>
         </div>
+
         <footer className={classes.footer}>
           <div className={classes.footerButtons}>
             <Button
@@ -183,7 +223,7 @@ export const ModalEmailFilter = ({
               size="small"
               status="default"
               text="on"
-              text1="Aplicar Filtrar"
+              text1="Aplicar Filtros"
               theme="light"
               onClick={handleSaveClick}
             />

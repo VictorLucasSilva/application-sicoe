@@ -3,21 +3,36 @@ import type React from "react";
 
 import { Button } from "../../../../general-components/Button";
 import { Divider } from "../../../../general-components/Divider";
-import { ContractStepsProgress} from "../../../ContractStepsProgress";
+import { ContractStepsProgress } from "../../../ContractStepsProgress";
 import { Text } from "../../../Text";
+
 import classes from "./style.module.css";
 
 type ModalInfoContractProps = {
   onClose?: () => void;
   onSave?: () => void;
-  onStartProcess?: () => void; 
+  onStartProcess?: () => void;
+
+  processCta?: "start" | "details";
+  onOpenProcessDetails?: () => void;
 };
 
 export const ModalInfoContract = ({
   onClose,
   onSave,
   onStartProcess,
+  processCta = "start",
+  onOpenProcessDetails,
 }: ModalInfoContractProps): JSX.Element => {
+
+  const handlePrimaryClick = (): void => {
+    if (processCta === "details") {
+      onOpenProcessDetails?.();
+      return;
+    }
+    onStartProcess?.();
+  };
+
   const handleOverlayClick = (): void => {
     if (onClose) onClose();
   };
@@ -32,10 +47,6 @@ export const ModalInfoContract = ({
     if (onSave) onSave();
   };
 
-  const handleStartProcessClick = (): void => {
-
-    if (onStartProcess) onStartProcess();
-  };
   return (
     <div className={classes.overlay} onClick={handleOverlayClick}>
       <div className={classes.modal} onClick={handleCardClick}>
@@ -232,6 +243,7 @@ export const ModalInfoContract = ({
                       />
                     </div>
                   </div>
+
                   <div className={classes.infoRow}>
                     <div className={classes.infoColumn}>
                       <Text
@@ -412,11 +424,7 @@ export const ModalInfoContract = ({
           />
 
           <div className={classes.stepsContainer}>
-            <ContractStepsProgress 
-              process="contratacao" 
-              daysInProcess={32} 
-              observationsByStep={[]}
-            />
+            <ContractStepsProgress process="ata" daysInProcess={18} observationsByStep={[]} />
           </div>
         </div>
 
@@ -447,17 +455,19 @@ export const ModalInfoContract = ({
               onClick={handleSaveClick}
             />
 
-            <Button
-              className={{ flex: "0 0 auto", left: "unset", top: "unset" }}
-              hierarchy="primary"
-              icon="off"
-              size="small"
-              status="default"
-              text="on"
-              text1="INICIAR PROCESSO"
-              theme="dark"
-              onClick={handleStartProcessClick}
-            />
+            {processCta && (
+              <Button
+                className={{ flex: "0 0 auto", left: "unset", top: "unset" }}
+                hierarchy="primary"
+                icon="off"
+                size="small"
+                status="default"
+                text="on"
+                text1={processCta === "details" ? "DETALHES DO PROCESSO" : "INICIAR PROCESSO"}
+                theme="dark"
+                onClick={handlePrimaryClick}
+              />
+            )}
           </div>
         </footer>
       </div>
