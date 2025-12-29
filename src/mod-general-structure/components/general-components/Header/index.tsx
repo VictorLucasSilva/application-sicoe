@@ -189,7 +189,6 @@ const NotificationsDropdown = ({
                     {n.message}
                   </div>
 
-                  {/* ✅ Só mostra "Ler mais/menos" se realmente precisar */}
                   {canExpand && (
                     <div className={classes.notifyItemFooterRow}>
                       <span className={classes.notifyReadMore}>
@@ -199,7 +198,6 @@ const NotificationsDropdown = ({
                   )}
                 </div>
 
-                {/* ✅ Só vira "lida" quando clicar aqui */}
                 <button
                   type="button"
                   className={classes.notifyMailButton}
@@ -240,7 +238,6 @@ export const Header = ({
   const profileRef = useRef<HTMLDivElement | null>(null);
   const notifyRef = useRef<HTMLDivElement | null>(null);
 
-  // ✅ refs para medir overflow do texto (e decidir se mostra "Ler mais")
   const messageElsRef = useRef<Record<string, HTMLDivElement | null>>({});
   const registerMessageEl = (id: string, el: HTMLDivElement | null): void => {
     messageElsRef.current[id] = el;
@@ -335,7 +332,6 @@ export const Header = ({
     setIsNotifyOpen(false);
   };
 
-  // ✅ clicar nos títulos manda pra /home
   const goHome = (): void => {
     closeAllDropdowns();
     navigate("/home");
@@ -368,7 +364,6 @@ export const Header = ({
     };
   }, []);
 
-  // ✅ mede quais mensagens realmente estão “cortando” (precisam de Ler mais)
   useEffect(() => {
     if (!isNotifyOpen) return;
 
@@ -378,7 +373,6 @@ export const Header = ({
         const next = { ...prev };
 
         notifications.forEach((n) => {
-          // se está expandida, mantém valor já calculado
           if (n.expanded) return;
 
           const el = messageElsRef.current[n.id];
@@ -428,18 +422,16 @@ export const Header = ({
     }
   };
 
-  // ✅ só marca como lida quando clicar no botão (sem auto-mark ao expandir)
   const toggleNotifyRead = (id: string): void => {
     setNotifications((prev) =>
       prev.map((n) => (n.id === id ? { ...n, read: !n.read } : n)),
     );
   };
 
-  // ✅ expandir NÃO mexe em "read"
   const toggleNotifyExpanded = (id: string): void => {
     setNotifications((prev) =>
       prev.map((n) => {
-        if (n.id !== id) return { ...n, expanded: false }; // só 1 expandida por vez
+        if (n.id !== id) return { ...n, expanded: false };
         return { ...n, expanded: !n.expanded };
       }),
     );

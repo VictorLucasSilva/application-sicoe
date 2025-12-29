@@ -218,7 +218,7 @@
   padding: 14px;
   border-radius: 16px;
   z-index: 999;
-  background: linear-gradient(180deg, var(--brandprimarypure) 0%, #1347d6 100%);
+  background: linear-gradient(180deg, #154eeb 0%, #465eff 170%);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
 }
 
@@ -229,7 +229,7 @@
   right: 26px;
   width: 16px;
   height: 16px;
-  background: linear-gradient(180deg, var(--brandprimarypure) 0%, var(--brandprimarypure) 100%);
+  background: #154eeb;
   transform: rotate(45deg);
   border-radius: 2px;
 }
@@ -298,7 +298,7 @@
   padding: 10px;
   border-radius: 16px;
   z-index: 999;
-  background: linear-gradient(180deg, var(--brandprimarypure) 0%, #1347d6 100%);
+  background: linear-gradient(180deg, #154eeb 0%, #465eff 170%);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
 }
 
@@ -309,7 +309,7 @@
   right: 26px;
   width: 16px;
   height: 16px;
-  background: linear-gradient(180deg, var(--brandprimarypure) 0%, var(--brandprimarypure) 100%);
+  background: #154eeb;
   transform: rotate(45deg);
   border-radius: 2px;
 }
@@ -374,7 +374,7 @@
   right: -2px;
   min-width: 18px;
   height: 18px;
-  padding: 0px 2px 2px 0px;
+  padding: 1px 1px 2px 1px;
   border-radius: 999px;
   background: rgba(252, 252, 48, 0.95);
   color: #465eff;
@@ -393,7 +393,7 @@
   padding: 14px;
   border-radius: 16px;
   z-index: 999;
-  background: linear-gradient(180deg, var(--brandprimarypure) 0%, #1347d6 100%);
+  background: linear-gradient(180deg, #154eeb 0%, #465eff 200%);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
 }
 
@@ -404,7 +404,7 @@
   right: 19px;
   width: 16px;
   height: 16px;
-  background: var(--brandprimarypure);
+  background: #154eeb;
   transform: rotate(45deg);
   border-radius: 3px;
 }

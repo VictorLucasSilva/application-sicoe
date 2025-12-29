@@ -172,9 +172,12 @@
 }
 
 .doneMark {
-  color: #2bb673;
-  font-size: 16px;
-  line-height: 1;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: #05ff1a;
+  -webkit-mask: url("../../../../../assets/icons/icon-contract/check.svg") no-repeat center / contain;
+  mask: url("../../../../../assets/icons/icon-contract/check.svg") no-repeat center / contain;
 }
 
 .primaryChip {
@@ -192,9 +195,9 @@
 .datesRow {
   display: flex;
   align-items: flex-end;
-  justify-content: flex-start; 
-  gap: 18px;                 
-  flex-wrap: wrap;           
+  justify-content: flex-start;
+  gap: 18px;
+  flex-wrap: wrap;
   margin-bottom: 8px;
 }
 
@@ -252,7 +255,7 @@
   font-size: 11px;
   font-weight: 700;
   color: #ffffff;
-  background: #465eff; 
+  background: #465eff;
   white-space: nowrap;
 }
 
@@ -262,7 +265,7 @@
   font-size: 11px;
   font-weight: 700;
   color: #ffffff;
-  background: #6d80fd; 
+  background: #6d80fd;
   white-space: nowrap;
 }
 
@@ -272,7 +275,7 @@
   font-size: 11px;
   font-weight: 700;
   color: #666;
-  background: #e3e3e3; 
+  background: #e3e3e3;
   white-space: nowrap;
 }
 
@@ -354,7 +357,7 @@
 }
 
 .stepTodo .stepTitle {
-  color: #2c2c2c;
+  color: #414141;
 }
 
 .stepTodo .stepDesc {
@@ -362,9 +365,9 @@
 }
 
 .checkNumGray {
-  --num-bg: #c9c9c9;     
+  --num-bg: #c9c9c9;
   --num-border: #c9c9c9;
-  --num-text: #ffffff;   
+  --num-text: #ffffff;
 }
 
 .footer {

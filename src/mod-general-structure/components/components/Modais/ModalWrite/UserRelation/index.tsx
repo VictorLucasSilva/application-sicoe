@@ -1,11 +1,10 @@
 import { type JSX } from "react";
 import type React from "react";
 
+import { ArrowDropDown } from "../../../../general-components/ArrowDropdown";
 import { Button } from "../../../../general-components/Button";
 import { Divider } from "../../../../general-components/Divider";
-import { Check } from "../../../Check";
-import { Text } from "../../../Text";
-import { Timeline } from "../../../Timeline";
+import { IconClear } from "../../../../general-components/IconSvg/IconClear";
 
 import classes from "./style.module.css";
 
@@ -23,7 +22,7 @@ export const ModalWriteUserRelation = ({
   };
 
   const handleCardClick = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
   ): void => {
     event.stopPropagation();
   };
@@ -37,7 +36,7 @@ export const ModalWriteUserRelation = ({
       <div className={classes.modal} onClick={handleCardClick}>
         <header className={classes.header}>
           <div className={classes.headerTop}>
-            <div className={classes.title}></div>
+            <div className={classes.title}>Acesso aos Estabelecimentos</div>
 
             <button
               type="button"
@@ -64,36 +63,58 @@ export const ModalWriteUserRelation = ({
         </header>
 
         <div className={classes.content}>
-          {" "}
-          <Text
-            className={{
-              alignSelf: "stretch",
-              flex: "0 0 auto",
-              left: "unset",
-              top: "unset",
-              width: "100%",
-            }}
-            color="low-primary"
-            size="x-large"
-            text="Etapas de Renovação"
-            type="subtitle"
-            weight="semibold"
-          />{" "}
-          <Timeline
-            className={{
-              alignSelf: "stretch",
-              display: "flex",
-              flex: "0 0 auto",
-              left: "unset",
-              marginBottom: "-24.00px",
-              top: "unset",
-              width: "100%",
-            }}
-            icon="on"
-            override={<Check />}
-            side="right"
-            theme="light"
-          />{" "}
+          <div className={classes.userBlock}>
+            <div className={classes.userLabel}>Usuário</div>
+
+            <div className={classes.textField}>
+              <div className={classes.textFieldLabel}>Campo desabilitado</div>
+              <div className={classes.textFieldValue}>Victor Lucas da Silva</div>
+              <Divider
+                className={{
+                  alignSelf: "stretch",
+                  left: "unset",
+                  top: "unset",
+                  width: "100%",
+                }}
+                color="low-lighter"
+                orientation="horizontal"
+                size="small"
+                theme="light"
+              />
+            </div>
+          </div>
+          <div className={classes.dropdownSection}>
+            <div className={classes.userLabel}>Estabelecimento</div>
+            <div className={classes.dropdownLabel}>
+              Selecione um ou mais itens
+            </div>
+
+            <div className={classes.dropdownField}>
+              <div className={classes.chipsRow}>
+                <button className={classes.chipSelected}>MATRIZ ×</button>
+                <button className={classes.chipSelected}>FILIAL - NATAL ×</button>
+                <button className={classes.chipSelected}>FILIAL - GOIANIA ×</button>
+              </div>
+
+              <div className={classes.dropdownIcons}>
+                <IconClear
+                  className={{
+                    height: "24px",
+                    position: "relative",
+                    width: "24px",
+                  }}
+                  opacity="0.65"
+                />
+                <ArrowDropDown
+                  className={{
+                    height: "24px",
+                    position: "relative",
+                    width: "24px",
+                  }}
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
         <footer className={classes.footer}>

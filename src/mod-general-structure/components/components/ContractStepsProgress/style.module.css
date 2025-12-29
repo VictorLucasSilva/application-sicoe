@@ -20,8 +20,8 @@
   top: calc(var(--circle) + var(--barGap));
   height: var(--trackH);
   border-radius: 999px;
-  background: var(--brandprimarylightest);
-  border: 1px solid #dadada;
+  background: #EEEEEE;
+  border: 1px solid #e0e0e0;
   z-index: 1;
 }
 

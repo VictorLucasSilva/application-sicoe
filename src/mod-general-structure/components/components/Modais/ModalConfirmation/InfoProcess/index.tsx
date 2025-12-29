@@ -5,6 +5,8 @@ import { Button } from "../../../../general-components/Button";
 import { Check, CheckNumber } from "../../../Check";
 import { Text } from "../../../Text";
 
+import iconCheck from "../../../../../assets/icons/icon-contract/check.svg";
+
 import classes from "./style.module.css";
 
 type ProcessKey = "aditivo" | "contratacao" | "remanescente" | "ata";
@@ -238,7 +240,8 @@ export const ModalInfoProcess = ({
                         <div className={classes.stepTitle}>{title}</div>
 
                         <div className={classes.stepTopActions}>
-                          {done && <span className={classes.doneMark}>✔️</span>}
+                          
+                          {done && <img className={classes.doneMark} src={iconCheck} alt="Check" />}
 
                           {current && (
                             <button
