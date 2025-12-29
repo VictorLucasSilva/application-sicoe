@@ -8,12 +8,12 @@
   left: 0;
   width: 100%;
   z-index: 10;
-  --header-title-font-size: 1.5rem;   
+  --header-title-font-size: 1.5rem;
   --header-title-line-height: 1.9rem;
 }
 
 .header-dark {
-  background: linear-gradient(90deg, #465eff 0%, #154eeb 120%);
+  background: linear-gradient(90deg, #465eff 0%, #1347d6 130%);
 }
 
 .header-light {
@@ -153,8 +153,7 @@
 }
 
 .titleLeftIconDark {
-  filter: brightness(0) saturate(100%) invert(92%) sepia(90%) saturate(1200%)
-    hue-rotate(2deg) brightness(105%) contrast(102%);
+  filter: brightness(0) saturate(100%) invert(92%) sepia(90%) saturate(1200%) hue-rotate(2deg) brightness(105%) contrast(102%);
 }
 
 .areaDropdownWrapper {
@@ -199,8 +198,8 @@
   width: 28px;
   height: 28px;
   filter: brightness(0) invert(1);
-  transition: transform 160ms ease;
   opacity: 0.95;
+  transition: transform 160ms ease;
 }
 
 .dropdownArrowOpen {
@@ -211,11 +210,10 @@
   margin-left: 2px;
 }
 
-/* Dropdown Área */
 .areaDropdown {
   position: absolute;
-  top: calc(100% + 12px);
-  right: 0;
+  top: calc(100% + 2.3rem);
+  right: -10px;
   min-width: 280px;
   padding: 14px;
   border-radius: 16px;
@@ -227,13 +225,13 @@
 .areaDropdown::before {
   content: "";
   position: absolute;
-  top: -8px;
+  top: -7px;
   right: 26px;
   width: 16px;
   height: 16px;
   background: linear-gradient(180deg, var(--brandprimarypure) 0%, var(--brandprimarypure) 100%);
   transform: rotate(45deg);
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .areaDropdownItem {
@@ -259,7 +257,6 @@
   filter: brightness(0) invert(1);
 }
 
-/* ✅ dropdown menor */
 .areaDropdownText {
   color: #ffffff;
   font-family: "BancoDoBrasil Textos-Medium", Helvetica;
@@ -295,8 +292,8 @@
 
 .profileDropdown {
   position: absolute;
-  top: calc(100% + 12px);
-  right: 0;
+  top: calc(100% + 2.1rem);
+  right: -7px;
   min-width: 180px;
   padding: 10px;
   border-radius: 16px;
@@ -308,13 +305,13 @@
 .profileDropdown::before {
   content: "";
   position: absolute;
-  top: -8px;
+  top: -7px;
   right: 26px;
   width: 16px;
   height: 16px;
   background: linear-gradient(180deg, var(--brandprimarypure) 0%, var(--brandprimarypure) 100%);
   transform: rotate(45deg);
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .profileDropdownItem {
@@ -342,9 +339,6 @@
   line-height: 22px;
 }
 
-/* ------------------------
-   NOTIFICAÇÕES
-------------------------- */
 .notifyWrapper {
   position: relative;
   display: inline-flex;
@@ -367,34 +361,34 @@
 }
 
 .notifyIcon {
-  width: 20px;
-  height: 20px;
-  filter: brightness(0) invert(1);
-  opacity: 0.95;
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) saturate(100%) invert(100%) brightness(120%) contrast(120%);
+  -webkit-filter: brightness(0) saturate(100%) invert(100%) brightness(120%) contrast(120%);
+  opacity: 1;
 }
 
 .notifyBadge {
   position: absolute;
-  top: 2px;
-  right: 2px;
+  top: -2px;
+  right: -2px;
   min-width: 18px;
   height: 18px;
-  padding: 0 5px;
+  padding: 0px 2px 2px 0px;
   border-radius: 999px;
-  background: var(--brandprimarylighter);
+  background: rgba(252, 252, 48, 0.95);
   color: #465eff;
   font-family: "BancoDoBrasil Textos-Medium", Helvetica;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 18px;
   text-align: center;
   font-weight: 700;
 }
 
-/* Dropdown Notificações (azul) */
 .notifyDropdown {
   position: absolute;
-  top: calc(100% + 12px);
-  right: 0;
+  top: calc(100% + 2.5rem);
+  right: -9px;
   width: 280px;
   padding: 14px;
   border-radius: 16px;
@@ -406,13 +400,13 @@
 .notifyDropdown::before {
   content: "";
   position: absolute;
-  top: -8px;
-  right: 22px;
+  top: -7px;
+  right: 19px;
   width: 16px;
   height: 16px;
-  background: linear-gradient(180deg, var(--brandprimarypure) 0%, var(--brandprimarypure) 100%);
+  background: var(--brandprimarypure);
   transform: rotate(45deg);
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 .notifyHeader {
@@ -451,7 +445,8 @@
   flex-direction: column;
   gap: 8px;
 
-  max-height: 320px; /* ~5 itens */
+  max-height: 320px;
+  /* ~5 itens */
   overflow-y: auto;
   padding-right: 6px;
 }
@@ -459,10 +454,12 @@
 .notifyList::-webkit-scrollbar {
   width: 6px;
 }
+
 .notifyList::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.28);
   border-radius: 999px;
 }
+
 .notifyList::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.08);
   border-radius: 999px;
@@ -522,12 +519,13 @@
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
-  line-clamp: 2; /* ✅ padrão p/ compatibilidade */
+  line-clamp: 2;
+  /* ✅ padrão p/ compatibilidade */
   -webkit-box-orient: vertical;
 }
 
 .notifyItemFooterRow {
-  margin-top:10px;
+  margin-top: 10px;
   display: flex;
   justify-content: flex-start;
 }
@@ -545,7 +543,6 @@
   display: none;
 }
 
-/* ✅ expandido: mostra tudo */
 .notifyItemExpanded .notifyItemTitle {
   white-space: normal;
   overflow: visible;
@@ -573,11 +570,12 @@
 }
 
 .notifyMailIcon {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   filter: brightness(0) invert(1);
-  opacity: 0.95;
+  opacity: 1;
 }
+
 .titleLinkButton {
   all: unset;
   cursor: pointer;
@@ -595,12 +593,13 @@
   outline: 2px solid rgba(255, 255, 255, 0.35);
   outline-offset: 3px;
 }
+
 /* ✅ não lida: mais destaque */
 .notifyItemUnread {
   background: rgba(255, 255, 255, 0.13);
   border: 1px solid rgba(252, 252, 48, 0.22);
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
-  padding: 12px 12px 12px 2.1rem; 
+  padding: 12px 12px 12px 2.1rem;
 }
 
 .notifyItemUnread::before {
@@ -626,7 +625,8 @@
 
 @media (max-width: 1024px) {
   .header {
-    --header-title-font-size: 1.25rem;    /* ✅ menor */
+    --header-title-font-size: 1.25rem;
+    /* ✅ menor */
     --header-title-line-height: 1.6rem;
   }
 
@@ -636,26 +636,22 @@
     display: none;
   }
 
-  /* direita: ficar só com ícones (3 da direita) */
   .areaText {
     display: none;
   }
 
-  /* esconder setinhas pra não virar 5 ícones */
   .dropdownArrowIcon {
     display: none;
   }
 
-  /* mostrar ícone do botão Área Gerencial só no tablet */
   .areaTriggerIcon {
     display: inline-block;
     width: 20px;
     height: 20px;
     filter: brightness(0) invert(1);
-    opacity: 0.95;
+    opacity: 1;
   }
 
-  /* compactar espaçamentos */
   .rightSection {
     gap: 0.6rem;
   }

@@ -27,7 +27,6 @@
   to { opacity: 0; }
 }
 
-/* Drawer */
 .modal {
   background-color: var(--neutralhighpure);
   border-left: 1px solid var(--neutrallowlighter);
@@ -37,7 +36,8 @@
   flex-direction: column;
 
   width: min(560px, 100vw);
-  height: 100vh;
+  height: 95vh;
+  margin: 10px 10px;
   max-height: 100vh;
 
   animation: slideInRight 220ms ease-out;
@@ -106,7 +106,6 @@
   color: var(--neutrallowdarkest);
 }
 
-/* conteúdo com scroll interno */
 .content {
   align-items: flex-start;
   align-self: stretch;
@@ -238,7 +237,6 @@
   gap: 4px;
 }
 
-/* footer “preso” na base do drawer */
 .footer {
   align-items: flex-start;
   align-self: stretch;
@@ -266,7 +264,6 @@
   width: 100%;
 }
 
-/* responsivo */
 @media (max-width: 640px) {
   .modal {
     width: 100vw;

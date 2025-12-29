@@ -21,7 +21,7 @@ export const ModalInfoContract = ({
   onClose,
   onSave,
   onStartProcess,
-  processCta = "start",
+  processCta = "details",
   onOpenProcessDetails,
 }: ModalInfoContractProps): JSX.Element => {
 
@@ -424,7 +424,7 @@ export const ModalInfoContract = ({
           />
 
           <div className={classes.stepsContainer}>
-            <ContractStepsProgress process="ata" daysInProcess={18} observationsByStep={[]} />
+            <ContractStepsProgress process="contratacao" daysInProcess={18} observationsByStep={[]} />
           </div>
         </div>
 

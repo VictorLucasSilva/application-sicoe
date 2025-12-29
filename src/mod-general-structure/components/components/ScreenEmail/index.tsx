@@ -15,35 +15,33 @@ import classes from "./style.module.css";
 export const ScreenEmail = (): JSX.Element => {
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
 
-  const openFilterModal = (): void => {
-    setIsFilterModalOpen(true);
-  };
-
-  const closeFilterModal = (): void => {
-    setIsFilterModalOpen(false);
-  };
-
-  const handleSaveFromFilterModal = (): void => {
-    setIsFilterModalOpen(false);
-  };
+  const openFilterModal = (): void => setIsFilterModalOpen(true);
+  const closeFilterModal = (): void => setIsFilterModalOpen(false);
+  const handleSaveFromFilterModal = (): void => setIsFilterModalOpen(false);
 
   return (
     <div className={classes.screen}>
       <div className={classes.wrapper}>
-        <PageTitle
-          text="Envio de E-mails"
-          theme="light"
-          icon={<EmailTitleIcon />}
-          className={classes.title}
-        />
-        <Filter onFilterClick={openFilterModal} />
+        <div className={classes.topRow}>
+          <PageTitle
+            text="Envio de E-mails"
+            theme="light"
+            icon={<EmailTitleIcon />}
+            className={classes.title}
+          />
+
+          <Filter onFilterClick={openFilterModal} className={classes.filter} />
+        </div>
+
         <div className={classes.tableCard}>
           <TableHeaderEmail />
           <RowTableEmail />
         </div>
+
         <div className={classes.paginationArea}>
           <Pagination type="desktop" theme="light" />
         </div>
+
         <Divider
           size="small"
           theme="light"
@@ -51,20 +49,15 @@ export const ScreenEmail = (): JSX.Element => {
           color="primary-pure"
           style={{ width: "100%" }}
         />
+
         <div className={classes.footerArea}>
           <ButtonIcon
             text="VOLTAR"
-            icon={
-              <IconB
-                className={{
-                  width: 32,
-                  height: 32,
-                }}
-              />
-            }
+            icon={<IconB className={{ width: 32, height: 32 }} />}
           />
         </div>
       </div>
+
       {isFilterModalOpen && (
         <ModalEmailFilter
           onClose={closeFilterModal}

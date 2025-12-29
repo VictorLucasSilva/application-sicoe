@@ -118,6 +118,10 @@
   color: #c4c4c4;
 }
 
+.filter{
+  padding: 0 40px 0 47px;
+}
+
 .filterButton {
   display: inline-flex;
   align-items: center;

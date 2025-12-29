@@ -68,7 +68,6 @@ export const ScreenUser = (): JSX.Element => {
             className={classes.title}
           />
 
-          {/* ✅ Filter agora fica ao lado do título */}
           <Filter onFilterClick={openFilterModal} className={classes.filter} />
         </div>
 

@@ -8,21 +8,23 @@
   border-radius: 50%;
   cursor: pointer;
 }
+
 .image {
   height: 32px;
-  left: -.1%;
+  left: -0.1%;
   position: absolute;
-  top: -.1%;
+  top: -0.1%;
   width: 32px;
 }
 
 .containerNum {
-  background-color: var(--brandprimarylightest);
-  border-radius:50%;
+  background-color: #eeeeee;
+  border-radius: 50%;
   height: 34px;
   position: relative;
   width: 34px;
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .text {

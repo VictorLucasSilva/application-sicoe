@@ -16,7 +16,7 @@
 }
 
 .topRow {
-  margin: 0rem 0rem 1rem 1rem;
+  margin: 0rem 0rem 3rem 2rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -87,9 +87,10 @@
 }
 
 .filter {
-  margin-left: 2rem;
+  margin-left: 4rem;  
+  margin-right: 10rem; 
   flex: 1;
-  min-width: 0; 
+  min-width: 0;
 }
 
 .filterIconImg {

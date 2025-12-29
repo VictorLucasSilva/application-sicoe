@@ -36,7 +36,8 @@
   flex-direction: column;
 
   width: min(560px, 100vw);
-  height: 100vh;
+  height: 95vh;
+  margin: 10px 10px;
   max-height: 100vh;
 
   animation: slideInRight 220ms ease-out;
@@ -48,7 +49,6 @@
   to { transform: translateX(0); }
 }
 
-/* fecha: esquerda -> direita (saindo pra direita) */
 .modalClosing {
   animation: slideOutRight 220ms ease-in forwards;
 }
@@ -106,7 +106,6 @@
   color: var(--neutrallowdarkest);
 }
 
-/* conteúdo com scroll interno */
 .content {
   align-items: flex-start;
   align-self: stretch;
@@ -238,7 +237,6 @@
   gap: 4px;
 }
 
-/* footer preso na base */
 .footer {
   align-items: flex-start;
   align-self: stretch;
@@ -266,7 +264,6 @@
   width: 100%;
 }
 
-/* responsivo */
 @media (max-width: 640px) {
   .modal {
     width: 100vw;

@@ -17,15 +17,16 @@ import iconUsers from "../../../assets/icons/icon-no-mod/no-mod-title_user.svg";
 import iconEmail from "../../../assets/icons/icon-no-mod/no-mod-title-email.svg";
 import iconAudit from "../../../assets/icons/icon-no-mod/no-mod-title-audit.svg";
 
-import iconMailOpen from "../../../assets/icons/icon-no-mod/no-mod-login-lock.svg";
-import iconMailClosed from "../../../assets/icons/icon-no-mod/no-mod-login-avatar.svg";
+import iconMailOpen from "../../../assets/icons/icon-contract/carta-nao-lida.svg";
+import iconMailClosed from "../../../assets/icons/icon-contract/carta-lida.svg";
 
 import logoContract from "../../../../../public/icons/logo-contract.svg";
 import logoEstablishment from "../../../../../public/icons/logo-establishment.svg";
 
+import areaGerencialTabletIcon from "../../../assets/icons/icon-contract/area-gerencial.svg";
 import arrowDown from "../../../../../public/icons/arrow-down-filled.svg";
 
-import notifyIcon from "../../../../../public/icons/calendar.svg";
+import notifyIcon from "../../../assets/icons/icon-contract/dingle.svg";
 
 import classes from "./styles.module.css";
 
@@ -60,10 +61,8 @@ type NotificationsDropdownProps = {
   onToggleRead: (id: string) => void;
   onToggleExpanded: (id: string) => void;
 
-  // ✅ novo: diz quais itens precisam de "Ler mais"
   needsReadMore: Record<string, boolean>;
 
-  // ✅ novo: registra o elemento para medir overflow
   registerMessageEl: (id: string, el: HTMLDivElement | null) => void;
 };
 
@@ -595,7 +594,6 @@ export const Header = ({
             <div className={`${classes.rightSection} ${classes[`rightSection-${type}`]}`}>
               {["cont", "estab", "main"].includes(type) && (
                 <>
-                  {/* 🔔 NOTIFICAÇÕES */}
                   <div className={classes.notifyWrapper} ref={notifyRef}>
                     <button
                       type="button"
@@ -640,7 +638,11 @@ export const Header = ({
                       aria-haspopup="menu"
                       aria-expanded={isAreaOpen}
                     >
-                      <img className={classes.areaTriggerIcon} src={iconUsers} alt="" />
+                      <img
+                        className={classes.areaTriggerIcon}
+                        src={areaGerencialTabletIcon}
+                        alt=""
+                      />
                       <span className={classes.areaText}>Área Gerencial</span>
 
                       <img
@@ -656,7 +658,6 @@ export const Header = ({
 
                   <div className={classes.divider} />
 
-                  {/* PERFIL */}
                   <div className={classes.profileWrapper} ref={profileRef}>
                     <button
                       type="button"
