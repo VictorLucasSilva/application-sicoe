@@ -1,12 +1,15 @@
 .container {
-  height: 24px;
-  position: relative;
-  width: 24px;
+  width: 14px;
+  height: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .vector {
-  height: 75%;
-  left: 16.6%;
-  position: absolute;
-  top: 12.5%;
-  width: 66.79%;
+  width: 24px;
+  height: 24px;
+  display: block;
+  filter: grayscale(1) brightness(0.35);
+  opacity: 0.9;
 }

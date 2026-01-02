@@ -3,9 +3,18 @@ import { ContBarCard } from "../ContBar";
 
 type SubsectionBarCardProps = {
   onInfoContractClick: () => void;
-} 
+};
 
-export const SubsectionBarCard = ({ onInfoContractClick }: SubsectionBarCardProps): JSX.Element => {
+export const SubsectionBarCard = ({
+  onInfoContractClick,
+}: SubsectionBarCardProps): JSX.Element => {
+  const handleViewSisccon = (): void => {
+    // coloque aqui sua ação real (rota, window.open, etc.)
+    // exemplo:
+    // window.open("https://sisccon.seudominio.com", "_blank", "noopener,noreferrer");
+    console.log("Ver no Sisccon");
+  };
+
   return (
     <div
       style={{
@@ -22,7 +31,6 @@ export const SubsectionBarCard = ({ onInfoContractClick }: SubsectionBarCardProp
         position: "relative",
         width: "100%",
       }}
-      onClick={onInfoContractClick}
     >
       <ContBarCard
         className={{
@@ -34,12 +42,14 @@ export const SubsectionBarCard = ({ onInfoContractClick }: SubsectionBarCardProp
           minWidth: "160px",
           top: "unset",
           width: "100%",
-          
         }}
         elevation="off"
         progress="zero"
         status="active"
         theme="light"
+        onInfoContractClick={onInfoContractClick}
+        showSiscconButton
+        onViewSiscconClick={handleViewSisccon}
       />
     </div>
   );

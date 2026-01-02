@@ -20,8 +20,8 @@
   top: calc(var(--circle) + var(--barGap));
   height: var(--trackH);
   border-radius: 999px;
-  background: #EEEEEE;
-  border: 1px solid #e0e0e0;
+  background: var(--brandprimarylightest);
+  border: 1px solid #dadada;
   z-index: 1;
 }
 
@@ -43,6 +43,7 @@
   z-index: 3;
 }
 
+/* ✅ tudo centralizado (inclusive 1º e último) */
 .step {
   position: absolute;
   top: 0;
@@ -52,18 +53,6 @@
   align-items: center;
   text-align: center;
   max-width: var(--labelW);
-}
-
-.stepFirst {
-  transform: translateX(0);
-  align-items: flex-start;
-  text-align: left;
-}
-
-.stepLast {
-  transform: translateX(-100%);
-  align-items: flex-end;
-  text-align: right;
 }
 
 .circleBtn {
@@ -87,11 +76,12 @@
   width: 70px;
   margin-top: calc(var(--barGap) + var(--trackH) + 10px);
   font-family: var(--caption-XS-regular-font-family);
-  font-size: 10px;
+  font-size: 11px;
   line-height: 12px;
   white-space: normal;
   overflow-wrap: anywhere;
   word-break: break-word;
+  text-align: center;
 }
 
 .labelDone {

@@ -19,7 +19,6 @@ type ModalInfoContractProps = {
 
 export const ModalInfoContract = ({
   onClose,
-  onSave,
   onStartProcess,
   processCta = "details",
   onOpenProcessDetails,
@@ -41,10 +40,6 @@ export const ModalInfoContract = ({
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
   ): void => {
     event.stopPropagation();
-  };
-
-  const handleSaveClick = (): void => {
-    if (onSave) onSave();
   };
 
   return (
@@ -443,18 +438,6 @@ export const ModalInfoContract = ({
           />
 
           <div className={classes.footerButtons}>
-            <Button
-              className={{ flex: "0 0 auto", left: "unset", top: "unset" }}
-              hierarchy="primary"
-              icon="off"
-              size="small"
-              status="default"
-              text="on"
-              text1="VER NO SISCCON"
-              theme="light"
-              onClick={handleSaveClick}
-            />
-
             {processCta && (
               <Button
                 className={{ flex: "0 0 auto", left: "unset", top: "unset" }}

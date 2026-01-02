@@ -7,21 +7,27 @@ import { Filter } from "../../components/Filter";
 
 import { ModalContractFilter } from "../../components/Modais/ModalFilter/ContractsHome";
 import { SubsectionBarCard } from "../SubsectionBarCard";
+import { SubsectionCard } from "../SubsectionCard";
 
 import { ModalInfoContract } from "../Modais/ModalConfirmation/InfoContract";
 import { ModalWriteNewProcess } from "../Modais/ModalConfirmation/StartNewProcess";
 import { ModalInfoProcess } from "../Modais/ModalConfirmation/InfoProcess";
 
+import iconAtivo from "../../../assets/icons/icon-contract/c-ativo.svg";
+import iconComSaldo from "../../../assets/icons/icon-contract/c-com-saldo.svg";
+import iconSemSaldo from "../../../assets/icons/icon-contract/c-sem-saldo.svg";
+import iconAVencer from "../../../assets/icons/icon-contract/c-a-vencer.svg";
+import iconVencido from "../../../assets/icons/icon-contract/c-vencido.svg";
+
 const statusCards = [
-  { label: "Ativos" },
-  { label: "Com saldo" },
-  { label: "Sem saldo" },
-  { label: "A Vencer" },
-  { label: "Vencido" },
+  { label: "Ativos", value: 99, iconSrc: iconAtivo },
+  { label: "Com saldo", value: 99, iconSrc: iconComSaldo },
+  { label: "Sem saldo", value: 99, iconSrc: iconSemSaldo },
+  { label: "A Vencer", value: 99, iconSrc: iconAVencer },
+  { label: "Vencido", value: 99, iconSrc: iconVencido },
 ];
 
-const hasProcess = false;
-
+const hasProcess = true;
 const contracts = Array.from({ length: 40 }, (_, index) => ({ id: index + 1 }));
 
 export const ScreenContractsHome = (): JSX.Element => {
@@ -34,9 +40,11 @@ export const ScreenContractsHome = (): JSX.Element => {
   const openFilterModal = (): void => setIsFilterModalOpen(true);
   const closeFilterModal = (): void => setIsFilterModalOpen(false);
   const handleSaveFromFilterModal = (): void => setIsFilterModalOpen(false);
+
   const openInfoContractModal = (): void => setIsInfoContractModalOpen(true);
   const closeInfoContractModal = (): void => setIsInfoContractModalOpen(false);
   const handleSaveFromInfoContractModal = (): void => setIsInfoContractModalOpen(false);
+
   const openStartProcessFromInfo = (): void => {
     setIsInfoContractModalOpen(false);
     setIsInfoProcessModalOpen(false);
@@ -90,13 +98,9 @@ export const ScreenContractsHome = (): JSX.Element => {
           </div>
         </header>
 
+        {/* ✅ AGORA usando SubsectionCard */}
         <div className={classes.statusGrid}>
-          {statusCards.map((item) => (
-            <article key={item.label} className={classes.statusCard}>
-              <div className={classes.statusValue}>99</div>
-              <div className={classes.statusLabel}>{item.label}</div>
-            </article>
-          ))}
+          <SubsectionCard items={statusCards} />
         </div>
       </section>
 
