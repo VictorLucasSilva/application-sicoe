@@ -20,7 +20,7 @@ const statusCards = [
   { label: "Vencido" },
 ];
 
-const hasProcess = true;
+const hasProcess = false;
 
 const contracts = Array.from({ length: 40 }, (_, index) => ({ id: index + 1 }));
 

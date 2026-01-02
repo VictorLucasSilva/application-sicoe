@@ -424,7 +424,7 @@ export const ModalInfoContract = ({
           />
 
           <div className={classes.stepsContainer}>
-            <ContractStepsProgress process="contratacao" daysInProcess={18} observationsByStep={[]} />
+            <ContractStepsProgress process="contratacao" daysInProcess={80} observationsByStep={[]} />
           </div>
         </div>
 
