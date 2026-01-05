@@ -32,11 +32,9 @@ const contracts = Array.from({ length: 40 }, (_, index) => ({ id: index + 1 }));
 
 export const ScreenContractsHome = (): JSX.Element => {
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
-
   const [isInfoContractModalOpen, setIsInfoContractModalOpen] = useState(false);
   const [isStartProcessModalOpen, setIsStartProcessModalOpen] = useState(false);
   const [isInfoProcessModalOpen, setIsInfoProcessModalOpen] = useState(false);
-
   const openFilterModal = (): void => setIsFilterModalOpen(true);
   const closeFilterModal = (): void => setIsFilterModalOpen(false);
   const handleSaveFromFilterModal = (): void => setIsFilterModalOpen(false);
@@ -98,7 +96,6 @@ export const ScreenContractsHome = (): JSX.Element => {
           </div>
         </header>
 
-        {/* ✅ AGORA usando SubsectionCard */}
         <div className={classes.statusGrid}>
           <SubsectionCard items={statusCards} />
         </div>
@@ -162,3 +159,4 @@ export const ScreenContractsHome = (): JSX.Element => {
     </div>
   );
 };
+

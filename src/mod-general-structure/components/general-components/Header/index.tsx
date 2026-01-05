@@ -88,7 +88,7 @@ const AreaGerencialDropdown = ({
         onClick={() => onSelect("emails")}
       >
         <img className={classes.areaDropdownIcon} src={iconEmail} alt="" />
-        <span className={classes.areaDropdownText}>Envio de Emails</span>
+        <span className={classes.areaDropdownText}>Envio de E-mails</span>
       </button>
 
       <button

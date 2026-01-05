@@ -29,12 +29,9 @@
   gap: 10px;
 }
 
-/* ✅ agora é só um wrapper com o mesmo espaçamento dos cards antigos */
 .statusGrid {
   margin: 0 40px 0 50px;
 }
-
-/* --- resto do arquivo (mantive igual ao seu) --- */
 
 .sectionMarker {
   background: none;
