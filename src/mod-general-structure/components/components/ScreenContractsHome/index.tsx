@@ -1,18 +1,16 @@
 import { useState, type JSX } from "react";
-import classes from "./style.module.css";
 
 import { PageTitle } from "../../general-components/PageTitle";
 import { ContractHomeTitle1, ContractHomeTitle2 } from "../../general-components/IconPage";
 import { Filter } from "../../components/Filter";
-
 import { ModalContractFilter } from "../../components/Modais/ModalFilter/ContractsHome";
 import { SubsectionBarCard } from "../SubsectionBarCard";
 import { SubsectionCard } from "../SubsectionCard";
-
 import { ModalInfoContract } from "../Modais/ModalConfirmation/InfoContract";
 import { ModalWriteNewProcess } from "../Modais/ModalConfirmation/StartNewProcess";
 import { ModalInfoProcess } from "../Modais/ModalConfirmation/InfoProcess";
 
+import classes from "./style.module.css";
 import iconAtivo from "../../../assets/icons/icon-contract/c-ativo.svg";
 import iconComSaldo from "../../../assets/icons/icon-contract/c-com-saldo.svg";
 import iconSemSaldo from "../../../assets/icons/icon-contract/c-sem-saldo.svg";
@@ -27,7 +25,7 @@ const statusCards = [
   { label: "Vencido", value: 99, iconSrc: iconVencido },
 ];
 
-const hasProcess = true;
+const hasProcess = false;
 const contracts = Array.from({ length: 40 }, (_, index) => ({ id: index + 1 }));
 
 export const ScreenContractsHome = (): JSX.Element => {
@@ -38,11 +36,10 @@ export const ScreenContractsHome = (): JSX.Element => {
   const openFilterModal = (): void => setIsFilterModalOpen(true);
   const closeFilterModal = (): void => setIsFilterModalOpen(false);
   const handleSaveFromFilterModal = (): void => setIsFilterModalOpen(false);
-
   const openInfoContractModal = (): void => setIsInfoContractModalOpen(true);
   const closeInfoContractModal = (): void => setIsInfoContractModalOpen(false);
   const handleSaveFromInfoContractModal = (): void => setIsInfoContractModalOpen(false);
-
+  
   const openStartProcessFromInfo = (): void => {
     setIsInfoContractModalOpen(false);
     setIsInfoProcessModalOpen(false);

@@ -8,6 +8,7 @@ type SubsectionCardItem = {
   label: string;
   value: string | number;
   iconSrc: string;
+  className?: object;
 };
 
 type Props = {

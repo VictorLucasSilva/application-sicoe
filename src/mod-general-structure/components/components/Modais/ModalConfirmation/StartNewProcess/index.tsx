@@ -95,9 +95,7 @@ const monthsLabelFromDays = (days: number): string => {
   if (days === 0) return "Hoje - restam 0 dias";
   if (days < 30) return `A menos de 1 mês - restam ${days} dias`;
 
-  const months = Math.round(days / 30);
-  const monthWord = months === 1 ? "mês" : "meses";
-  return `A ${months} ${monthWord} - restam ${days} dias`;
+  return `Restam ${days} dias`;
 };
 
 const buildInitialState = (today: Date): Record<ProcessKey, StepState[]> => {
@@ -368,7 +366,7 @@ export const ModalWriteNewProcess = ({
                               className={classes.fieldLabel}
                               htmlFor={`obs-${selectedProcess}-${idx}`}
                             >
-                              Observações
+                              Informações da Etapa
                             </label>
 
                             <div className={classes.fieldSubLabelSpacer} aria-hidden="true">

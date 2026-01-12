@@ -12,7 +12,7 @@ import classes from "./style.module.css";
 type ProcessKey = "aditivo" | "contratacao" | "remanescente" | "ata";
 
 const PROCESS_TO_VIEW: ProcessKey = "contratacao";
-const DAYS_IN_PROCESS = 119;
+const DAYS_IN_PROCESS = 50;
 const DAYS_PER_STEP = 30;
 const PROCESS_START_DATE_ISO: string | null = null;
 
@@ -286,7 +286,7 @@ export const ModalInfoProcess = ({
                       </div>
 
                       <div className={classes.sectionHeaderRow}>
-                        <div className={classes.sectionTitlePlain}>Observações</div>
+                        <div className={classes.sectionTitlePlain}>Informações da Etapa</div>
 
                         {showPen && (
                           <img
