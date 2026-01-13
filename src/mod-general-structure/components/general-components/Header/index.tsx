@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { type JSX, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { ModalGenerateReport } from "../../components/Modais/ModalGenerateReport";
 import { Divider } from "../Divider";
 import { Logo } from "../Logo";
 import { Text } from "../Text";
@@ -38,7 +39,7 @@ interface Props {
 }
 
 type AreaMenuKey = "users" | "emails" | "audit";
-type ProfileMenuKey = "profile" | "logout";
+type ProfileMenuKey = "profile" | "report" | "logout";
 
 type AreaGerencialDropdownProps = {
   onSelect: (key: AreaMenuKey) => void;
@@ -70,7 +71,11 @@ const AreaGerencialDropdown = ({
   onSelect,
 }: AreaGerencialDropdownProps): JSX.Element => {
   return (
-    <div className={classes.areaDropdown} role="menu" aria-label="Área gerencial">
+    <div
+      className={classes.areaDropdown}
+      role="menu"
+      aria-label="Área gerencial"
+    >
       <button
         type="button"
         className={classes.areaDropdownItem}
@@ -106,7 +111,11 @@ const AreaGerencialDropdown = ({
 
 const ProfileDropdown = ({ onSelect }: ProfileDropdownProps): JSX.Element => {
   return (
-    <div className={classes.profileDropdown} role="menu" aria-label="Menu do usuário">
+    <div
+      className={classes.profileDropdown}
+      role="menu"
+      aria-label="Menu do usuário"
+    >
       <button
         type="button"
         className={classes.profileDropdownItem}
@@ -114,6 +123,15 @@ const ProfileDropdown = ({ onSelect }: ProfileDropdownProps): JSX.Element => {
         onClick={() => onSelect("profile")}
       >
         <span className={classes.profileDropdownText}>Perfil</span>
+      </button>
+
+      <button
+        type="button"
+        className={classes.profileDropdownItem}
+        role="menuitem"
+        onClick={() => onSelect("report")}
+      >
+        <span className={classes.profileDropdownText}>Gerar Relatório</span>
       </button>
 
       <button
@@ -136,10 +154,16 @@ const NotificationsDropdown = ({
   registerMessageEl,
 }: NotificationsDropdownProps): JSX.Element => {
   return (
-    <div className={classes.notifyDropdown} role="menu" aria-label="Notificações">
+    <div
+      className={classes.notifyDropdown}
+      role="menu"
+      aria-label="Notificações"
+    >
       <div className={classes.notifyHeader}>
         <div className={classes.notifyTitle}>Notificações</div>
-        <div className={classes.notifySubtitle}>Últimas notícias do sistema</div>
+        <div className={classes.notifySubtitle}>
+          Últimas notícias do sistema
+        </div>
       </div>
 
       <div className={classes.notifyHeaderDivider} />
@@ -233,6 +257,7 @@ export const Header = ({
   const [isAreaOpen, setIsAreaOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isNotifyOpen, setIsNotifyOpen] = useState(false);
+  const [isReportOpen, setIsReportOpen] = useState(false);
 
   const areaRef = useRef<HTMLDivElement | null>(null);
   const profileRef = useRef<HTMLDivElement | null>(null);
@@ -243,27 +268,32 @@ export const Header = ({
     messageElsRef.current[id] = el;
   };
 
-  const [needsReadMore, setNeedsReadMore] = useState<Record<string, boolean>>({});
+  const [needsReadMore, setNeedsReadMore] = useState<Record<string, boolean>>(
+    {}
+  );
 
   const [notifications, setNotifications] = useState<Notification[]>(() => [
     {
       id: "1",
       title: "Atualização do sistema disponível",
-      message: "Versão 1.2.0 liberada para contratos. Clique para ver detalhes completos.",
+      message:
+        "Versão 1.2.0 liberada para contratos. Clique para ver detalhes completos.",
       read: false,
       expanded: false,
     },
     {
       id: "2",
       title: "Manutenção programada",
-      message: "Hoje às 22:00 (tempo estimado 15min). Algumas telas podem ficar indisponíveis.",
+      message:
+        "Hoje às 22:00 (tempo estimado 15min). Algumas telas podem ficar indisponíveis.",
       read: false,
       expanded: false,
     },
     {
       id: "3",
       title: "Nova regra de anexos",
-      message: "Validação extra para PDFs foi ativada. Evita arquivos inválidos e melhora segurança.",
+      message:
+        "Validação extra para PDFs foi ativada. Evita arquivos inválidos e melhora segurança.",
       read: true,
       expanded: false,
     },
@@ -285,14 +315,16 @@ export const Header = ({
     {
       id: "6",
       title: "Novo filtro disponível",
-      message: "Você pode filtrar contratos por situação e centro com mais precisão.",
+      message:
+        "Você pode filtrar contratos por situação e centro com mais precisão.",
       read: true,
       expanded: false,
     },
     {
       id: "7",
       title: "Ajuste no layout",
-      message: "Pequenos ajustes visuais foram aplicados para melhorar a leitura.",
+      message:
+        "Pequenos ajustes visuais foram aplicados para melhorar a leitura.",
       read: false,
       expanded: false,
     },
@@ -315,7 +347,8 @@ export const Header = ({
     {
       id: "10",
       title: "Comunicado interno",
-      message: "Confira as novas orientações de operação publicadas no sistema.",
+      message:
+        "Confira as novas orientações de operação publicadas no sistema.",
       read: true,
       expanded: false,
     },
@@ -323,7 +356,7 @@ export const Header = ({
 
   const unreadCount = useMemo(
     () => notifications.filter((n) => !n.read).length,
-    [notifications],
+    [notifications]
   );
 
   const closeAllDropdowns = (): void => {
@@ -352,7 +385,10 @@ export const Header = ({
     };
 
     const onKeyDown = (e: KeyboardEvent): void => {
-      if (e.key === "Escape") closeAllDropdowns();
+      if (e.key === "Escape") {
+        closeAllDropdowns();
+        setIsReportOpen(false);
+      }
     };
 
     document.addEventListener("mousedown", onMouseDown);
@@ -416,6 +452,10 @@ export const Header = ({
       navigate("/home");
       return;
     }
+    if (key === "report") {
+      setIsReportOpen(true);
+      return;
+    }
     if (key === "logout") {
       navigate("/");
       return;
@@ -424,7 +464,7 @@ export const Header = ({
 
   const toggleNotifyRead = (id: string): void => {
     setNotifications((prev) =>
-      prev.map((n) => (n.id === id ? { ...n, read: !n.read } : n)),
+      prev.map((n) => (n.id === id ? { ...n, read: !n.read } : n))
     );
   };
 
@@ -433,7 +473,7 @@ export const Header = ({
       prev.map((n) => {
         if (n.id !== id) return { ...n, expanded: false };
         return { ...n, expanded: !n.expanded };
-      }),
+      })
     );
   };
 
@@ -442,10 +482,16 @@ export const Header = ({
 
   return (
     <div
-      className={`${classes.header} ${classes[`header-${theme}`]} ${classes[`header-${type}`]} ${classes[`header-${theme}-${type}`]}`}
+      className={`${classes.header} ${classes[`header-${theme}`]} ${
+        classes[`header-${type}`]
+      } ${classes[`header-${theme}-${type}`]}`}
       style={className}
     >
-      <div className={`${classes.headerContent} ${classes[`headerContent-${type}`]}`}>
+      <div
+        className={`${classes.headerContent} ${
+          classes[`headerContent-${type}`]
+        }`}
+      >
         {["cont", "estab", "main"].includes(type) && (
           <>
             <div className={classes.leftSection}>
@@ -457,7 +503,11 @@ export const Header = ({
                   aria-label="Ir para Home"
                 >
                   <div className={classes.titleWithIcon}>
-                    <img className={classes.titleLeftIcon} src={leftTitleIconSrc} alt="" />
+                    <img
+                      className={classes.titleLeftIcon}
+                      src={leftTitleIconSrc}
+                      alt=""
+                    />
 
                     <Text
                       className={{
@@ -469,7 +519,11 @@ export const Header = ({
                       }}
                       color="high-primary"
                       size="XXX-huge"
-                      text={type === "cont" ? "Monitoramento de Contratos" : "Controle de Estabelecimentos"}
+                      text={
+                        type === "cont"
+                          ? "Monitoramento de Contratos"
+                          : "Controle de Estabelecimentos"
+                      }
                       textClassName={{
                         alignSelf: "unset",
                         color: "var(--colors-brand-secondary-pure)",
@@ -499,7 +553,11 @@ export const Header = ({
                   <div className={classes.titleWithIcon}>
                     <Logo
                       application="internal"
-                      className={{ flex: "0 0 auto", left: "unset", top: "unset" }}
+                      className={{
+                        flex: "0 0 auto",
+                        left: "unset",
+                        top: "unset",
+                      }}
                       color="secondary"
                       orientation="vertical"
                       size="smaller"
@@ -543,7 +601,11 @@ export const Header = ({
                   aria-label="Ir para Home"
                 >
                   <div className={classes.titleWithIcon}>
-                    <img className={classes.titleLeftIconDark} src={leftTitleIconSrc} alt="" />
+                    <img
+                      className={classes.titleLeftIconDark}
+                      src={leftTitleIconSrc}
+                      alt=""
+                    />
                     <div className={classes.titleDark}>
                       {type === "estab" && <>Controle de Estabelecimentos</>}
                       {type === "cont" && <>Monitoramento de Contratos</>}
@@ -583,118 +645,134 @@ export const Header = ({
           type === "estab" ||
           type === "main" ||
           (theme === "dark" && type === "login")) && (
-            <div className={`${classes.rightSection} ${classes[`rightSection-${type}`]}`}>
-              {["cont", "estab", "main"].includes(type) && (
-                <>
-                  <div className={classes.notifyWrapper} ref={notifyRef}>
-                    <button
-                      type="button"
-                      className={classes.notifyTrigger}
-                      onClick={() => {
-                        setIsNotifyOpen((v) => !v);
-                        setIsAreaOpen(false);
-                        setIsProfileOpen(false);
-                      }}
-                      aria-haspopup="menu"
-                      aria-expanded={isNotifyOpen}
-                      title="Notificações"
-                    >
-                      <img className={classes.notifyIcon} src={notifyIcon} alt="" />
-                      {!!unreadCount && (
-                        <span className={classes.notifyBadge} aria-label={`${unreadCount} não lidas`}>
-                          {unreadCount}
-                        </span>
-                      )}
-                    </button>
-
-                    {isNotifyOpen && (
-                      <NotificationsDropdown
-                        items={notifications}
-                        onToggleRead={toggleNotifyRead}
-                        onToggleExpanded={toggleNotifyExpanded}
-                        needsReadMore={needsReadMore}
-                        registerMessageEl={registerMessageEl}
-                      />
+          <div
+            className={`${classes.rightSection} ${
+              classes[`rightSection-${type}`]
+            }`}
+          >
+            {["cont", "estab", "main"].includes(type) && (
+              <>
+                <div className={classes.notifyWrapper} ref={notifyRef}>
+                  <button
+                    type="button"
+                    className={classes.notifyTrigger}
+                    onClick={() => {
+                      setIsNotifyOpen((v) => !v);
+                      setIsAreaOpen(false);
+                      setIsProfileOpen(false);
+                    }}
+                    aria-haspopup="menu"
+                    aria-expanded={isNotifyOpen}
+                    title="Notificações"
+                  >
+                    <img
+                      className={classes.notifyIcon}
+                      src={notifyIcon}
+                      alt=""
+                    />
+                    {!!unreadCount && (
+                      <span
+                        className={classes.notifyBadge}
+                        aria-label={`${unreadCount} não lidas`}
+                      >
+                        {unreadCount}
+                      </span>
                     )}
-                  </div>
+                  </button>
 
-                  <div className={classes.areaDropdownWrapper} ref={areaRef}>
-                    <button
-                      type="button"
-                      className={classes.areaTrigger}
-                      onClick={() => {
-                        setIsAreaOpen((v) => !v);
-                        setIsNotifyOpen(false);
-                        setIsProfileOpen(false);
-                      }}
-                      aria-haspopup="menu"
-                      aria-expanded={isAreaOpen}
-                    >
-                      <img
-                        className={classes.areaTriggerIcon}
-                        src={areaGerencialTabletIcon}
-                        alt=""
-                      />
-                      <span className={classes.areaText}>Área Gerencial</span>
+                  {isNotifyOpen && (
+                    <NotificationsDropdown
+                      items={notifications}
+                      onToggleRead={toggleNotifyRead}
+                      onToggleExpanded={toggleNotifyExpanded}
+                      needsReadMore={needsReadMore}
+                      registerMessageEl={registerMessageEl}
+                    />
+                  )}
+                </div>
 
-                      <img
-                        src={arrowDown}
-                        alt=""
-                        className={`${classes.dropdownArrowIcon} ${isAreaOpen ? classes.dropdownArrowOpen : ""
-                          }`}
-                      />
-                    </button>
+                <div className={classes.areaDropdownWrapper} ref={areaRef}>
+                  <button
+                    type="button"
+                    className={classes.areaTrigger}
+                    onClick={() => {
+                      setIsAreaOpen((v) => !v);
+                      setIsNotifyOpen(false);
+                      setIsProfileOpen(false);
+                    }}
+                    aria-haspopup="menu"
+                    aria-expanded={isAreaOpen}
+                  >
+                    <img
+                      className={classes.areaTriggerIcon}
+                      src={areaGerencialTabletIcon}
+                      alt=""
+                    />
+                    <span className={classes.areaText}>Área Gerencial</span>
 
-                    {isAreaOpen && <AreaGerencialDropdown onSelect={handleAreaSelect} />}
-                  </div>
+                    <img
+                      src={arrowDown}
+                      alt=""
+                      className={`${classes.dropdownArrowIcon} ${
+                        isAreaOpen ? classes.dropdownArrowOpen : ""
+                      }`}
+                    />
+                  </button>
 
-                  <div className={classes.divider} />
+                  {isAreaOpen && (
+                    <AreaGerencialDropdown onSelect={handleAreaSelect} />
+                  )}
+                </div>
 
-                  <div className={classes.profileWrapper} ref={profileRef}>
-                    <button
-                      type="button"
-                      className={classes.profileTrigger}
-                      onClick={() => {
-                        setIsProfileOpen((v) => !v);
-                        setIsNotifyOpen(false);
-                        setIsAreaOpen(false);
-                      }}
-                      aria-haspopup="menu"
-                      aria-expanded={isProfileOpen}
-                    >
-                      <img
-                        className={classes.areaImage}
-                        alt="Área"
-                        src={
-                          type === "cont" && theme === "light"
-                            ? area3
-                            : theme === "light" && type === "main"
-                              ? area4
-                              : type === "estab" && theme === "dark"
-                                ? area5
-                                : type === "cont" && theme === "dark"
-                                  ? area6
-                                  : theme === "dark" && type === "main"
-                                    ? area
-                                    : area2
-                        }
-                      />
-                    </button>
+                <div className={classes.divider} />
 
-                    {isProfileOpen && <ProfileDropdown onSelect={handleProfileSelect} />}
-                  </div>
-                </>
-              )}
+                <div className={classes.profileWrapper} ref={profileRef}>
+                  <button
+                    type="button"
+                    className={classes.profileTrigger}
+                    onClick={() => {
+                      setIsProfileOpen((v) => !v);
+                      setIsNotifyOpen(false);
+                      setIsAreaOpen(false);
+                    }}
+                    aria-haspopup="menu"
+                    aria-expanded={isProfileOpen}
+                  >
+                    <img
+                      className={classes.areaImage}
+                      alt="Área"
+                      src={
+                        type === "cont" && theme === "light"
+                          ? area3
+                          : theme === "light" && type === "main"
+                          ? area4
+                          : type === "estab" && theme === "dark"
+                          ? area5
+                          : type === "cont" && theme === "dark"
+                          ? area6
+                          : theme === "dark" && type === "main"
+                          ? area
+                          : area2
+                      }
+                    />
+                  </button>
 
-              {type === "login" && (
-                <img
-                  className={classes.loginImage}
-                  alt="Vector"
-                  src="../../../../../public/icons/logo-yellow.svg"
-                />
-              )}
-            </div>
-          )}
+                  {isProfileOpen && (
+                    <ProfileDropdown onSelect={handleProfileSelect} />
+                  )}
+                </div>
+              </>
+            )}
+
+            {type === "login" && (
+              <img
+                className={classes.loginImage}
+                alt="Vector"
+                src="../../../../../public/icons/logo-yellow.svg"
+              />
+            )}
+          </div>
+        )}
 
         {theme === "light" && type === "login" && (
           <>
@@ -758,6 +836,13 @@ export const Header = ({
         theme="light"
       />
 
+      <ModalGenerateReport
+        isOpen={isReportOpen}
+        onClose={() => setIsReportOpen(false)}
+        onGenerate={(payload) => {
+          console.log("Gerar relatório:", payload);
+        }}
+      />
       <div className={classes.bbDivider} aria-hidden />
     </div>
   );

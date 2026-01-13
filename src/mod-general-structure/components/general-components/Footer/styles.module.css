@@ -1,7 +1,7 @@
 .footer {
   width: 100%;
   height: var(--bottombar-h);                    
-  background: linear-gradient(90deg, #174feb 0%, #465eff 110%);
+  background: linear-gradient(90deg, #1347d6 0%, #465eff 130%);
   border-top: 4px solid var(--brandsecondarypure);
   display: flex;
   align-items: center;
