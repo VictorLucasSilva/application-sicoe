@@ -1,0 +1,120 @@
+/* ========================================
+   LOADING COMPONENT (Seguindo Protótipo)
+   ======================================== */
+
+.fullScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-loading);
+  backdrop-filter: blur(2px);
+}
+
+.loadingContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xl);
+}
+
+/* Spinner Container */
+.spinner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner.small {
+  width: 4rem;
+  height: 4rem;
+}
+
+.spinner.medium {
+  width: 6rem;
+  height: 6rem;
+}
+
+.spinner.large {
+  width: 8rem;
+  height: 8rem;
+}
+
+/* Spinner Ring (anel azul girando) */
+.spinnerRing {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Logo Container (logo BBTS no centro) */
+.logoContainer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  height: 60%;
+}
+
+.logoText {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-blue);
+  font-family: var(--font-family-primary);
+}
+
+.spinner.small .logoText {
+  font-size: var(--font-size-sm);
+}
+
+.spinner.large .logoText {
+  font-size: var(--font-size-2xl);
+}
+
+/* Mensagem (ex: "Salvando") */
+.message {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-blue);
+  text-align: center;
+  margin: 0;
+  font-family: var(--font-family-primary);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .spinner.medium {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .spinner.large {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .message {
+    font-size: var(--font-size-xl);
+  }
+}

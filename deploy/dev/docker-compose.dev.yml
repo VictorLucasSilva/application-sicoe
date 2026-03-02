@@ -1,0 +1,103 @@
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16.6-alpine
+    container_name: sicoe-postgres-dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backups:/backups
+    networks:
+      - sicoe-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME} -d ${DB_DATABASE}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # Backend API (NestJS)
+  backend:
+    image: ghcr.io/${GITHUB_REPOSITORY}/backend:develop
+    container_name: sicoe-backend-dev
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      DB_TYPE: postgres
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_DATABASE: ${DB_DATABASE}
+      DB_SYNCHRONIZE: false
+      DB_LOGGING: true
+      DB_MIGRATIONS_RUN: false
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRATION: 1h
+      JWT_REFRESH_EXPIRATION: 7d
+      CORS_ORIGIN: ${CORS_ORIGIN}
+      CORS_CREDENTIALS: true
+      THROTTLE_TTL: 60
+      THROTTLE_LIMIT: 20
+      # Microsoft EntraID
+      AZURE_CLIENT_ID: ${AZURE_CLIENT_ID}
+      AZURE_TENANT_ID: ${AZURE_TENANT_ID}
+      AZURE_CLIENT_SECRET: ${AZURE_CLIENT_SECRET}
+      AZURE_REDIRECT_URI: ${BACKEND_URL}/api/v1/auth/entraid/callback
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - sicoe-network
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:3000/api/v1 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    volumes:
+      - ./logs:/app/logs
+
+  # Frontend (React + Vite)
+  frontend:
+    image: ghcr.io/${GITHUB_REPOSITORY}/frontend:develop
+    container_name: sicoe-frontend-dev
+    restart: unless-stopped
+    environment:
+      VITE_APP_NAME: SICOE Development
+      VITE_API_BASE_URL: ${BACKEND_URL}/api/v1
+      VITE_NODE_ENV: development
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - sicoe-network
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+networks:
+  sicoe-network:
+    name: sicoe-network-dev
+    driver: bridge
+
+volumes:
+  postgres_data:
+    name: sicoe-postgres-data-dev
+    driver: local

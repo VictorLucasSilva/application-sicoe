@@ -1,0 +1,227 @@
+/* ========================================
+   HEADER COMPONENT - SICOE
+   100% da largura do navegador
+   Seguindo protótipo exatamente
+   ======================================== */
+
+.header {
+  background-color: var(--color-primary-blue);
+  height: var(--header-height);
+  width: 100%;
+  position: relative;
+  z-index: var(--z-sticky);
+  box-shadow: none;
+  font-family: var(--font-family-primary);
+}
+
+/* Barra de progresso de carregamento */
+.progressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background-color: var(--color-primary-yellow);
+  transition: width 0.3s ease;
+  z-index: 10;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  padding: 0 var(--spacing-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ========================================
+   LOGO (Esquerda)
+   ======================================== */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.logo:hover {
+  opacity: 0.9;
+}
+
+.logoIcon {
+  width: 1.5rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+.logoText {
+  color: var(--color-primary-yellow);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.05em;
+}
+
+/* ========================================
+   USER AREA (Direita)
+   ======================================== */
+
+.userArea {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  position: relative;
+}
+
+.dropdownWrapper {
+  position: relative;
+}
+
+.userButton {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--color-white);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+  transition: background-color var(--transition-fast);
+}
+
+.userButton:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.userButton span {
+  white-space: nowrap;
+}
+
+.divider {
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0 var(--spacing-sm);
+}
+
+.userIcon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-full);
+  background-color: rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.arrowIcon {
+  width: 0.75rem;
+  height: 0.75rem;
+  transition: transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.arrowIcon.open {
+  transform: rotate(180deg);
+}
+
+/* ========================================
+   DROPDOWN MENU
+   ======================================== */
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + var(--spacing-sm));
+  right: 0;
+  background-color: var(--color-primary-blue);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  min-width: 12rem;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.625rem);
+  transition: all var(--transition-normal);
+  z-index: var(--z-dropdown);
+}
+
+.dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  color: var(--color-white);
+  text-decoration: none;
+  transition: background-color var(--transition-fast);
+  cursor: pointer;
+  font-size: var(--font-size-md);
+}
+
+.dropdownItem:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.dropdownItem:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdownIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+.dropdownText {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+  white-space: nowrap;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+
+  .logoText {
+    font-size: var(--font-size-xl);
+  }
+
+  .userButton span {
+    display: none;
+  }
+
+  .dropdown {
+    min-width: 12.5rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .logoIcon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .logoText {
+    font-size: var(--font-size-lg);
+  }
+}

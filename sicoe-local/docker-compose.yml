@@ -1,0 +1,105 @@
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16.6-alpine
+    container_name: sicoe-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USERNAME:-sicoe_user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-sicoe_password}
+      POSTGRES_DB: ${DB_DATABASE:-sicoe_db}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - sicoe-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME:-sicoe_user} -d ${DB_DATABASE:-sicoe_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # Backend API (NestJS)
+  backend:
+    build:
+      context: ../sicoe-backend
+      dockerfile: Dockerfile
+    container_name: sicoe-backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-local}
+      PORT: ${BACKEND_PORT:-3000}
+      DB_TYPE: postgres
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USERNAME: ${DB_USERNAME:-sicoe_user}
+      DB_PASSWORD: ${DB_PASSWORD:-sicoe_password}
+      DB_DATABASE: ${DB_DATABASE:-sicoe_db}
+      DB_SYNCHRONIZE: ${DB_SYNCHRONIZE:-true}
+      DB_LOGGING: ${DB_LOGGING:-true}
+      JWT_SECRET: ${JWT_SECRET:-your-jwt-secret-change-this}
+      JWT_EXPIRATION: ${JWT_EXPIRATION:-1h}
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:5173}
+      CORS_CREDENTIALS: ${CORS_CREDENTIALS:-true}
+      THROTTLE_TTL: ${THROTTLE_TTL:-60}
+      THROTTLE_LIMIT: ${THROTTLE_LIMIT:-10}
+      AZURE_AD_CLIENT_ID: ${AZURE_AD_CLIENT_ID:-}
+      AZURE_AD_TENANT_ID: ${AZURE_AD_TENANT_ID:-}
+      AZURE_AD_CLIENT_SECRET: ${AZURE_AD_CLIENT_SECRET:-}
+      AZURE_AD_REDIRECT_URI: ${AZURE_AD_REDIRECT_URI:-http://localhost:5173/auth/callback}
+    ports:
+      - "${BACKEND_PORT:-3000}:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - sicoe-network
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:3000/api/v1 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    volumes:
+      - ../sicoe-backend/src:/app/src:ro
+
+  # Frontend (React + Vite)
+  frontend:
+    build:
+      context: ../sicoe-frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:3000/api/v1}
+        VITE_ENV: ${NODE_ENV:-local}
+    container_name: sicoe-frontend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-local}
+    ports:
+      - "${FRONTEND_PORT:-5173}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - sicoe-network
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+networks:
+  sicoe-network:
+    name: sicoe-network
+    driver: bridge
+
+volumes:
+  postgres_data:
+    name: sicoe-postgres-data
+    driver: local

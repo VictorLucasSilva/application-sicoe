@@ -1,0 +1,51 @@
+/* ========================================
+   FOOTER COMPONENT - SICOE
+   100% da largura do navegador
+   Seguindo protótipo exatamente
+   ======================================== */
+
+.footer {
+  background-color: var(--color-primary-blue);
+  height: var(--footer-height);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  font-family: var(--font-family-primary);
+  padding: 0 var(--spacing-xl);
+}
+
+.text {
+  color: var(--color-white);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  margin: 0;
+  text-align: center;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .footer {
+    padding: 0 var(--spacing-md);
+  }
+
+  .text {
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .footer {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .text {
+    font-size: 0.625rem;
+  }
+}

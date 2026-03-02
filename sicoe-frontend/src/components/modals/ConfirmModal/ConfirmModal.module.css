@@ -1,0 +1,54 @@
+/* ========================================
+   CONFIRM MODAL - SICOE
+   Modal de confirmação reutilizável
+   Seguindo protótipo exatamente
+   ======================================== */
+
+.content {
+  padding: var(--spacing-2xl) var(--spacing-xl);
+  text-align: center;
+  min-height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  max-width: 31.25rem;
+  margin: 0 auto;
+}
+
+.confirmButton {
+  padding: var(--spacing-md) var(--spacing-2xl);
+  background-color: var(--color-primary-blue);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-family-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-width: 10rem;
+  text-transform: uppercase;
+  letter-spacing: 0.0625rem;
+}
+
+.confirmButton:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-0.0625rem);
+  box-shadow: var(--shadow-md);
+}
+
+.confirmButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.confirmButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

@@ -1,0 +1,57 @@
+/* ========================================
+   SICOE - Font Declarations
+   ======================================== */
+
+/**
+ * Fonte: BancoDoBrasil Textos
+ *
+ * NOTA: A fonte BancoDoBrasil Textos é proprietária.
+ * Para uso em produção, será necessário:
+ * 1. Obter licença da fonte do Banco do Brasil
+ * 2. Adicionar os arquivos da fonte (.woff2, .woff, .ttf) nesta pasta
+ * 3. Descomentar a declaração @font-face abaixo
+ *
+ * Por enquanto, o sistema usará Arial como fallback.
+ */
+
+/*
+@font-face {
+  font-family: 'BancoDoBrasil Textos';
+  src: url('./BancoDoBrasilTextos-Regular.woff2') format('woff2'),
+       url('./BancoDoBrasilTextos-Regular.woff') format('woff'),
+       url('./BancoDoBrasilTextos-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BancoDoBrasil Textos';
+  src: url('./BancoDoBrasilTextos-Medium.woff2') format('woff2'),
+       url('./BancoDoBrasilTextos-Medium.woff') format('woff'),
+       url('./BancoDoBrasilTextos-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BancoDoBrasil Textos';
+  src: url('./BancoDoBrasilTextos-SemiBold.woff2') format('woff2'),
+       url('./BancoDoBrasilTextos-SemiBold.woff') format('woff'),
+       url('./BancoDoBrasilTextos-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BancoDoBrasil Textos';
+  src: url('./BancoDoBrasilTextos-Bold.woff2') format('woff2'),
+       url('./BancoDoBrasilTextos-Bold.woff') format('woff'),
+       url('./BancoDoBrasilTextos-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+*/

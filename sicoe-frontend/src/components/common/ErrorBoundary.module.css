@@ -1,0 +1,123 @@
+/* ========================================
+   ERROR BOUNDARY - SICOE
+   Tela de erro para quando algo dá errado
+   ======================================== */
+
+.errorContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  background-color: var(--color-background-light);
+}
+
+.errorCard {
+  background-color: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-3xl);
+  box-shadow: var(--shadow-card);
+  max-width: 37.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+.errorIcon {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.errorTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-primary);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.errorMessage {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+  font-family: var(--font-family-primary);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--spacing-2xl) 0;
+  line-height: var(--line-height-relaxed);
+}
+
+.errorDetails {
+  text-align: left;
+  margin: var(--spacing-xl) 0;
+  padding: var(--spacing-md);
+  background-color: var(--color-divider);
+  border-radius: var(--radius-md);
+  border: 0.0625rem solid var(--color-border);
+}
+
+.errorDetails summary {
+  cursor: pointer;
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-sm);
+}
+
+.errorDetails pre {
+  font-size: var(--font-size-xs);
+  color: var(--color-error);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.errorActions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+}
+
+.retryButton,
+.homeButton {
+  padding: var(--spacing-md) var(--spacing-2xl);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-family-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+}
+
+.retryButton {
+  background-color: var(--color-primary-blue);
+  color: var(--color-white);
+}
+
+.retryButton:hover {
+  opacity: 0.9;
+  transform: translateY(-0.0625rem);
+  box-shadow: var(--shadow-sm);
+}
+
+.homeButton {
+  background-color: transparent;
+  color: var(--color-primary-blue);
+  border: 0.125rem solid var(--color-primary-blue);
+}
+
+.homeButton:hover {
+  background-color: var(--color-divider);
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .errorCard {
+    padding: var(--spacing-2xl) var(--spacing-lg);
+  }
+
+  .errorActions {
+    flex-direction: column;
+  }
+
+  .retryButton,
+  .homeButton {
+    width: 100%;
+  }
+}
