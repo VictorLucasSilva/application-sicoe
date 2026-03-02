@@ -14,15 +14,21 @@
   font-family: var(--font-family-primary);
 }
 
-/* Barra de progresso de carregamento */
-.progressBar {
+/* Barra de progresso de carregamento - dentro do header mas abaixo dele visualmente */
+.progressBarContainer {
   position: absolute;
-  bottom: 0;
+  bottom: -3px;
   left: 0;
+  width: 100%;
   height: 3px;
+  background-color: var(--color-primary-blue);
+  z-index: 10;
+}
+
+.progressBar {
+  height: 100%;
   background-color: var(--color-primary-yellow);
   transition: width 0.3s ease;
-  z-index: 10;
 }
 
 .container {
@@ -52,14 +58,14 @@
 }
 
 .logoIcon {
-  width: 1.5rem;
-  height: 2rem;
+  width: 1,2375rem;
+  height: 1.65rem;
   object-fit: contain;
 }
 
 .logoText {
   color: var(--color-primary-yellow);
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
   letter-spacing: 0.05em;
 }
@@ -71,7 +77,7 @@
 .userArea {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-xs);
   position: relative;
 }
 
@@ -94,33 +100,50 @@
   transition: background-color var(--transition-fast);
 }
 
+/* Botão person sem padding direito */
+.dropdownWrapper:last-child .userButton {
+  padding-right: 0;
+}
+
 .userButton:hover {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
 .userButton span {
   white-space: nowrap;
+  color: var(--color-white);
 }
 
 .divider {
-  color: rgba(255, 255, 255, 0.3);
-  margin: 0 var(--spacing-sm);
+  color: var(--color-white);
+  margin: 0 var(--spacing-xs);
+  font-size: var(--font-size-base);
+  opacity: 0.5;
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  line-height: 2;
 }
 
 .userIcon {
-  width: 2rem;
-  height: 2rem;
+  width: 1.67rem;
+  height: 1.67rem;
   border-radius: var(--radius-full);
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: background-color var(--transition-fast);
+}
+
+.userButton:hover .userIcon {
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 .arrowIcon {
-  width: 0.75rem;
-  height: 0.75rem;
+  width: 0.6rem;
+  height: 0.6rem;
   transition: transform var(--transition-fast);
   flex-shrink: 0;
 }
@@ -135,7 +158,7 @@
 
 .dropdown {
   position: absolute;
-  top: calc(100% + var(--spacing-sm));
+  top: calc(100% + 12px);
   right: 0;
   background-color: var(--color-primary-blue);
   border-radius: var(--radius-md);
@@ -147,6 +170,31 @@
   transform: translateY(-0.625rem);
   transition: all var(--transition-normal);
   z-index: var(--z-dropdown);
+}
+
+/* Setinha triangular apontando para cima */
+.dropdown::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: 1.5rem;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #465EFF;
+}
+
+/* Alinhar dropdown do person à direita */
+.dropdownWrapper:last-child .dropdown {
+  right: 0;
+  top: calc(100% + 8px);
+}
+
+/* Ajustar posição da setinha do person */
+.dropdownWrapper:last-child .dropdown::before {
+  right: 1rem;
+  border-bottom: 10px solid #465EFF;
 }
 
 .dropdown.open {
@@ -176,8 +224,8 @@
 }
 
 .dropdownIcon {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
   flex-shrink: 0;
 }
 

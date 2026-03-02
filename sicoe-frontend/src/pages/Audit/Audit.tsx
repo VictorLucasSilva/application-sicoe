@@ -148,46 +148,44 @@ export default function AuditPage() {
       <div className={styles.auditPage}>
         {/* Page Header (conforme protótipo: ícone + título + busca + filtros na mesma linha) */}
         <div className={styles.pageHeader}>
-          {/* Ícone com polygon amarelo atrás */}
-          <div className={styles.iconWrapper}>
-            <div className={styles.pageIconPolygon}></div>
-            <img
-              src="/assets/icons/audit-page/logo-page-audit.svg"
-              alt="Auditoria"
-              className={styles.pageIcon}
-            />
+          <div className={styles.titleGroup}>
+            {/* Ícone com polygon amarelo atrás */}
+            <div className={styles.iconWrapper}>
+              <div className={styles.pageIconPolygon}></div>
+              <img
+                src="/assets/icons/audit-page/logo-page-audit.svg"
+                alt="Auditoria"
+                className={styles.pageIcon}
+              />
+            </div>
+            <h1 className={styles.pageTitle}>Auditoria</h1>
           </div>
 
-          <h1 className={styles.pageTitle}>Auditoria</h1>
+          <div className={styles.filtersGroup}>
+            {/* Barra de busca */}
+            <div className={styles.searchWrapper}>
+              <input
+                type="text"
+                className={styles.searchInput}
+                placeholder="Buscar..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
 
-          {/* Barra de busca */}
-          <div className={styles.searchWrapper}>
-            <img
-              src="/assets/icons/icon-search.svg"
-              alt="Buscar"
-              className={styles.searchIcon}
-            />
-            <input
-              type="text"
-              className={styles.searchInput}
-              placeholder="Buscar..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
+            {/* Botão de filtros */}
+            <button className={styles.filterButton} onClick={() => setIsFilterModalOpen(true)}>
+              <img
+                src="/assets/icons/icon-filter.svg"
+                alt="Filtros"
+                className={styles.filterIcon}
+              />
+              <span>Exibir filtros</span>
+              {getActiveFiltersCount() > 0 && (
+                <span className={styles.filterBadge}>{getActiveFiltersCount()}</span>
+              )}
+            </button>
           </div>
-
-          {/* Botão de filtros */}
-          <button className={styles.filterButton} onClick={() => setIsFilterModalOpen(true)}>
-            <img
-              src="/assets/icons/icon-filter.svg"
-              alt="Filtros"
-              className={styles.filterIcon}
-            />
-            <span>Exibir filtros</span>
-            {getActiveFiltersCount() > 0 && (
-              <span className={styles.filterBadge}>{getActiveFiltersCount()}</span>
-            )}
-          </button>
         </div>
 
         {/* Table */}

@@ -8,6 +8,8 @@
   /* Primary Colors */
   --color-primary-blue: #465EFF;
   --color-primary-yellow: #FCFC30;
+  --color-black-for: rgba(0, 0, 0, 0.25);
+  --color-black-five: rgba(0, 0, 0, 0.01);
 
   /* Background Colors */
   --color-background-light: #F2F2F2;

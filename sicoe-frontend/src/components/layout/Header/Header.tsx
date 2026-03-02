@@ -66,7 +66,9 @@ export default function Header({ userRole = 'Area Gerencial' }: HeaderProps) {
     <header className={styles.header}>
       {/* Barra de progresso de carregamento */}
       {progress > 0 && (
-        <div className={styles.progressBar} style={{ width: `${progress}%` }} />
+        <div className={styles.progressBarContainer}>
+          <div className={styles.progressBar} style={{ width: `${progress}%` }} />
+        </div>
       )}
 
       <div className={styles.container}>
@@ -85,10 +87,9 @@ export default function Header({ userRole = 'Area Gerencial' }: HeaderProps) {
             <button className={styles.userButton} onClick={toggleAreaDropdown}>
               <span>{userRole}</span>
               <img
-                src="/assets/icons/icon-down.svg"
+                src="/assets/icons/icon-down-white.svg"
                 alt="Arrow"
                 className={`${styles.arrowIcon} ${isAreaDropdownOpen ? styles.open : ''}`}
-                style={{ filter: 'invert(1)' }}
               />
             </button>
 
@@ -140,15 +141,9 @@ export default function Header({ userRole = 'Area Gerencial' }: HeaderProps) {
                 <img
                   src="/assets/icons/icon-person.svg"
                   alt="User"
-                  style={{ width: '20px', height: '20px', filter: 'invert(1)' }}
+                  style={{ width: '20px', height: '20px' }}
                 />
               </div>
-              <img
-                src="/assets/icons/icon-down.svg"
-                alt="Arrow"
-                className={`${styles.arrowIcon} ${isUserDropdownOpen ? styles.open : ''}`}
-                style={{ filter: 'invert(1)' }}
-              />
             </button>
 
             <div className={`${styles.dropdown} ${isUserDropdownOpen ? styles.open : ''}`}>
@@ -157,7 +152,7 @@ export default function Header({ userRole = 'Area Gerencial' }: HeaderProps) {
                 onClick={() => handleNavigate('/profile')}
               >
                 <img
-                  src="/assets/icons/icon-person.svg"
+                  src="/assets/icons/icon-profile-white.svg"
                   alt="Perfil"
                   className={styles.dropdownIcon}
                 />
@@ -169,7 +164,7 @@ export default function Header({ userRole = 'Area Gerencial' }: HeaderProps) {
                 onClick={() => handleNavigate('/report')}
               >
                 <img
-                  src="/assets/icons/icon-dropdown-header-audit.svg"
+                  src="/assets/icons/icon-report-white.svg"
                   alt="Relatório"
                   className={styles.dropdownIcon}
                 />
@@ -181,10 +176,9 @@ export default function Header({ userRole = 'Area Gerencial' }: HeaderProps) {
                 onClick={handleLogout}
               >
                 <img
-                  src="/assets/icons/icon-left.svg"
+                  src="/assets/icons/icon-logout-white.svg"
                   alt="Sair"
                   className={styles.dropdownIcon}
-                  style={{ transform: 'rotate(180deg)' }}
                 />
                 <span className={styles.dropdownText}>Sair</span>
               </div>
