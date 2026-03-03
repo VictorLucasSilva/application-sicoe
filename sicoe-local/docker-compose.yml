@@ -34,7 +34,7 @@ services:
       NODE_ENV: ${NODE_ENV:-local}
       PORT: ${BACKEND_PORT:-3000}
       DB_TYPE: postgres
-      DB_HOST: postgres
+      DB_HOST: ${DB_HOST:-postgres}
       DB_PORT: 5432
       DB_USERNAME: ${DB_USERNAME:-sicoe_user}
       DB_PASSWORD: ${DB_PASSWORD:-sicoe_password}
