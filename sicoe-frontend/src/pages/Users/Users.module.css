@@ -20,8 +20,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-xl);
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
 }
 
 .titleGroup {
@@ -36,6 +36,7 @@
   gap: var(--spacing-sm);
   flex: 1;
   max-width: 95%;
+  padding: 0px 0px var(--spacing-sm) var(--spacing-md) ;
 }
 
 .iconWrapper {
@@ -89,13 +90,13 @@
 
 .searchInput {
   width: 100%;
-  padding: var(--spacing-md) var(--spacing-md) var(--spacing-sm) 2.5rem;
+  padding: var(--spacing-md) var(--spacing-md) var(--spacing-sm) var(--spacing-sm);
   border: none;
   border-bottom: 0.0625rem solid var(--color-border);
   border-radius: 0;
   font-size: var(--font-size-md);
   font-family: var(--font-family-primary);
-  color: var(--color-text-primary);
+  color: var(--color-text-secondary);
   background-color: transparent;
   transition: border-color var(--transition-fast);
 }
@@ -162,6 +163,7 @@
 .tableWrapper {
   background-color: transparent;
   border-radius: var(--radius-lg);
+  border: 0px var(--spacing-lg);
   box-shadow: none;
   overflow: hidden;
 }
@@ -182,7 +184,7 @@
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
   background-color: var(--color-divider);
-  border-bottom: 0.125rem solid var(--color-border);
+  border-bottom: 0.125rem solid var(--color-divider);
   cursor: pointer;
   user-select: none;
   white-space: nowrap;
@@ -325,7 +327,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: var(--spacing-lg);
+  padding: var(--spacing-lg) var(--spacing-lg) 0px var(--spacing-lg);
   background-color: transparent;
   border-top: 0.0625rem solid var(--color-border);
   flex-wrap: wrap;
@@ -451,13 +453,13 @@
 .backButton {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-md) var(--spacing-xl);
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
   background-color: var(--color-primary-blue);
   color: var(--color-white);
   border: none;
   border-radius: var(--radius-full);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   font-family: var(--font-family-primary);
   cursor: pointer;
@@ -471,21 +473,21 @@
 }
 
 .backIcon {
-  width: 1rem;
-  height: 1rem;
+  width: 0.7rem;
+  height: 0.7rem;
   flex-shrink: 0;
 }
 
 .accessButton {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-md) var(--spacing-xl);
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
   background-color: transparent;
   color: var(--color-primary-blue);
   border: 0.125rem solid var(--color-primary-blue);
   border-radius: var(--radius-full);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   font-family: var(--font-family-primary);
   cursor: pointer;
@@ -499,10 +501,15 @@
 }
 
 .plusIcon {
-  width: 1rem;
-  height: 1rem;
+  width: 0.7rem;
+  height: 0.7rem;
   font-weight: var(--font-weight-bold);
   flex-shrink: 0;
+}
+
+.plusIcon:hover {
+  background-color: var(--color-white);
+  color: var(--color-white);
 }
 
 /* ========================================

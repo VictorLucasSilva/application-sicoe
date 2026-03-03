@@ -54,7 +54,7 @@ async function bootstrap() {
   const port = configService.get<number>('PORT', 3000);
   await app.listen(port);
 
-  console.log(`🚀 SICOE Backend running on: http://localhost:${port}/api/v1`);
-  console.log(`📊 Environment: ${configService.get<string>('NODE_ENV')}`);
+  console.log(`SICOE Backend running on: http://localhost:${port}/api/v1`);
+  console.log(`Environment: ${configService.get<string>('NODE_ENV')}`);
 }
 bootstrap();

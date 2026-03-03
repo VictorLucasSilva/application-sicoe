@@ -149,30 +149,6 @@ export default function Header({ userRole = 'Area Gerencial' }: HeaderProps) {
             <div className={`${styles.dropdown} ${isUserDropdownOpen ? styles.open : ''}`}>
               <div
                 className={styles.dropdownItem}
-                onClick={() => handleNavigate('/profile')}
-              >
-                <img
-                  src="/assets/icons/icon-profile-white.svg"
-                  alt="Perfil"
-                  className={styles.dropdownIcon}
-                />
-                <span className={styles.dropdownText}>Perfil</span>
-              </div>
-
-              <div
-                className={styles.dropdownItem}
-                onClick={() => handleNavigate('/report')}
-              >
-                <img
-                  src="/assets/icons/icon-report-white.svg"
-                  alt="Relatório"
-                  className={styles.dropdownIcon}
-                />
-                <span className={styles.dropdownText}>Relatório</span>
-              </div>
-
-              <div
-                className={styles.dropdownItem}
                 onClick={handleLogout}
               >
                 <img
