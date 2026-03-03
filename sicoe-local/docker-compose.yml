@@ -1,6 +1,6 @@
 
 services:
-  # PostgreSQL Database
+
   postgres:
     image: postgres:16.6-alpine
     container_name: sicoe-postgres
@@ -24,7 +24,6 @@ services:
       retries: 5
       start_period: 10s
 
-  # Backend API (NestJS)
   backend:
     build:
       context: ../sicoe-backend
@@ -35,7 +34,7 @@ services:
       NODE_ENV: ${NODE_ENV:-local}
       PORT: ${BACKEND_PORT:-3000}
       DB_TYPE: postgres
-      DB_HOST: postgres
+      DB_HOST: pglabbr.postgres.database.azure.com
       DB_PORT: 5432
       DB_USERNAME: ${DB_USERNAME:-sicoe_user}
       DB_PASSWORD: ${DB_PASSWORD:-sicoe_password}
@@ -68,7 +67,6 @@ services:
     volumes:
       - ../sicoe-backend/src:/app/src:ro
 
-  # Frontend (React + Vite)
   frontend:
     build:
       context: ../sicoe-frontend
