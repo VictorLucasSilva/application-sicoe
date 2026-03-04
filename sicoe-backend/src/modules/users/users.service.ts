@@ -26,9 +26,7 @@ export class UsersService {
     private readonly establishmentRepository: Repository<Establishment>,
   ) {}
 
-  /**
-   * Listar todos os logins únicos
-   */
+  
   async getLogins(): Promise<string[]> {
     const users = await this.userRepository
       .createQueryBuilder('user')
@@ -39,9 +37,7 @@ export class UsersService {
     return users.map(u => u.username);
   }
 
-  /**
-   * Listar usuários com filtros e paginação
-   */
+  
   async findAll(filterDto: FilterUserDto): Promise<{
     data: UserResponseDto[];
     total: number;
@@ -76,7 +72,7 @@ export class UsersService {
       .leftJoinAndSelect('establishment.region', 'region')
       .leftJoinAndSelect('establishment.state', 'state');
 
-    // Busca global em múltiplas colunas (barra de pesquisa)
+    
     if (search) {
       query.andWhere(
         new Brackets((qb) => {
@@ -98,7 +94,7 @@ export class UsersService {
       );
     }
 
-    // Filtros
+    
     if (name) {
       query.andWhere(
         '(user.firstName ILIKE :name OR user.lastName ILIKE :name)',
@@ -116,12 +112,12 @@ export class UsersService {
       });
     }
 
-    // Filtro por múltiplos perfis (IDs)
+    
     if (profiles && profiles.length > 0) {
       query.andWhere('group.id IN (:...profiles)', { profiles });
     }
 
-    // Filtro por status (active/inactive)
+    
     if (statuses && statuses.length > 0) {
       const statusConditions = statuses.map(status =>
         status === 'active' ? 'user.flgActive = true' : 'user.flgActive = false'
@@ -129,7 +125,7 @@ export class UsersService {
       query.andWhere(`(${statusConditions.join(' OR ')})`);
     }
 
-    // Filtro por status de email (enabled/disabled)
+    
     if (emailStatuses && emailStatuses.length > 0) {
       const emailConditions = emailStatuses.map(status =>
         status === 'enabled' ? 'user.flgStatusEmail = true' : 'user.flgStatusEmail = false'
@@ -137,7 +133,7 @@ export class UsersService {
       query.andWhere(`(${emailConditions.join(' OR ')})`);
     }
 
-    // Filtro por data de entrada (criação)
+    
     if (startDate) {
       query.andWhere('user.tsCreation >= :startDate', { startDate });
     }
@@ -146,7 +142,7 @@ export class UsersService {
       query.andWhere('user.tsCreation <= :endDate', { endDate });
     }
 
-    // Filtro por data de vigência (expiração)
+    
     if (expirationStartDate) {
       query.andWhere('user.dtExpiration >= :expirationStartDate', { expirationStartDate });
     }
@@ -173,16 +169,16 @@ export class UsersService {
       });
     }
 
-    // Ordenação
+    
     query.orderBy(`user.${sortBy}`, sortOrder);
 
-    // Paginação
+    
     const skip = (page - 1) * limit;
     query.skip(skip).take(limit);
 
     const [users, total] = await query.getManyAndCount();
 
-    // Transformar em DTOs
+    
     const data = users.map(
       (user) =>
         new UserResponseDto({
@@ -200,7 +196,7 @@ export class UsersService {
           tsUpdated: user.tsUpdated,
           groups: user.groups,
           establishments: user.establishments,
-          fullName: `${user.firstName} ${user.lastName}`, // Calcular explicitamente
+          fullName: `${user.firstName} ${user.lastName}`, 
         }),
     );
 
@@ -212,9 +208,7 @@ export class UsersService {
     };
   }
 
-  /**
-   * Buscar usuário por ID
-   */
+  
   async findOne(id: number): Promise<UserResponseDto> {
     const user = await this.userRepository.findOne({
       where: { id },
@@ -240,18 +234,16 @@ export class UsersService {
       tsUpdated: user.tsUpdated,
       groups: user.groups,
       establishments: user.establishments,
-      fullName: `${user.firstName} ${user.lastName}`, // Calcular explicitamente
+      fullName: `${user.firstName} ${user.lastName}`, 
     });
   }
 
-  /**
-   * Criar novo usuário
-   */
+  
   async create(createUserDto: CreateUserDto): Promise<UserResponseDto> {
     const { username, email, password, firstName, lastName, numEmployee } =
       createUserDto;
 
-    // Verificar se username já existe
+    
     const existingUser = await this.userRepository.findOne({
       where: { username },
     });
@@ -260,7 +252,7 @@ export class UsersService {
       throw new ConflictException('Username já está em uso');
     }
 
-    // Verificar se email já existe
+    
     const existingEmail = await this.userRepository.findOne({
       where: { email },
     });
@@ -269,7 +261,7 @@ export class UsersService {
       throw new ConflictException('Email já está em uso');
     }
 
-    // Criar novo usuário (password será hasheado automaticamente)
+    
     const newUser = this.userRepository.create({
       username,
       email,
@@ -283,7 +275,7 @@ export class UsersService {
 
     const savedUser = await this.userRepository.save(newUser);
 
-    // Buscar com relacionamentos
+    
     const userWithRelations = await this.userRepository.findOne({
       where: { id: savedUser.id },
       relations: ['groups', 'establishments'],
@@ -308,13 +300,11 @@ export class UsersService {
       tsUpdated: userWithRelations.tsUpdated,
       groups: userWithRelations.groups,
       establishments: userWithRelations.establishments,
-      fullName: userWithRelations.fullName, // Usar o getter da entity
+      fullName: userWithRelations.fullName, 
     });
   }
 
-  /**
-   * Atualizar usuário
-   */
+  
   async update(
     id: number,
     updateUserDto: UpdateUserDto,
@@ -327,7 +317,7 @@ export class UsersService {
       throw new NotFoundException(`Usuário com ID ${id} não encontrado`);
     }
 
-    // Verificar se username está sendo alterado e já existe
+    
     if (updateUserDto.username && updateUserDto.username !== user.username) {
       const existingUser = await this.userRepository.findOne({
         where: { username: updateUserDto.username },
@@ -338,7 +328,7 @@ export class UsersService {
       }
     }
 
-    // Verificar se email está sendo alterado e já existe
+    
     if (updateUserDto.email && updateUserDto.email !== user.email) {
       const existingEmail = await this.userRepository.findOne({
         where: { email: updateUserDto.email },
@@ -349,11 +339,11 @@ export class UsersService {
       }
     }
 
-    // Atualizar campos (password será hasheado automaticamente se fornecido)
+    
     Object.assign(user, updateUserDto);
     await this.userRepository.save(user);
 
-    // Buscar com relacionamentos
+    
     const updatedUser = await this.userRepository.findOne({
       where: { id },
       relations: ['groups', 'establishments'],
@@ -378,13 +368,11 @@ export class UsersService {
       tsUpdated: updatedUser.tsUpdated,
       groups: updatedUser.groups,
       establishments: updatedUser.establishments,
-      fullName: updatedUser.fullName, // Usar o getter da entity
+      fullName: updatedUser.fullName, 
     });
   }
 
-  /**
-   * Soft delete (desativar usuário)
-   */
+  
   async remove(id: number): Promise<{ message: string }> {
     const user = await this.userRepository.findOne({
       where: { id },
@@ -394,16 +382,14 @@ export class UsersService {
       throw new NotFoundException(`Usuário com ID ${id} não encontrado`);
     }
 
-    // Soft delete: apenas desativa
+    
     user.flgActive = false;
     await this.userRepository.save(user);
 
     return { message: `Usuário ${user.username} desativado com sucesso` };
   }
 
-  /**
-   * Adicionar grupo ao usuário
-   */
+  
   async addGroup(
     userId: number,
     groupId: number,
@@ -425,14 +411,14 @@ export class UsersService {
       throw new NotFoundException(`Grupo com ID ${groupId} não encontrado`);
     }
 
-    // Verificar se já possui o grupo
+    
     const hasGroup = user.groups.some((g) => g.id === groupId);
 
     if (hasGroup) {
       throw new ConflictException('Usuário já possui este grupo');
     }
 
-    // Adicionar grupo
+    
     user.groups.push(group);
     await this.userRepository.save(user);
 
@@ -441,9 +427,7 @@ export class UsersService {
     };
   }
 
-  /**
-   * Remover grupo do usuário
-   */
+  
   async removeGroup(
     userId: number,
     groupId: number,
@@ -465,14 +449,14 @@ export class UsersService {
       throw new NotFoundException(`Grupo com ID ${groupId} não encontrado`);
     }
 
-    // Verificar se possui o grupo
+    
     const hasGroup = user.groups.some((g) => g.id === groupId);
 
     if (!hasGroup) {
       throw new BadRequestException('Usuário não possui este grupo');
     }
 
-    // Remover grupo
+    
     user.groups = user.groups.filter((g) => g.id !== groupId);
     await this.userRepository.save(user);
 
@@ -481,9 +465,7 @@ export class UsersService {
     };
   }
 
-  /**
-   * Adicionar estabelecimento ao usuário
-   */
+  
   async addEstablishment(
     userId: number,
     establishmentId: number,
@@ -507,7 +489,7 @@ export class UsersService {
       );
     }
 
-    // Verificar se já possui o estabelecimento
+    
     const hasEstablishment = user.establishments.some(
       (e) => e.id === establishmentId,
     );
@@ -516,7 +498,7 @@ export class UsersService {
       throw new ConflictException('Usuário já possui este estabelecimento');
     }
 
-    // Adicionar estabelecimento
+    
     user.establishments.push(establishment);
     await this.userRepository.save(user);
 
@@ -525,9 +507,7 @@ export class UsersService {
     };
   }
 
-  /**
-   * Remover estabelecimento do usuário
-   */
+  
   async removeEstablishment(
     userId: number,
     establishmentId: number,
@@ -551,7 +531,7 @@ export class UsersService {
       );
     }
 
-    // Verificar se possui o estabelecimento
+    
     const hasEstablishment = user.establishments.some(
       (e) => e.id === establishmentId,
     );
@@ -560,7 +540,7 @@ export class UsersService {
       throw new BadRequestException('Usuário não possui este estabelecimento');
     }
 
-    // Remover estabelecimento
+    
     user.establishments = user.establishments.filter(
       (e) => e.id !== establishmentId,
     );

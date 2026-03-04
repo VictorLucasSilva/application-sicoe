@@ -1,7 +1,4 @@
-/**
- * Componente Error Boundary para capturar erros em toda a aplicação
- * Sistema SICOE
- */
+
 
 import { Component, type ReactNode } from 'react';
 import { logError } from '@/utils/errorHandler';

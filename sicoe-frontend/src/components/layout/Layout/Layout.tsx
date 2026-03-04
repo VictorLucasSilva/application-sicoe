@@ -10,6 +10,7 @@ interface LayoutProps {
   centerContent?: boolean;
   userName?: string;
   userRole?: string;
+  pageTitle?: string; // Título customizado da página
 }
 
 export default function Layout({
@@ -19,10 +20,11 @@ export default function Layout({
   centerContent = false,
   userName,
   userRole,
+  pageTitle,
 }: LayoutProps) {
   return (
     <div className={styles.layout}>
-      {showHeader && <Header userName={userName} userRole={userRole} />}
+      {showHeader && <Header userName={userName} userRole={userRole} pageTitle={pageTitle} />}
       <main className={`${styles.main} ${centerContent ? styles.mainCenter : ''}`}>
         {children}
       </main>

@@ -1,7 +1,4 @@
-/* ========================================
-   SORT ICON COMPONENT - SICOE
-   Ícone de ordenação para tabelas
-   ======================================== */
+
 
 .sortIcon {
   display: inline-flex;
@@ -18,7 +15,7 @@
   height: 1rem;
 }
 
-/* Hover state */
+
 *:hover > .sortIcon {
   color: var(--color-primary-blue);
 }

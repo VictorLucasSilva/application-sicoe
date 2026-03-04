@@ -23,7 +23,7 @@ interface AuditFilterModalProps {
   onApply: (filters: AuditFilters) => void;
   onClear: () => void;
   initialFilters?: AuditFilters;
-  // Options
+  
   loginOptions?: AutocompleteOption[];
   profileOptions?: ButtonOption[];
   actionOptions?: ButtonOption[];
@@ -52,7 +52,7 @@ export default function AuditFilterModal({
 
   const debouncedLogin = useDebounce(login, 300);
 
-  // Update fields when initialFilters change
+  
   useEffect(() => {
     if (initialFilters) {
       setLogin(initialFilters.login || '');
@@ -64,7 +64,7 @@ export default function AuditFilterModal({
     }
   }, [initialFilters]);
 
-  // Prevent body scroll
+  
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -77,7 +77,7 @@ export default function AuditFilterModal({
     };
   }, [isOpen]);
 
-  // Close with ESC
+  
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -131,10 +131,10 @@ export default function AuditFilterModal({
 
   return (
     <>
-      {/* Backdrop */}
+      {}
       <div className={styles.backdrop} onClick={onClose} />
 
-      {/* Modal Lateral Direito */}
+      {}
       <div className={styles.modal}>
         <div className={styles.header}>
           <h2 className={styles.title}>Filtros</h2>
@@ -156,7 +156,7 @@ export default function AuditFilterModal({
         </div>
 
         <div className={styles.content}>
-          {/* Login */}
+          {}
           <div className={styles.field}>
             <Autocomplete
               label="Login"
@@ -169,7 +169,7 @@ export default function AuditFilterModal({
             />
           </div>
 
-          {/* Perfil */}
+          {}
           <div className={styles.field}>
             <ButtonOptions
               label="Perfil"
@@ -181,7 +181,7 @@ export default function AuditFilterModal({
             />
           </div>
 
-          {/* Ação */}
+          {}
           <div className={styles.field}>
             <ButtonOptions
               label="Ação"
@@ -193,7 +193,7 @@ export default function AuditFilterModal({
             />
           </div>
 
-          {/* Objeto */}
+          {}
           <div className={styles.field}>
             <ButtonOptions
               label="Objeto"
@@ -205,7 +205,7 @@ export default function AuditFilterModal({
             />
           </div>
 
-          {/* Data */}
+          {}
           <div className={styles.field}>
             <label className={styles.dateLabel}>Data</label>
             <div className={styles.dateRange}>

@@ -11,11 +11,12 @@ import { MsalStrategy } from './strategies/msal.strategy';
 import { Group } from './entities/group.entity';
 import { Permission } from './entities/permission.entity';
 import { ContentType } from './entities/content-type.entity';
+import { User } from '../users/entities/user.entity';
 import { UsersModule } from '../users/users.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Group, Permission, ContentType]),
+    TypeOrmModule.forFeature([User, Group, Permission, ContentType]),
     PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.registerAsync({
       imports: [ConfigModule],

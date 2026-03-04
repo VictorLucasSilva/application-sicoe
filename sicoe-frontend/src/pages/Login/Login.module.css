@@ -1,8 +1,4 @@
-/* ========================================
-   LOGIN PAGE - SICOE
-   100% da largura do navegador
-   Seguindo protótipo exatamente
-   ======================================== */
+
 
 .loginPage {
   width: 100%;
@@ -13,9 +9,7 @@
   font-family: var(--font-family-primary);
 }
 
-/* ========================================
-   HEADER
-   ======================================== */
+
 
 .header {
   background-color: var(--color-primary-blue);
@@ -47,9 +41,7 @@
   letter-spacing: 0.05em;
 }
 
-/* ========================================
-   MAIN CONTENT
-   ======================================== */
+
 
 .main {
   flex: 1;
@@ -76,9 +68,7 @@
   margin-bottom: var(--spacing-2xl);
 }
 
-/* ========================================
-   FORM
-   ======================================== */
+
 
 .form {
   display: flex;
@@ -160,9 +150,7 @@
   padding-left: 0;
 }
 
-/* ========================================
-   SUBMIT BUTTON
-   ======================================== */
+
 
 .submitButton {
   background-color: transparent;
@@ -196,9 +184,7 @@
   cursor: not-allowed;
 }
 
-/* ========================================
-   ERROR MESSAGE
-   ======================================== */
+
 
 .error {
   color: var(--color-error);
@@ -210,9 +196,7 @@
   border-left: 0.25rem solid var(--color-error);
 }
 
-/* ========================================
-   FOOTER
-   ======================================== */
+
 
 .footer {
   background-color: var(--color-primary-blue);
@@ -228,11 +212,9 @@
   margin: 0;
 }
 
-/* ========================================
-   RESPONSIVIDADE
-   ======================================== */
 
-/* Tablet */
+
+
 @media (max-width: 768px) {
   .main {
     padding: var(--spacing-lg);
@@ -256,7 +238,7 @@
   }
 }
 
-/* Mobile */
+
 @media (max-width: 480px) {
   .main {
     padding: var(--spacing-md);

@@ -1,7 +1,4 @@
-/**
- * Hook para gerenciar operações assíncronas
- * Otimizado com useCallback e controle de estado
- */
+
 
 import { useState, useCallback, useEffect, useRef } from 'react';
 
@@ -21,7 +18,7 @@ export function useAsync<T>(
     error: null,
   });
 
-  // Use ref to track if component is mounted
+  
   const isMountedRef = useRef(true);
 
   useEffect(() => {

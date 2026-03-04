@@ -1,4 +1,4 @@
-// Environment Variables
+
 declare global {
   interface ImportMetaEnv {
     readonly VITE_APP_NAME: string;
@@ -16,7 +16,7 @@ declare global {
   }
 }
 
-// RBAC Groups
+
 export type RBACGroup =
   | 'Administrador'
   | 'Auditor'
@@ -24,7 +24,7 @@ export type RBACGroup =
   | 'Usuário'
   | 'Sem Acesso';
 
-// API Response
+
 export interface ApiResponse<T> {
   success: boolean;
   statusCode: number;
@@ -33,7 +33,7 @@ export interface ApiResponse<T> {
   timestamp: string;
 }
 
-// Pagination
+
 export interface PaginationParams {
   page?: number;
   limit?: number;
@@ -48,7 +48,7 @@ export interface PaginatedResponse<T> {
   limit: number;
 }
 
-// Group
+
 export interface Group {
   id: number;
   nmGroup: string;
@@ -56,7 +56,7 @@ export interface Group {
   tsUpdated: string;
 }
 
-// Establishment
+
 export interface Establishment {
   id: number;
   sqEstablishment: string;
@@ -83,7 +83,7 @@ export interface State {
   sgState: string;
 }
 
-// User
+
 export interface User {
   id: number;
   numEmployee: string;
@@ -102,7 +102,7 @@ export interface User {
   fullName: string;
 }
 
-// Auth
+
 export interface LoginCredentials {
   username: string;
   password: string;
@@ -123,7 +123,7 @@ export interface AuthResponse {
   user: User;
 }
 
-// Audit
+
 export interface AudAction {
   id: number;
   nmAction: string;
@@ -149,7 +149,7 @@ export interface Audit {
   object: AudObject;
 }
 
-// Email
+
 export interface Email {
   id: number;
   tpEmail: string;
@@ -163,19 +163,19 @@ export interface Email {
   tsCreation: string;
 }
 
-// Filter DTOs
+
 export interface FilterUserParams extends PaginationParams {
-  search?: string; // Busca global em todas as colunas
+  search?: string; 
   name?: string;
   login?: string;
   profile?: string;
-  profiles?: string; // IDs separados por vírgula
-  statuses?: string; // 'active,inactive'
-  emailStatuses?: string; // 'enabled,disabled'
-  startDate?: string; // Data de entrada (início)
-  endDate?: string; // Data de entrada (fim)
-  expirationStartDate?: string; // Data de vigência (início)
-  expirationEndDate?: string; // Data de vigência (fim)
+  profiles?: string; 
+  statuses?: string; 
+  emailStatuses?: string; 
+  startDate?: string; 
+  endDate?: string; 
+  expirationStartDate?: string; 
+  expirationEndDate?: string; 
   establishmentId?: number;
 }
 
@@ -187,12 +187,12 @@ export interface FilterEstablishmentParams extends PaginationParams {
 }
 
 export interface FilterAuditParams extends PaginationParams {
-  search?: string; // Busca global em todas as colunas
+  search?: string; 
   login?: string;
   profile?: string;
-  profiles?: string; // Perfis separados por vírgula
-  actions?: string; // Ações separadas por vírgula
-  objects?: string; // Objetos separados por vírgula
+  profiles?: string; 
+  actions?: string; 
+  objects?: string; 
   actionId?: number;
   objectId?: number;
   userId?: number;
@@ -201,11 +201,11 @@ export interface FilterAuditParams extends PaginationParams {
 }
 
 export interface FilterEmailParams extends PaginationParams {
-  search?: string; // Busca global em todas as colunas
+  search?: string; 
   type?: string;
-  types?: string; // Tipos separados por vírgula
-  subjects?: string; // Assuntos separados por vírgula
-  statuses?: string; // Status separados por vírgula
+  types?: string; 
+  subjects?: string; 
+  statuses?: string; 
   object?: string;
   destination?: string;
   sent?: boolean;

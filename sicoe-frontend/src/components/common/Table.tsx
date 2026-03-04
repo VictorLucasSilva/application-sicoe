@@ -32,7 +32,7 @@ export default function Table<T extends { id: number | string }>({
 
   const handleSort = (columnKey: string) => {
     if (sortColumn === columnKey) {
-      // Toggle direction: asc -> desc -> null -> asc
+      
       if (sortDirection === 'asc') {
         setSortDirection('desc');
       } else if (sortDirection === 'desc') {
@@ -53,12 +53,12 @@ export default function Table<T extends { id: number | string }>({
     const aValue = (a as any)[sortColumn];
     const bValue = (b as any)[sortColumn];
 
-    // Handle null/undefined values
+    
     if (aValue == null && bValue == null) return 0;
     if (aValue == null) return 1;
     if (bValue == null) return -1;
 
-    // Compare values
+    
     let comparison = 0;
     if (typeof aValue === 'string' && typeof bValue === 'string') {
       comparison = aValue.localeCompare(bValue, 'pt-BR');

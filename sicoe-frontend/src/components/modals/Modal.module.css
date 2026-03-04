@@ -43,7 +43,7 @@
   }
 }
 
-/* Sizes */
+
 .small {
   width: 100%;
   max-width: 400px;
@@ -103,7 +103,7 @@
   gap: var(--spacing-sm);
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .backdrop {
     padding: var(--spacing-md);

@@ -1,8 +1,4 @@
-/* ========================================
-   HOME PAGE - SICOE
-   100% da largura do navegador
-   Seguindo protótipo exatamente
-   ======================================== */
+
 
 .homePage {
   min-height: calc(100vh - var(--header-height) - var(--footer-height));
@@ -16,9 +12,7 @@
   font-family: var(--font-family-primary);
 }
 
-/* ========================================
-   WELCOME SECTION
-   ======================================== */
+
 
 .welcomeSection {
   text-align: center;
@@ -47,9 +41,7 @@
   margin: 0;
 }
 
-/* ========================================
-   MODULES SECTION
-   ======================================== */
+
 
 .modulesContainer {
   display: flex;
@@ -86,21 +78,17 @@
   transform: translateY(0);
 }
 
-/* ========================================
-   MODULE ICON
-   ======================================== */
+
 
 .moduleIcon {
-  width: 6rem;
-  height: 6rem;
+  width: 4rem; /* 6rem → 4rem (33% redução) */
+  height: 4rem;
   margin-bottom: var(--spacing-xl);
   color: var(--color-primary-blue);
   flex-shrink: 0;
 }
 
-/* ========================================
-   MODULE CONTENT
-   ======================================== */
+
 
 .moduleTitle {
   font-size: var(--font-size-xl);
@@ -118,18 +106,16 @@
   font-weight: var(--font-weight-regular);
 }
 
-/* ========================================
-   RESPONSIVIDADE
-   ======================================== */
 
-/* Desktop Large */
+
+
 @media (min-width: 1440px) {
   .homePage {
     padding: var(--spacing-3xl) var(--spacing-2xl);
   }
 }
 
-/* Desktop */
+
 @media (max-width: 1024px) {
   .homePage {
     padding: var(--spacing-2xl) var(--spacing-xl);
@@ -140,7 +126,7 @@
   }
 }
 
-/* Tablet */
+
 @media (max-width: 768px) {
   .homePage {
     padding: var(--spacing-2xl) var(--spacing-md);
@@ -165,12 +151,12 @@
   }
 
   .moduleIcon {
-    width: 5rem;
-    height: 5rem;
+    width: 3.35rem; /* 5rem → 3.35rem (33% redução) */
+    height: 3.35rem;
   }
 }
 
-/* Mobile */
+
 @media (max-width: 480px) {
   .homePage {
     padding: var(--spacing-xl) var(--spacing-sm);
@@ -189,8 +175,8 @@
   }
 
   .moduleIcon {
-    width: 4rem;
-    height: 4rem;
+    width: 2.68rem; /* 4rem → 2.68rem (33% redução) */
+    height: 2.68rem;
   }
 
   .moduleTitle {

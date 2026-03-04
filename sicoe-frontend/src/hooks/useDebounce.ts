@@ -1,7 +1,4 @@
-/**
- * Hook para debounce de valores
- * Útil para otimizar buscas e evitar múltiplas requisições
- */
+
 
 import { useState, useEffect } from 'react';
 

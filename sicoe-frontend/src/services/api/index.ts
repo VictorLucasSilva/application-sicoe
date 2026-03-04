@@ -1,7 +1,4 @@
-/**
- * Exportações centralizadas de serviços da API
- * Sistema SICOE
- */
+
 
 export * from './authService';
 export * from './usersService';

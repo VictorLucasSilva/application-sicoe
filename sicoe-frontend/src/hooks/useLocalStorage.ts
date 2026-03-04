@@ -1,12 +1,9 @@
-/**
- * Hook para persistir estado no localStorage
- * Sincronizado entre abas e otimizado com useMemo
- */
+
 
 import { useState, useEffect, useCallback } from 'react';
 
 export function useLocalStorage<T>(key: string, initialValue: T) {
-  // State to store value
+  
   const [storedValue, setStoredValue] = useState<T>(() => {
     try {
       const item = window.localStorage.getItem(key);
@@ -17,11 +14,11 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
     }
   });
 
-  // Return a wrapped version of useState's setter function
+  
   const setValue = useCallback(
     (value: T | ((val: T) => T)) => {
       try {
-        // Allow value to be a function like useState
+        
         const valueToStore = value instanceof Function ? value(storedValue) : value;
 
         setStoredValue(valueToStore);
@@ -33,7 +30,7 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
     [key, storedValue]
   );
 
-  // Remove from localStorage
+  
   const remove = useCallback(() => {
     try {
       window.localStorage.removeItem(key);
@@ -43,7 +40,7 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
     }
   }, [key, initialValue]);
 
-  // Listen for changes from other tabs
+  
   useEffect(() => {
     const handleStorageChange = (e: StorageEvent) => {
       if (e.key === key && e.newValue !== null) {

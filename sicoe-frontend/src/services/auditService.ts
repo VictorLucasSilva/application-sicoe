@@ -1,7 +1,4 @@
-/**
- * Serviço de Auditoria
- * Logs de auditoria do sistema
- */
+
 
 import { api, type ApiResponse } from './api';
 import type { Audit, FilterAuditParams } from '@/types';

@@ -1,4 +1,4 @@
-/* SICOE - Autocomplete Styles */
+
 
 .container {
   position: relative;
@@ -182,7 +182,7 @@
   margin-top: var(--spacing-xs);
 }
 
-/* Dropdown */
+
 .dropdown {
   position: absolute;
   top: calc(100% + var(--spacing-xs));
@@ -263,7 +263,7 @@
   flex: 1;
 }
 
-/* Custom scrollbar */
+
 .dropdown::-webkit-scrollbar {
   width: 8px;
 }
@@ -282,7 +282,7 @@
   background: var(--color-text-tertiary);
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .dropdown {
     max-height: 240px;

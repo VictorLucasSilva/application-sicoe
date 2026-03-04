@@ -23,7 +23,7 @@ export default function MessageModal({
   confirmText = 'OK',
   showIcon = true
 }: MessageModalProps) {
-  // Previne scroll do body quando modal está aberto
+  
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -36,7 +36,7 @@ export default function MessageModal({
     };
   }, [isOpen]);
 
-  // Handler para fechar com ESC
+  
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -61,7 +61,7 @@ export default function MessageModal({
     }
   };
 
-  // Definir título padrão baseado no tipo
+  
   const defaultTitle = {
     success: 'Sucesso',
     error: 'Erro',
@@ -71,7 +71,7 @@ export default function MessageModal({
 
   const modalTitle = title || defaultTitle[type];
 
-  // Ícones SVG para cada tipo
+  
   const renderIcon = () => {
     if (!showIcon) return null;
 

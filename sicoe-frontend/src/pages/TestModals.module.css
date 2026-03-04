@@ -1,4 +1,4 @@
-/* SICOE - TestModals Styles */
+
 
 .container {
   min-height: 100vh;
@@ -76,7 +76,7 @@
   font-weight: var(--font-weight-medium);
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .container {
     padding: var(--spacing-lg);

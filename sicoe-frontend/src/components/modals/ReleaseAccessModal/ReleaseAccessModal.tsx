@@ -14,8 +14,8 @@ interface ReleaseAccessModalProps {
   onClose: () => void;
   onSuccess: () => void;
   onRequestSave?: (saveFunction: () => Promise<void>) => void;
-  usersPendingAccess: User[]; // Usuários com grupo "Sem Acesso"
-  groupOptions: AutocompleteOption[]; // Opções de perfis (exceto "Sem Acesso")
+  usersPendingAccess: User[]; 
+  groupOptions: AutocompleteOption[]; 
   loadingUsers?: boolean;
 }
 
@@ -37,13 +37,13 @@ export default function ReleaseAccessModal({
 
   const selectedUser = usersPendingAccess.find(u => u.id === Number(selectedUserId));
 
-  // Converter usuários para options
+  
   const userOptions: AutocompleteOption[] = usersPendingAccess.map(user => ({
     value: user.id,
     label: `${user.fullName} (${user.username})`
   }));
 
-  // Limpar ao fechar
+  
   useEffect(() => {
     if (!isOpen) {
       setSelectedUserId('');
@@ -58,7 +58,7 @@ export default function ReleaseAccessModal({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Validações
+    
     if (!selectedUserId) {
       setError('Selecione um usuário');
       return;
@@ -69,32 +69,32 @@ export default function ReleaseAccessModal({
       return;
     }
 
-    // Chamar callback para página principal mostrar confirmação
+    
     if (onRequestSave) {
       onRequestSave(async () => {
         const userId = Number(selectedUserId);
         const groupId = Number(selectedGroupId);
 
-        // 1. Obter grupo atual ("Sem Acesso")
+        
         const user = usersPendingAccess.find(u => u.id === userId);
         const currentGroupId = user?.groups?.[0]?.id;
 
-        // 2. Remover grupo "Sem Acesso" se existir
+        
         if (currentGroupId) {
           await usersService.removeGroup(userId, currentGroupId);
         }
 
-        // 3. Adicionar novo grupo
+        
         await usersService.addGroup(userId, groupId);
 
-        // 4. Atualizar dados do usuário (data, status, email)
+        
         await usersService.updateUser(userId, {
           dtExpiration: expirationDate || undefined,
           flgActive: userStatus.includes('active'),
           flgStatusEmail: emailStatus.includes('enabled')
         });
 
-        // Fechar modal e chamar onSuccess
+        
         onClose();
         onSuccess();
       });
@@ -116,7 +116,7 @@ export default function ReleaseAccessModal({
           Selecione um usuário sem acesso e atribua um perfil para liberar o acesso ao sistema.
         </div>
 
-        {/* Usuário */}
+        {}
         <div className={styles.field}>
           <Autocomplete
             label="Usuário"
@@ -139,7 +139,7 @@ export default function ReleaseAccessModal({
           />
         </div>
 
-        {/* Perfil */}
+        {}
         <div className={styles.field}>
           <Autocomplete
             label="Perfil"
@@ -156,7 +156,7 @@ export default function ReleaseAccessModal({
           />
         </div>
 
-        {/* Data de Expiração (opcional) */}
+        {}
         <div className={styles.field}>
           <DatePicker
             label="Fim da Vigência (opcional)"
@@ -168,7 +168,7 @@ export default function ReleaseAccessModal({
           />
         </div>
 
-        {/* Status */}
+        {}
         <div className={styles.field}>
           <ButtonOptions
             label="Status"
@@ -183,7 +183,7 @@ export default function ReleaseAccessModal({
           />
         </div>
 
-        {/* Envio de Email */}
+        {}
         <div className={styles.field}>
           <ButtonOptions
             label="Envio de Email"
@@ -198,7 +198,7 @@ export default function ReleaseAccessModal({
           />
         </div>
 
-        {/* Info do usuário selecionado */}
+        {}
         {selectedUser && (
           <div className={styles.userInfo}>
             <div className={styles.infoLabel}>Usuário selecionado:</div>
@@ -214,12 +214,12 @@ export default function ReleaseAccessModal({
           </div>
         )}
 
-        {/* Error message */}
+        {}
         {error && selectedUserId && selectedGroupId && (
           <div className={styles.errorBox}>{error}</div>
         )}
 
-        {/* Footer com botões */}
+        {}
         <div className={styles.footer}>
           <Button
             type="button"

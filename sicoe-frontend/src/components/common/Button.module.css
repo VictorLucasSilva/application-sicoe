@@ -1,6 +1,4 @@
-/* ========================================
-   BUTTON COMPONENT (Seguindo Protótipo)
-   ======================================== */
+
 
 .button {
   display: inline-flex;
@@ -30,11 +28,9 @@
   outline-offset: 2px;
 }
 
-/* ========================================
-   VARIANTS (do Protótipo)
-   ======================================== */
 
-/* Primary - Botões ENTRAR, SALVAR, CONFIRMAR */
+
+
 .primary {
   background: var(--color-primary-blue);
   color: var(--color-white);
@@ -51,7 +47,7 @@
   transform: translateY(1px);
 }
 
-/* Secondary - Botão VOLTAR com ícone */
+
 .secondary {
   background: var(--color-primary-blue);
   color: var(--color-white);
@@ -68,7 +64,7 @@
   transform: translateY(1px);
 }
 
-/* Outline - Botões CONCEDER ACESSO, + ADICIONAR */
+
 .outline {
   background: transparent;
   color: var(--color-primary-blue);
@@ -85,7 +81,7 @@
   transform: translateY(1px);
 }
 
-/* Ghost - Botões sem borda (ícones) */
+
 .ghost {
   background: transparent;
   color: var(--color-text-secondary);
@@ -98,7 +94,7 @@
   color: var(--color-primary-blue);
 }
 
-/* Danger - Botões de ação crítica */
+
 .danger {
   background: var(--color-error);
   color: var(--color-white);
@@ -115,9 +111,7 @@
   transform: translateY(1px);
 }
 
-/* ========================================
-   SIZES
-   ======================================== */
+
 
 .small {
   padding: var(--spacing-sm) var(--spacing-lg);
@@ -137,16 +131,14 @@
   gap: var(--spacing-sm);
 }
 
-/* ========================================
-   MODIFIERS
-   ======================================== */
 
-/* Full Width */
+
+
 .fullWidth {
   width: 100%;
 }
 
-/* Loading State */
+
 .loading {
   position: relative;
   pointer-events: none;
@@ -168,7 +160,7 @@
   }
 }
 
-/* Icon Container */
+
 .icon {
   display: flex;
   align-items: center;
@@ -181,9 +173,7 @@
   height: 1.125rem;
 }
 
-/* ========================================
-   RESPONSIVE
-   ======================================== */
+
 
 @media (max-width: 768px) {
   .button {

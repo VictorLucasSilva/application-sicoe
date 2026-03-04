@@ -1,6 +1,4 @@
-/* ========================================
-   MODAL COMPONENT (Seguindo Protótipo)
-   ======================================== */
+
 
 .overlay {
   position: fixed;
@@ -30,7 +28,7 @@
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
   width: 90%;
-  max-width: 402px; /* 600px reduzido em 33% */
+  max-width: 402px; 
   max-height: 90vh;
   display: flex;
   flex-direction: column;
@@ -80,7 +78,7 @@
 }
 
 .closeIcon {
-  width: 16px; /* 24px reduzido em 33% */
+  width: 16px; 
   height: 16px;
   color: var(--color-text-primary);
 }
@@ -100,7 +98,7 @@
   gap: var(--spacing-md);
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .modal {
     width: 95%;

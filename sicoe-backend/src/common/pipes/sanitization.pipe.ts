@@ -1,9 +1,6 @@
 import { PipeTransform, Injectable, BadRequestException } from '@nestjs/common';
 
-/**
- * Sanitization Pipe
- * Removes potentially dangerous characters from input
- */
+
 @Injectable()
 export class SanitizationPipe implements PipeTransform {
   transform(value: any) {
@@ -18,20 +15,18 @@ export class SanitizationPipe implements PipeTransform {
     return value;
   }
 
-  /**
-   * Sanitize string input
-   */
+  
   private sanitizeString(input: string): string {
-    // Remove null bytes
+    
     let sanitized = input.replace(/\0/g, '');
 
-    // Encode < and > to prevent XSS
+    
     sanitized = sanitized
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
 
-    // Remove potential SQL injection characters (but preserve normal apostrophes)
-    // This is an additional layer; main protection comes from parameterized queries
+    
+    
     const dangerousPatterns = [
       /;\s*drop\s/i,
       /;\s*delete\s/i,
@@ -50,9 +45,7 @@ export class SanitizationPipe implements PipeTransform {
     return sanitized;
   }
 
-  /**
-   * Recursively sanitize object
-   */
+  
   private sanitizeObject(obj: any): any {
     const sanitized: any = Array.isArray(obj) ? [] : {};
 

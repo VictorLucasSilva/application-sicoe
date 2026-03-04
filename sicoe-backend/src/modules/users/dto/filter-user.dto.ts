@@ -6,24 +6,24 @@ export class FilterUserDto {
   @IsString()
   @Transform(({ value }) => {
     if (typeof value === 'string') {
-      // Sanitiza removendo caracteres especiais perigosos
+      
       return value.replace(/[<>'"`;()]/g, '').trim().substring(0, 100);
     }
     return value;
   })
-  search?: string; // Busca global em múltiplas colunas
+  search?: string; 
 
   @IsOptional()
   @IsString()
-  name?: string; // Busca por firstName ou lastName
+  name?: string; 
 
   @IsOptional()
   @IsString()
-  login?: string; // Busca por username
+  login?: string; 
 
   @IsOptional()
   @IsString()
-  profile?: string; // Busca por grupo/role (single value)
+  profile?: string; 
 
   @IsOptional()
   @IsArray()
@@ -31,7 +31,7 @@ export class FilterUserDto {
     if (typeof value === 'string') return value.split(',').map(Number);
     return value;
   })
-  profiles?: number[]; // Filtrar por múltiplos perfis (IDs)
+  profiles?: number[]; 
 
   @IsOptional()
   @IsArray()
@@ -39,7 +39,7 @@ export class FilterUserDto {
     if (typeof value === 'string') return value.split(',');
     return value;
   })
-  statuses?: string[]; // Filtrar por status (active/inactive)
+  statuses?: string[]; 
 
   @IsOptional()
   @IsArray()
@@ -47,38 +47,38 @@ export class FilterUserDto {
     if (typeof value === 'string') return value.split(',');
     return value;
   })
-  emailStatuses?: string[]; // Filtrar por status de email (enabled/disabled)
+  emailStatuses?: string[]; 
 
   @IsOptional()
   @IsDateString()
-  startDate?: string; // Data de entrada - início
+  startDate?: string; 
 
   @IsOptional()
   @IsDateString()
-  endDate?: string; // Data de entrada - fim
+  endDate?: string; 
 
   @IsOptional()
   @IsDateString()
-  expirationStartDate?: string; // Data de vigência - início
+  expirationStartDate?: string; 
 
   @IsOptional()
   @IsDateString()
-  expirationEndDate?: string; // Data de vigência - fim
+  expirationEndDate?: string; 
 
   @IsOptional()
   @IsInt()
   @Type(() => Number)
-  establishmentId?: number; // Filtrar por estabelecimento
+  establishmentId?: number; 
 
   @IsOptional()
   @IsString()
-  region?: string; // Filtrar por região
+  region?: string; 
 
   @IsOptional()
   @IsString()
-  state?: string; // Filtrar por estado
+  state?: string; 
 
-  // Paginação
+  
   @IsOptional()
   @IsInt()
   @Type(() => Number)
@@ -92,7 +92,7 @@ export class FilterUserDto {
   @Max(100)
   limit?: number = 10;
 
-  // Ordenação
+  
   @IsOptional()
   @IsString()
   sortBy?: string = 'id';

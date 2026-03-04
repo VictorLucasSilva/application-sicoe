@@ -1,7 +1,4 @@
-/* ========================================
-   ERROR BOUNDARY - SICOE
-   Tela de erro para quando algo dá errado
-   ======================================== */
+
 
 .errorContainer {
   min-height: 100vh;
@@ -106,7 +103,7 @@
   background-color: var(--color-divider);
 }
 
-/* Responsividade */
+
 @media (max-width: 480px) {
   .errorCard {
     padding: var(--spacing-2xl) var(--spacing-lg);

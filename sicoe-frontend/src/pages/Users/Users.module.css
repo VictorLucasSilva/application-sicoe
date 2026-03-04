@@ -1,8 +1,4 @@
-/* ========================================
-   USERS PAGE - SICOE
-   100% da largura do navegador
-   Seguindo protótipo exatamente
-   ======================================== */
+
 
 .usersPage {
   width: 100%;
@@ -12,9 +8,7 @@
   font-family: var(--font-family-primary);
 }
 
-/* ========================================
-   PAGE HEADER (Conforme protótipo: ícone + título + busca + filtros na mesma linha)
-   ======================================== */
+
 
 .pageHeader {
   display: flex;
@@ -77,9 +71,7 @@
   white-space: nowrap;
 }
 
-/* ========================================
-   FILTERS BAR (Integrada ao pageHeader conforme protótipo)
-   ======================================== */
+
 
 .searchWrapper {
   flex: 1;
@@ -156,9 +148,7 @@
   margin-left: var(--spacing-xs);
 }
 
-/* ========================================
-   TABLE
-   ======================================== */
+
 
 .tableWrapper {
   background-color: transparent;
@@ -223,7 +213,7 @@
   width: 2.5rem;
   padding: var(--spacing-md);
   text-align: center;
-  display: none; /* Removido conforme protótipo */
+  display: none; 
 }
 
 .expandButton {
@@ -231,7 +221,7 @@
   border: none;
   cursor: pointer;
   padding: var(--spacing-xs);
-  display: none; /* Removido conforme protótipo */
+  display: none; 
   align-items: center;
   justify-content: center;
   transition: transform var(--transition-fast);
@@ -247,9 +237,7 @@
   opacity: 0.6;
 }
 
-/* ========================================
-   TABLE CONTENT
-   ======================================== */
+
 
 .tag {
   display: inline-block;
@@ -319,9 +307,7 @@
   height: 1rem;
 }
 
-/* ========================================
-   PAGINATION
-   ======================================== */
+
 
 .paginationWrapper {
   display: flex;
@@ -410,7 +396,7 @@
   cursor: not-allowed;
 }
 
-/* Botões de setas (navegação) */
+
 .pageButton.arrow {
   min-width: 3rem;
   height: 3rem;
@@ -435,9 +421,7 @@
   border: none;
 }
 
-/* ========================================
-   FOOTER BUTTONS
-   ======================================== */
+
 
 .footerButtons {
   display: flex;
@@ -512,11 +496,9 @@
   color: var(--color-white);
 }
 
-/* ========================================
-   RESPONSIVIDADE
-   ======================================== */
 
-/* Tablet */
+
+
 @media (max-width: 968px) {
   .usersPage {
     padding: var(--spacing-lg) var(--spacing-md);
@@ -560,7 +542,7 @@
   }
 }
 
-/* Mobile */
+
 @media (max-width: 480px) {
   .usersPage {
     padding: var(--spacing-md) var(--spacing-sm);

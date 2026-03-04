@@ -7,9 +7,7 @@ import type {
 } from '@/types';
 
 export const establishmentService = {
-  /**
-   * Listar estabelecimentos
-   */
+  
   async getEstablishments(
     params?: FilterEstablishmentParams
   ): Promise<PaginatedResponse<Establishment>> {
@@ -20,25 +18,19 @@ export const establishmentService = {
     return response.data.data;
   },
 
-  /**
-   * Buscar estabelecimento por ID
-   */
+  
   async getEstablishment(id: number): Promise<Establishment> {
     const response = await apiService.get<ApiResponse<Establishment>>(`/establishments/${id}`);
     return response.data.data;
   },
 
-  /**
-   * Criar estabelecimento
-   */
+  
   async createEstablishment(data: Partial<Establishment>): Promise<Establishment> {
     const response = await apiService.post<ApiResponse<Establishment>>('/establishments', data);
     return response.data.data;
   },
 
-  /**
-   * Atualizar estabelecimento
-   */
+  
   async updateEstablishment(id: number, data: Partial<Establishment>): Promise<Establishment> {
     const response = await apiService.patch<ApiResponse<Establishment>>(
       `/establishments/${id}`,
@@ -47,9 +39,7 @@ export const establishmentService = {
     return response.data.data;
   },
 
-  /**
-   * Remover estabelecimento
-   */
+  
   async deleteEstablishment(id: number): Promise<{ message: string }> {
     const response = await apiService.delete<ApiResponse<{ message: string }>>(
       `/establishments/${id}`

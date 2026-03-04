@@ -9,7 +9,7 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
   await queryRunner.startTransaction();
 
   try {
-    // 1. Inserir Regiões de teste
+    
     console.log('🗺️ Inserindo regiões...');
     const regions = [
       'Região Norte',
@@ -26,7 +26,7 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
       );
     }
 
-    // 2. Inserir Estados de teste
+    
     console.log('📍 Inserindo estados...');
     const states = [
       { nm: 'São Paulo', sg: 'SP' },
@@ -48,19 +48,12 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
       );
     }
 
-    // 3. Inserir Estabelecimentos de teste
+    
     console.log('🏢 Inserindo estabelecimentos...');
     const establishments = [
-      { sq: 'EST001', nm: 'Agência Centro - São Paulo', region: 'Região Sudeste', state: 'SP' },
-      { sq: 'EST002', nm: 'Agência Paulista', region: 'Região Sudeste', state: 'SP' },
-      { sq: 'EST003', nm: 'Agência Copacabana', region: 'Região Sudeste', state: 'RJ' },
-      { sq: 'EST004', nm: 'Agência Ipanema', region: 'Região Sudeste', state: 'RJ' },
-      { sq: 'EST005', nm: 'Agência Savassi - BH', region: 'Região Sudeste', state: 'MG' },
-      { sq: 'EST006', nm: 'Agência Pelourinho', region: 'Região Nordeste', state: 'BA' },
-      { sq: 'EST007', nm: 'Agência Porto Alegre Centro', region: 'Região Sul', state: 'RS' },
-      { sq: 'EST008', nm: 'Agência Curitiba Batel', region: 'Região Sul', state: 'PR' },
-      { sq: 'EST009', nm: 'Agência Recife Boa Viagem', region: 'Região Nordeste', state: 'PE' },
-      { sq: 'EST010', nm: 'Agência Fortaleza Centro', region: 'Região Nordeste', state: 'CE' },
+      { sq: 'EST001', nm: 'MATRIZ', region: 'Região Sudeste', state: 'SP' },
+      { sq: 'EST002', nm: 'SAO PAULO', region: 'Região Sudeste', state: 'SP' },
+      { sq: 'EST003', nm: 'GOIANIA', region: 'Região Centro-Oeste', state: 'GO' },
     ];
 
     for (const est of establishments) {
@@ -83,7 +76,7 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
       }
     }
 
-    // 4. Inserir Usuários de teste
+    
     console.log('👥 Inserindo usuários de teste...');
     const password = await bcrypt.hash('Test@123', 10);
 
@@ -101,7 +94,7 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
     ];
 
     for (const user of users) {
-      // Inserir usuário
+      
       await queryRunner.query(
         `INSERT INTO ssv_user
           (num_employee, username, password, first_name, last_name, email, flg_active, flg_status_email)
@@ -115,11 +108,11 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
           user.lastName,
           user.email,
           true,
-          Math.random() > 0.3, // 70% com email ativo
+          Math.random() > 0.3, 
         ],
       );
 
-      // Associar ao grupo
+      
       await queryRunner.query(
         `INSERT INTO ssv_aux_user_groups (fk_user, fk_group)
          SELECT u.id, g.id
@@ -129,7 +122,7 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
         [user.username, user.group],
       );
 
-      // Associar a estabelecimentos aleatórios (1-3 estabelecimentos por usuário)
+      
       const numEstabs = Math.floor(Math.random() * 3) + 1;
       for (let i = 0; i < numEstabs; i++) {
         const estNum = Math.floor(Math.random() * 10) + 1;
@@ -146,7 +139,7 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
       }
     }
 
-    // 5. Inserir Logs de Auditoria
+    
     console.log('📋 Inserindo logs de auditoria...');
     const auditLogs = [
       { action: 'Login', object: 'Usuário', login: 'joao.silva', profile: 'Administrador', desc: 'Login realizado com sucesso' },
@@ -199,7 +192,103 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
       }
     }
 
-    // 6. Inserir Logs de E-mail
+
+    console.log('📄 Inserindo tipos de documentos...');
+    const documents = [
+      { nm: 'Alvará de Funcionamento', ds: 'Documento que autoriza o funcionamento do estabelecimento' },
+      { nm: 'Certificado de Regularidade', ds: 'Certificado que comprova a regularidade fiscal' },
+      { nm: 'Licença Ambiental', ds: 'Licença para operação com impacto ambiental' },
+      { nm: 'CREA/CAU', ds: 'Registro no conselho profissional' },
+      { nm: 'Laudo AVCB', ds: 'Auto de Vistoria do Corpo de Bombeiros' },
+    ];
+
+    for (const doc of documents) {
+      await queryRunner.query(
+        `INSERT INTO ssv_estab_document (nm_document, ds_document)
+         VALUES ($1, $2)
+         ON CONFLICT (nm_document) DO NOTHING`,
+        [doc.nm, doc.ds],
+      );
+    }
+
+
+    console.log('📊 Inserindo status de anexos...');
+    const statuses = ['Pendente', 'Em Análise', 'Aprovado', 'Rejeitado', 'Expirado'];
+    for (const status of statuses) {
+      await queryRunner.query(
+        `INSERT INTO ssv_estab_status_attachment (nm_status)
+         VALUES ($1)
+         ON CONFLICT (nm_status) DO NOTHING`,
+        [status],
+      );
+    }
+
+
+    console.log('📎 Vinculando documentos aos estabelecimentos e criando anexos...');
+    const estabDocMapping = [
+      { estab: 'EST001', docs: ['Alvará de Funcionamento', 'Certificado de Regularidade'] },
+      { estab: 'EST002', docs: ['Licença Ambiental', 'CREA/CAU'] },
+      { estab: 'EST003', docs: ['Laudo AVCB', 'Alvará de Funcionamento'] },
+    ];
+
+    for (const mapping of estabDocMapping) {
+      const estabResult = await queryRunner.query(
+        `SELECT id FROM ssv_establishment WHERE sq_establishment = $1`,
+        [mapping.estab],
+      );
+
+      if (!estabResult[0]) continue;
+
+      for (let i = 0; i < mapping.docs.length; i++) {
+        const docResult = await queryRunner.query(
+          `SELECT id FROM ssv_estab_document WHERE nm_document = $1`,
+          [mapping.docs[i]],
+        );
+
+        if (!docResult[0]) continue;
+
+
+        await queryRunner.query(
+          `INSERT INTO ssv_aux_establishment_document (fk_establishment, fk_document)
+           VALUES ($1, $2)
+           ON CONFLICT (fk_establishment, fk_document) DO NOTHING`,
+          [estabResult[0].id, docResult[0].id],
+        );
+
+
+        const statusId = i === 0 ? 4 : 5;
+        const statusName = i === 0 ? 'Rejeitado' : 'Expirado';
+
+        // Função para remover acentos
+        const removeAccents = (str: string) => {
+          return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        };
+
+        const docNameNormalized = removeAccents(mapping.docs[i])
+          .toLowerCase()
+          .replace(/\//g, '')
+          .replace(/\s+/g, '_');
+
+        const fileName = `${mapping.estab.toLowerCase()}_${docNameNormalized}_${statusName.toLowerCase()}.pdf`;
+        const filePath = `/media/${fileName}`;
+
+        await queryRunner.query(
+          `INSERT INTO ssv_estab_attachment
+            (fk_status, fk_document, nm_file, ds_file_path, dt_validity, dt_emission)
+           VALUES ($1, $2, $3, $4, $5, $6)`,
+          [
+            statusId,
+            docResult[0].id,
+            fileName,
+            filePath,
+            i === 0 ? new Date(2024, 5, 1) : new Date(2024, 0, 1),
+            i === 0 ? new Date(2024, 0, 15) : new Date(2023, 0, 15),
+          ],
+        );
+      }
+    }
+
+
     console.log('📧 Inserindo logs de email...');
     const emailLogs = [
       { type: 'Boas-vindas', object: 'Usuário', dest: 'joao.silva@sicoe.com', subj: 'Bem-vindo ao SICOE', sent: true },

@@ -4,11 +4,11 @@ import { Type } from 'class-transformer';
 export class FilterEstablishmentDto {
   @IsOptional()
   @IsString()
-  name?: string; // Busca por nmEstablishment
+  name?: string; 
 
   @IsOptional()
   @IsString()
-  code?: string; // Busca por sqEstablishment
+  code?: string; 
 
   @IsOptional()
   @IsInt()
@@ -20,7 +20,7 @@ export class FilterEstablishmentDto {
   @Type(() => Number)
   stateId?: number;
 
-  // Paginação
+  
   @IsOptional()
   @IsInt()
   @Type(() => Number)
@@ -34,7 +34,7 @@ export class FilterEstablishmentDto {
   @Max(100)
   limit?: number = 10;
 
-  // Ordenação
+  
   @IsOptional()
   @IsString()
   sortBy?: string = 'id';

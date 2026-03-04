@@ -19,7 +19,7 @@ export class EstabDocument {
   nmDocument: string;
 
   @Column({ name: 'ds_document', type: 'text', nullable: true })
-  dsDocument: string; // Descrição do documento
+  dsDocument: string; 
 
   @CreateDateColumn({ name: 'ts_creation', type: 'timestamp' })
   tsCreation: Date;
@@ -27,7 +27,7 @@ export class EstabDocument {
   @UpdateDateColumn({ name: 'ts_updated', type: 'timestamp' })
   tsUpdated: Date;
 
-  // Relacionamentos
+  
   @ManyToMany(() => Establishment, (establishment) => establishment.documents)
   establishments: Establishment[];
 

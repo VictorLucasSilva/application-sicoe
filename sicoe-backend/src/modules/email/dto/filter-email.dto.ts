@@ -6,16 +6,16 @@ export class FilterEmailDto {
   @IsString()
   @Transform(({ value }) => {
     if (typeof value === 'string') {
-      // Sanitiza removendo caracteres especiais perigosos
+      
       return value.replace(/[<>'"`;()]/g, '').trim().substring(0, 100);
     }
     return value;
   })
-  search?: string; // Busca global em múltiplas colunas
+  search?: string; 
 
   @IsOptional()
   @IsString()
-  type?: string; // Busca por tpEmail (single)
+  type?: string; 
 
   @IsOptional()
   @IsArray()
@@ -23,15 +23,15 @@ export class FilterEmailDto {
     if (typeof value === 'string') return value.split(',');
     return value;
   })
-  types?: string[]; // Filtrar por múltiplos tipos
+  types?: string[]; 
 
   @IsOptional()
   @IsString()
-  object?: string; // Busca por txObject
+  object?: string; 
 
   @IsOptional()
   @IsString()
-  subject?: string; // Busca por txSubject (single)
+  subject?: string; 
 
   @IsOptional()
   @IsArray()
@@ -39,16 +39,16 @@ export class FilterEmailDto {
     if (typeof value === 'string') return value.split(',');
     return value;
   })
-  subjects?: string[]; // Filtrar por múltiplos assuntos
+  subjects?: string[]; 
 
   @IsOptional()
   @IsString()
-  destination?: string; // Busca por txDestination
+  destination?: string; 
 
   @IsOptional()
   @Transform(({ value }) => value === 'true' || value === true)
   @IsBoolean()
-  sent?: boolean; // Filtrar por flgSent (single)
+  sent?: boolean; 
 
   @IsOptional()
   @IsArray()
@@ -56,17 +56,17 @@ export class FilterEmailDto {
     if (typeof value === 'string') return value.split(',');
     return value;
   })
-  statuses?: string[]; // Filtrar por múltiplos status (sent/pending/failed)
+  statuses?: string[]; 
 
   @IsOptional()
   @IsDateString()
-  startDate?: string; // Data inicial (YYYY-MM-DD)
+  startDate?: string; 
 
   @IsOptional()
   @IsDateString()
-  endDate?: string; // Data final (YYYY-MM-DD)
+  endDate?: string; 
 
-  // Paginação
+  
   @IsOptional()
   @IsInt()
   @Type(() => Number)
@@ -80,7 +80,7 @@ export class FilterEmailDto {
   @Max(100)
   limit?: number = 10;
 
-  // Ordenação
+  
   @IsOptional()
   @IsString()
   sortBy?: string = 'id';

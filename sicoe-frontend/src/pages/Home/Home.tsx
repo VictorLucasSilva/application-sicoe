@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import Layout from '@/components/layout/Layout/Layout';
+import logoSicoeV3 from '@/assets/icons/logo-sicoe-v3.svg';
 import styles from './Home.module.css';
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
   const userName = `${user.first_name || ''} ${user.last_name || ''}`.trim() || 'Usuário';
 
   const handleModuleClick = () => {
-    navigate('/users');
+    navigate('/establishments');
   };
 
   return (
@@ -23,18 +24,11 @@ export default function Home() {
 
         <div className={styles.modulesContainer}>
           <div className={styles.moduleCard} onClick={handleModuleClick}>
-            {/* Ícone temporário - substituir depois */}
-            <svg
+            <img
+              src={logoSicoeV3}
+              alt="SICOE"
               className={styles.moduleIcon}
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 3L2 9V11H4V20H11V14H13V20H20V11H22V9L12 3ZM18 18H15V12H9V18H6V9.19L12 5.69L18 9.19V18Z"
-                fill="currentColor"
-              />
-            </svg>
+            />
             <h2 className={styles.moduleTitle}>Controle de Estabelecimentos</h2>
             <p className={styles.moduleDescription}>
               Gestão de Documentos, Unidades e Localidades Físicas da Empresa

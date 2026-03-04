@@ -20,7 +20,7 @@ class ApiService {
   }
 
   private setupInterceptors(): void {
-    // Request Interceptor
+    
     this.api.interceptors.request.use(
       (config) => {
         const token = localStorage.getItem('access_token');
@@ -34,12 +34,12 @@ class ApiService {
       }
     );
 
-    // Response Interceptor
+    
     this.api.interceptors.response.use(
       (response) => response,
       async (error: AxiosError) => {
         if (error.response?.status === 401) {
-          // Token expirado - redirecionar para login
+          
           localStorage.removeItem('access_token');
           window.location.href = '/login';
         }
@@ -52,7 +52,7 @@ class ApiService {
     return this.api;
   }
 
-  // Métodos auxiliares
+  
   public get<T>(url: string, config?: AxiosRequestConfig) {
     return this.api.get<T>(url, config);
   }

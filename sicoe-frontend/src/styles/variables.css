@@ -1,115 +1,103 @@
-/* SICOE - Design System Variables (Theme: Light) */
+
 
 :root {
-  /* ========================================
-     PALETA DE CORES (Protótipo)
-     ======================================== */
+  
 
-  /* Primary Colors */
+  
   --color-primary-blue: #465EFF;
   --color-primary-yellow: #FCFC30;
   --color-black-for: rgba(0, 0, 0, 0.25);
   --color-black-five: rgba(0, 0, 0, 0.005);
 
-  /* Background Colors */
+  
   --color-background-light: #F2F2F2;
   --color-white: #FFFFFF;
   --color-black: #000000;
 
-  /* Text Colors (usando rgba conforme protótipo) */
+  
   --color-text-primary: rgba(0, 0, 0, 0.85);
   --color-text-secondary: rgba(0, 0, 0, 0.65);
   --color-text-tertiary: rgba(0, 0, 0, 0.56);
   --color-text-disabled: rgba(0, 0, 0, 0.25);
   --color-text-white: rgba(255, 255, 255, 0.75);
 
-  /* Border & Dividers */
+  
   --color-border: rgba(0, 0, 0, 0.10);
   --color-border-active: var(--color-primary-blue);
   --color-divider: rgba(0, 0, 0, 0.04);
 
-  /* Tag & Badge Colors */
+  
   --color-tag-bg: #B0BAFF;
   --color-tag-dark: #000000;
 
-  /* Status & Feedback Colors */
+  
   --color-error: #FF6E91;
   --color-success: #4CAF50;
   --color-warning: #FF9800;
   --color-info: var(--color-primary-blue);
 
-  /* ========================================
-     TIPOGRAFIA
-     ======================================== */
+  
 
-  /* Font Family */
+  
   --font-family-primary: 'BancoDoBrasil Textos', Arial, sans-serif;
   --font-family-fallback: Arial, sans-serif;
 
-  /* Font Sizes (em rem) - Reduzidos em 33% */
-  --font-size-xs: 0.5rem;      /* 8px (era 12px) */
-  --font-size-sm: 0.585rem;    /* 9.36px (era 14px) */
-  --font-size-base: 0.67rem;   /* 10.72px (era 16px) */
-  --font-size-md: 0.67rem;     /* 10.72px (era 16px) */
-  --font-size-lg: 0.75rem;     /* 12px (era 18px) */
-  --font-size-xl: 0.835rem;    /* 13.36px (era 20px) */
-  --font-size-2xl: 1rem;       /* 16px (era 24px) */
-  --font-size-3xl: 1.34rem;    /* 21.44px (era 32px) */
-  --font-size-4xl: 1.675rem;   /* 26.8px (era 40px) */
+  
+  --font-size-xs: 0.5rem;      
+  --font-size-sm: 0.585rem;    
+  --font-size-base: 0.67rem;   
+  --font-size-md: 0.67rem;     
+  --font-size-lg: 0.75rem;     
+  --font-size-xl: 0.835rem;    
+  --font-size-2xl: 1rem;       
+  --font-size-3xl: 1.34rem;    
+  --font-size-4xl: 1.675rem;   
 
-  /* Font Weights */
+  
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
-  /* Line Heights */
+  
   --line-height-tight: 1.2;
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.75;
 
-  /* ========================================
-     ESPAÇAMENTOS (em rem) - Reduzidos em 33%
-     ======================================== */
+  
 
-  --spacing-xs: 0.167rem;     /* 2.67px (era 4px) */
-  --spacing-sm: 0.335rem;     /* 5.36px (era 8px) */
-  --spacing-md: 0.67rem;      /* 10.72px (era 16px) */
-  --spacing-lg: 1rem;         /* 16px (era 24px) */
-  --spacing-xl: 1.34rem;      /* 21.44px (era 32px) */
-  --spacing-2xl: 2rem;        /* 32px (era 48px) */
-  --spacing-3xl: 2.68rem;     /* 42.88px (era 64px) */
+  --spacing-xs: 0.167rem;     
+  --spacing-sm: 0.335rem;     
+  --spacing-md: 0.67rem;      
+  --spacing-lg: 1rem;         
+  --spacing-xl: 1.34rem;      
+  --spacing-2xl: 2rem;        
+  --spacing-3xl: 2.68rem;     
 
-  /* ========================================
-     BORDAS & SOMBRAS
-     ======================================== */
+  
 
-  /* Border Radius - Reduzidos em 33% */
-  --radius-sm: 0.167rem;      /* 2.67px (era 4px) */
-  --radius-md: 0.335rem;      /* 5.36px (era 8px) */
-  --radius-lg: 0.5rem;        /* 8px (era 12px) */
-  --radius-xl: 0.67rem;       /* 10.72px (era 16px) */
-  --radius-2xl: 1rem;         /* 16px (era 24px) */
+  
+  --radius-sm: 0.167rem;      
+  --radius-md: 0.335rem;      
+  --radius-lg: 0.5rem;        
+  --radius-xl: 0.67rem;       
+  --radius-2xl: 1rem;         
   --radius-full: 9999px;
 
-  /* Shadows */
+  
   --shadow-sm: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.12), 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.24);
   --shadow-md: 0 0.1875rem 0.375rem rgba(0, 0, 0, 0.16), 0 0.1875rem 0.375rem rgba(0, 0, 0, 0.23);
   --shadow-lg: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.19), 0 0.375rem 0.375rem rgba(0, 0, 0, 0.23);
   --shadow-card: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
   --shadow-modal: 0 0.625rem 2rem rgba(0, 0, 0, 0.25);
 
-  /* ========================================
-     TRANSIÇÕES & ANIMAÇÕES
-     ======================================== */
+  
 
   --transition-fast: 150ms ease-in-out;
   --transition-normal: 300ms ease-in-out;
   --transition-slow: 500ms ease-in-out;
 
-  /* ========================================
-     Z-INDEX (camadas)
-     ======================================== */
+  
 
   --z-base: 0;
   --z-dropdown: 1000;
@@ -120,17 +108,13 @@
   --z-loading: 1500;
   --z-tooltip: 1600;
 
-  /* ========================================
-     LAYOUT (dimensões fixas) - Alturas reduzidas em 33%, largura 100%
-     ======================================== */
+  
 
-  --header-height: 2.5rem;    /* 40px (era 60px) */
-  --footer-height: 2.2rem;    /* 33.6px (era 50px) */
-  --sidebar-width: 10.72rem;  /* 171.52px (era 256px) */
+  --header-height: 2.5rem;    
+  --footer-height: 2.2rem;    
+  --sidebar-width: 10.72rem;  
 
-  /* ========================================
-     BREAKPOINTS (responsividade)
-     ======================================== */
+  
 
   --breakpoint-mobile: 320px;
   --breakpoint-tablet: 768px;

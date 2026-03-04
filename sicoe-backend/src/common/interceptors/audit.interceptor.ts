@@ -28,9 +28,7 @@ export class AuditInterceptor implements NestInterceptor {
     this.loadMappings();
   }
 
-  /**
-   * Carrega os IDs de ações e objetos para o cache
-   */
+  
   private async loadMappings(): Promise<void> {
     try {
       const actions = await this.audActionRepository.find();
@@ -52,12 +50,12 @@ export class AuditInterceptor implements NestInterceptor {
     const request = context.switchToHttp().getRequest();
     const { method, url, user, ip, headers } = request;
 
-    // Apenas auditar operações de escrita (POST, PATCH, PUT, DELETE)
+    
     if (!['POST', 'PATCH', 'PUT', 'DELETE'].includes(method)) {
       return next.handle();
     }
 
-    // Ignorar rotas de autenticação
+    
     if (url.includes('/auth/login') || url.includes('/auth/register')) {
       return next.handle();
     }
@@ -73,9 +71,7 @@ export class AuditInterceptor implements NestInterceptor {
     );
   }
 
-  /**
-   * Cria o log de auditoria
-   */
+  
   private async createAuditLog(
     request: any,
     method: string,
@@ -84,7 +80,7 @@ export class AuditInterceptor implements NestInterceptor {
     ip: string,
     headers: any,
   ): Promise<void> {
-    // Determinar ação baseada no método HTTP
+    
     const actionName = this.getActionName(method);
     const fkAction = this.actionMap.get(actionName.toLowerCase());
 
@@ -93,7 +89,7 @@ export class AuditInterceptor implements NestInterceptor {
       return;
     }
 
-    // Determinar objeto baseado na URL
+    
     const objectName = this.getObjectName(url);
     const fkObject = this.objectMap.get(objectName.toLowerCase());
 
@@ -102,19 +98,19 @@ export class AuditInterceptor implements NestInterceptor {
       return;
     }
 
-    // Extrair informações do usuário
+    
     const fkUser = user?.userId || null;
     const txLogin = user?.username || 'anonymous';
     const txProfile = user?.roles?.[0] || 'sem acesso';
 
-    // Descrição da ação
+    
     const txDescription = this.buildDescription(method, url, request.body);
 
-    // IP e User Agent
+    
     const txIpAddress = ip || request.connection?.remoteAddress || 'unknown';
     const txUserAgent = headers['user-agent'] || 'unknown';
 
-    // Criar log de auditoria
+    
     const auditLog = this.auditRepository.create({
       fkAction,
       fkObject,
@@ -129,9 +125,7 @@ export class AuditInterceptor implements NestInterceptor {
     await this.auditRepository.save(auditLog);
   }
 
-  /**
-   * Mapeia método HTTP para ação de auditoria
-   */
+  
   private getActionName(method: string): string {
     const methodMap: Record<string, string> = {
       POST: 'Criação',
@@ -143,9 +137,7 @@ export class AuditInterceptor implements NestInterceptor {
     return methodMap[method] || 'Alteração';
   }
 
-  /**
-   * Mapeia URL para objeto de auditoria
-   */
+  
   private getObjectName(url: string): string {
     if (url.includes('/users')) return 'Usuário';
     if (url.includes('/establishments')) return 'Estabelecimento';
@@ -153,12 +145,10 @@ export class AuditInterceptor implements NestInterceptor {
     if (url.includes('/audit')) return 'Relatório';
     if (url.includes('/email')) return 'Relatório';
 
-    return 'Usuário'; // Default
+    return 'Usuário'; 
   }
 
-  /**
-   * Constrói descrição da ação
-   */
+  
   private buildDescription(method: string, url: string, body: any): string {
     const action = this.getActionName(method);
     const resource = url.split('/').filter(Boolean).pop();

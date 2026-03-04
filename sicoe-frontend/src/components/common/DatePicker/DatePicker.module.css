@@ -1,4 +1,4 @@
-/* SICOE - DatePicker Styles */
+
 
 .container {
   position: relative;
@@ -99,7 +99,7 @@
   margin-top: var(--spacing-xs);
 }
 
-/* Calendar */
+
 .calendar {
   position: absolute;
   top: calc(100% + var(--spacing-xs));
@@ -252,7 +252,7 @@
   color: var(--color-white);
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .calendar {
     position: fixed;

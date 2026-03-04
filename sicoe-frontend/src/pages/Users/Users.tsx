@@ -29,14 +29,14 @@ export default function Users() {
   const debouncedSearch = useDebounce(search, 500);
   const [total, setTotal] = useState(0);
 
-  // Pagination hook
+  
   const pagination = usePagination({ initialPage: 1, initialLimit: 10, totalItems: total });
   const { page, limit, changeLimit, goToPage, nextPage, prevPage, pageNumbers, canGoNext, canGoPrev } = pagination;
 
-  // Sorting hook
+  
   const { sortedData, requestSort, getSortDirection } = useTableSort(users);
 
-  // Modal states
+  
   const [isAccessModalOpen, setIsAccessModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isEstablishmentModalOpen, setIsEstablishmentModalOpen] = useState(false);
@@ -49,13 +49,13 @@ export default function Users() {
   const [messageType, setMessageType] = useState<MessageType>('success');
   const [pendingSave, setPendingSave] = useState<(() => Promise<void>) | null>(null);
 
-  // Selected data
+  
   const [selectedUser, setSelectedUser] = useState<UserType | null>(null);
   const [establishments, setEstablishments] = useState<any[]>([]);
   const [groups, setGroups] = useState<any[]>([]);
   const [logins, setLogins] = useState<string[]>([]);
 
-  // Filter states
+  
   const [appliedFilters, setAppliedFilters] = useState<{
     login?: string;
     profiles?: number[];
@@ -67,7 +67,7 @@ export default function Users() {
     expirationEndDate?: string;
   }>({});
 
-  // Toast notification
+  
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(
     null
   );
@@ -110,7 +110,7 @@ export default function Users() {
     }
   };
 
-  // Fetch groups for modals
+  
   const fetchGroups = async () => {
     try {
       const response = await groupsService.getAll();
@@ -120,7 +120,7 @@ export default function Users() {
     }
   };
 
-  // Fetch logins for filter modal
+  
   const fetchLogins = async () => {
     try {
       const response = await usersService.getLogins();
@@ -130,7 +130,7 @@ export default function Users() {
     }
   };
 
-  // Fetch establishments for modal
+  
   const fetchEstablishments = async () => {
     try {
       const response = await establishmentService.getEstablishments();
@@ -141,13 +141,13 @@ export default function Users() {
     }
   };
 
-  // Show toast notification
+  
   const showToast = (message: string, type: 'success' | 'error') => {
     setToast({ message, type });
     setTimeout(() => setToast(null), 3000);
   };
 
-  // Handle filter application
+  
   const handleApplyFilters = (filters: any) => {
     setAppliedFilters({
       login: filters.name,
@@ -163,14 +163,14 @@ export default function Users() {
     setIsFilterModalOpen(false);
   };
 
-  // Handle filter clear
+  
   const handleClearFilters = () => {
     setAppliedFilters({});
     goToPage(1);
-    // Modal permanece aberto para permitir nova seleção
+    
   };
 
-  // Count active filters
+  
   const getActiveFiltersCount = () => {
     let count = 0;
     if (appliedFilters.login) count++;
@@ -182,18 +182,18 @@ export default function Users() {
     return count;
   };
 
-  // Handle Access Modal
+  
   const handleOpenAccessModal = () => {
     setIsAccessModalOpen(true);
   };
 
-  // Handle Edit Modal
+  
   const handleOpenEditModal = (user: UserType) => {
     setSelectedUser(user);
     setIsEditModalOpen(true);
   };
 
-  // Handle Establishment Modal
+  
   const handleOpenEstablishmentModal = (user: UserType) => {
     setSelectedUser(user);
     fetchEstablishments();
@@ -204,9 +204,9 @@ export default function Users() {
   return (
     <Layout userName="Usuário" userRole="Area Gerencial">
       <div className={styles.usersPage}>
-        {/* Page Header (conforme protótipo: ícone + título + busca + filtros na mesma linha) */}
+        {}
         <div className={styles.pageHeader}>
-          {/* Grupo: Ícone + Título */}
+          {}
           <div className={styles.titleGroup}>
             <div className={styles.iconWrapper}>
               <div className={styles.pageIconPolygon}></div>
@@ -219,7 +219,7 @@ export default function Users() {
             <h1 className={styles.pageTitle}>Gerenciar Usuários</h1>
           </div>
 
-          {/* Grupo: Busca + Filtros */}
+          {}
           <div className={styles.filtersGroup}>
             <div className={styles.searchWrapper}>
               <input
@@ -245,7 +245,7 @@ export default function Users() {
           </div>
         </div>
 
-        {/* Table */}
+        {}
         <div className={styles.tableWrapper}>
           <table className={styles.table}>
             <thead className={styles.tableHeader}>
@@ -459,7 +459,7 @@ export default function Users() {
             </tbody>
           </table>
 
-          {/* Pagination */}
+          {}
           <div className={styles.paginationWrapper}>
             <div className={styles.paginationInfo}>
               <span>Registros por página</span>
@@ -516,7 +516,7 @@ export default function Users() {
           </div>
         </div>
 
-        {/* Footer Buttons */}
+        {}
         <div className={styles.footerButtons}>
           <button className={styles.backButton} onClick={() => navigate('/home')}>
             <img
@@ -538,7 +538,7 @@ export default function Users() {
           </button>
         </div>
 
-        {/* Toast Notification */}
+        {}
         {toast && (
           <div
             style={{
@@ -558,7 +558,7 @@ export default function Users() {
           </div>
         )}
 
-        {/* Modals */}
+        {}
         <ReleaseAccessModal
           isOpen={isAccessModalOpen}
           onClose={() => setIsAccessModalOpen(false)}

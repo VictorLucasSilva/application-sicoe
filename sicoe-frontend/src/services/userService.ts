@@ -1,7 +1,4 @@
-/**
- * Serviço de Usuários
- * CRUD completo de usuários
- */
+
 
 import { api, type ApiResponse } from './api';
 import type { User } from '@/types';
@@ -43,32 +40,32 @@ export interface UserFilters {
 }
 
 export const userService = {
-  // Listar usuários com filtros e paginação
+  
   async getUsers(filters?: UserFilters): Promise<ApiResponse<User[]>> {
     return api.get('/users', { params: filters });
   },
 
-  // Buscar usuário por ID
+  
   async getUserById(id: number): Promise<User> {
     return api.get(`/users/${id}`);
   },
 
-  // Criar novo usuário
+  
   async createUser(data: CreateUserDto): Promise<User> {
     return api.post('/users', data);
   },
 
-  // Atualizar usuário
+  
   async updateUser(id: number, data: UpdateUserDto): Promise<User> {
     return api.patch(`/users/${id}`, data);
   },
 
-  // Deletar usuário
+  
   async deleteUser(id: number): Promise<void> {
     return api.delete(`/users/${id}`);
   },
 
-  // Adicionar estabelecimentos ao usuário
+  
   async addEstablishments(
     userId: number,
     establishmentIds: number[]
@@ -78,7 +75,7 @@ export const userService = {
     });
   },
 
-  // Remover estabelecimentos do usuário
+  
   async removeEstablishments(
     userId: number,
     establishmentIds: number[]
@@ -88,7 +85,7 @@ export const userService = {
     });
   },
 
-  // Ativar/desativar usuário
+  
   async toggleUserStatus(id: number, active: boolean): Promise<User> {
     return api.patch(`/users/${id}`, { flg_active: active });
   },

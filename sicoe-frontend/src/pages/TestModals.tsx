@@ -1,7 +1,4 @@
-/**
- * SICOE - Página de Teste de Modais (Sprint 1)
- * Esta página serve para testar todos os modais implementados
- */
+
 
 import { useState } from 'react';
 import {
@@ -19,7 +16,7 @@ import Button from '@/components/common/Button';
 import type { User } from '@/types';
 import styles from './TestModals.module.css';
 
-// Mock data
+
 const mockGroupOptions: AutocompleteOption[] = [
   { value: 1, label: 'Administrador' },
   { value: 2, label: 'Auditor' },
@@ -81,29 +78,29 @@ const mockUsersPending: User[] = [
 ];
 
 export default function TestModals() {
-  // Confirm Modal
+  
   const [showConfirm, setShowConfirm] = useState(false);
   const [confirmResult, setConfirmResult] = useState('');
 
-  // Loading Modal
+  
   const [showLoading, setShowLoading] = useState(false);
 
-  // Filter Modal
+  
   const [showFilter, setShowFilter] = useState(false);
 
-  // Edit User Modal
+  
   const [showEditUser, setShowEditUser] = useState(false);
 
-  // Establishment Access Modal
+  
   const [showEstablishment, setShowEstablishment] = useState(false);
 
-  // Release Access Modal
+  
   const [showRelease, setShowRelease] = useState(false);
 
-  // DatePicker
+  
   const [selectedDate, setSelectedDate] = useState('');
 
-  // Autocomplete
+  
   const [selectedGroup, setSelectedGroup] = useState<string | number>('');
   const [selectedGroups, setSelectedGroups] = useState<(string | number)[]>([]);
 
@@ -117,7 +114,7 @@ export default function TestModals() {
       </div>
 
       <div className={styles.sections}>
-        {/* Componentes Base */}
+        {}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>📦 Componentes Base</h2>
 
@@ -167,7 +164,7 @@ export default function TestModals() {
           </div>
         </section>
 
-        {/* Modais Simples */}
+        {}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>💬 Modais Simples</h2>
 
@@ -192,7 +189,7 @@ export default function TestModals() {
           </div>
         </section>
 
-        {/* Modais de Usuário */}
+        {}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>👥 Modais de Usuário</h2>
 
@@ -226,7 +223,7 @@ export default function TestModals() {
         </section>
       </div>
 
-      {/* Modais */}
+      {}
       <ConfirmModal
         isOpen={showConfirm}
         onClose={() => setShowConfirm(false)}

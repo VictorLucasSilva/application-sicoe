@@ -9,14 +9,7 @@ export interface CurrentUserData {
   roles: string[];
 }
 
-/**
- * Decorator para extrair o usuário atual do request
- * @example
- * @Get('profile')
- * async getProfile(@CurrentUser() user: CurrentUserData) {
- *   return user;
- * }
- */
+
 export const CurrentUser = createParamDecorator(
   (data: unknown, ctx: ExecutionContext): CurrentUserData => {
     const request = ctx.switchToHttp().getRequest();

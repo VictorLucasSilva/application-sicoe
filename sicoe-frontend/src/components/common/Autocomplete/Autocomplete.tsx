@@ -49,7 +49,7 @@ export default function Autocomplete({
 
   const debouncedSearchTerm = useDebounce(searchTerm, 300);
 
-  // Filtrar opções baseado na busca
+  
   const filteredOptions = useMemo(() => {
     if (!debouncedSearchTerm) return options;
 
@@ -58,12 +58,12 @@ export default function Autocomplete({
     );
   }, [options, debouncedSearchTerm]);
 
-  // Sincronizar selectedValues com state interno
+  
   useEffect(() => {
     setInternalSelectedValues(selectedValues);
   }, [selectedValues]);
 
-  // Atualizar display quando value mudar
+  
   useEffect(() => {
     if (!multiSelect) {
       if (value) {
@@ -72,13 +72,13 @@ export default function Autocomplete({
           setSearchTerm(option.label);
         }
       } else {
-        // Limpar o campo quando value for vazio
+        
         setSearchTerm('');
       }
     }
   }, [value, options, multiSelect]);
 
-  // Fechar ao clicar fora
+  
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
@@ -103,7 +103,7 @@ export default function Autocomplete({
     };
   }, [isOpen, value, options, multiSelect]);
 
-  // Scroll automático para item highlighted
+  
   useEffect(() => {
     if (highlightedIndex >= 0 && listRef.current) {
       const highlightedElement = listRef.current.children[highlightedIndex] as HTMLElement;
@@ -165,7 +165,7 @@ export default function Autocomplete({
     inputRef.current?.focus();
   };
 
-  // Navegação por teclado
+  
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (!isOpen && (e.key === 'ArrowDown' || e.key === 'ArrowUp')) {
       setIsOpen(true);

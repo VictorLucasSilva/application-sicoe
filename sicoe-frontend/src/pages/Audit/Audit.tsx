@@ -20,20 +20,20 @@ export default function AuditPage() {
   const [total, setTotal] = useState(0);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
 
-  // Filter options
+  
   const [groups, setGroups] = useState<any[]>([]);
   const [actions, setActions] = useState<any[]>([]);
   const [objects, setObjects] = useState<any[]>([]);
   const [logins, setLogins] = useState<string[]>([]);
 
-  // Pagination hook
+  
   const pagination = usePagination({ initialPage: 1, initialLimit: 10, totalItems: total });
   const { page, limit, changeLimit, goToPage, nextPage, prevPage, pageNumbers, canGoNext, canGoPrev } = pagination;
 
-  // Sorting hook
+  
   const { sortedData, requestSort, getSortDirection } = useTableSort(audits);
 
-  // Filter states
+  
   const [appliedFilters, setAppliedFilters] = useState<{
     login?: string;
     profiles?: number[];
@@ -43,7 +43,7 @@ export default function AuditPage() {
     endDate?: string;
   }>({});
 
-  // Toast notification
+  
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
   useEffect(() => {
@@ -97,13 +97,13 @@ export default function AuditPage() {
     }
   };
 
-  // Show toast notification
+  
   const showToast = (message: string, type: 'success' | 'error') => {
     setToast({ message, type });
     setTimeout(() => setToast(null), 3000);
   };
 
-  // Handle filter application
+  
   const handleApplyFilters = (filters: any) => {
     setAppliedFilters({
       login: filters.login,
@@ -117,14 +117,14 @@ export default function AuditPage() {
     setIsFilterModalOpen(false);
   };
 
-  // Handle filter clear
+  
   const handleClearFilters = () => {
     setAppliedFilters({});
     goToPage(1);
-    // Modal permanece aberto para permitir nova seleção
+    
   };
 
-  // Count active filters
+  
   const getActiveFiltersCount = () => {
     let count = 0;
     if (appliedFilters.login) count++;
@@ -146,10 +146,10 @@ export default function AuditPage() {
   return (
     <Layout userName="Usuário" userRole="Area Gerencial">
       <div className={styles.auditPage}>
-        {/* Page Header (conforme protótipo: ícone + título + busca + filtros na mesma linha) */}
+        {}
         <div className={styles.pageHeader}>
           <div className={styles.titleGroup}>
-            {/* Ícone com polygon amarelo atrás */}
+            {}
             <div className={styles.iconWrapper}>
               <div className={styles.pageIconPolygon}></div>
               <img
@@ -162,7 +162,7 @@ export default function AuditPage() {
           </div>
 
           <div className={styles.filtersGroup}>
-            {/* Barra de busca */}
+            {}
             <div className={styles.searchWrapper}>
               <input
                 type="text"
@@ -173,7 +173,7 @@ export default function AuditPage() {
               />
             </div>
 
-            {/* Botão de filtros */}
+            {}
             <button className={styles.filterButton} onClick={() => setIsFilterModalOpen(true)}>
               <img
                 src="/assets/icons/icon-filter.svg"
@@ -188,7 +188,7 @@ export default function AuditPage() {
           </div>
         </div>
 
-        {/* Table */}
+        {}
         <div className={styles.tableWrapper}>
           <table className={styles.table}>
             <thead className={styles.tableHeader}>
@@ -337,7 +337,7 @@ export default function AuditPage() {
             </tbody>
           </table>
 
-          {/* Pagination */}
+          {}
           <div className={styles.paginationWrapper}>
             <div className={styles.paginationInfo}>
               <span>Registros por página</span>
@@ -394,7 +394,7 @@ export default function AuditPage() {
           </div>
         </div>
 
-        {/* Footer Buttons */}
+        {}
         <div className={styles.footerButtons}>
           <button className={styles.backButton} onClick={() => navigate('/home')}>
             <img
@@ -407,7 +407,7 @@ export default function AuditPage() {
           </button>
         </div>
 
-        {/* Toast Notification */}
+        {}
         {toast && (
           <div
             style={{

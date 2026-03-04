@@ -6,20 +6,20 @@ export class FilterAuditDto {
   @IsString()
   @Transform(({ value }) => {
     if (typeof value === 'string') {
-      // Sanitiza removendo caracteres especiais perigosos
+      
       return value.replace(/[<>'"`;()]/g, '').trim().substring(0, 100);
     }
     return value;
   })
-  search?: string; // Busca global em múltiplas colunas
+  search?: string; 
 
   @IsOptional()
   @IsString()
-  login?: string; // Busca por txLogin
+  login?: string; 
 
   @IsOptional()
   @IsString()
-  profile?: string; // Busca por txProfile (single)
+  profile?: string; 
 
   @IsOptional()
   @IsArray()
@@ -27,12 +27,12 @@ export class FilterAuditDto {
     if (typeof value === 'string') return value.split(',').map(Number);
     return value;
   })
-  profiles?: number[]; // Filtrar por múltiplos perfis (IDs)
+  profiles?: number[]; 
 
   @IsOptional()
   @IsInt()
   @Type(() => Number)
-  actionId?: number; // Filtrar por fkAction (single)
+  actionId?: number; 
 
   @IsOptional()
   @IsArray()
@@ -40,12 +40,12 @@ export class FilterAuditDto {
     if (typeof value === 'string') return value.split(',');
     return value;
   })
-  actions?: string[]; // Filtrar por múltiplas ações
+  actions?: string[]; 
 
   @IsOptional()
   @IsInt()
   @Type(() => Number)
-  objectId?: number; // Filtrar por fkObject (single)
+  objectId?: number; 
 
   @IsOptional()
   @IsArray()
@@ -53,22 +53,22 @@ export class FilterAuditDto {
     if (typeof value === 'string') return value.split(',');
     return value;
   })
-  objects?: string[]; // Filtrar por múltiplos objetos
+  objects?: string[]; 
 
   @IsOptional()
   @IsInt()
   @Type(() => Number)
-  userId?: number; // Filtrar por fkUser
+  userId?: number; 
 
   @IsOptional()
   @IsDateString()
-  startDate?: string; // Data inicial (YYYY-MM-DD)
+  startDate?: string; 
 
   @IsOptional()
   @IsDateString()
-  endDate?: string; // Data final (YYYY-MM-DD)
+  endDate?: string; 
 
-  // Paginação
+  
   @IsOptional()
   @IsInt()
   @Type(() => Number)
@@ -82,7 +82,7 @@ export class FilterAuditDto {
   @Max(100)
   limit?: number = 10;
 
-  // Ordenação
+  
   @IsOptional()
   @IsString()
   sortBy?: string = 'id';

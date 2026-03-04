@@ -38,6 +38,9 @@ export class Establishment {
   @Column({ name: 'tx_checked_by', type: 'varchar', length: 128, nullable: true })
   txCheckedBy: string;
 
+  @Column({ name: 'image_url', type: 'varchar', length: 512, nullable: true })
+  imageUrl: string;
+
   @Column({ name: 'ts_inserted', type: 'timestamp', nullable: true })
   tsInserted: Date;
 
@@ -47,7 +50,7 @@ export class Establishment {
   @UpdateDateColumn({ name: 'ts_updated', type: 'timestamp' })
   tsUpdated: Date;
 
-  // Relacionamentos
+  
   @ManyToMany(() => User, (user) => user.establishments)
   users: User[];
 

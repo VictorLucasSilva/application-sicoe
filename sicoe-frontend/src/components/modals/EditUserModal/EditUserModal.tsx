@@ -32,10 +32,10 @@ export default function EditUserModal({
   const [userStatus, setUserStatus] = useState<(string | number)[]>([]);
   const [error, setError] = useState<string>('');
 
-  // Preencher campos quando user mudar
+  
   useEffect(() => {
     if (user && isOpen) {
-      // Pegar o primeiro grupo do usuário
+      
       const currentGroup = user.groups?.[0];
       setSelectedGroupId(currentGroup?.id || '');
       setExpirationDate(user.dtExpiration || '');
@@ -45,7 +45,7 @@ export default function EditUserModal({
     }
   }, [user, isOpen]);
 
-  // Limpar ao fechar
+  
   useEffect(() => {
     if (!isOpen) {
       setSelectedGroupId('');
@@ -61,37 +61,37 @@ export default function EditUserModal({
 
     if (!user) return;
 
-    // Validação
+    
     if (!selectedGroupId) {
       setError('Perfil é obrigatório');
       return;
     }
 
-    // Chamar callback para página principal mostrar confirmação
+    
     if (onRequestSave) {
       onRequestSave(async () => {
         if (!user) throw new Error('Usuário não encontrado');
 
-        // 1. Atualizar dados básicos do usuário
+        
         await usersService.updateUser(user.id, {
           dtExpiration: expirationDate || undefined,
           flgStatusEmail: emailStatus.includes('enabled'),
           flgActive: userStatus.includes('active')
         });
 
-        // 2. Se o grupo mudou, atualizar grupo
+        
         const currentGroupId = user.groups?.[0]?.id;
         if (currentGroupId && currentGroupId !== selectedGroupId) {
-          // Remover grupo antigo
+          
           await usersService.removeGroup(user.id, currentGroupId);
-          // Adicionar novo grupo
+          
           await usersService.addGroup(user.id, Number(selectedGroupId));
         } else if (!currentGroupId && selectedGroupId) {
-          // Adicionar grupo se não tinha
+          
           await usersService.addGroup(user.id, Number(selectedGroupId));
         }
 
-        // Fechar modal e chamar onSuccess
+        
         onClose();
         onSuccess();
       });
@@ -109,7 +109,7 @@ export default function EditUserModal({
       title="Editar Usuário"
     >
       <form className={styles.form} onSubmit={handleSubmit}>
-        {/* Usuário (read-only - centralizado) */}
+        {}
         <div className={styles.userField}>
           <label className={styles.userLabel}>Usuário</label>
           <div className={styles.userValue}>
@@ -117,7 +117,7 @@ export default function EditUserModal({
           </div>
         </div>
 
-        {/* Perfil */}
+        {}
         <div className={styles.field}>
           <Autocomplete
             label="Perfil"
@@ -134,7 +134,7 @@ export default function EditUserModal({
           />
         </div>
 
-        {/* Data de Fim da Vigência */}
+        {}
         <div className={styles.field}>
           <DatePicker
             label="Fim da Vigência"
@@ -146,7 +146,7 @@ export default function EditUserModal({
           />
         </div>
 
-        {/* Status */}
+        {}
         <div className={styles.field}>
           <ButtonOptions
             label="Status"
@@ -160,7 +160,7 @@ export default function EditUserModal({
           />
         </div>
 
-        {/* Envio de Email */}
+        {}
         <div className={styles.field}>
           <ButtonOptions
             label="Envio de Email"
@@ -174,12 +174,12 @@ export default function EditUserModal({
           />
         </div>
 
-        {/* Error message */}
+        {}
         {error && selectedGroupId && (
           <div className={styles.errorBox}>{error}</div>
         )}
 
-        {/* Footer com botões */}
+        {}
         <div className={styles.footer}>
           <Button
             type="button"

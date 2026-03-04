@@ -1,6 +1,4 @@
-/* ========================================
-   INPUT COMPONENT (Seguindo Protótipo)
-   ======================================== */
+
 
 .inputWrapper {
   position: relative;
@@ -13,7 +11,7 @@
   width: 100%;
 }
 
-/* Icon (ícones à esquerda: usuário, cadeado, lupa, calendário) */
+
 .icon {
   position: absolute;
   left: 0;
@@ -31,7 +29,7 @@
   height: 1.25rem;
 }
 
-/* Input Field */
+
 .input {
   width: 100%;
   padding: var(--spacing-md) 0;
@@ -44,36 +42,36 @@
   transition: all var(--transition-fast);
 }
 
-/* Input com ícone */
+
 .inputWrapper .icon + .input {
   padding-left: 2rem;
 }
 
-/* Input Focus (borda azul) */
+
 .input:focus {
   outline: none;
   border-bottom-color: var(--color-primary-blue);
 }
 
-/* Placeholder */
+
 .input::placeholder {
   color: var(--color-text-disabled);
   font-weight: var(--font-weight-regular);
 }
 
-/* Input Disabled */
+
 .input:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   background-color: rgba(0, 0, 0, 0.02);
 }
 
-/* Input com Erro */
+
 .inputWrapper.error .input {
   border-bottom-color: var(--color-error);
 }
 
-/* Mensagem de Erro */
+
 .errorMessage {
   position: absolute;
   bottom: -1.25rem;
@@ -83,22 +81,20 @@
   font-weight: var(--font-weight-regular);
 }
 
-/* ========================================
-   ESTADOS E VARIANTES
-   ======================================== */
 
-/* Input com valor preenchido */
+
+
 .input:not(:placeholder-shown) {
   color: var(--color-text-primary);
   font-weight: var(--font-weight-medium);
 }
 
-/* Input type search */
+
 .input[type="search"]::-webkit-search-cancel-button {
   display: none;
 }
 
-/* Input type password */
+
 .input[type="password"] {
   letter-spacing: 0.125rem;
 }
@@ -107,9 +103,7 @@
   letter-spacing: normal;
 }
 
-/* ========================================
-   RESPONSIVE
-   ======================================== */
+
 
 @media (max-width: 768px) {
   .input {

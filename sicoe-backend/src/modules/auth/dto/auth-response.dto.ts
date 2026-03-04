@@ -4,7 +4,7 @@ export class AuthResponseDto {
   access_token: string;
   refresh_token?: string;
   token_type: string = 'Bearer';
-  expires_in: number; // em segundos
+  expires_in: number; 
   user: UserResponseDto;
 
   constructor(accessToken: string, expiresIn: number, user: UserResponseDto, refreshToken?: string) {

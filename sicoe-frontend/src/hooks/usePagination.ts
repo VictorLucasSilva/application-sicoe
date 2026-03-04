@@ -1,7 +1,4 @@
-/**
- * Hook customizado para gerenciar paginação
- * Otimizado com useMemo para evitar recálculos desnecessários
- */
+
 
 import { useState, useMemo, useCallback } from 'react';
 
@@ -15,10 +12,10 @@ export function usePagination({ initialPage = 1, initialLimit = 10, totalItems }
   const [page, setPage] = useState(initialPage);
   const [limit, setLimit] = useState(initialLimit);
 
-  // Memoize total pages calculation
+  
   const totalPages = useMemo(() => Math.ceil(totalItems / limit), [totalItems, limit]);
 
-  // Memoize page numbers array
+  
   const pageNumbers = useMemo(() => {
     const pages: (number | string)[] = [];
     const maxVisible = 7;
@@ -51,7 +48,7 @@ export function usePagination({ initialPage = 1, initialLimit = 10, totalItems }
     return pages;
   }, [page, totalPages]);
 
-  // Use useCallback to prevent unnecessary re-renders
+  
   const goToPage = useCallback((newPage: number) => {
     setPage(Math.max(1, Math.min(newPage, totalPages)));
   }, [totalPages]);
@@ -66,7 +63,7 @@ export function usePagination({ initialPage = 1, initialLimit = 10, totalItems }
 
   const changeLimit = useCallback((newLimit: number) => {
     setLimit(newLimit);
-    setPage(1); // Reset to first page when changing limit
+    setPage(1); 
   }, []);
 
   const reset = useCallback(() => {

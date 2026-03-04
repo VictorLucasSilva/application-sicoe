@@ -25,7 +25,7 @@ interface FilterModalProps {
   onApply: (filters: UserFilters) => void;
   onClear: () => void;
   initialFilters?: UserFilters;
-  // Opções para os filtros
+  
   nameOptions?: AutocompleteOption[];
   profileOptions?: ButtonOption[];
   statusOptions?: ButtonOption[];
@@ -56,7 +56,7 @@ export default function FilterModal({
 
   const debouncedName = useDebounce(name, 300);
 
-  // Atualizar campos quando initialFilters mudar
+  
   useEffect(() => {
     if (initialFilters) {
       setName(initialFilters.name || '');
@@ -70,7 +70,7 @@ export default function FilterModal({
     }
   }, [initialFilters]);
 
-  // Prevenir scroll do body
+  
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -83,7 +83,7 @@ export default function FilterModal({
     };
   }, [isOpen]);
 
-  // Fechar com ESC
+  
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -143,10 +143,10 @@ export default function FilterModal({
 
   return (
     <>
-      {/* Backdrop */}
+      {}
       <div className={styles.backdrop} onClick={onClose} />
 
-      {/* Modal Lateral Direito */}
+      {}
       <div className={styles.modal}>
         <div className={styles.header}>
           <h2 className={styles.title}>Filtros</h2>
@@ -168,7 +168,7 @@ export default function FilterModal({
         </div>
 
         <div className={styles.content}>
-          {/* Login */}
+          {}
           <div className={styles.field}>
             <Autocomplete
               label="Login"
@@ -181,7 +181,7 @@ export default function FilterModal({
             />
           </div>
 
-          {/* Perfil */}
+          {}
           <div className={styles.field}>
             <ButtonOptions
               label="Perfil"
@@ -193,7 +193,7 @@ export default function FilterModal({
             />
           </div>
 
-          {/* Status */}
+          {}
           <div className={styles.field}>
             <ButtonOptions
               label="Status"
@@ -205,7 +205,7 @@ export default function FilterModal({
             />
           </div>
 
-          {/* Envio de Email */}
+          {}
           <div className={styles.field}>
             <ButtonOptions
               label="Envio de Email"
@@ -217,7 +217,7 @@ export default function FilterModal({
             />
           </div>
 
-          {/* Data de Entrada */}
+          {}
           <div className={styles.field}>
             <label className={styles.dateLabel}>Data de Entrada</label>
             <div className={styles.dateRange}>
@@ -239,7 +239,7 @@ export default function FilterModal({
             </div>
           </div>
 
-          {/* Fim da Vigência */}
+          {}
           <div className={styles.field}>
             <label className={styles.dateLabel}>Fim da Vigência</label>
             <div className={styles.dateRange}>

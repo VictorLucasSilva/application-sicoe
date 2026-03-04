@@ -21,7 +21,7 @@ export class EstabState {
   nmState: string;
 
   @Column({ name: 'sg_state', type: 'varchar', length: 2, unique: true })
-  sgState: string; // Sigla do estado (SP, RJ, etc.)
+  sgState: string; 
 
   @CreateDateColumn({ name: 'ts_creation', type: 'timestamp' })
   tsCreation: Date;
@@ -29,7 +29,7 @@ export class EstabState {
   @UpdateDateColumn({ name: 'ts_updated', type: 'timestamp' })
   tsUpdated: Date;
 
-  // Relacionamentos
+  
   @OneToMany(() => Establishment, (establishment) => establishment.state)
   establishments: Establishment[];
 

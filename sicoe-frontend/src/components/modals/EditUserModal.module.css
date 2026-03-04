@@ -16,7 +16,7 @@
   background: var(--color-white);
   border-radius: var(--radius-lg);
   padding: var(--spacing-xxl);
-  max-width: 402px; /* 600px reduzido em 33% */
+  max-width: 402px; 
   width: 90%;
   max-height: 90vh;
   overflow-y: auto;
@@ -45,7 +45,7 @@
   color: var(--color-text-secondary);
   cursor: pointer;
   padding: 0;
-  width: 21px; /* 32px reduzido em 33% */
+  width: 21px; 
   height: 21px;
   display: flex;
   align-items: center;
@@ -126,7 +126,7 @@
 }
 
 .checkbox input[type="checkbox"] {
-  width: 12px; /* 18px reduzido em 33% */
+  width: 12px; 
   height: 12px;
   cursor: pointer;
 }

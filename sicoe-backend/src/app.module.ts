@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ThrottlerModule } from '@nestjs/throttler';
-import { APP_INTERCEPTOR } from '@nestjs/core';
 import { validate } from './config/env.validation';
 import { getDatabaseConfig } from './config/database.config';
 import { getThrottlerConfig } from './config/security.config';
@@ -16,7 +15,6 @@ import { AuditModule } from './modules/audit/audit.module';
 import { EmailModule } from './modules/email/email.module';
 import { StorageModule } from './modules/storage/storage.module';
 import { HealthModule } from './health/health.module';
-import { AuditInterceptor } from './common/interceptors/audit.interceptor';
 import { Audit } from './modules/audit/entities/audit.entity';
 import { AudAction } from './modules/audit/entities/aud-action.entity';
 import { AudObject } from './modules/audit/entities/aud-object.entity';
@@ -56,10 +54,6 @@ import { AudObject } from './modules/audit/entities/aud-object.entity';
   controllers: [AppController],
   providers: [
     AppService,
-    {
-      provide: APP_INTERCEPTOR,
-      useClass: AuditInterceptor,
-    },
   ],
 })
 export class AppModule {}

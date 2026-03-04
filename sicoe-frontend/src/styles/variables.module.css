@@ -1,33 +1,33 @@
-/* Theme Colors - White Theme */
+
 :root {
-  /* Primary Colors */
+  
   --color-primary: #465EFF;
   --color-secondary: #FCFC30;
   --color-primary-light: #B0BAFF;
 
-  /* Neutral Colors */
+  
   --color-background: #F2F2F2;
   --color-white: #FFF;
   --color-black: #000;
 
-  /* Text Colors */
+  
   --color-text-primary: rgba(0, 0, 0, 0.85);
   --color-text-secondary: rgba(0, 0, 0, 0.65);
   --color-text-disabled: rgba(0, 0, 0, 0.56);
   --color-text-white: rgba(255, 255, 255, 0.75);
 
-  /* Background Colors */
+  
   --color-bg-light: rgba(0, 0, 0, 0.04);
   --color-bg-medium: rgba(0, 0, 0, 0.10);
   --color-bg-dark: rgba(0, 0, 0, 0.25);
 
-  /* Alert Colors */
+  
   --color-error: #FF6E91;
 
-  /* Typography */
+  
   --font-family-primary: 'BancoDoBrasil Textos', Arial, sans-serif;
 
-  /* Spacing (rem based) */
+  
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
@@ -35,22 +35,22 @@
   --spacing-xl: 2rem;
   --spacing-xxl: 3rem;
 
-  /* Border Radius */
+  
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-lg: 1rem;
 
-  /* Shadows */
+  
   --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.08);
   --shadow-md: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.12);
   --shadow-lg: 0 0.5rem 1rem rgba(0, 0, 0, 0.16);
 
-  /* Transitions */
+  
   --transition-fast: 150ms ease-in-out;
   --transition-normal: 300ms ease-in-out;
   --transition-slow: 500ms ease-in-out;
 
-  /* Z-index */
+  
   --z-dropdown: 1000;
   --z-modal: 2000;
   --z-loading: 3000;

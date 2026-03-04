@@ -1,7 +1,4 @@
-/**
- * Componente de ícone de ordenação para cabeçalhos de tabela
- * Mostra diferentes estados: sem ordenação, crescente, decrescente
- */
+
 
 import type { SortDirection } from '@/hooks/useTableSort';
 import styles from './SortIcon.module.css';

@@ -28,7 +28,7 @@ export class EstabCity {
   @UpdateDateColumn({ name: 'ts_updated', type: 'timestamp' })
   tsUpdated: Date;
 
-  // Relacionamentos
+  
   @ManyToOne(() => EstabState, (state) => state.cities)
   @JoinColumn({ name: 'fk_state' })
   state: EstabState;

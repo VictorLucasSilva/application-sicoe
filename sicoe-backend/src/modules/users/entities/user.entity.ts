@@ -54,7 +54,7 @@ export class User {
   @UpdateDateColumn({ name: 'ts_updated', type: 'timestamp' })
   tsUpdated: Date;
 
-  // Relacionamentos
+  
   @ManyToMany(() => Group, (group) => group.users, { eager: true })
   @JoinTable({
     name: 'ssv_aux_user_groups',
@@ -71,23 +71,23 @@ export class User {
   })
   establishments: Establishment[];
 
-  // Hooks para hash de senha
+  
   @BeforeInsert()
   @BeforeUpdate()
   async hashPassword() {
     if (this.password && !this.password.startsWith('$2')) {
-      // Verifica se já não está hasheado
+      
       const salt = await bcrypt.genSalt(10);
       this.password = await bcrypt.hash(this.password, salt);
     }
   }
 
-  // Método para validar senha
+  
   async validatePassword(password: string): Promise<boolean> {
     return bcrypt.compare(password, this.password);
   }
 
-  // Método para obter nome completo
+  
   get fullName(): string {
     return `${this.firstName} ${this.lastName}`;
   }

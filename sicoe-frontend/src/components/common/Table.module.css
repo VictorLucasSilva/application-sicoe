@@ -1,6 +1,4 @@
-/* ========================================
-   TABLE COMPONENT (Seguindo Protótipo)
-   ======================================== */
+
 
 .tableWrapper {
   width: 100%;
@@ -104,7 +102,7 @@
   }
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .th,
   .td {

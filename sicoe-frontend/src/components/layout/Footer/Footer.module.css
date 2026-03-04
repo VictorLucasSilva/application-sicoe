@@ -1,8 +1,4 @@
-/* ========================================
-   FOOTER COMPONENT - SICOE
-   100% da largura do navegador
-   Seguindo protótipo exatamente
-   ======================================== */
+
 
 .footer {
   background-color: var(--color-primary-blue);
@@ -24,11 +20,9 @@
   text-align: center;
 }
 
-/* ========================================
-   RESPONSIVIDADE
-   ======================================== */
 
-/* Tablet */
+
+
 @media (max-width: 768px) {
   .footer {
     padding: 0 var(--spacing-md);
@@ -39,7 +33,7 @@
   }
 }
 
-/* Mobile */
+
 @media (max-width: 480px) {
   .footer {
     padding: 0 var(--spacing-sm);

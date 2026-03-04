@@ -1,8 +1,4 @@
-/* ========================================
-   USERS PAGE - SICOE
-   100% da largura do navegador
-   Seguindo protótipo exatamente
-   ======================================== */
+
 
 .emailPage {
   width: 100%;
@@ -12,9 +8,7 @@
   font-family: var(--font-family-primary);
 }
 
-/* ========================================
-   PAGE HEADER (Conforme protótipo: ícone + título + busca + filtros na mesma linha)
-   ======================================== */
+
 
 .pageHeader {
   display: flex;
@@ -77,9 +71,7 @@
   white-space: nowrap;
 }
 
-/* ========================================
-   FILTERS BAR (Integrada ao pageHeader conforme protótipo)
-   ======================================== */
+
 
 .searchWrapper {
   flex: 1;
@@ -156,9 +148,7 @@
   margin-left: var(--spacing-xs);
 }
 
-/* ========================================
-   TABLE
-   ======================================== */
+
 
 .tableWrapper {
   background-color: transparent;
@@ -257,9 +247,7 @@
   opacity: 0.6;
 }
 
-/* ========================================
-   TABLE CONTENT
-   ======================================== */
+
 
 .tag {
   display: inline-block;
@@ -325,9 +313,7 @@
   height: 1.25rem;
 }
 
-/* ========================================
-   PAGINATION
-   ======================================== */
+
 
 .paginationWrapper {
   display: flex;
@@ -416,7 +402,7 @@
   cursor: not-allowed;
 }
 
-/* Botões de setas (navegação) */
+
 .pageButton.arrow {
   min-width: 3rem;
   height: 3rem;
@@ -441,9 +427,7 @@
   border: none;
 }
 
-/* ========================================
-   FOOTER BUTTONS
-   ======================================== */
+
 
 .footerButtons {
   display: flex;
@@ -519,11 +503,9 @@
 }
 
 
-/* ========================================
-   RESPONSIVIDADE
-   ======================================== */
 
-/* Tablet */
+
+
 @media (max-width: 968px) {
   .emailPage {
     padding: var(--spacing-lg) var(--spacing-md);
@@ -567,7 +549,7 @@
   }
 }
 
-/* Mobile */
+
 @media (max-width: 480px) {
   .emailPage {
     padding: var(--spacing-md) var(--spacing-sm);

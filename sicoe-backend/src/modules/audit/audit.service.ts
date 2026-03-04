@@ -19,9 +19,7 @@ export class AuditService {
     private readonly audObjectRepository: Repository<AudObject>,
   ) {}
 
-  /**
-   * Listar logs de auditoria com filtros e paginação
-   */
+  
   async findAll(filterDto: FilterAuditDto): Promise<{
     data: Audit[];
     total: number;
@@ -51,7 +49,7 @@ export class AuditService {
       .leftJoinAndSelect('audit.action', 'action')
       .leftJoinAndSelect('audit.object', 'object');
 
-    // Busca global em múltiplas colunas (barra de pesquisa)
+    
     if (search) {
       query.andWhere(
         new Brackets((qb) => {
@@ -64,7 +62,7 @@ export class AuditService {
       );
     }
 
-    // Filtros
+    
     if (login) {
       query.andWhere('audit.txLogin ILIKE :login', { login: `%${login}%` });
     }
@@ -75,9 +73,9 @@ export class AuditService {
       });
     }
 
-    // Filtro por múltiplos perfis (IDs da tabela Group)
+    
     if (profiles && profiles.length > 0) {
-      // Buscar os nomes dos grupos pelos IDs
+      
       const groups = await this.audActionRepository.manager
         .getRepository('Group')
         .createQueryBuilder('group')
@@ -94,7 +92,7 @@ export class AuditService {
       query.andWhere('audit.fkAction = :actionId', { actionId });
     }
 
-    // Filtro por múltiplas ações
+    
     if (actions && actions.length > 0) {
       query.andWhere('action.nmAction IN (:...actions)', { actions });
     }
@@ -103,7 +101,7 @@ export class AuditService {
       query.andWhere('audit.fkObject = :objectId', { objectId });
     }
 
-    // Filtro por múltiplos objetos
+    
     if (objects && objects.length > 0) {
       query.andWhere('object.nmObject IN (:...objects)', { objects });
     }
@@ -124,10 +122,10 @@ export class AuditService {
       });
     }
 
-    // Ordenação
+    
     query.orderBy(`audit.${sortBy}`, sortOrder);
 
-    // Paginação
+    
     const skip = (page - 1) * limit;
     query.skip(skip).take(limit);
 
@@ -141,36 +139,27 @@ export class AuditService {
     };
   }
 
-  /**
-   * Criar log de auditoria
-   * Este método será usado pelo interceptor automaticamente
-   */
+  
   async create(createAuditDto: CreateAuditDto): Promise<Audit> {
     const newAudit = this.auditRepository.create(createAuditDto);
     return this.auditRepository.save(newAudit);
   }
 
-  /**
-   * Listar todas as ações disponíveis
-   */
+  
   async findAllActions(): Promise<AudAction[]> {
     return this.audActionRepository.find({
       order: { nmAction: 'ASC' },
     });
   }
 
-  /**
-   * Listar todos os objetos disponíveis
-   */
+  
   async findAllObjects(): Promise<AudObject[]> {
     return this.audObjectRepository.find({
       order: { nmObject: 'ASC' },
     });
   }
 
-  /**
-   * Listar todos os logins únicos
-   */
+  
   async findAllLogins(): Promise<string[]> {
     const result = await this.auditRepository
       .createQueryBuilder('audit')

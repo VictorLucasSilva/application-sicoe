@@ -1,8 +1,4 @@
-/* ========================================
-   FILTER MODAL - SICOE
-   Modal lateral direito de filtros
-   Desliza da direita
-   ======================================== */
+
 
 .overlay {
   position: fixed;
@@ -53,7 +49,7 @@
   }
 }
 
-/* Header */
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -93,7 +89,7 @@
   color: var(--color-text-primary);
 }
 
-/* Form */
+
 .form {
   display: flex;
   flex-direction: column;
@@ -146,7 +142,7 @@
   padding-right: var(--spacing-2xl);
 }
 
-/* Actions */
+
 .actions {
   display: flex;
   gap: var(--spacing-md);
@@ -159,7 +155,7 @@
   flex: 1;
 }
 
-/* Responsividade */
+
 @media (max-width: 768px) {
   .modal {
     width: 100%;

@@ -15,7 +15,7 @@ export default function LoadingModal({
   return (
     <Modal
       isOpen={isOpen}
-      onClose={() => {}} // Loading modal não pode ser fechado manualmente
+      onClose={() => {}} 
       title={message}
       showCloseButton={false}
     >

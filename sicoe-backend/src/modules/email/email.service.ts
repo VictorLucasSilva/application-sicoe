@@ -13,9 +13,7 @@ export class EmailService {
     private readonly emailRepository: Repository<Email>,
   ) {}
 
-  /**
-   * Listar logs de e-mail com filtros e paginação
-   */
+  
   async findAll(filterDto: FilterEmailDto): Promise<{
     data: Email[];
     total: number;
@@ -42,7 +40,7 @@ export class EmailService {
 
     const query = this.emailRepository.createQueryBuilder('email');
 
-    // Busca global em múltiplas colunas (barra de pesquisa)
+    
     if (search) {
       query.andWhere(
         new Brackets((qb) => {
@@ -63,12 +61,12 @@ export class EmailService {
       );
     }
 
-    // Filtros
+    
     if (type) {
       query.andWhere('email.tpEmail ILIKE :type', { type: `%${type}%` });
     }
 
-    // Filtro por múltiplos tipos
+    
     if (types && types.length > 0) {
       query.andWhere('email.tpEmail IN (:...types)', { types });
     }
@@ -81,7 +79,7 @@ export class EmailService {
       query.andWhere('email.txSubject ILIKE :subject', { subject: `%${subject}%` });
     }
 
-    // Filtro por múltiplos assuntos
+    
     if (subjects && subjects.length > 0) {
       query.andWhere('email.txSubject IN (:...subjects)', { subjects });
     }
@@ -96,7 +94,7 @@ export class EmailService {
       query.andWhere('email.flgSent = :sent', { sent });
     }
 
-    // Filtro por múltiplos status
+    
     if (statuses && statuses.length > 0) {
       const statusConditions = statuses.map(status => {
         if (status === 'sent') return 'email.flgSent = true';
@@ -122,10 +120,10 @@ export class EmailService {
       });
     }
 
-    // Ordenação
+    
     query.orderBy(`email.${sortBy}`, sortOrder);
 
-    // Paginação
+    
     const skip = (page - 1) * limit;
     query.skip(skip).take(limit);
 
@@ -139,18 +137,13 @@ export class EmailService {
     };
   }
 
-  /**
-   * Criar log de e-mail
-   * Este método será usado para registrar e-mails enviados
-   */
+  
   async create(createEmailDto: CreateEmailDto): Promise<Email> {
     const newEmail = this.emailRepository.create(createEmailDto);
     return this.emailRepository.save(newEmail);
   }
 
-  /**
-   * Listar todos os tipos de email únicos
-   */
+  
   async findAllTypes(): Promise<string[]> {
     const result = await this.emailRepository
       .createQueryBuilder('email')
@@ -161,9 +154,7 @@ export class EmailService {
     return result.map(r => r.type).filter(Boolean);
   }
 
-  /**
-   * Listar todos os assuntos de email únicos
-   */
+  
   async findAllSubjects(): Promise<string[]> {
     const result = await this.emailRepository
       .createQueryBuilder('email')
@@ -174,9 +165,7 @@ export class EmailService {
     return result.map(r => r.subject).filter(Boolean);
   }
 
-  /**
-   * Listar todos os destinos únicos
-   */
+  
   async findAllDestinations(): Promise<string[]> {
     const result = await this.emailRepository
       .createQueryBuilder('email')

@@ -19,14 +19,14 @@ export default function Email() {
   const [total, setTotal] = useState(0);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
 
-  // Pagination hook
+  
   const pagination = usePagination({ initialPage: 1, initialLimit: 10, totalItems: total });
   const { page, limit, changeLimit, goToPage, nextPage, prevPage, pageNumbers, canGoNext, canGoPrev } = pagination;
 
-  // Sorting hook
+  
   const { sortedData, requestSort, getSortDirection } = useTableSort(emails);
 
-  // Filter states
+  
   const [appliedFilters, setAppliedFilters] = useState<{
     destination?: string;
     types?: string[];
@@ -36,12 +36,12 @@ export default function Email() {
     endDate?: string;
   }>({});
 
-  // Filter options
+  
   const [emailTypes, setEmailTypes] = useState<string[]>([]);
   const [emailSubjects, setEmailSubjects] = useState<string[]>([]);
   const [emailDestinations, setEmailDestinations] = useState<string[]>([]);
 
-  // Toast notification
+  
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
   useEffect(() => {
@@ -78,7 +78,7 @@ export default function Email() {
     }
   };
 
-  // Fetch filter options
+  
   const fetchFilterOptions = async () => {
     try {
       const [typesRes, subjectsRes, destinationsRes] = await Promise.all([
@@ -94,13 +94,13 @@ export default function Email() {
     }
   };
 
-  // Show toast notification
+  
   const showToast = (message: string, type: 'success' | 'error') => {
     setToast({ message, type });
     setTimeout(() => setToast(null), 3000);
   };
 
-  // Handle filter application
+  
   const handleApplyFilters = (filters: any) => {
     setAppliedFilters({
       destination: filters.destination,
@@ -114,14 +114,14 @@ export default function Email() {
     setIsFilterModalOpen(false);
   };
 
-  // Handle filter clear
+  
   const handleClearFilters = () => {
     setAppliedFilters({});
     goToPage(1);
-    // Modal permanece aberto para permitir nova seleção
+    
   };
 
-  // Count active filters
+  
   const getActiveFiltersCount = () => {
     let count = 0;
     if (appliedFilters.destination) count++;
@@ -144,10 +144,10 @@ export default function Email() {
   return (
     <Layout userName="Usuário" userRole="Area Gerencial">
       <div className={styles.emailPage}>
-        {/* Page Header (conforme protótipo: ícone + título + busca + filtros na mesma linha) */}
+        {}
         <div className={styles.pageHeader}>
           <div className={styles.titleGroup}>
-            {/* Ícone com polygon amarelo atrás */}
+            {}
             <div className={styles.iconWrapper}>
               <div className={styles.pageIconPolygon}></div>
               <img
@@ -160,7 +160,7 @@ export default function Email() {
           </div>
 
           <div className={styles.filtersGroup}>
-            {/* Barra de busca */}
+            {}
             <div className={styles.searchWrapper}>
               <input
                 type="text"
@@ -171,7 +171,7 @@ export default function Email() {
               />
             </div>
 
-            {/* Botão de filtros */}
+            {}
             <button className={styles.filterButton} onClick={() => setIsFilterModalOpen(true)}>
               <img
                 src="/assets/icons/icon-filter.svg"
@@ -186,7 +186,7 @@ export default function Email() {
           </div>
         </div>
 
-        {/* Table */}
+        {}
         <div className={styles.tableWrapper}>
           <table className={styles.table}>
             <thead className={styles.tableHeader}>
@@ -340,7 +340,7 @@ export default function Email() {
             </tbody>
           </table>
 
-          {/* Pagination */}
+          {}
           <div className={styles.paginationWrapper}>
             <div className={styles.paginationInfo}>
               <span>Registros por página</span>
@@ -397,7 +397,7 @@ export default function Email() {
           </div>
         </div>
 
-        {/* Footer Buttons */}
+        {}
         <div className={styles.footerButtons}>
           <button className={styles.backButton} onClick={() => navigate('/home')}>
             <img
@@ -410,7 +410,7 @@ export default function Email() {
           </button>
         </div>
 
-        {/* Toast Notification */}
+        {}
         {toast && (
           <div
             style={{

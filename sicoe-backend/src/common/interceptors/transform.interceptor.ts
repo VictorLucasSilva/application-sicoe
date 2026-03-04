@@ -38,9 +38,7 @@ export class TransformInterceptor<T>
     );
   }
 
-  /**
-   * Gera mensagem baseada no método HTTP e status code
-   */
+  
   private getMessage(method: string, statusCode: number): string {
     if (statusCode >= 200 && statusCode < 300) {
       const messages: Record<string, string> = {

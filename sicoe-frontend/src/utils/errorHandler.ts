@@ -1,7 +1,4 @@
-/**
- * Utilitários para tratamento de erros
- * Sistema SICOE
- */
+
 
 export interface ApiError {
   message: string;
@@ -9,9 +6,7 @@ export interface ApiError {
   errors?: Record<string, string[]>;
 }
 
-/**
- * Extrai mensagem de erro de diferentes tipos de erro
- */
+
 export function getErrorMessage(error: unknown): string {
   if (typeof error === 'string') {
     return error;
@@ -30,9 +25,7 @@ export function getErrorMessage(error: unknown): string {
   return 'Ocorreu um erro inesperado';
 }
 
-/**
- * Trata erros de resposta da API
- */
+
 export async function handleApiError(response: Response): Promise<ApiError> {
   let errorData: any;
 
@@ -51,9 +44,7 @@ export async function handleApiError(response: Response): Promise<ApiError> {
   return error;
 }
 
-/**
- * Mensagens de erro amigáveis por código de status
- */
+
 export const errorMessages: Record<number, string> = {
   400: 'Dados inválidos. Verifique as informações e tente novamente.',
   401: 'Não autorizado. Faça login novamente.',
@@ -67,9 +58,7 @@ export const errorMessages: Record<number, string> = {
   503: 'Serviço em manutenção. Tente novamente mais tarde.',
 };
 
-/**
- * Obtém mensagem de erro amigável baseado no código de status
- */
+
 export function getFriendlyErrorMessage(statusCode?: number, defaultMessage?: string): string {
   if (statusCode && errorMessages[statusCode]) {
     return errorMessages[statusCode];
@@ -77,23 +66,17 @@ export function getFriendlyErrorMessage(statusCode?: number, defaultMessage?: st
   return defaultMessage || 'Ocorreu um erro inesperado';
 }
 
-/**
- * Verifica se um erro é de autenticação
- */
+
 export function isAuthError(error: ApiError): boolean {
   return error.statusCode === 401 || error.statusCode === 403;
 }
 
-/**
- * Verifica se um erro é de validação
- */
+
 export function isValidationError(error: ApiError): boolean {
   return error.statusCode === 400 || error.statusCode === 422;
 }
 
-/**
- * Formata erros de validação para exibição
- */
+
 export function formatValidationErrors(errors?: Record<string, string[]>): string {
   if (!errors) return '';
 
@@ -102,14 +85,12 @@ export function formatValidationErrors(errors?: Record<string, string[]>): strin
     .join('\n');
 }
 
-/**
- * Log de erro (pode ser integrado com serviço de monitoramento)
- */
+
 export function logError(error: unknown, context?: string): void {
   console.error(`[${context || 'Error'}]`, error);
 
-  // TODO: Integrar com serviço de monitoramento (Sentry, etc.)
-  // if (window.Sentry) {
-  //   window.Sentry.captureException(error);
-  // }
+  
+  
+  
+  
 }

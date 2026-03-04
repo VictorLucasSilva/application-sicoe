@@ -15,10 +15,10 @@ export function LoadingProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (isLoading) {
-      // Inicia o carregamento
+      
       setProgress(30);
 
-      // Simula progresso enquanto carrega
+      
       const interval = setInterval(() => {
         setProgress((prev) => {
           if (prev >= 90) return prev;
@@ -28,7 +28,7 @@ export function LoadingProvider({ children }: { children: ReactNode }) {
 
       return () => clearInterval(interval);
     } else if (progress > 0 && progress < 100) {
-      // Completa o carregamento até 100%
+      
       setProgress(100);
     }
   }, [isLoading, progress]);

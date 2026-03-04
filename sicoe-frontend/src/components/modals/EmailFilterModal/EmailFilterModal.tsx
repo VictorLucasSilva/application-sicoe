@@ -23,7 +23,7 @@ interface EmailFilterModalProps {
   onApply: (filters: EmailFilters) => void;
   onClear: () => void;
   initialFilters?: EmailFilters;
-  // Options
+  
   destinationOptions?: AutocompleteOption[];
   typeOptions?: ButtonOption[];
   subjectOptions?: ButtonOption[];
@@ -52,7 +52,7 @@ export default function EmailFilterModal({
 
   const debouncedDestination = useDebounce(destination, 300);
 
-  // Update fields when initialFilters change
+  
   useEffect(() => {
     if (initialFilters) {
       setDestination(initialFilters.destination || '');
@@ -64,7 +64,7 @@ export default function EmailFilterModal({
     }
   }, [initialFilters]);
 
-  // Prevent body scroll
+  
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -77,7 +77,7 @@ export default function EmailFilterModal({
     };
   }, [isOpen]);
 
-  // Close with ESC
+  
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -131,10 +131,10 @@ export default function EmailFilterModal({
 
   return (
     <>
-      {/* Backdrop */}
+      {}
       <div className={styles.backdrop} onClick={onClose} />
 
-      {/* Modal Lateral Direito */}
+      {}
       <div className={styles.modal}>
         <div className={styles.header}>
           <h2 className={styles.title}>Filtros</h2>
@@ -156,7 +156,7 @@ export default function EmailFilterModal({
         </div>
 
         <div className={styles.content}>
-          {/* Destino */}
+          {}
           <div className={styles.field}>
             <Autocomplete
               label="Destino"
@@ -169,7 +169,7 @@ export default function EmailFilterModal({
             />
           </div>
 
-          {/* Tipo */}
+          {}
           <div className={styles.field}>
             <ButtonOptions
               label="Tipo"
@@ -181,7 +181,7 @@ export default function EmailFilterModal({
             />
           </div>
 
-          {/* Assunto */}
+          {}
           <div className={styles.field}>
             <ButtonOptions
               label="Assunto"
@@ -193,7 +193,7 @@ export default function EmailFilterModal({
             />
           </div>
 
-          {/* Status */}
+          {}
           <div className={styles.field}>
             <ButtonOptions
               label="Status"
@@ -205,7 +205,7 @@ export default function EmailFilterModal({
             />
           </div>
 
-          {/* Data de Envio */}
+          {}
           <div className={styles.field}>
             <label className={styles.dateLabel}>Data de Envio</label>
             <div className={styles.dateRange}>

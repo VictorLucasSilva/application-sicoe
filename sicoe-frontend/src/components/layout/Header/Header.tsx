@@ -7,9 +7,10 @@ import styles from './Header.module.css';
 interface HeaderProps {
   userName?: string;
   userRole?: string;
+  pageTitle?: string;
 }
 
-export default function Header({ userRole = 'Area Gerencial' }: HeaderProps) {
+export default function Header({ userRole = 'Area Gerencial', pageTitle }: HeaderProps) {
   const [isAreaDropdownOpen, setIsAreaDropdownOpen] = useState(false);
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
   const areaDropdownRef = useRef<HTMLDivElement>(null);
@@ -64,7 +65,7 @@ export default function Header({ userRole = 'Area Gerencial' }: HeaderProps) {
 
   return (
     <header className={styles.header}>
-      {/* Barra de progresso de carregamento */}
+      {}
       {progress > 0 && (
         <div className={styles.progressBarContainer}>
           <div className={styles.progressBar} style={{ width: `${progress}%` }} />
@@ -78,11 +79,11 @@ export default function Header({ userRole = 'Area Gerencial' }: HeaderProps) {
             alt="BB Logo"
             className={styles.logoIcon}
           />
-          <span className={styles.logoText}>SICOE</span>
+          <span className={styles.logoText}>{pageTitle || 'SICOE'}</span>
         </div>
 
         <div className={styles.userArea}>
-          {/* Dropdown Area Gerencial */}
+          {}
           <div className={styles.dropdownWrapper} ref={areaDropdownRef}>
             <button className={styles.userButton} onClick={toggleAreaDropdown}>
               <span>{userRole}</span>
@@ -134,7 +135,7 @@ export default function Header({ userRole = 'Area Gerencial' }: HeaderProps) {
 
           <span className={styles.divider}>|</span>
 
-          {/* Dropdown User Person */}
+          {}
           <div className={styles.dropdownWrapper} ref={userDropdownRef}>
             <button className={styles.userButton} onClick={toggleUserDropdown}>
               <div className={styles.userIcon}>

@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -19,7 +19,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Typography */
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   line-height: 1.2;
@@ -36,7 +36,7 @@ p {
   margin-bottom: 1rem;
 }
 
-/* Links */
+
 a {
   color: var(--color-primary);
   text-decoration: none;
@@ -47,7 +47,7 @@ a:hover {
   opacity: 0.8;
 }
 
-/* Buttons */
+
 button {
   font-family: inherit;
   cursor: pointer;
@@ -61,7 +61,7 @@ button:disabled {
   opacity: 0.6;
 }
 
-/* Inputs */
+
 input,
 textarea,
 select {
@@ -80,7 +80,7 @@ select:focus {
   border-color: var(--color-primary);
 }
 
-/* Scrollbar */
+
 ::-webkit-scrollbar {
   width: 0.5rem;
   height: 0.5rem;
@@ -99,7 +99,7 @@ select:focus {
   background: var(--color-primary);
 }
 
-/* Utility Classes */
+
 .container {
   width: 100%;
   max-width: 1440px;

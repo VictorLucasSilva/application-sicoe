@@ -26,7 +26,7 @@ export default function Login() {
 
   return (
     <div className={styles.loginPage}>
-      {/* Header */}
+      {}
       <header className={styles.header}>
         <div className={styles.headerContent}>
           <img
@@ -38,13 +38,13 @@ export default function Login() {
         </div>
       </header>
 
-      {/* Main Content */}
+      {}
       <main className={styles.main}>
         <div className={styles.loginCard}>
           <h1 className={styles.title}>Log In</h1>
 
           <form onSubmit={handleSubmit} className={styles.form}>
-            {/* Input de Usuário */}
+            {}
             <div className={styles.inputGroup}>
               <div className={styles.inputWrapper}>
                 <svg className={styles.inputIcon} width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -63,7 +63,7 @@ export default function Login() {
               </div>
             </div>
 
-            {/* Input de Senha */}
+            {}
             <div className={styles.inputGroup}>
               <div className={styles.inputWrapper}>
                 <svg className={styles.inputIcon} width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -120,7 +120,7 @@ export default function Login() {
               </div>
             )}
 
-            {/* Botão Entrar */}
+            {}
             <button
               type="submit"
               className={styles.submitButton}
@@ -132,7 +132,7 @@ export default function Login() {
         </div>
       </main>
 
-      {/* Footer */}
+      {}
       <footer className={styles.footer}>
         <p className={styles.footerText}>© BB Tecnologia e serviços 2023</p>
       </footer>

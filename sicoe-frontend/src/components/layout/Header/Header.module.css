@@ -1,8 +1,4 @@
-/* ========================================
-   HEADER COMPONENT - SICOE
-   100% da largura do navegador
-   Seguindo protótipo exatamente
-   ======================================== */
+
 
 .header {
   background-color: var(--color-primary-blue);
@@ -14,7 +10,7 @@
   font-family: var(--font-family-primary);
 }
 
-/* Barra de progresso de carregamento - dentro do header mas abaixo dele visualmente */
+
 .progressBarContainer {
   position: absolute;
   bottom: -3px;
@@ -41,9 +37,7 @@
   justify-content: space-between;
 }
 
-/* ========================================
-   LOGO (Esquerda)
-   ======================================== */
+
 
 .logo {
   display: flex;
@@ -70,9 +64,7 @@
   letter-spacing: 0.05em;
 }
 
-/* ========================================
-   USER AREA (Direita)
-   ======================================== */
+
 
 .userArea {
   display: flex;
@@ -100,7 +92,7 @@
   transition: background-color var(--transition-fast);
 }
 
-/* Botão person sem padding direito */
+
 .dropdownWrapper:last-child .userButton {
   padding-right: 0;
 }
@@ -148,9 +140,7 @@
   transform: rotate(180deg);
 }
 
-/* ========================================
-   DROPDOWN MENU
-   ======================================== */
+
 
 .dropdown {
   position: absolute;
@@ -168,7 +158,7 @@
   z-index: var(--z-dropdown);
 }
 
-/* Setinha triangular apontando para cima */
+
 .dropdown::before {
   content: '';
   position: absolute;
@@ -181,13 +171,13 @@
   border-bottom: 10px solid #465EFF;
 }
 
-/* Alinhar dropdown do person à direita */
+
 .dropdownWrapper:last-child .dropdown {
   right: 0;
   top: calc(100% + 8px);
 }
 
-/* Ajustar posição da setinha do person */
+
 .dropdownWrapper:last-child .dropdown::before {
   right: 1rem;
   border-bottom: 10px solid #465EFF;
@@ -231,11 +221,9 @@
   white-space: nowrap;
 }
 
-/* ========================================
-   RESPONSIVIDADE
-   ======================================== */
 
-/* Tablet */
+
+
 @media (max-width: 768px) {
   .container {
     padding: 0 var(--spacing-md);
@@ -254,7 +242,7 @@
   }
 }
 
-/* Mobile */
+
 @media (max-width: 480px) {
   .container {
     padding: 0 var(--spacing-sm);

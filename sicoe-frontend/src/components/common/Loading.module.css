@@ -1,6 +1,4 @@
-/* ========================================
-   LOADING COMPONENT (Seguindo Protótipo)
-   ======================================== */
+
 
 .fullScreen {
   position: fixed;
@@ -23,7 +21,7 @@
   gap: var(--spacing-xl);
 }
 
-/* Spinner Container */
+
 .spinner {
   position: relative;
   display: flex;
@@ -46,7 +44,7 @@
   height: 8rem;
 }
 
-/* Spinner Ring (anel azul girando) */
+
 .spinnerRing {
   position: absolute;
   width: 100%;
@@ -63,7 +61,7 @@
   }
 }
 
-/* Logo Container (logo BBTS no centro) */
+
 .logoContainer {
   position: relative;
   z-index: 1;
@@ -89,7 +87,7 @@
   font-size: var(--font-size-2xl);
 }
 
-/* Mensagem (ex: "Salvando") */
+
 .message {
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
@@ -99,9 +97,7 @@
   font-family: var(--font-family-primary);
 }
 
-/* ========================================
-   RESPONSIVE
-   ======================================== */
+
 
 @media (max-width: 768px) {
   .spinner.medium {

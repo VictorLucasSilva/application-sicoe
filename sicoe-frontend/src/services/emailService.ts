@@ -1,7 +1,4 @@
-/**
- * Serviço de Email
- * Logs de envio de emails
- */
+
 
 import { api, type ApiResponse } from './api';
 import type { Email, FilterEmailParams } from '@/types';

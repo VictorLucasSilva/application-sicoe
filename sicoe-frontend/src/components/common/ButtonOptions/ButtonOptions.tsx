@@ -27,7 +27,7 @@ export default function ButtonOptions({
 }: ButtonOptionsProps) {
   const [selectedValues, setSelectedValues] = useState<(string | number)[]>(value);
 
-  // Sincronizar estado interno com prop value quando ela mudar
+  
   useEffect(() => {
     setSelectedValues(value);
   }, [value]);
@@ -38,14 +38,14 @@ export default function ButtonOptions({
     let newSelected: (string | number)[];
 
     if (multiSelect) {
-      // Multiple selection
+      
       if (selectedValues.includes(optionValue)) {
         newSelected = selectedValues.filter(v => v !== optionValue);
       } else {
         newSelected = [...selectedValues, optionValue];
       }
     } else {
-      // Single selection
+      
       newSelected = selectedValues.includes(optionValue) ? [] : [optionValue];
     }
 

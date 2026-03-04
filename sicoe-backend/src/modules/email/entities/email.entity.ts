@@ -11,29 +11,29 @@ export class Email {
   id: number;
 
   @Column({ name: 'tp_email', type: 'varchar', length: 50 })
-  tpEmail: string; // Tipo de e-mail (confirmação, notificação, etc.)
+  tpEmail: string; 
 
   @Column({ name: 'tx_object', type: 'varchar', length: 100, nullable: true })
-  txObject: string; // Objeto relacionado (Usuário, Anexo, etc.)
+  txObject: string; 
 
   @Column({ name: 'tx_destination', type: 'varchar', length: 256 })
-  txDestination: string; // E-mail de destino
+  txDestination: string; 
 
   @Column({ name: 'tx_subject', type: 'varchar', length: 255 })
-  txSubject: string; // Assunto do e-mail
+  txSubject: string; 
 
   @Column({ name: 'tx_body', type: 'text' })
-  txBody: string; // Corpo do e-mail (pode ser HTML)
+  txBody: string; 
 
   @Column({ name: 'flg_sent', type: 'boolean', default: false })
-  flgSent: boolean; // Se foi enviado com sucesso
+  flgSent: boolean; 
 
   @Column({ name: 'tx_error', type: 'text', nullable: true })
-  txError: string; // Mensagem de erro (se houver)
+  txError: string; 
 
   @Column({ name: 'ts_sent', type: 'timestamp', nullable: true })
-  tsSent: Date; // Timestamp de envio
+  tsSent: Date; 
 
   @CreateDateColumn({ name: 'ts_creation', type: 'timestamp' })
-  tsCreation: Date; // Timestamp de criação do registro
+  tsCreation: Date; 
 }

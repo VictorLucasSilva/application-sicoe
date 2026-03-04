@@ -29,7 +29,7 @@ export default function EstablishmentAccessModal({
   const [selectedEstablishmentIds, setSelectedEstablishmentIds] = useState<number[]>([]);
   const [error, setError] = useState<string>('');
 
-  // Preencher estabelecimentos já vinculados ao usuário
+  
   useEffect(() => {
     if (user && isOpen) {
       const currentEstablishmentIds = user.establishments?.map(est => est.id) || [];
@@ -38,7 +38,7 @@ export default function EstablishmentAccessModal({
     }
   }, [user, isOpen]);
 
-  // Limpar ao fechar
+  
   useEffect(() => {
     if (!isOpen) {
       setSelectedEstablishmentIds([]);
@@ -51,35 +51,35 @@ export default function EstablishmentAccessModal({
 
     if (!user) return;
 
-    // Validação
+    
     if (selectedEstablishmentIds.length === 0) {
       setError('Selecione pelo menos um estabelecimento');
       return;
     }
 
-    // Chamar callback para página principal mostrar confirmação
+    
     if (onRequestSave) {
       onRequestSave(async () => {
         if (!user) throw new Error('Usuário não encontrado');
 
-        // Obter IDs atuais
+        
         const currentIds = user.establishments?.map(est => est.id) || [];
 
-        // Calcular adições e remoções
+        
         const toAdd = selectedEstablishmentIds.filter(id => !currentIds.includes(id));
         const toRemove = currentIds.filter(id => !selectedEstablishmentIds.includes(id));
 
-        // Executar remoções
+        
         for (const estId of toRemove) {
           await usersService.removeEstablishment(user.id, estId);
         }
 
-        // Executar adições
+        
         for (const estId of toAdd) {
           await usersService.addEstablishment(user.id, estId);
         }
 
-        // Fechar modal e chamar onSuccess
+        
         onClose();
         onSuccess();
       });
@@ -106,7 +106,7 @@ export default function EstablishmentAccessModal({
       title="Acesso aos Estabelecimentos"
     >
       <form className={styles.form} onSubmit={handleSubmit}>
-        {/* Usuário e Perfil (read-only) */}
+        {}
         <div className={styles.userInfoSection}>
           <div className={styles.infoRow}>
             <label className={styles.infoLabel}>Usuário</label>
@@ -123,13 +123,13 @@ export default function EstablishmentAccessModal({
           </div>
         </div>
 
-        {/* Estabelecimentos (multiselect) */}
+        {}
         <div className={styles.field}>
           <Autocomplete
             label="Estabelecimentos"
             options={establishmentOptions}
             selectedValues={selectedEstablishmentIds}
-            onChange={() => {}} // Not used in multiselect mode
+            onChange={() => {}} 
             onMultiChange={(values) => {
               setSelectedEstablishmentIds(values as number[]);
               setError('');
@@ -147,19 +147,19 @@ export default function EstablishmentAccessModal({
           </div>
         </div>
 
-        {/* Contador */}
+        {}
         {selectedEstablishmentIds.length > 0 && (
           <div className={styles.counter}>
             {selectedEstablishmentIds.length} estabelecimento(s) selecionado(s)
           </div>
         )}
 
-        {/* Error message */}
+        {}
         {error && selectedEstablishmentIds.length > 0 && (
           <div className={styles.errorBox}>{error}</div>
         )}
 
-        {/* Footer com botões */}
+        {}
         <div className={styles.footer}>
           <Button
             type="button"

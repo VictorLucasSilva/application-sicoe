@@ -14,10 +14,10 @@ export class PsEmployee {
   id: number;
 
   @Column({ name: 'num_employee', type: 'varchar', length: 100, unique: true })
-  numEmployee: string; // Número do funcionário
+  numEmployee: string; 
 
   @Column({ name: 'nm_employee', type: 'varchar', length: 256 })
-  nmEmployee: string; // Nome completo
+  nmEmployee: string; 
 
   @Column({ name: 'tx_email', type: 'varchar', length: 256, nullable: true })
   txEmail: string;
@@ -31,7 +31,7 @@ export class PsEmployee {
   @UpdateDateColumn({ name: 'ts_updated', type: 'timestamp' })
   tsUpdated: Date;
 
-  // Relacionamentos
+  
   @OneToMany(
     () => RstEstablishmentEmployee,
     (relation) => relation.employee,

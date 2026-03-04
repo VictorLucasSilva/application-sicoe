@@ -13,17 +13,17 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
   canActivate(
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
-    // Verificar se a rota é pública
+    
     const isPublic = this.reflector.getAllAndOverride<boolean>(IS_PUBLIC_KEY, [
       context.getHandler(),
       context.getClass(),
     ]);
 
     if (isPublic) {
-      return true; // Permite acesso sem autenticação
+      return true; 
     }
 
-    // Se não for pública, valida o JWT
+    
     return super.canActivate(context);
   }
 }

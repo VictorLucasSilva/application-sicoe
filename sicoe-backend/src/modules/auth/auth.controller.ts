@@ -28,10 +28,7 @@ export class AuthController {
     private readonly msalStrategy: MsalStrategy,
   ) {}
 
-  /**
-   * POST /auth/login
-   * Login do usuário (rota pública)
-   */
+  
   @Public()
   @Post('login')
   @HttpCode(HttpStatus.OK)
@@ -39,10 +36,7 @@ export class AuthController {
     return this.authService.login(loginDto);
   }
 
-  /**
-   * POST /auth/register
-   * Registro de novo usuário (rota pública)
-   */
+  
   @Public()
   @Post('register')
   @HttpCode(HttpStatus.CREATED)
@@ -50,10 +44,7 @@ export class AuthController {
     return this.authService.register(registerDto);
   }
 
-  /**
-   * POST /auth/refresh
-   * Renova o access token usando um refresh token válido (rota pública)
-   */
+  
   @Public()
   @Post('refresh')
   @HttpCode(HttpStatus.OK)
@@ -61,10 +52,7 @@ export class AuthController {
     return this.authService.refreshToken(refreshTokenDto.refreshToken);
   }
 
-  /**
-   * GET /auth/profile
-   * Retorna perfil do usuário autenticado (rota protegida)
-   */
+  
   @Get('profile')
   async getProfile(@CurrentUser() user: any): Promise<any> {
     return {
@@ -74,11 +62,7 @@ export class AuthController {
     };
   }
 
-  /**
-   * GET /auth/entraid/login
-   * Inicia o fluxo de autenticação com Microsoft EntraID
-   * Redireciona para a página de login da Microsoft
-   */
+  
   @Public()
   @Get('entraid/login')
   async entraidLogin(@Res() res: Response): Promise<void> {
@@ -95,11 +79,7 @@ export class AuthController {
     }
   }
 
-  /**
-   * GET /auth/entraid/callback
-   * Callback após autenticação bem-sucedida com Microsoft EntraID
-   * Processa o código de autorização e cria/atualiza o usuário no sistema
-   */
+  
   @Public()
   @Get('entraid/callback')
   async entraidCallback(
@@ -107,13 +87,13 @@ export class AuthController {
     @Res() res: Response,
   ): Promise<void> {
     try {
-      // Validar e obter dados do usuário do EntraID
+      
       const msalUser = await this.msalStrategy.validate(req);
 
-      // Autenticar ou criar usuário no sistema
+      
       const authResponse = await this.authService.loginWithEntraId(msalUser);
 
-      // Redirecionar para o frontend com o token
+      
       const frontendUrl = process.env.CORS_ORIGIN || 'http://localhost:5173';
       const redirectUrl = `${frontendUrl}/auth/callback?token=${authResponse.access_token}`;
 

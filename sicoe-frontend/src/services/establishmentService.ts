@@ -1,7 +1,4 @@
-/**
- * Serviço de Estabelecimentos
- * CRUD completo de estabelecimentos
- */
+
 
 import { api, type ApiResponse } from './api';
 

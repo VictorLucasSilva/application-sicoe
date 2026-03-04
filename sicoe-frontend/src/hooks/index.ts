@@ -1,7 +1,4 @@
-/**
- * Exportações centralizadas de hooks customizados
- * Sistema SICOE
- */
+
 
 export { useDebounce } from './useDebounce';
 export { usePagination } from './usePagination';

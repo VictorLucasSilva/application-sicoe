@@ -21,27 +21,27 @@ export class Audit {
   fkObject: number;
 
   @Column({ name: 'fk_user', type: 'int', nullable: true })
-  fkUser: number; // ID do usuário que realizou a ação
+  fkUser: number; 
 
   @Column({ name: 'tx_login', type: 'varchar', length: 256, nullable: true })
-  txLogin: string; // Username do usuário
+  txLogin: string; 
 
   @Column({ name: 'tx_profile', type: 'varchar', length: 20, nullable: true })
-  txProfile: string; // Grupo/role do usuário
+  txProfile: string; 
 
   @Column({ name: 'tx_description', type: 'text', nullable: true })
-  txDescription: string; // Descrição detalhada da ação
+  txDescription: string; 
 
   @Column({ name: 'tx_ip_address', type: 'varchar', length: 45, nullable: true })
-  txIpAddress: string; // IP do usuário
+  txIpAddress: string; 
 
   @Column({ name: 'tx_user_agent', type: 'text', nullable: true })
-  txUserAgent: string; // Browser/Client info
+  txUserAgent: string; 
 
   @CreateDateColumn({ name: 'ts_creation', type: 'timestamp' })
-  tsCreation: Date; // Timestamp da ação
+  tsCreation: Date; 
 
-  // Relacionamentos
+  
   @ManyToOne(() => AudAction, (action) => action.audits)
   @JoinColumn({ name: 'fk_action' })
   action: AudAction;

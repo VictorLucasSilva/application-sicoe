@@ -6,10 +6,10 @@ export class UpdateUserDto extends PartialType(CreateUserDto) {
   @IsOptional()
   @IsArray()
   @IsInt({ each: true })
-  groupIds?: number[]; // IDs dos grupos a serem atribuídos
+  groupIds?: number[]; 
 
   @IsOptional()
   @IsArray()
   @IsInt({ each: true })
-  establishmentIds?: number[]; // IDs dos estabelecimentos a serem relacionados
+  establishmentIds?: number[]; 
 }

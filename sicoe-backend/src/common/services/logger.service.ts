@@ -12,14 +12,14 @@ export class LoggerService implements NestLoggerService {
     const env = this.configService.get<string>('NODE_ENV') || 'local';
     const isProduction = env === 'production';
 
-    // Formato para produção (JSON)
+    
     const productionFormat = winston.format.combine(
       winston.format.timestamp(),
       winston.format.errors({ stack: true }),
       winston.format.json(),
     );
 
-    // Formato para desenvolvimento (colorido e legível)
+    
     const developmentFormat = winston.format.combine(
       winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
       winston.format.errors({ stack: true }),
@@ -31,17 +31,17 @@ export class LoggerService implements NestLoggerService {
       }),
     );
 
-    // Transportes (onde os logs serão salvos)
+    
     const transports: winston.transport[] = [
-      // Console
+      
       new winston.transports.Console({
         format: isProduction ? productionFormat : developmentFormat,
       }),
     ];
 
-    // Em produção, adiciona rotação de arquivos
+    
     if (isProduction) {
-      // Logs de erro
+      
       transports.push(
         new DailyRotateFile({
           filename: 'logs/error-%DATE%.log',
@@ -53,7 +53,7 @@ export class LoggerService implements NestLoggerService {
         }),
       );
 
-      // Logs combinados (todos os níveis)
+      
       transports.push(
         new DailyRotateFile({
           filename: 'logs/combined-%DATE%.log',
@@ -64,7 +64,7 @@ export class LoggerService implements NestLoggerService {
         }),
       );
 
-      // Logs de acesso HTTP
+      
       transports.push(
         new DailyRotateFile({
           filename: 'logs/access-%DATE%.log',
@@ -77,7 +77,7 @@ export class LoggerService implements NestLoggerService {
       );
     }
 
-    // Criar logger
+    
     this.logger = winston.createLogger({
       level: isProduction ? 'info' : 'debug',
       format: isProduction ? productionFormat : developmentFormat,
@@ -114,9 +114,7 @@ export class LoggerService implements NestLoggerService {
     this.logger.verbose(message, { context: context || this.context });
   }
 
-  /**
-   * Log de acesso HTTP (para usar em middleware ou interceptor)
-   */
+  
   logHttpAccess(
     method: string,
     url: string,
@@ -134,9 +132,7 @@ export class LoggerService implements NestLoggerService {
     });
   }
 
-  /**
-   * Log de auditoria (para eventos importantes)
-   */
+  
   logAudit(
     action: string,
     resource: string,

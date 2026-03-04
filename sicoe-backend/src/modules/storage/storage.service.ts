@@ -10,7 +10,7 @@ export class StorageService {
 
   constructor(private configService: ConfigService) {
     const connectionString = this.configService.get<string>('AZURE_STORAGE_CONNECTION_STRING');
-    this.containerName = this.configService.get<string>('AZURE_STORAGE_CONTAINER_NAME', 'sicoe-files');
+    this.containerName = this.configService.get<string>('AZURE_STORAGE_CONTAINER_NAME', 'media');
 
     if (connectionString) {
       this.blobServiceClient = BlobServiceClient.fromConnectionString(connectionString);
@@ -18,9 +18,7 @@ export class StorageService {
     }
   }
 
-  /**
-   * Testa a conexão com o Azure Blob Storage
-   */
+  
   async testConnection(): Promise<{ success: boolean; message: string }> {
     try {
       if (!this.blobServiceClient) {
@@ -30,11 +28,11 @@ export class StorageService {
         };
       }
 
-      // Verifica se o container existe
+      
       const exists = await this.containerClient.exists();
 
       if (!exists) {
-        // Tenta criar o container se não existir
+        
         await this.containerClient.create();
         return {
           success: true,
@@ -54,9 +52,7 @@ export class StorageService {
     }
   }
 
-  /**
-   * Faz upload de um arquivo para o Azure Blob Storage
-   */
+  
   async uploadFile(
     fileName: string,
     fileBuffer: Buffer,
@@ -77,9 +73,7 @@ export class StorageService {
     }
   }
 
-  /**
-   * Faz download de um arquivo do Azure Blob Storage
-   */
+  
   async downloadFile(fileName: string): Promise<Buffer> {
     try {
       const blobClient: BlockBlobClient = this.containerClient.getBlockBlobClient(fileName);
@@ -95,9 +89,7 @@ export class StorageService {
     }
   }
 
-  /**
-   * Deleta um arquivo do Azure Blob Storage
-   */
+  
   async deleteFile(fileName: string): Promise<void> {
     try {
       const blobClient: BlockBlobClient = this.containerClient.getBlockBlobClient(fileName);
@@ -107,9 +99,7 @@ export class StorageService {
     }
   }
 
-  /**
-   * Lista todos os arquivos no container
-   */
+  
   async listFiles(): Promise<string[]> {
     try {
       const files: string[] = [];
@@ -124,9 +114,7 @@ export class StorageService {
     }
   }
 
-  /**
-   * Converte stream para buffer
-   */
+  
   private async streamToBuffer(readableStream: NodeJS.ReadableStream): Promise<Buffer> {
     return new Promise((resolve, reject) => {
       const chunks: Buffer[] = [];

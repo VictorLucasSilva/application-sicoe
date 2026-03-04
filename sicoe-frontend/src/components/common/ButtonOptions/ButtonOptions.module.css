@@ -1,4 +1,4 @@
-/* ButtonOptions Component - Multiple selection buttons */
+
 
 .container {
   display: flex;
@@ -69,7 +69,7 @@
   margin-top: var(--spacing-xs);
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .optionsGrid {
     gap: var(--spacing-xs);

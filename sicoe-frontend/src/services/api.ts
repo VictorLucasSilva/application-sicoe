@@ -1,7 +1,4 @@
-/**
- * Cliente API centralizado
- * Sistema SICOE - Integração com backend NestJS
- */
+
 
 import { handleApiError, type ApiError } from '@/utils/errorHandler';
 
@@ -86,7 +83,7 @@ class ApiClient {
         throw error;
       }
 
-      // Handle no content responses
+      
       if (response.status === 204) {
         return {} as T;
       }
@@ -148,5 +145,5 @@ class ApiClient {
   }
 }
 
-// Export singleton instance
+
 export const api = new ApiClient(API_BASE_URL);

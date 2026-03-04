@@ -1,7 +1,4 @@
-/**
- * Utilitários de validação para formulários
- * Sistema SICOE
- */
+
 
 export interface ValidationRule {
   required?: boolean;
@@ -16,35 +13,33 @@ export interface ValidationErrors {
   [key: string]: string;
 }
 
-/**
- * Valida um campo com base nas regras fornecidas
- */
+
 export function validateField(value: any, rules: ValidationRule[]): string | null {
   for (const rule of rules) {
-    // Required
+    
     if (rule.required && (!value || value.toString().trim() === '')) {
       return rule.message;
     }
 
-    // Skip other validations if value is empty and not required
+    
     if (!value) continue;
 
-    // Min length
+    
     if (rule.minLength && value.toString().length < rule.minLength) {
       return rule.message;
     }
 
-    // Max length
+    
     if (rule.maxLength && value.toString().length > rule.maxLength) {
       return rule.message;
     }
 
-    // Pattern
+    
     if (rule.pattern && !rule.pattern.test(value.toString())) {
       return rule.message;
     }
 
-    // Custom validation
+    
     if (rule.custom && !rule.custom(value)) {
       return rule.message;
     }
@@ -53,9 +48,7 @@ export function validateField(value: any, rules: ValidationRule[]): string | nul
   return null;
 }
 
-/**
- * Valida um formulário inteiro
- */
+
 export function validateForm(
   values: Record<string, any>,
   rules: Record<string, ValidationRule[]>
@@ -72,9 +65,7 @@ export function validateForm(
   return errors;
 }
 
-/**
- * Validações comuns reutilizáveis
- */
+
 export const commonValidations = {
   required: (message = 'Campo obrigatório'): ValidationRule => ({
     required: true,
@@ -134,9 +125,7 @@ export const commonValidations = {
   }),
 };
 
-/**
- * Hook personalizado para validação de formulários
- */
+
 export function useFormValidation(
   initialValues: Record<string, any>,
   validationRules: Record<string, ValidationRule[]>
@@ -148,7 +137,7 @@ export function useFormValidation(
   const handleChange = (name: string, value: any) => {
     setValues((prev) => ({ ...prev, [name]: value }));
 
-    // Validate on change if field was touched
+    
     if (touched[name]) {
       const error = validateField(value, validationRules[name] || []);
       setErrors((prev) => ({
@@ -161,7 +150,7 @@ export function useFormValidation(
   const handleBlur = (name: string) => {
     setTouched((prev) => ({ ...prev, [name]: true }));
 
-    // Validate on blur
+    
     const error = validateField(values[name], validationRules[name] || []);
     setErrors((prev) => ({
       ...prev,
@@ -193,5 +182,5 @@ export function useFormValidation(
   };
 }
 
-// Adicionar import do useState
+
 import { useState } from 'react';

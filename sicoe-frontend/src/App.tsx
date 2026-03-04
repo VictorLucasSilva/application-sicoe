@@ -8,6 +8,7 @@ import Home from '@pages/Home';
 import Users from '@pages/Users';
 import Audit from '@pages/Audit';
 import Email from '@pages/Email';
+import { EstabHome } from '@pages/EstabHome';
 import './App.css';
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
       <LoadingProvider>
         <BrowserRouter>
         <Routes>
-        {/* Rota de Login */}
+        {}
         <Route
           path="/login"
           element={
@@ -26,7 +27,7 @@ function App() {
           }
         />
 
-        {/* Rota inicial - redireciona para login se não autenticado */}
+        {}
         <Route
           path="/"
           element={
@@ -53,10 +54,7 @@ function App() {
           path="/establishments"
           element={
             <ProtectedRoute>
-              <div style={{ padding: '2rem', textAlign: 'center' }}>
-                <h1>🏢 Estabelecimentos</h1>
-                <p>Página em desenvolvimento...</p>
-              </div>
+              <EstabHome />
             </ProtectedRoute>
           }
         />
@@ -79,7 +77,7 @@ function App() {
           }
         />
 
-        {/* Rota padrão - redireciona para login ou home */}
+        {}
         <Route
           path="*"
           element={<Navigate to={isAuthenticated ? '/' : '/login'} replace />}

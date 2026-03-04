@@ -1,4 +1,4 @@
-/* MessageModal - Modal de mensagens reutilizável */
+
 
 .overlay {
   position: fixed;
@@ -60,7 +60,7 @@
   height: 3rem;
 }
 
-/* Cores baseadas no tipo */
+
 .modal.success .icon {
   color: var(--color-success);
 }
@@ -102,7 +102,7 @@
   justify-content: center;
 }
 
-/* Responsividade Mobile */
+
 @media (max-width: 768px) {
   .modal {
     padding: var(--spacing-xl);

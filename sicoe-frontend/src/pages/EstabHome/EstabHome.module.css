@@ -1,0 +1,217 @@
+.container {
+  display: flex;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+  background: #F5F5F5; /* Fundo CINZA */
+}
+
+.content {
+  flex: 1;
+  padding: 0 var(--spacing-2xl) var(--spacing-2xl); /* Sem padding-top */
+  overflow-y: auto;
+  background: #F5F5F5; /* Fundo CINZA */
+}
+
+.statusSection {
+  margin-bottom: var(--spacing-3xl);
+}
+
+.establishmentsSection {
+  margin-bottom: var(--spacing-3xl);
+}
+
+/* Grid de estabelecimentos com scroll */
+.establishmentsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: var(--spacing-lg);
+  max-height: 37.5rem; /* Altura máxima (600px → 375px com redução) */
+  overflow-y: auto;
+  padding-right: var(--spacing-sm);
+}
+
+/* Scrollbar customizado */
+.establishmentsGrid::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.establishmentsGrid::-webkit-scrollbar-track {
+  background: var(--color-divider);
+  border-radius: var(--border-radius-full);
+}
+
+.establishmentsGrid::-webkit-scrollbar-thumb {
+  background: var(--color-primary-blue);
+  border-radius: var(--border-radius-full);
+}
+
+.establishmentsGrid::-webkit-scrollbar-thumb:hover {
+  background: #3549d9;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xl);
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.iconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+}
+
+.polygon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--color-secondary-yellow);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  z-index: 0;
+}
+
+.iconWrapper svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  position: relative;
+  z-index: 1;
+  color: var(--color-primary-blue);
+}
+
+.header h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  color: var(--color-primary-blue);
+  margin: 0;
+}
+
+.statusCards {
+  display: grid;
+  /* Card Regular (1º) ocupa 2 colunas, outros ocupam 1 coluna cada */
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: var(--spacing-lg);
+}
+
+.titleWithIcon {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.yellowPolygon {
+  width: 1.34rem; /* 20px → 13.4px */
+  height: 1.34rem;
+  background: var(--color-secondary-yellow);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.regionButtons {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.regionButtons button {
+  padding: var(--spacing-xs) var(--spacing-md);
+  border: none;
+  background: #E8E8E8; /* Cinza claro */
+  cursor: pointer;
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  border-radius: var(--border-radius-full); /* Bordas arredondadas */
+  transition: all 0.2s ease;
+}
+
+.regionButtons button:hover {
+  background: #D0D0D0;
+}
+
+.regionButtons button.active {
+  background: var(--color-primary-blue);
+  color: var(--color-white);
+}
+
+.carousel {
+  padding-bottom: var(--spacing-2xl);
+}
+
+.carousel :global(.swiper-button-next),
+.carousel :global(.swiper-button-prev) {
+  color: var(--color-primary-blue);
+  width: 2.68rem; /* 40px → 26.8px */
+  height: 2.68rem;
+}
+
+.carousel :global(.swiper-button-next)::after,
+.carousel :global(.swiper-button-prev)::after {
+  font-size: var(--font-size-xl);
+}
+
+.carousel :global(.swiper-pagination-bullet) {
+  background: var(--color-primary-blue);
+  opacity: 0.3;
+}
+
+.carousel :global(.swiper-pagination-bullet-active) {
+  opacity: 1;
+}
+
+.emptyState {
+  padding: var(--spacing-3xl);
+  text-align: center;
+  color: var(--color-text-secondary);
+  background: var(--color-white);
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0; /* Sidebar escondida em mobile */
+    padding: var(--spacing-lg);
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .regionTabs {
+    margin-left: 0;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .statusCards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsividade para os status cards */
+@media (max-width: 1200px) {
+  .statusCards {
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .statusCards {
+    grid-template-columns: 1fr;
+  }
+  
+  .content {
+    margin-left: 0; /* Sidebar escondida */
+  }
+}
