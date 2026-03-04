@@ -16,6 +16,7 @@ interface EstabModalProps {
   onClose: () => void;
   establishmentId: number | null;
   onOpenAttachModal?: (documentId: number) => void;
+  refreshTrigger?: number; // Trigger para forçar reload dos dados
 }
 
 // Ícones SVG inline
@@ -91,6 +92,7 @@ export function EstabModal({
   onClose,
   establishmentId,
   onOpenAttachModal,
+  refreshTrigger,
 }: EstabModalProps) {
   const [data, setData] = useState<EstablishmentDetails | null>(null);
   const [loading, setLoading] = useState(false);
@@ -112,7 +114,7 @@ export function EstabModal({
     if (isOpen && establishmentId) {
       fetchData();
     }
-  }, [isOpen, establishmentId]);
+  }, [isOpen, establishmentId, refreshTrigger]); // Recarrega quando refreshTrigger muda
 
   const fetchData = async () => {
     if (!establishmentId) return;
@@ -155,8 +157,21 @@ export function EstabModal({
     // Pegar o primeiro anexo (mais recente)
     const attachment = document.attachments[0];
 
-    // Construir URL completa do PDF (assumindo que o backend serve em /media/)
-    const fullPdfUrl = `http://localhost:3000${attachment.dsFilePath}`;
+    // Construir URL completa do PDF
+    // dsFilePath pode vir como "/media/arquivo.pdf" ou "media/arquivo.pdf"
+    // Precisamos garantir que fique como "/media/arquivo.pdf"
+    let filePath = attachment.dsFilePath;
+
+    // Se não começa com /, adiciona
+    if (!filePath.startsWith('/')) {
+      filePath = `/${filePath}`;
+    }
+
+    // URL base do backend (usar variável de ambiente em produção)
+    const backendUrl = import.meta.env.VITE_API_BASE_URL?.replace('/api/v1', '') || 'http://localhost:3000';
+    const fullPdfUrl = `${backendUrl}${filePath}`;
+
+    console.log('📄 Abrindo PDF:', fullPdfUrl);
 
     setPdfUrl(fullPdfUrl);
     setPdfFileName(document.nmDocument);

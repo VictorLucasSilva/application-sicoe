@@ -40,6 +40,7 @@ COPY docker-entrypoint.sh /app/docker-entrypoint.sh
 # Create non-root user and set permissions
 RUN addgroup -g 1001 -S nodejs && \
     adduser -S nestjs -u 1001 && \
+    mkdir -p /app/media && \
     chown -R nestjs:nodejs /app && \
     chmod +x /app/docker-entrypoint.sh
 

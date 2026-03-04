@@ -9,6 +9,7 @@ interface ModalProps {
   children: ReactNode;
   footer?: ReactNode;
   showCloseButton?: boolean;
+  size?: 'small' | 'medium' | 'large' | 'fullscreen'; // Tamanho do modal
 }
 
 export default function Modal({
@@ -18,6 +19,7 @@ export default function Modal({
   children,
   footer,
   showCloseButton = true,
+  size = 'medium',
 }: ModalProps) {
   useEffect(() => {
     if (isOpen) {
@@ -44,9 +46,11 @@ export default function Modal({
 
   if (!isOpen) return null;
 
+  const modalClass = `${styles.modal} ${styles[size] || ''}`;
+
   return (
     <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+      <div className={modalClass} onClick={(e) => e.stopPropagation()}>
         {title && (
           <div className={styles.header}>
             <h2 className={styles.title}>{title}</h2>

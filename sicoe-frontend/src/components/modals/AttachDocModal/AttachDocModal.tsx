@@ -7,6 +7,7 @@ import MessageModal from '../MessageModal/MessageModal';
 import { FileUpload } from '../../common/FileUpload';
 import Autocomplete from '../../common/Autocomplete';
 import DatePicker from '../../common/DatePicker';
+import { establishmentStatsService } from '../../../services/api/establishmentStatsService';
 import styles from './AttachDocModal.module.css';
 
 interface AttachDocModalProps {
@@ -92,21 +93,23 @@ export default function AttachDocModal({
     setIsLoadingModalOpen(true);
 
     try {
-      // Criar FormData
-      const formData = new FormData();
-      formData.append('file', files[0]);
-      formData.append('documentId', selectedDocument!.toString());
-      formData.append('dtValidity', dtValidity);
+      // Callback para atualizar progresso
+      const onUploadProgress = (progressEvent: any) => {
+        const percentCompleted = Math.round(
+          (progressEvent.loaded * 100) / progressEvent.total
+        );
+        setUploadProgress(percentCompleted);
+      };
 
-      // Simular upload com progresso
-      for (let i = 0; i <= 100; i += 10) {
-        setUploadProgress(i);
-        await new Promise((resolve) => setTimeout(resolve, 150));
-      }
-
-      // TODO: Integrar com API real
-      // await establishmentService.uploadAttachment(establishmentId, formData, onUploadProgress);
-      console.log('Upload para estabelecimento:', establishmentId);
+      // DatePicker já retorna em formato ISO (YYYY-MM-DD), então usar diretamente
+      // Fazer upload real via API
+      await establishmentStatsService.uploadAttachment(
+        establishmentId,
+        selectedDocument!,
+        dtValidity,
+        files[0],
+        onUploadProgress
+      );
 
       setIsLoadingModalOpen(false);
       setMessageType('success');

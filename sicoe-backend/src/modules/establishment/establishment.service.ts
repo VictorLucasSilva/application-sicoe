@@ -315,9 +315,12 @@ export class EstablishmentService {
     const documentsWithStatus: DocumentWithAttachmentsDto[] = documents.map(
       (doc) => {
         let status = 'missing';
+        let attachments: AttachmentDto[] = [];
 
         if (doc.attachments && doc.attachments.length > 0) {
-          const latestAttachment = doc.attachments[doc.attachments.length - 1];
+          // Ordenar attachments por ID (descendente) para pegar o mais recente
+          const sortedAttachments = [...doc.attachments].sort((a, b) => b.id - a.id);
+          const latestAttachment = sortedAttachments[0];
 
           // Primeiro verifica o status do attachment (Em Análise = 2, Rejeitado = 4, Expirado = 5)
           if (latestAttachment.fkStatus === 2) {
@@ -339,15 +342,15 @@ export class EstablishmentService {
           } else {
             status = 'emAnalise';
           }
-        }
 
-        const attachments: AttachmentDto[] =
-          doc.attachments?.map((att) => ({
-            id: att.id,
-            nmFile: att.nmFile,
-            dsFilePath: att.dsFilePath,
-            dtValidity: att.dtValidity,
-          })) || [];
+          // Retornar APENAS o último anexo (regra de negócio)
+          attachments = [{
+            id: latestAttachment.id,
+            nmFile: latestAttachment.nmFile,
+            dsFilePath: latestAttachment.dsFilePath,
+            dtValidity: latestAttachment.dtValidity,
+          }];
+        }
 
         return {
           id: doc.id,
@@ -470,11 +473,14 @@ export class EstablishmentService {
     }
 
     // 4. Criar registro no banco
+    // Extrair apenas a parte relativa do path (media/arquivo.pdf)
+    const relativePath = file.path.replace(/\\/g, '/').split('/').slice(-2).join('/');
+
     const attachment = this.attachmentRepository.create({
       fkDocument: createDto.documentId,
       fkStatus: 2, // Status "Em Análise" (id=2) ao criar novo anexo
       nmFile: file.originalname,
-      dsFilePath: file.path.replace(/\\/g, '/'), // Normalizar path
+      dsFilePath: relativePath, // Apenas "media/arquivo.pdf"
       dtValidity: new Date(createDto.dtValidity),
       txComments: createDto.txComments,
       tsAttached: new Date(),

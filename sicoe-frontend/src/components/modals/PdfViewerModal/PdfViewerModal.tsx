@@ -19,6 +19,7 @@ export function PdfViewerModal({
       isOpen={isOpen}
       onClose={onClose}
       title={fileName}
+      size="fullscreen"
     >
       <div className={styles.container}>
         <iframe

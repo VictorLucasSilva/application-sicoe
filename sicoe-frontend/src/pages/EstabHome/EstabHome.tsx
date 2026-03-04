@@ -95,6 +95,7 @@ export function EstabHome() {
   const [selectedEstabId, setSelectedEstabId] = useState<number | null>(null);
   const [isAttachModalOpen, setIsAttachModalOpen] = useState(false);
   const [selectedDocumentId, setSelectedDocumentId] = useState<number | undefined>(undefined);
+  const [refreshTrigger, setRefreshTrigger] = useState(0); // Contador para forçar reload
   const { setLoading } = useLoading();
 
   useEffect(() => {
@@ -171,9 +172,11 @@ export function EstabHome() {
   const handleAttachSuccess = () => {
     // Recarregar dados do estabelecimento no modal Estab
     console.log('Documento anexado com sucesso!');
-    // Volta para EstabModal após sucesso
+    // Fecha AttachModal e volta para EstabModal
     setIsAttachModalOpen(false);
     setIsModalOpen(true);
+    // Incrementa o trigger para forçar reload do EstabModal
+    setRefreshTrigger(prev => prev + 1);
   };
 
   const calculatePercentage = (value: number, total: number) => {
@@ -314,6 +317,7 @@ export function EstabHome() {
         onClose={handleCloseModal}
         establishmentId={selectedEstabId}
         onOpenAttachModal={handleOpenAttachModal}
+        refreshTrigger={refreshTrigger}
       />
 
       {/* Modal Attach Doc */}

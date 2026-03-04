@@ -27,7 +27,10 @@ async function bootstrap() {
   app.setGlobalPrefix('api/v1');
 
   // Servir pasta media como arquivos estáticos
-  app.useStaticAssets(path.join(__dirname, '..', 'media'), {
+  // Usar process.cwd() ao invés de __dirname para funcionar corretamente com código transpilado
+  const mediaPath = path.join(process.cwd(), 'media');
+  console.log('📁 Serving static files from:', mediaPath);
+  app.useStaticAssets(mediaPath, {
     prefix: '/media/',
   });
 

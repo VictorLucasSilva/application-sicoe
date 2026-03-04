@@ -81,6 +81,18 @@ export interface PendingDocument {
   daysUntilExpiration: number | null;
 }
 
+export interface UploadAttachmentResponse {
+  id: number;
+  nmFile: string;
+  dsFilePath: string;
+  dtValidity: string;
+  tsAttached: string;
+  document: {
+    id: number;
+    nmDocument: string;
+  };
+}
+
 export const establishmentStatsService = {
   async getStats(): Promise<StatsResponse> {
     const response = await apiService.get<{ data: { data: StatsResponse } }>('/establishments/stats');
@@ -107,5 +119,31 @@ export const establishmentStatsService = {
   async getPendingDocuments(id: number): Promise<PendingDocument[]> {
     const response = await apiService.get<{ data: { data: { pending: PendingDocument[] } } }>(`/establishments/${id}/pending-documents`);
     return response.data.data.data.pending;
+  },
+
+  async uploadAttachment(
+    establishmentId: number,
+    documentId: number,
+    dtValidity: string,
+    file: File,
+    onUploadProgress?: (progressEvent: any) => void
+  ): Promise<UploadAttachmentResponse> {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('documentId', documentId.toString());
+    formData.append('dtValidity', dtValidity);
+
+    const response = await apiService.post<{ data: UploadAttachmentResponse }>(
+      `/establishments/${establishmentId}/attachments`,
+      formData,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        onUploadProgress,
+      }
+    );
+
+    return response.data.data;
   },
 };

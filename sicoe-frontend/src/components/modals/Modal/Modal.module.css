@@ -28,11 +28,30 @@
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
   width: 90%;
-  max-width: 402px; 
+  max-width: 402px;
   max-height: 90vh;
   display: flex;
   flex-direction: column;
   animation: slideUp 0.3s ease-out;
+}
+
+/* Tamanhos de modal */
+.small {
+  max-width: 268px; /* 400px - 33% */
+}
+
+.medium {
+  max-width: 402px; /* Padrão */
+}
+
+.large {
+  max-width: 804px; /* 1200px - 33% */
+}
+
+.fullscreen {
+  max-width: 95vw;
+  width: 95%;
+  max-height: 95vh;
 }
 
 @keyframes slideUp {

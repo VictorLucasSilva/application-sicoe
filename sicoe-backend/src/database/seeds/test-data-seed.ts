@@ -270,7 +270,7 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
           .replace(/\s+/g, '_');
 
         const fileName = `${mapping.estab.toLowerCase()}_${docNameNormalized}_${statusName.toLowerCase()}.pdf`;
-        const filePath = `/media/${fileName}`;
+        const filePath = `media/${fileName}`;
 
         await queryRunner.query(
           `INSERT INTO ssv_estab_attachment
