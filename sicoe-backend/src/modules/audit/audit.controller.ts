@@ -10,25 +10,25 @@ import { AudObject } from './entities/aud-object.entity';
 export class AuditController {
   constructor(private readonly auditService: AuditService) {}
 
-  
+
   @Get('actions')
   async findAllActions(): Promise<AudAction[]> {
     return this.auditService.findAllActions();
   }
 
-  
+
   @Get('objects')
   async findAllObjects(): Promise<AudObject[]> {
     return this.auditService.findAllObjects();
   }
 
-  
+
   @Get('logins')
   async findAllLogins(): Promise<string[]> {
     return this.auditService.findAllLogins();
   }
 
-  
+
   @Get()
   async findAll(@Query() filterDto: FilterAuditDto): Promise<{
     data: Audit[];

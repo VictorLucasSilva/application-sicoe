@@ -29,7 +29,7 @@ export default function EstablishmentAccessModal({
   const [selectedEstablishmentIds, setSelectedEstablishmentIds] = useState<number[]>([]);
   const [error, setError] = useState<string>('');
 
-  
+
   useEffect(() => {
     if (user && isOpen) {
       const currentEstablishmentIds = user.establishments?.map(est => est.id) || [];
@@ -38,7 +38,7 @@ export default function EstablishmentAccessModal({
     }
   }, [user, isOpen]);
 
-  
+
   useEffect(() => {
     if (!isOpen) {
       setSelectedEstablishmentIds([]);
@@ -51,35 +51,35 @@ export default function EstablishmentAccessModal({
 
     if (!user) return;
 
-    
+
     if (selectedEstablishmentIds.length === 0) {
       setError('Selecione pelo menos um estabelecimento');
       return;
     }
 
-    
+
     if (onRequestSave) {
       onRequestSave(async () => {
         if (!user) throw new Error('Usuário não encontrado');
 
-        
+
         const currentIds = user.establishments?.map(est => est.id) || [];
 
-        
+
         const toAdd = selectedEstablishmentIds.filter(id => !currentIds.includes(id));
         const toRemove = currentIds.filter(id => !selectedEstablishmentIds.includes(id));
 
-        
+
         for (const estId of toRemove) {
           await usersService.removeEstablishment(user.id, estId);
         }
 
-        
+
         for (const estId of toAdd) {
           await usersService.addEstablishment(user.id, estId);
         }
 
-        
+
         onClose();
         onSuccess();
       });
@@ -129,7 +129,7 @@ export default function EstablishmentAccessModal({
             label="Estabelecimentos"
             options={establishmentOptions}
             selectedValues={selectedEstablishmentIds}
-            onChange={() => {}} 
+            onChange={() => {}}
             onMultiChange={(values) => {
               setSelectedEstablishmentIds(values as number[]);
               setError('');

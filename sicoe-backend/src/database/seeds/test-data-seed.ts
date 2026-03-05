@@ -9,7 +9,7 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
   await queryRunner.startTransaction();
 
   try {
-    
+
     console.log('🗺️ Inserindo regiões...');
     const regions = [
       'Região Norte',
@@ -26,7 +26,7 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
       );
     }
 
-    
+
     console.log('📍 Inserindo estados...');
     const states = [
       { nm: 'São Paulo', sg: 'SP' },
@@ -48,7 +48,7 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
       );
     }
 
-    
+
     console.log('🏢 Inserindo estabelecimentos...');
     const establishments = [
       { sq: 'EST001', nm: 'MATRIZ', region: 'Região Sudeste', state: 'SP' },
@@ -76,7 +76,7 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
       }
     }
 
-    
+
     console.log('👥 Inserindo usuários de teste...');
     const password = await bcrypt.hash('Test@123', 10);
 
@@ -94,7 +94,7 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
     ];
 
     for (const user of users) {
-      
+
       await queryRunner.query(
         `INSERT INTO ssv_user
           (num_employee, username, password, first_name, last_name, email, flg_active, flg_status_email)
@@ -108,11 +108,11 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
           user.lastName,
           user.email,
           true,
-          Math.random() > 0.3, 
+          Math.random() > 0.3,
         ],
       );
 
-      
+
       await queryRunner.query(
         `INSERT INTO ssv_aux_user_groups (fk_user, fk_group)
          SELECT u.id, g.id
@@ -122,7 +122,7 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
         [user.username, user.group],
       );
 
-      
+
       const numEstabs = Math.floor(Math.random() * 3) + 1;
       for (let i = 0; i < numEstabs; i++) {
         const estNum = Math.floor(Math.random() * 10) + 1;
@@ -139,7 +139,7 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
       }
     }
 
-    
+
     console.log('📋 Inserindo logs de auditoria...');
     const auditLogs = [
       { action: 'Login', object: 'Usuário', login: 'joao.silva', profile: 'Administrador', desc: 'Login realizado com sucesso' },
@@ -192,7 +192,6 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
       }
     }
 
-
     console.log('📄 Inserindo tipos de documentos...');
     const documents = [
       { nm: 'Alvará de Funcionamento', ds: 'Documento que autoriza o funcionamento do estabelecimento' },
@@ -211,7 +210,6 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
       );
     }
 
-
     console.log('📊 Inserindo status de anexos...');
     const statuses = ['Pendente', 'Em Análise', 'Aprovado', 'Rejeitado', 'Expirado'];
     for (const status of statuses) {
@@ -222,7 +220,6 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
         [status],
       );
     }
-
 
     console.log('📎 Vinculando documentos aos estabelecimentos e criando anexos...');
     const estabDocMapping = [
@@ -247,7 +244,6 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
 
         if (!docResult[0]) continue;
 
-
         await queryRunner.query(
           `INSERT INTO ssv_aux_establishment_document (fk_establishment, fk_document)
            VALUES ($1, $2)
@@ -255,11 +251,10 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
           [estabResult[0].id, docResult[0].id],
         );
 
-
         const statusId = i === 0 ? 4 : 5;
         const statusName = i === 0 ? 'Rejeitado' : 'Expirado';
 
-        // Função para remover acentos
+
         const removeAccents = (str: string) => {
           return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
         };
@@ -287,7 +282,6 @@ export async function runTestDataSeed(dataSource: DataSource): Promise<void> {
         );
       }
     }
-
 
     console.log('📧 Inserindo logs de email...');
     const emailLogs = [

@@ -9,7 +9,7 @@ export async function runInitialSeed(dataSource: DataSource): Promise<void> {
   await queryRunner.startTransaction();
 
   try {
-    
+
     console.log('📦 Inserindo grupos...');
     const groups = [
       'Administrador',
@@ -26,7 +26,7 @@ export async function runInitialSeed(dataSource: DataSource): Promise<void> {
       );
     }
 
-    
+
     console.log('🔐 Inserindo permissões...');
     const permissions = ['read', 'create', 'update', 'delete'];
 
@@ -37,7 +37,7 @@ export async function runInitialSeed(dataSource: DataSource): Promise<void> {
       );
     }
 
-    
+
     console.log('📄 Inserindo content types...');
     const contentTypes = [
       'ssv_user',
@@ -54,7 +54,7 @@ export async function runInitialSeed(dataSource: DataSource): Promise<void> {
       );
     }
 
-    
+
     console.log('📋 Inserindo ações de auditoria...');
     const audActions = [
       'Criação',
@@ -73,7 +73,7 @@ export async function runInitialSeed(dataSource: DataSource): Promise<void> {
       );
     }
 
-    
+
     console.log('📦 Inserindo objetos de auditoria...');
     const audObjects = ['Usuário', 'Anexo', 'Estabelecimento', 'Relatório'];
 
@@ -84,7 +84,7 @@ export async function runInitialSeed(dataSource: DataSource): Promise<void> {
       );
     }
 
-    
+
     console.log('📎 Inserindo status de anexo...');
     const attachmentStatuses = [
       'Pendente',
@@ -101,7 +101,7 @@ export async function runInitialSeed(dataSource: DataSource): Promise<void> {
       );
     }
 
-    
+
     console.log('👤 Inserindo usuário admin...');
     const adminPassword = await bcrypt.hash('Admin@123', 10);
 
@@ -122,7 +122,7 @@ export async function runInitialSeed(dataSource: DataSource): Promise<void> {
       ],
     );
 
-    
+
     console.log('🔗 Associando admin ao grupo Administrador...');
     await queryRunner.query(
       `INSERT INTO ssv_aux_user_groups (fk_user, fk_group)
@@ -132,7 +132,7 @@ export async function runInitialSeed(dataSource: DataSource): Promise<void> {
        ON CONFLICT (fk_user, fk_group) DO NOTHING`,
     );
 
-    
+
     console.log('⚙️ Configurando permissões do Administrador...');
     const adminGroupResult = await queryRunner.query(
       `SELECT id FROM ssv_group WHERE nm_group = 'Administrador'`,
@@ -159,7 +159,7 @@ export async function runInitialSeed(dataSource: DataSource): Promise<void> {
       }
     }
 
-    
+
     console.log('⚙️ Configurando permissões do Auditor...');
     const auditorGroupResult = await queryRunner.query(
       `SELECT id FROM ssv_group WHERE nm_group = 'Auditor'`,

@@ -37,7 +37,7 @@ export const getHelmetConfig = () => ({
 
 export const getThrottlerConfig = (configService: ConfigService) => ([
   {
-    ttl: configService.get<number>('THROTTLE_TTL', 60) * 1000, 
+    ttl: configService.get<number>('THROTTLE_TTL', 60) * 1000,
     limit: configService.get<number>('THROTTLE_LIMIT', 10),
   },
 ]);

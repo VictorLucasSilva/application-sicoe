@@ -27,7 +27,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
         message = responseObj.message || exception.message;
         errors = responseObj.errors || null;
 
-        
+
         if (Array.isArray(message)) {
           message = message.join(', ');
         }
@@ -47,7 +47,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
       path: request.url,
     };
 
-    
+
     console.error(
       `[${new Date().toISOString()}] ${request.method} ${request.url} - ${status} - ${message}`,
     );

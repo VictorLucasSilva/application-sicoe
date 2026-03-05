@@ -26,7 +26,7 @@
   right: 0;
   height: 100vh;
   width: 100%;
-  max-width: 350px; 
+  max-width: 350px;
   background: var(--color-white);
   box-shadow: var(--shadow-modal);
   display: flex;
@@ -118,7 +118,6 @@
   gap: var(--spacing-md);
   flex-shrink: 0;
 }
-
 
 @media (max-width: 768px) {
   .modal {

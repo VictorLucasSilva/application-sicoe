@@ -18,7 +18,7 @@ export function useTableSort<T>(data: T[], initialSort?: SortConfig[]) {
     }
 
     const sorted = [...data].sort((a, b) => {
-      
+
       for (const config of sortConfigs) {
         if (!config.direction) continue;
 
@@ -34,7 +34,7 @@ export function useTableSort<T>(data: T[], initialSort?: SortConfig[]) {
         if (aValue > bValue) {
           return config.direction === 'asc' ? 1 : -1;
         }
-        
+
       }
       return 0;
     });
@@ -44,11 +44,11 @@ export function useTableSort<T>(data: T[], initialSort?: SortConfig[]) {
 
   const requestSort = (key: string) => {
     setSortConfigs((prevConfigs) => {
-      
+
       const existingIndex = prevConfigs.findIndex((config) => config.key === key);
       const existingConfig = existingIndex >= 0 ? prevConfigs[existingIndex] : null;
 
-      
+
       let nextDirection: SortDirection = 'asc';
       if (existingConfig) {
         if (existingConfig.direction === 'asc') {
@@ -58,20 +58,20 @@ export function useTableSort<T>(data: T[], initialSort?: SortConfig[]) {
         }
       }
 
-      
+
       if (nextDirection === null) {
-        
+
         return prevConfigs.filter((config) => config.key !== key);
       }
 
       if (existingIndex >= 0) {
-        
+
         const newConfigs = [...prevConfigs];
         newConfigs[existingIndex] = { key, direction: nextDirection };
         return newConfigs;
       }
 
-      
+
       return [...prevConfigs, { key, direction: nextDirection }];
     });
   };
@@ -83,7 +83,7 @@ export function useTableSort<T>(data: T[], initialSort?: SortConfig[]) {
 
   const getSortIndex = (key: string): number => {
     const index = sortConfigs.findIndex((c) => c.key === key);
-    return index >= 0 ? index + 1 : 0; 
+    return index >= 0 ? index + 1 : 0;
   };
 
   const clearSort = () => {
@@ -99,7 +99,6 @@ export function useTableSort<T>(data: T[], initialSort?: SortConfig[]) {
     clearSort,
   };
 }
-
 
 function getNestedValue(obj: any, path: string): any {
   return path.split('.').reduce((current, key) => current?.[key], obj);

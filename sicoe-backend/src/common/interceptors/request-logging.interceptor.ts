@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import type { Request, Response } from 'express';
 
-
 @Injectable()
 export class RequestLoggingInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
@@ -31,7 +30,7 @@ export class RequestLoggingInterceptor implements NestInterceptor {
     );
   }
 
-  
+
   private logRequest(
     req: Request,
     res: Response,
@@ -52,7 +51,7 @@ export class RequestLoggingInterceptor implements NestInterceptor {
       user: (req as any).user?.id || 'anonymous',
     };
 
-    
+
     if (statusCode >= 500) {
       console.error('[HTTP ERROR]', logData, error);
     } else if (statusCode >= 400) {
@@ -61,7 +60,7 @@ export class RequestLoggingInterceptor implements NestInterceptor {
       console.log('[HTTP]', logData);
     }
 
-    
+
     if (duration > 3000) {
       console.warn('[SLOW REQUEST]', {
         ...logData,

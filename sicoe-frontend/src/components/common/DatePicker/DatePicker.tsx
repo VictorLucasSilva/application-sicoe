@@ -30,7 +30,7 @@ export default function DatePicker({
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const containerRef = useRef<HTMLDivElement>(null);
 
-  
+
   const formatDateDisplay = (date: Date): string => {
     const day = String(date.getDate()).padStart(2, '0');
     const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -38,7 +38,7 @@ export default function DatePicker({
     return `${day}/${month}/${year}`;
   };
 
-  
+
   const parseDisplayDate = (str: string): Date | null => {
     const parts = str.split('/');
     if (parts.length !== 3) return null;
@@ -49,7 +49,7 @@ export default function DatePicker({
     return isNaN(date.getTime()) ? null : date;
   };
 
-  
+
   const formatDateISO = (date: Date): string => {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -57,7 +57,7 @@ export default function DatePicker({
     return `${year}-${month}-${day}`;
   };
 
-  
+
   useEffect(() => {
     if (value) {
       const date = new Date(value);
@@ -67,13 +67,13 @@ export default function DatePicker({
         setCurrentMonth(date);
       }
     } else {
-      
+
       setSelectedDate(null);
       setDisplayValue('');
     }
   }, [value]);
 
-  
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
@@ -90,7 +90,7 @@ export default function DatePicker({
     };
   }, [isOpen]);
 
-  
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let val = e.target.value.replace(/\D/g, '');
     if (val.length > 8) val = val.substring(0, 8);
@@ -108,7 +108,7 @@ export default function DatePicker({
 
     setDisplayValue(formatted);
 
-    
+
     if (formatted.length === 10) {
       const date = parseDisplayDate(formatted);
       if (date && !isNaN(date.getTime())) {
@@ -153,7 +153,7 @@ export default function DatePicker({
     selectDate(today);
   };
 
-  
+
   const generateCalendarDays = () => {
     const year = currentMonth.getFullYear();
     const month = currentMonth.getMonth();

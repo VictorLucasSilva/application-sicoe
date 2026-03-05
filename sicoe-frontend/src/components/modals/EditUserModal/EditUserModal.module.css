@@ -92,7 +92,6 @@
   margin-top: var(--spacing-lg);
 }
 
-
 @media (max-width: 768px) {
   .form {
     gap: var(--spacing-md);

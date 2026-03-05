@@ -12,12 +12,12 @@
   align-items: center;
   justify-content: center;
   padding: var(--spacing-3xl);
-  border: 0.13rem dashed var(--color-divider); /* 2px → 1.3px */
+  border: 0.13rem dashed var(--color-divider);
   border-radius: var(--border-radius-md);
   background: var(--color-background-light);
   cursor: pointer;
   transition: all 0.2s ease;
-  min-height: 13.4rem; /* 200px → 134px */
+  min-height: 13.4rem;
 }
 
 .dropzone:hover {
@@ -32,7 +32,7 @@
 }
 
 .uploadIcon {
-  width: 3.34rem; /* 50px → 33.4px */
+  width: 3.34rem;
   height: 3.34rem;
   color: var(--color-primary-blue);
   margin-bottom: var(--spacing-md);
@@ -57,7 +57,6 @@
   margin: 0;
 }
 
-/* Lista de arquivos */
 .filesList {
   margin-top: var(--spacing-lg);
   display: flex;
@@ -86,7 +85,7 @@
 }
 
 .fileIcon {
-  width: 1.67rem; /* 25px → 16.7px */
+  width: 1.67rem;
   height: 1.67rem;
   color: #E53E3E;
   flex-shrink: 0;
@@ -121,7 +120,7 @@
 }
 
 .removeBtn {
-  width: 1.67rem; /* 25px → 16.7px */
+  width: 1.67rem;
   height: 1.67rem;
   border: none;
   background: transparent;
@@ -141,15 +140,14 @@
   color: #E53E3E;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .dropzone {
     padding: var(--spacing-xl);
-    min-height: 10rem; /* 150px → 100px */
+    min-height: 10rem;
   }
 
   .uploadIcon {
-    width: 2.67rem; /* 40px → 26.7px */
+    width: 2.67rem;
     height: 2.67rem;
   }
 

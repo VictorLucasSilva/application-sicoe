@@ -17,7 +17,7 @@ export class MsalStrategy extends PassportStrategy(CustomStrategy, 'msal') {
     const tenantId = this.configService.get<string>('AZURE_AD_TENANT_ID');
     const clientSecret = this.configService.get<string>('AZURE_AD_CLIENT_SECRET');
 
-    
+
     if (clientId && tenantId && clientSecret &&
         clientId !== 'your-client-id-here' &&
         tenantId !== 'your-tenant-id-here' &&
@@ -84,7 +84,7 @@ export class MsalStrategy extends PassportStrategy(CustomStrategy, 'msal') {
         throw new UnauthorizedException('Falha na autenticação com EntraID');
       }
 
-      
+
       return {
         email: response.account.username,
         name: response.account.name,
@@ -99,7 +99,7 @@ export class MsalStrategy extends PassportStrategy(CustomStrategy, 'msal') {
     }
   }
 
-  
+
   async getAuthUrl(): Promise<string> {
     if (!this.isConfigured || !this.msalClient) {
       throw new UnauthorizedException('Azure AD não está configurado para este ambiente');
@@ -115,10 +115,10 @@ export class MsalStrategy extends PassportStrategy(CustomStrategy, 'msal') {
     return await this.msalClient.getAuthCodeUrl(authCodeUrlParameters);
   }
 
-  
+
   async validateAccessToken(accessToken: string): Promise<any> {
-    
-    
+
+
     return accessToken ? true : false;
   }
 }

@@ -6,16 +6,16 @@ export class FilterEmailDto {
   @IsString()
   @Transform(({ value }) => {
     if (typeof value === 'string') {
-      
+
       return value.replace(/[<>'"`;()]/g, '').trim().substring(0, 100);
     }
     return value;
   })
-  search?: string; 
+  search?: string;
 
   @IsOptional()
   @IsString()
-  type?: string; 
+  type?: string;
 
   @IsOptional()
   @IsArray()
@@ -23,15 +23,15 @@ export class FilterEmailDto {
     if (typeof value === 'string') return value.split(',');
     return value;
   })
-  types?: string[]; 
+  types?: string[];
 
   @IsOptional()
   @IsString()
-  object?: string; 
+  object?: string;
 
   @IsOptional()
   @IsString()
-  subject?: string; 
+  subject?: string;
 
   @IsOptional()
   @IsArray()
@@ -39,16 +39,16 @@ export class FilterEmailDto {
     if (typeof value === 'string') return value.split(',');
     return value;
   })
-  subjects?: string[]; 
+  subjects?: string[];
 
   @IsOptional()
   @IsString()
-  destination?: string; 
+  destination?: string;
 
   @IsOptional()
   @Transform(({ value }) => value === 'true' || value === true)
   @IsBoolean()
-  sent?: boolean; 
+  sent?: boolean;
 
   @IsOptional()
   @IsArray()
@@ -56,17 +56,17 @@ export class FilterEmailDto {
     if (typeof value === 'string') return value.split(',');
     return value;
   })
-  statuses?: string[]; 
+  statuses?: string[];
 
   @IsOptional()
   @IsDateString()
-  startDate?: string; 
+  startDate?: string;
 
   @IsOptional()
   @IsDateString()
-  endDate?: string; 
+  endDate?: string;
 
-  
+
   @IsOptional()
   @IsInt()
   @Type(() => Number)
@@ -80,7 +80,7 @@ export class FilterEmailDto {
   @Max(100)
   limit?: number = 10;
 
-  
+
   @IsOptional()
   @IsString()
   sortBy?: string = 'id';

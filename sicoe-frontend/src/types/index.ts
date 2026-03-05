@@ -16,14 +16,12 @@ declare global {
   }
 }
 
-
 export type RBACGroup =
   | 'Administrador'
   | 'Auditor'
   | 'Gerente Regional'
   | 'Usuário'
   | 'Sem Acesso';
-
 
 export interface ApiResponse<T> {
   success: boolean;
@@ -32,7 +30,6 @@ export interface ApiResponse<T> {
   data: T;
   timestamp: string;
 }
-
 
 export interface PaginationParams {
   page?: number;
@@ -48,14 +45,12 @@ export interface PaginatedResponse<T> {
   limit: number;
 }
 
-
 export interface Group {
   id: number;
   nmGroup: string;
   tsCreation: string;
   tsUpdated: string;
 }
-
 
 export interface Establishment {
   id: number;
@@ -83,7 +78,6 @@ export interface State {
   sgState: string;
 }
 
-
 export interface User {
   id: number;
   numEmployee: string;
@@ -101,7 +95,6 @@ export interface User {
   establishments: Establishment[];
   fullName: string;
 }
-
 
 export interface LoginCredentials {
   username: string;
@@ -122,7 +115,6 @@ export interface AuthResponse {
   expires_in: number;
   user: User;
 }
-
 
 export interface AudAction {
   id: number;
@@ -149,7 +141,6 @@ export interface Audit {
   object: AudObject;
 }
 
-
 export interface Email {
   id: number;
   tpEmail: string;
@@ -163,19 +154,18 @@ export interface Email {
   tsCreation: string;
 }
 
-
 export interface FilterUserParams extends PaginationParams {
-  search?: string; 
+  search?: string;
   name?: string;
   login?: string;
   profile?: string;
-  profiles?: string; 
-  statuses?: string; 
-  emailStatuses?: string; 
-  startDate?: string; 
-  endDate?: string; 
-  expirationStartDate?: string; 
-  expirationEndDate?: string; 
+  profiles?: string;
+  statuses?: string;
+  emailStatuses?: string;
+  startDate?: string;
+  endDate?: string;
+  expirationStartDate?: string;
+  expirationEndDate?: string;
   establishmentId?: number;
 }
 
@@ -187,12 +177,12 @@ export interface FilterEstablishmentParams extends PaginationParams {
 }
 
 export interface FilterAuditParams extends PaginationParams {
-  search?: string; 
+  search?: string;
   login?: string;
   profile?: string;
-  profiles?: string; 
-  actions?: string; 
-  objects?: string; 
+  profiles?: string;
+  actions?: string;
+  objects?: string;
   actionId?: number;
   objectId?: number;
   userId?: number;
@@ -201,11 +191,11 @@ export interface FilterAuditParams extends PaginationParams {
 }
 
 export interface FilterEmailParams extends PaginationParams {
-  search?: string; 
+  search?: string;
   type?: string;
-  types?: string; 
-  subjects?: string; 
-  statuses?: string; 
+  types?: string;
+  subjects?: string;
+  statuses?: string;
   object?: string;
   destination?: string;
   sent?: boolean;

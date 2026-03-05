@@ -16,7 +16,7 @@
   background: var(--color-white);
   border-radius: var(--radius-lg);
   padding: var(--spacing-xxl);
-  max-width: 402px; 
+  max-width: 402px;
   width: 90%;
   max-height: 90vh;
   display: flex;
@@ -52,7 +52,7 @@
   color: var(--color-text-secondary);
   cursor: pointer;
   padding: 0;
-  width: 21px; 
+  width: 21px;
   height: 21px;
   display: flex;
   align-items: center;

@@ -12,22 +12,22 @@ export class Notification {
   id: number;
 
   @Column({ name: 'fk_user', type: 'int' })
-  fkUser: number; 
+  fkUser: number;
 
   @Column({ name: 'tp_notification', type: 'varchar', length: 50 })
-  tpNotification: string; 
+  tpNotification: string;
 
   @Column({ name: 'tx_title', type: 'varchar', length: 255 })
-  txTitle: string; 
+  txTitle: string;
 
   @Column({ name: 'tx_message', type: 'text' })
-  txMessage: string; 
+  txMessage: string;
 
   @Column({ name: 'flg_read', type: 'boolean', default: false })
-  flgRead: boolean; 
+  flgRead: boolean;
 
   @Column({ name: 'ts_read', type: 'timestamp', nullable: true })
-  tsRead: Date; 
+  tsRead: Date;
 
   @CreateDateColumn({ name: 'ts_creation', type: 'timestamp' })
   tsCreation: Date;

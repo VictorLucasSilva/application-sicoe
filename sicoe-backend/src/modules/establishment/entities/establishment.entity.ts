@@ -50,7 +50,7 @@ export class Establishment {
   @UpdateDateColumn({ name: 'ts_updated', type: 'timestamp' })
   tsUpdated: Date;
 
-  
+
   @ManyToMany(() => User, (user) => user.establishments)
   users: User[];
 

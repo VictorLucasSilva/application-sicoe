@@ -22,10 +22,10 @@ export class RstEstablishmentEmployee {
   fkEmployee: number;
 
   @Column({ name: 'dt_start', type: 'date', nullable: true })
-  dtStart: Date; 
+  dtStart: Date;
 
   @Column({ name: 'dt_end', type: 'date', nullable: true })
-  dtEnd: Date; 
+  dtEnd: Date;
 
   @Column({ name: 'flg_active', type: 'boolean', default: true })
   flgActive: boolean;
@@ -36,7 +36,7 @@ export class RstEstablishmentEmployee {
   @UpdateDateColumn({ name: 'ts_updated', type: 'timestamp' })
   tsUpdated: Date;
 
-  
+
   @ManyToOne(() => Establishment)
   @JoinColumn({ name: 'fk_establishment' })
   establishment: Establishment;

@@ -23,7 +23,7 @@ interface AuditFilterModalProps {
   onApply: (filters: AuditFilters) => void;
   onClear: () => void;
   initialFilters?: AuditFilters;
-  
+
   loginOptions?: AutocompleteOption[];
   profileOptions?: ButtonOption[];
   actionOptions?: ButtonOption[];
@@ -52,7 +52,7 @@ export default function AuditFilterModal({
 
   const debouncedLogin = useDebounce(login, 300);
 
-  
+
   useEffect(() => {
     if (initialFilters) {
       setLogin(initialFilters.login || '');
@@ -64,7 +64,7 @@ export default function AuditFilterModal({
     }
   }, [initialFilters]);
 
-  
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -77,7 +77,7 @@ export default function AuditFilterModal({
     };
   }, [isOpen]);
 
-  
+
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {

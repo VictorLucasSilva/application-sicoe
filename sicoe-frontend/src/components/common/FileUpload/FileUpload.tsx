@@ -2,8 +2,8 @@ import { useRef, useState } from 'react';
 import styles from './FileUpload.module.css';
 
 interface FileUploadProps {
-  accept: string; // 'application/pdf'
-  maxSize: number; // em bytes
+  accept: string;
+  maxSize: number;
   multiple?: boolean;
   files: File[];
   onFilesChange: (files: File[]) => void;
@@ -30,13 +30,13 @@ export default function FileUpload({
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const validateFile = (file: File): string | null => {
-    // Validar tipo
+
     const acceptedTypes = accept.split(',').map(t => t.trim());
     if (!acceptedTypes.includes(file.type)) {
       return 'Tipo de arquivo não permitido. Apenas PDF é aceito.';
     }
 
-    // Validar tamanho
+
     if (file.size > maxSize) {
       return `Arquivo excede o limite de ${formatFileSize(maxSize)}`;
     }
@@ -120,7 +120,7 @@ export default function FileUpload({
         </p>
       </div>
 
-      {/* Lista de arquivos */}
+      {}
       {files.length > 0 && (
         <div className={styles.filesList}>
           {files.map((file, idx) => (

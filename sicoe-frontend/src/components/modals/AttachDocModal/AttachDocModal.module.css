@@ -41,7 +41,6 @@
   border-top: 1px solid var(--color-divider);
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .row {
     grid-template-columns: 1fr;

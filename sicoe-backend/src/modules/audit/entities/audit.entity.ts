@@ -21,27 +21,27 @@ export class Audit {
   fkObject: number;
 
   @Column({ name: 'fk_user', type: 'int', nullable: true })
-  fkUser: number; 
+  fkUser: number;
 
   @Column({ name: 'tx_login', type: 'varchar', length: 256, nullable: true })
-  txLogin: string; 
+  txLogin: string;
 
   @Column({ name: 'tx_profile', type: 'varchar', length: 20, nullable: true })
-  txProfile: string; 
+  txProfile: string;
 
   @Column({ name: 'tx_description', type: 'text', nullable: true })
-  txDescription: string; 
+  txDescription: string;
 
   @Column({ name: 'tx_ip_address', type: 'varchar', length: 45, nullable: true })
-  txIpAddress: string; 
+  txIpAddress: string;
 
   @Column({ name: 'tx_user_agent', type: 'text', nullable: true })
-  txUserAgent: string; 
+  txUserAgent: string;
 
   @CreateDateColumn({ name: 'ts_creation', type: 'timestamp' })
-  tsCreation: Date; 
+  tsCreation: Date;
 
-  
+
   @ManyToOne(() => AudAction, (action) => action.audits)
   @JoinColumn({ name: 'fk_action' })
   action: AudAction;

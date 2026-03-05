@@ -16,7 +16,6 @@ import Button from '@/components/common/Button';
 import type { User } from '@/types';
 import styles from './TestModals.module.css';
 
-
 const mockGroupOptions: AutocompleteOption[] = [
   { value: 1, label: 'Administrador' },
   { value: 2, label: 'Auditor' },
@@ -78,29 +77,29 @@ const mockUsersPending: User[] = [
 ];
 
 export default function TestModals() {
-  
+
   const [showConfirm, setShowConfirm] = useState(false);
   const [confirmResult, setConfirmResult] = useState('');
 
-  
+
   const [showLoading, setShowLoading] = useState(false);
 
-  
+
   const [showFilter, setShowFilter] = useState(false);
 
-  
+
   const [showEditUser, setShowEditUser] = useState(false);
 
-  
+
   const [showEstablishment, setShowEstablishment] = useState(false);
 
-  
+
   const [showRelease, setShowRelease] = useState(false);
 
-  
+
   const [selectedDate, setSelectedDate] = useState('');
 
-  
+
   const [selectedGroup, setSelectedGroup] = useState<string | number>('');
   const [selectedGroups, setSelectedGroups] = useState<(string | number)[]>([]);
 

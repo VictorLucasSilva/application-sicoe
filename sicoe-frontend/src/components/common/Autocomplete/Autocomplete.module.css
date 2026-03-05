@@ -182,7 +182,6 @@
   margin-top: var(--spacing-xs);
 }
 
-
 .dropdown {
   position: absolute;
   top: calc(100% + var(--spacing-xs));
@@ -263,7 +262,6 @@
   flex: 1;
 }
 
-
 .dropdown::-webkit-scrollbar {
   width: 8px;
 }
@@ -281,7 +279,6 @@
 .dropdown::-webkit-scrollbar-thumb:hover {
   background: var(--color-text-tertiary);
 }
-
 
 @media (max-width: 768px) {
   .dropdown {

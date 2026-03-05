@@ -7,7 +7,7 @@ import { Repository } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
 
 export interface JwtPayload {
-  sub: number; 
+  sub: number;
   username: string;
   email: string;
 }
@@ -37,7 +37,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       throw new UnauthorizedException('Invalid token or user not found');
     }
 
-    
+
     return {
       userId: user.id,
       username: user.username,

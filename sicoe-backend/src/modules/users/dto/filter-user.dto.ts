@@ -6,24 +6,24 @@ export class FilterUserDto {
   @IsString()
   @Transform(({ value }) => {
     if (typeof value === 'string') {
-      
+
       return value.replace(/[<>'"`;()]/g, '').trim().substring(0, 100);
     }
     return value;
   })
-  search?: string; 
+  search?: string;
 
   @IsOptional()
   @IsString()
-  name?: string; 
+  name?: string;
 
   @IsOptional()
   @IsString()
-  login?: string; 
+  login?: string;
 
   @IsOptional()
   @IsString()
-  profile?: string; 
+  profile?: string;
 
   @IsOptional()
   @IsArray()
@@ -31,7 +31,7 @@ export class FilterUserDto {
     if (typeof value === 'string') return value.split(',').map(Number);
     return value;
   })
-  profiles?: number[]; 
+  profiles?: number[];
 
   @IsOptional()
   @IsArray()
@@ -39,7 +39,7 @@ export class FilterUserDto {
     if (typeof value === 'string') return value.split(',');
     return value;
   })
-  statuses?: string[]; 
+  statuses?: string[];
 
   @IsOptional()
   @IsArray()
@@ -47,38 +47,38 @@ export class FilterUserDto {
     if (typeof value === 'string') return value.split(',');
     return value;
   })
-  emailStatuses?: string[]; 
+  emailStatuses?: string[];
 
   @IsOptional()
   @IsDateString()
-  startDate?: string; 
+  startDate?: string;
 
   @IsOptional()
   @IsDateString()
-  endDate?: string; 
+  endDate?: string;
 
   @IsOptional()
   @IsDateString()
-  expirationStartDate?: string; 
+  expirationStartDate?: string;
 
   @IsOptional()
   @IsDateString()
-  expirationEndDate?: string; 
+  expirationEndDate?: string;
 
   @IsOptional()
   @IsInt()
   @Type(() => Number)
-  establishmentId?: number; 
+  establishmentId?: number;
 
   @IsOptional()
   @IsString()
-  region?: string; 
+  region?: string;
 
   @IsOptional()
   @IsString()
-  state?: string; 
+  state?: string;
 
-  
+
   @IsOptional()
   @IsInt()
   @Type(() => Number)
@@ -92,7 +92,7 @@ export class FilterUserDto {
   @Max(100)
   limit?: number = 10;
 
-  
+
   @IsOptional()
   @IsString()
   sortBy?: string = 'id';

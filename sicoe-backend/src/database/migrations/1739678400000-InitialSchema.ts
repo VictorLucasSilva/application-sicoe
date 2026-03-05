@@ -4,7 +4,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
   name = 'InitialSchema1739678400000';
 
   public async up(queryRunner: QueryRunner): Promise<void> {
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_group" (
         "id" SERIAL PRIMARY KEY,
@@ -14,7 +14,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_content_type" (
         "id" SERIAL PRIMARY KEY,
@@ -24,7 +24,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_permission" (
         "id" SERIAL PRIMARY KEY,
@@ -34,7 +34,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_estab_region" (
         "id" SERIAL PRIMARY KEY,
@@ -44,7 +44,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_estab_state" (
         "id" SERIAL PRIMARY KEY,
@@ -55,7 +55,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_estab_city" (
         "id" SERIAL PRIMARY KEY,
@@ -67,7 +67,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_estab_status_attachment" (
         "id" SERIAL PRIMARY KEY,
@@ -77,7 +77,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_estab_unit" (
         "id" SERIAL PRIMARY KEY,
@@ -88,7 +88,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_estab_document" (
         "id" SERIAL PRIMARY KEY,
@@ -99,7 +99,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_establishment" (
         "id" SERIAL PRIMARY KEY,
@@ -117,7 +117,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_estab_attachment" (
         "id" SERIAL PRIMARY KEY,
@@ -140,7 +140,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_user" (
         "id" SERIAL PRIMARY KEY,
@@ -159,7 +159,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_aud_action" (
         "id" SERIAL PRIMARY KEY,
@@ -169,7 +169,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_aud_object" (
         "id" SERIAL PRIMARY KEY,
@@ -179,7 +179,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_audit" (
         "id" SERIAL PRIMARY KEY,
@@ -197,7 +197,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_email" (
         "id" SERIAL PRIMARY KEY,
@@ -213,7 +213,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_notification" (
         "id" SERIAL PRIMARY KEY,
@@ -228,7 +228,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_ps_employee" (
         "id" SERIAL PRIMARY KEY,
@@ -241,7 +241,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_rst_establishment_employee" (
         "id" SERIAL PRIMARY KEY,
@@ -257,7 +257,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_aux_user_groups" (
         "fk_user" INTEGER NOT NULL,
@@ -270,7 +270,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_aux_group_permissions" (
         "fk_group" INTEGER NOT NULL,
@@ -285,7 +285,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_aux_establishment_user" (
         "fk_establishment" INTEGER NOT NULL,
@@ -298,7 +298,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_aux_establishment_unit" (
         "fk_establishment" INTEGER NOT NULL,
@@ -311,7 +311,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_aux_establishment_document" (
         "fk_establishment" INTEGER NOT NULL,
@@ -324,7 +324,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`
       CREATE TABLE "ssv_aux_region_uf" (
         "fk_state" INTEGER NOT NULL,
@@ -337,7 +337,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
       )
     `);
 
-    
+
     await queryRunner.query(`CREATE INDEX "IDX_user_username" ON "ssv_user"("username")`);
     await queryRunner.query(`CREATE INDEX "IDX_user_email" ON "ssv_user"("email")`);
     await queryRunner.query(`CREATE INDEX "IDX_audit_user" ON "ssv_audit"("fk_user")`);
@@ -346,14 +346,14 @@ export class InitialSchema1739678400000 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    
+
     await queryRunner.query(`DROP INDEX IF EXISTS "IDX_establishment_sq"`);
     await queryRunner.query(`DROP INDEX IF EXISTS "IDX_audit_creation"`);
     await queryRunner.query(`DROP INDEX IF EXISTS "IDX_audit_user"`);
     await queryRunner.query(`DROP INDEX IF EXISTS "IDX_user_email"`);
     await queryRunner.query(`DROP INDEX IF EXISTS "IDX_user_username"`);
 
-    
+
     await queryRunner.query(`DROP TABLE IF EXISTS "ssv_aux_region_uf"`);
     await queryRunner.query(`DROP TABLE IF EXISTS "ssv_aux_establishment_document"`);
     await queryRunner.query(`DROP TABLE IF EXISTS "ssv_aux_establishment_unit"`);
@@ -361,7 +361,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
     await queryRunner.query(`DROP TABLE IF EXISTS "ssv_aux_group_permissions"`);
     await queryRunner.query(`DROP TABLE IF EXISTS "ssv_aux_user_groups"`);
 
-    
+
     await queryRunner.query(`DROP TABLE IF EXISTS "ssv_rst_establishment_employee"`);
     await queryRunner.query(`DROP TABLE IF EXISTS "ssv_ps_employee"`);
     await queryRunner.query(`DROP TABLE IF EXISTS "ssv_notification"`);

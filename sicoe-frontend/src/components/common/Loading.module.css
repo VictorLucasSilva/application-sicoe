@@ -21,7 +21,6 @@
   gap: var(--spacing-xl);
 }
 
-
 .spinner {
   position: relative;
   display: flex;
@@ -44,7 +43,6 @@
   height: 8rem;
 }
 
-
 .spinnerRing {
   position: absolute;
   width: 100%;
@@ -60,7 +58,6 @@
     transform: rotate(360deg);
   }
 }
-
 
 .logoContainer {
   position: relative;
@@ -87,7 +84,6 @@
   font-size: var(--font-size-2xl);
 }
 
-
 .message {
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
@@ -96,8 +92,6 @@
   margin: 0;
   font-family: var(--font-family-primary);
 }
-
-
 
 @media (max-width: 768px) {
   .spinner.medium {

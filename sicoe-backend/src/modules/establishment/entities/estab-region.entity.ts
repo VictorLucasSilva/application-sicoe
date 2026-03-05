@@ -24,7 +24,7 @@ export class EstabRegion {
   @UpdateDateColumn({ name: 'ts_updated', type: 'timestamp' })
   tsUpdated: Date;
 
-  
+
   @OneToMany(() => Establishment, (establishment) => establishment.region)
   establishments: Establishment[];
 

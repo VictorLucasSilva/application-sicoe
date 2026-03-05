@@ -24,7 +24,7 @@ import { EstabRegion } from './entities/estab-region.entity';
         destination: (req, file, cb) => {
           const uploadPath = path.join(process.cwd(), 'media');
 
-          // Criar pasta se não existir
+
           if (!fs.existsSync(uploadPath)) {
             fs.mkdirSync(uploadPath, { recursive: true });
           }
@@ -32,13 +32,13 @@ import { EstabRegion } from './entities/estab-region.entity';
           cb(null, uploadPath);
         },
         filename: (req, file, cb) => {
-          // Formato: {timestamp}-{nome-original}.pdf
+
           const uniqueName = `${Date.now()}-${file.originalname}`;
           cb(null, uniqueName);
         },
       }),
       limits: {
-        fileSize: 10 * 1024 * 1024, // 10MB
+        fileSize: 10 * 1024 * 1024,
       },
       fileFilter: (req, file, cb) => {
         if (file.mimetype !== 'application/pdf') {

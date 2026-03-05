@@ -17,7 +17,7 @@ export class EstabUnit {
   nmUnit: string;
 
   @Column({ name: 'ds_unit', type: 'text', nullable: true })
-  dsUnit: string; 
+  dsUnit: string;
 
   @CreateDateColumn({ name: 'ts_creation', type: 'timestamp' })
   tsCreation: Date;
@@ -25,7 +25,7 @@ export class EstabUnit {
   @UpdateDateColumn({ name: 'ts_updated', type: 'timestamp' })
   tsUpdated: Date;
 
-  
+
   @ManyToMany(() => Establishment, (establishment) => establishment.units)
   establishments: Establishment[];
 }

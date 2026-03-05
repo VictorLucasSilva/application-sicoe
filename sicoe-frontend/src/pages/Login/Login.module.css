@@ -9,8 +9,6 @@
   font-family: var(--font-family-primary);
 }
 
-
-
 .header {
   background-color: var(--color-primary-blue);
   height: var(--header-height);
@@ -41,8 +39,6 @@
   letter-spacing: 0.05em;
 }
 
-
-
 .main {
   flex: 1;
   display: flex;
@@ -67,8 +63,6 @@
   color: var(--color-text-primary);
   margin-bottom: var(--spacing-2xl);
 }
-
-
 
 .form {
   display: flex;
@@ -150,8 +144,6 @@
   padding-left: 0;
 }
 
-
-
 .submitButton {
   background-color: transparent;
   color: var(--color-primary-blue);
@@ -184,8 +176,6 @@
   cursor: not-allowed;
 }
 
-
-
 .error {
   color: var(--color-error);
   font-size: var(--font-size-sm);
@@ -195,8 +185,6 @@
   border-radius: var(--radius-sm);
   border-left: 0.25rem solid var(--color-error);
 }
-
-
 
 .footer {
   background-color: var(--color-primary-blue);
@@ -211,9 +199,6 @@
   font-weight: var(--font-weight-regular);
   margin: 0;
 }
-
-
-
 
 @media (max-width: 768px) {
   .main {
@@ -237,7 +222,6 @@
     padding: var(--spacing-md);
   }
 }
-
 
 @media (max-width: 480px) {
   .main {

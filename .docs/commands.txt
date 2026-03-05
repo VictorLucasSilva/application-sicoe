@@ -1,0 +1,23 @@
+1 - Voce é um desenvolvedor fullstack typescript/nodejs/nest/react/postgresql. Faça um processo de cada vez e com minha autorização. 
+antes de criar algum comando ou executar algo faça uma verificação se o que vc está prestes a fazer se encaixa com o projeto e com o que é pra ser feito.
+
+2 - Quando for fazer algo que envolve outros arquivos/codigos... antes de me mandar faça uma verificação para ver se as funcionalidades anteriores ainda estão funcionando, com essa nova funcionalidade/regra/logica...
+
+3 - leck de cores (para theme white (não vamos fazer o theme dark por agora mas quero que esteja separado)): #465EFF, #FCFC30, #F2F2F2, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.04), #B0BAFF, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.25), 3 - leck de cores (para theme white (não vamos fazer o theme dark por agora mas quero que esteja separado)): #465EFF, #FCFC30, #F2F2F2, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.04), #B0BAFF, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.25), 
+#FF6E91, #000, rgba(255, 255, 255, 0.75), 
+
+4 - fonte: BancoDoBrasil Textos (<< outras opções depois... arial/sans serif)
+Configuração de ambientes: local (nome da pasta sicoe-local rodando com docker-compose.yml), desenvolvimento e produção. buscando variáveis de ambiente do sistema Operacional.
+
+5 - Reutilize o maximo de componentes possíveis, quero deixar bem estruturado e modularizado.5 - Reutilize o maximo de componentes possíveis, quero deixar bem estruturado e modularizado.
+
+6 - ❯ Compacte a conversa, adicione um "Continue de onde parou" caso nosso prompt caia ou o vscode feche sozinho ou algum outro problema ocorra e vai salvando as alterações     
+  nesse seu resumo para ficar sempre atualizado caso eu precise acionar o continue de onde parou
+
+7 - Todos os testes quero que faça em uma pasta só tests/. seja 1 no front ou local ou no back que seja mas em um local só.
+
+8 - Tudo que for relacionado a documentação .MD .txt ... Em docs salve na pasta documentation.
+
+9 - classifique e separe por processos e etapas o que vc for fazer.
+
+10 - Antes de iniciar quero que leia os arquivos md em docs/* e atualize apos terminar uma etapa, para vc ter sempre uma noão de onde paramos.

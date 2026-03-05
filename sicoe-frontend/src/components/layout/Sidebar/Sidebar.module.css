@@ -1,23 +1,23 @@
-/* Sidebar - Estado colapsado por padrão, expande ao hover */
+
 
 .sidebar {
-  position: static; /* Estático - faz parte do fluxo da página */
-  width: 3.75rem; /* 60px colapsado */
-  background: var(--color-white); /* BRANCO */
+  position: static;
+  width: 3.75rem;
+  background: var(--color-white);
   border-right: 1px solid var(--color-divider);
   transition: width 300ms ease-in-out;
   overflow: hidden;
-  flex-shrink: 0; /* Não encolhe */
+  flex-shrink: 0;
 }
 
 .sidebar:hover {
-  width: 15rem; /* 240px expandido */
+  width: 15rem;
 }
 
 .nav {
   display: flex;
   flex-direction: column;
-  padding: var(--spacing-sm) 0; /* Reduzido espaçamento no topo */
+  padding: var(--spacing-sm) 0;
   height: 100%;
 }
 
@@ -44,8 +44,8 @@
 }
 
 .item.active {
-  background: #F5F5F5; /* CINZA - mesmo tom da página */
-  color: var(--color-primary-blue); /* AZUL quando ativo */
+  background: #F5F5F5;
+  color: var(--color-primary-blue);
 }
 
 .item.disabled {
@@ -58,7 +58,7 @@
 }
 
 .item.inactive {
-  color: #000; /* PRETO para items inativos */
+  color: #000;
   cursor: default;
 }
 
@@ -70,7 +70,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1rem; /* Reduzido de 1.5rem */
+  width: 1rem;
   height: 1rem;
   flex-shrink: 0;
 }
@@ -91,7 +91,6 @@
   opacity: 1;
 }
 
-/* Responsividade - Esconder em mobile */
 @media (max-width: 768px) {
   .sidebar {
     display: none;

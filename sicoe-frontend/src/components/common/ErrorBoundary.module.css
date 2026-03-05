@@ -103,7 +103,6 @@
   background-color: var(--color-divider);
 }
 
-
 @media (max-width: 480px) {
   .errorCard {
     padding: var(--spacing-2xl) var(--spacing-lg);

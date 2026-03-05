@@ -76,7 +76,6 @@
   font-weight: var(--font-weight-medium);
 }
 
-
 @media (max-width: 768px) {
   .container {
     padding: var(--spacing-lg);

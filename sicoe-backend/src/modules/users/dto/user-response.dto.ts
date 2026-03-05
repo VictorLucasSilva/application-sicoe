@@ -29,7 +29,7 @@ export class UserResponseDto {
   @Expose()
   username: string;
 
-  @Exclude() 
+  @Exclude()
   password: string;
 
   @Expose()
@@ -72,7 +72,7 @@ export class UserResponseDto {
 
   constructor(partial: Partial<UserResponseDto>) {
     Object.assign(this, partial);
-    
+
     this.fullName = `${this.firstName} ${this.lastName}`;
   }
 }

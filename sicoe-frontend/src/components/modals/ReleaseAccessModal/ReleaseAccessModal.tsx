@@ -14,8 +14,8 @@ interface ReleaseAccessModalProps {
   onClose: () => void;
   onSuccess: () => void;
   onRequestSave?: (saveFunction: () => Promise<void>) => void;
-  usersPendingAccess: User[]; 
-  groupOptions: AutocompleteOption[]; 
+  usersPendingAccess: User[];
+  groupOptions: AutocompleteOption[];
   loadingUsers?: boolean;
 }
 
@@ -37,13 +37,13 @@ export default function ReleaseAccessModal({
 
   const selectedUser = usersPendingAccess.find(u => u.id === Number(selectedUserId));
 
-  
+
   const userOptions: AutocompleteOption[] = usersPendingAccess.map(user => ({
     value: user.id,
     label: `${user.fullName} (${user.username})`
   }));
 
-  
+
   useEffect(() => {
     if (!isOpen) {
       setSelectedUserId('');
@@ -58,7 +58,7 @@ export default function ReleaseAccessModal({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    
+
     if (!selectedUserId) {
       setError('Selecione um usuário');
       return;
@@ -69,32 +69,32 @@ export default function ReleaseAccessModal({
       return;
     }
 
-    
+
     if (onRequestSave) {
       onRequestSave(async () => {
         const userId = Number(selectedUserId);
         const groupId = Number(selectedGroupId);
 
-        
+
         const user = usersPendingAccess.find(u => u.id === userId);
         const currentGroupId = user?.groups?.[0]?.id;
 
-        
+
         if (currentGroupId) {
           await usersService.removeGroup(userId, currentGroupId);
         }
 
-        
+
         await usersService.addGroup(userId, groupId);
 
-        
+
         await usersService.updateUser(userId, {
           dtExpiration: expirationDate || undefined,
           flgActive: userStatus.includes('active'),
           flgStatusEmail: emailStatus.includes('enabled')
         });
 
-        
+
         onClose();
         onSuccess();
       });

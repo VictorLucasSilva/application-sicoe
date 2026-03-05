@@ -1,7 +1,6 @@
 import { DataSource } from 'typeorm';
 import { config } from 'dotenv';
 
-// Carregar variáveis de ambiente
 config();
 
 export const AppDataSource = new DataSource({
@@ -13,6 +12,9 @@ export const AppDataSource = new DataSource({
   database: process.env.DB_DATABASE || 'sicoe',
   entities: [__dirname + '/**/*.entity{.ts,.js}'],
   migrations: [__dirname + '/database/migrations/**/*{.ts,.js}'],
-  synchronize: false, // Sempre false em produção
+  synchronize: false,
   logging: process.env.NODE_ENV === 'local',
+  ssl: process.env.DB_SSL === 'true' ? {
+    rejectUnauthorized: process.env.DB_SSL_REJECT_UNAUTHORIZED === 'true',
+  } : false,
 });

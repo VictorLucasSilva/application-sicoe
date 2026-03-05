@@ -14,7 +14,7 @@
 
 .imageContainer {
   width: 100%;
-  height: 10rem; /* 150px → 100px (33% redução) */
+  height: 10rem;
   overflow: hidden;
   background: var(--color-background-light);
   display: flex;
@@ -43,8 +43,8 @@
 }
 
 .content {
-  padding: var(--spacing-2xl); /* Mais espaço sem imagem */
-  min-height: 8rem; /* Altura mínima para cards uniformes */
+  padding: var(--spacing-2xl);
+  min-height: 8rem;
 }
 
 .title {

@@ -14,7 +14,7 @@ export class AudAction {
   id: number;
 
   @Column({ name: 'nm_action', type: 'varchar', length: 50, unique: true })
-  nmAction: string; 
+  nmAction: string;
 
   @CreateDateColumn({ name: 'ts_creation', type: 'timestamp' })
   tsCreation: Date;
@@ -22,7 +22,7 @@ export class AudAction {
   @UpdateDateColumn({ name: 'ts_updated', type: 'timestamp' })
   tsUpdated: Date;
 
-  
+
   @OneToMany(() => Audit, (audit) => audit.action)
   audits: Audit[];
 }

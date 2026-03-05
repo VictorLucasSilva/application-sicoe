@@ -69,7 +69,6 @@
   margin-top: var(--spacing-xs);
 }
 
-
 @media (max-width: 768px) {
   .optionsGrid {
     gap: var(--spacing-xs);

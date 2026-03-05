@@ -6,19 +6,19 @@ services:
     container_name: sicoe-postgres
     restart: unless-stopped
     environment:
-      POSTGRES_USER: ${DB_USERNAME:-sicoe_user}
-      POSTGRES_PASSWORD: ${DB_PASSWORD:-sicoe_password}
-      POSTGRES_DB: ${DB_DATABASE:-sicoe_db}
+      POSTGRES_USER: sicoe_user
+      POSTGRES_PASSWORD: sicoe_password
+      POSTGRES_DB: sicoe_db
       PGDATA: /var/lib/postgresql/data/pgdata
     ports:
-      - "${DB_PORT:-5432}:5432"
+      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     networks:
       - sicoe-network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME:-sicoe_user} -d ${DB_DATABASE:-sicoe_db}"]
+      test: ["CMD-SHELL", "pg_isready -U sicoe_user -d sicoe_db"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -32,30 +32,42 @@ services:
     restart: unless-stopped
     environment:
       NODE_ENV: ${NODE_ENV:-local}
-      PORT: ${BACKEND_PORT:-3000}
+      PORT: 3000
+      APP_NAME: SICOE Backend
+
       DB_TYPE: postgres
-      DB_HOST: ${DB_HOST:-postgres}
-      DB_PORT: 5432
-      DB_USERNAME: ${DB_USERNAME:-sicoe_user}
-      DB_PASSWORD: ${DB_PASSWORD:-sicoe_password}
-      DB_DATABASE: ${DB_DATABASE:-sicoe_db}
-      DB_SYNCHRONIZE: ${DB_SYNCHRONIZE:-true}
+      DB_HOST: ${DB_HOST:-<azure-postgres-host>.postgres.database.azure.com}
+      DB_PORT: ${DB_PORT:-5432}
+      DB_USERNAME: ${DB_USERNAME:-sicoe_dev_user}
+      DB_PASSWORD: ${DB_PASSWORD:-change-password}
+      DB_DATABASE: ${DB_DATABASE:-sicoe_dev_db}
+      DB_SYNCHRONIZE: false
       DB_LOGGING: ${DB_LOGGING:-true}
-      JWT_SECRET: ${JWT_SECRET:-your-jwt-secret-change-this}
-      JWT_EXPIRATION: ${JWT_EXPIRATION:-1h}
-      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:5173}
-      CORS_CREDENTIALS: ${CORS_CREDENTIALS:-true}
-      THROTTLE_TTL: ${THROTTLE_TTL:-60}
-      THROTTLE_LIMIT: ${THROTTLE_LIMIT:-10}
-      AZURE_AD_CLIENT_ID: ${AZURE_AD_CLIENT_ID:-}
+      DB_SSL: ${DB_SSL:-true}
+      DB_SSL_REJECT_UNAUTHORIZED: ${DB_SSL_REJECT_UNAUTHORIZED:-true}
+
+      JWT_SECRET: ${JWT_SECRET:-sicoe-jwt-secret-key-development-2024}
+      JWT_EXPIRATION: 1h
+      JWT_REFRESH_EXPIRATION: 7d
+
       AZURE_AD_TENANT_ID: ${AZURE_AD_TENANT_ID:-}
+      AZURE_AD_CLIENT_ID: ${AZURE_AD_CLIENT_ID:-}
       AZURE_AD_CLIENT_SECRET: ${AZURE_AD_CLIENT_SECRET:-}
-      AZURE_AD_REDIRECT_URI: ${AZURE_AD_REDIRECT_URI:-http://localhost:5173/auth/callback}
+      AZURE_AD_REDIRECT_URI: ${AZURE_AD_REDIRECT_URI:-http://localhost:3000/auth/callback}
+
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:5173}
+      CORS_CREDENTIALS: true
+
+      THROTTLE_TTL: 60
+      THROTTLE_LIMIT: 10
+
+      AZURE_STORAGE_CONNECTION_STRING: ${AZURE_STORAGE_CONNECTION_STRING:-}
+      AZURE_STORAGE_MEDIA_CONTAINER: ${AZURE_STORAGE_MEDIA_CONTAINER:-media}
+      AZURE_STORAGE_GENERIC_CONTAINER: ${AZURE_STORAGE_GENERIC_CONTAINER:-storage}
+
+      GITHUB_REPOSITORY: ${GITHUB_REPOSITORY:-}
     ports:
-      - "${BACKEND_PORT:-3000}:3000"
-    depends_on:
-      postgres:
-        condition: service_healthy
+      - "3000:3000"
     networks:
       - sicoe-network
     healthcheck:
@@ -73,14 +85,15 @@ services:
       context: ../sicoe-frontend
       dockerfile: Dockerfile
       args:
-        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:3000/api/v1}
-        VITE_ENV: ${NODE_ENV:-local}
+        VITE_API_BASE_URL: http://localhost:3000/api/v1
+        VITE_ENV: development
     container_name: sicoe-frontend
     restart: unless-stopped
     environment:
-      NODE_ENV: ${NODE_ENV:-local}
+      NODE_ENV: development
+      VITE_APP_NAME: SICOE - Desenvolvimento
     ports:
-      - "${FRONTEND_PORT:-5173}:80"
+      - "5173:80"
     depends_on:
       backend:
         condition: service_healthy

@@ -13,33 +13,32 @@ export interface ValidationErrors {
   [key: string]: string;
 }
 
-
 export function validateField(value: any, rules: ValidationRule[]): string | null {
   for (const rule of rules) {
-    
+
     if (rule.required && (!value || value.toString().trim() === '')) {
       return rule.message;
     }
 
-    
+
     if (!value) continue;
 
-    
+
     if (rule.minLength && value.toString().length < rule.minLength) {
       return rule.message;
     }
 
-    
+
     if (rule.maxLength && value.toString().length > rule.maxLength) {
       return rule.message;
     }
 
-    
+
     if (rule.pattern && !rule.pattern.test(value.toString())) {
       return rule.message;
     }
 
-    
+
     if (rule.custom && !rule.custom(value)) {
       return rule.message;
     }
@@ -47,7 +46,6 @@ export function validateField(value: any, rules: ValidationRule[]): string | nul
 
   return null;
 }
-
 
 export function validateForm(
   values: Record<string, any>,
@@ -64,7 +62,6 @@ export function validateForm(
 
   return errors;
 }
-
 
 export const commonValidations = {
   required: (message = 'Campo obrigatório'): ValidationRule => ({
@@ -125,7 +122,6 @@ export const commonValidations = {
   }),
 };
 
-
 export function useFormValidation(
   initialValues: Record<string, any>,
   validationRules: Record<string, ValidationRule[]>
@@ -137,7 +133,7 @@ export function useFormValidation(
   const handleChange = (name: string, value: any) => {
     setValues((prev) => ({ ...prev, [name]: value }));
 
-    
+
     if (touched[name]) {
       const error = validateField(value, validationRules[name] || []);
       setErrors((prev) => ({
@@ -150,7 +146,7 @@ export function useFormValidation(
   const handleBlur = (name: string) => {
     setTouched((prev) => ({ ...prev, [name]: true }));
 
-    
+
     const error = validateField(values[name], validationRules[name] || []);
     setErrors((prev) => ({
       ...prev,
@@ -181,6 +177,5 @@ export function useFormValidation(
     setValues,
   };
 }
-
 
 import { useState } from 'react';

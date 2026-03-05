@@ -40,32 +40,32 @@ export interface UserFilters {
 }
 
 export const userService = {
-  
+
   async getUsers(filters?: UserFilters): Promise<ApiResponse<User[]>> {
     return api.get('/users', { params: filters });
   },
 
-  
+
   async getUserById(id: number): Promise<User> {
     return api.get(`/users/${id}`);
   },
 
-  
+
   async createUser(data: CreateUserDto): Promise<User> {
     return api.post('/users', data);
   },
 
-  
+
   async updateUser(id: number, data: UpdateUserDto): Promise<User> {
     return api.patch(`/users/${id}`, data);
   },
 
-  
+
   async deleteUser(id: number): Promise<void> {
     return api.delete(`/users/${id}`);
   },
 
-  
+
   async addEstablishments(
     userId: number,
     establishmentIds: number[]
@@ -75,7 +75,7 @@ export const userService = {
     });
   },
 
-  
+
   async removeEstablishments(
     userId: number,
     establishmentIds: number[]
@@ -85,7 +85,7 @@ export const userService = {
     });
   },
 
-  
+
   async toggleUserStatus(id: number, active: boolean): Promise<User> {
     return api.patch(`/users/${id}`, { flg_active: active });
   },

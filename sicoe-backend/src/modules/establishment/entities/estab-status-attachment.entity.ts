@@ -22,7 +22,7 @@ export class EstabStatusAttachment {
   @UpdateDateColumn({ name: 'ts_updated', type: 'timestamp' })
   tsUpdated: Date;
 
-  
+
   @OneToMany(() => EstabAttachment, (attachment) => attachment.status)
   attachments: EstabAttachment[];
 }

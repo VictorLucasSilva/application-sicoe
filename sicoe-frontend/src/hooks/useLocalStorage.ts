@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 
 export function useLocalStorage<T>(key: string, initialValue: T) {
-  
+
   const [storedValue, setStoredValue] = useState<T>(() => {
     try {
       const item = window.localStorage.getItem(key);
@@ -14,11 +14,11 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
     }
   });
 
-  
+
   const setValue = useCallback(
     (value: T | ((val: T) => T)) => {
       try {
-        
+
         const valueToStore = value instanceof Function ? value(storedValue) : value;
 
         setStoredValue(valueToStore);
@@ -30,7 +30,7 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
     [key, storedValue]
   );
 
-  
+
   const remove = useCallback(() => {
     try {
       window.localStorage.removeItem(key);
@@ -40,7 +40,7 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
     }
   }, [key, initialValue]);
 
-  
+
   useEffect(() => {
     const handleStorageChange = (e: StorageEvent) => {
       if (e.key === key && e.newValue !== null) {

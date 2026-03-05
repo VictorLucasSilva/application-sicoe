@@ -6,7 +6,6 @@ export interface ApiError {
   errors?: Record<string, string[]>;
 }
 
-
 export function getErrorMessage(error: unknown): string {
   if (typeof error === 'string') {
     return error;
@@ -24,7 +23,6 @@ export function getErrorMessage(error: unknown): string {
 
   return 'Ocorreu um erro inesperado';
 }
-
 
 export async function handleApiError(response: Response): Promise<ApiError> {
   let errorData: any;
@@ -44,7 +42,6 @@ export async function handleApiError(response: Response): Promise<ApiError> {
   return error;
 }
 
-
 export const errorMessages: Record<number, string> = {
   400: 'Dados inválidos. Verifique as informações e tente novamente.',
   401: 'Não autorizado. Faça login novamente.',
@@ -58,7 +55,6 @@ export const errorMessages: Record<number, string> = {
   503: 'Serviço em manutenção. Tente novamente mais tarde.',
 };
 
-
 export function getFriendlyErrorMessage(statusCode?: number, defaultMessage?: string): string {
   if (statusCode && errorMessages[statusCode]) {
     return errorMessages[statusCode];
@@ -66,16 +62,13 @@ export function getFriendlyErrorMessage(statusCode?: number, defaultMessage?: st
   return defaultMessage || 'Ocorreu um erro inesperado';
 }
 
-
 export function isAuthError(error: ApiError): boolean {
   return error.statusCode === 401 || error.statusCode === 403;
 }
 
-
 export function isValidationError(error: ApiError): boolean {
   return error.statusCode === 400 || error.statusCode === 422;
 }
-
 
 export function formatValidationErrors(errors?: Record<string, string[]>): string {
   if (!errors) return '';
@@ -85,12 +78,11 @@ export function formatValidationErrors(errors?: Record<string, string[]>): strin
     .join('\n');
 }
 
-
 export function logError(error: unknown, context?: string): void {
   console.error(`[${context || 'Error'}]`, error);
 
-  
-  
-  
-  
+
+
+
+
 }

@@ -5,20 +5,24 @@ import { BlobServiceClient, ContainerClient, BlockBlobClient } from '@azure/stor
 @Injectable()
 export class StorageService {
   private blobServiceClient: BlobServiceClient;
-  private containerClient: ContainerClient;
-  private containerName: string;
+  private mediaContainer: string;
+  private genericContainer: string;
 
   constructor(private configService: ConfigService) {
     const connectionString = this.configService.get<string>('AZURE_STORAGE_CONNECTION_STRING');
-    this.containerName = this.configService.get<string>('AZURE_STORAGE_CONTAINER_NAME', 'media');
+    this.mediaContainer = this.configService.get<string>('AZURE_STORAGE_MEDIA_CONTAINER', 'media');
+    this.genericContainer = this.configService.get<string>('AZURE_STORAGE_GENERIC_CONTAINER', 'storage');
 
     if (connectionString) {
       this.blobServiceClient = BlobServiceClient.fromConnectionString(connectionString);
-      this.containerClient = this.blobServiceClient.getContainerClient(this.containerName);
     }
   }
 
-  
+  private getContainerClient(containerName?: string): ContainerClient {
+    const container = containerName || this.mediaContainer;
+    return this.blobServiceClient.getContainerClient(container);
+  }
+
   async testConnection(): Promise<{ success: boolean; message: string }> {
     try {
       if (!this.blobServiceClient) {
@@ -28,21 +32,31 @@ export class StorageService {
         };
       }
 
-      
-      const exists = await this.containerClient.exists();
+      const mediaContainerClient = this.getContainerClient(this.mediaContainer);
+      const genericContainerClient = this.getContainerClient(this.genericContainer);
 
-      if (!exists) {
-        
-        await this.containerClient.create();
-        return {
-          success: true,
-          message: `Container '${this.containerName}' created successfully`,
-        };
+      const mediaExists = await mediaContainerClient.exists();
+      const genericExists = await genericContainerClient.exists();
+
+      const messages: string[] = [];
+
+      if (!mediaExists) {
+        await mediaContainerClient.create();
+        messages.push(`Container 'media' (PDFs) created`);
+      } else {
+        messages.push(`Container 'media' (PDFs) exists`);
+      }
+
+      if (!genericExists) {
+        await genericContainerClient.create();
+        messages.push(`Container 'storage' (generic) created`);
+      } else {
+        messages.push(`Container 'storage' (generic) exists`);
       }
 
       return {
         success: true,
-        message: `Connected to Azure Blob Storage. Container '${this.containerName}' exists`,
+        message: `Connected to Azure Blob Storage. ${messages.join(', ')}`,
       };
     } catch (error) {
       return {
@@ -52,14 +66,15 @@ export class StorageService {
     }
   }
 
-  
   async uploadFile(
     fileName: string,
     fileBuffer: Buffer,
     contentType: string = 'application/octet-stream',
+    containerName?: string,
   ): Promise<string> {
     try {
-      const blobClient: BlockBlobClient = this.containerClient.getBlockBlobClient(fileName);
+      const containerClient = this.getContainerClient(containerName);
+      const blobClient: BlockBlobClient = containerClient.getBlockBlobClient(fileName);
 
       await blobClient.uploadData(fileBuffer, {
         blobHTTPHeaders: {
@@ -73,10 +88,10 @@ export class StorageService {
     }
   }
 
-  
-  async downloadFile(fileName: string): Promise<Buffer> {
+  async downloadFile(fileName: string, containerName?: string): Promise<Buffer> {
     try {
-      const blobClient: BlockBlobClient = this.containerClient.getBlockBlobClient(fileName);
+      const containerClient = this.getContainerClient(containerName);
+      const blobClient: BlockBlobClient = containerClient.getBlockBlobClient(fileName);
       const downloadResponse = await blobClient.download();
 
       if (!downloadResponse.readableStreamBody) {
@@ -89,22 +104,22 @@ export class StorageService {
     }
   }
 
-  
-  async deleteFile(fileName: string): Promise<void> {
+  async deleteFile(fileName: string, containerName?: string): Promise<void> {
     try {
-      const blobClient: BlockBlobClient = this.containerClient.getBlockBlobClient(fileName);
+      const containerClient = this.getContainerClient(containerName);
+      const blobClient: BlockBlobClient = containerClient.getBlockBlobClient(fileName);
       await blobClient.delete();
     } catch (error) {
       throw new Error(`Failed to delete file: ${error.message}`);
     }
   }
 
-  
-  async listFiles(): Promise<string[]> {
+  async listFiles(containerName?: string): Promise<string[]> {
     try {
+      const containerClient = this.getContainerClient(containerName);
       const files: string[] = [];
 
-      for await (const blob of this.containerClient.listBlobsFlat()) {
+      for await (const blob of containerClient.listBlobsFlat()) {
         files.push(blob.name);
       }
 
@@ -114,7 +129,7 @@ export class StorageService {
     }
   }
 
-  
+
   private async streamToBuffer(readableStream: NodeJS.ReadableStream): Promise<Buffer> {
     return new Promise((resolve, reject) => {
       const chunks: Buffer[] = [];

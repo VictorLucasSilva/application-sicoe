@@ -13,7 +13,7 @@ export class EmailService {
     private readonly emailRepository: Repository<Email>,
   ) {}
 
-  
+
   async findAll(filterDto: FilterEmailDto): Promise<{
     data: Email[];
     total: number;
@@ -40,7 +40,7 @@ export class EmailService {
 
     const query = this.emailRepository.createQueryBuilder('email');
 
-    
+
     if (search) {
       query.andWhere(
         new Brackets((qb) => {
@@ -61,12 +61,12 @@ export class EmailService {
       );
     }
 
-    
+
     if (type) {
       query.andWhere('email.tpEmail ILIKE :type', { type: `%${type}%` });
     }
 
-    
+
     if (types && types.length > 0) {
       query.andWhere('email.tpEmail IN (:...types)', { types });
     }
@@ -79,7 +79,7 @@ export class EmailService {
       query.andWhere('email.txSubject ILIKE :subject', { subject: `%${subject}%` });
     }
 
-    
+
     if (subjects && subjects.length > 0) {
       query.andWhere('email.txSubject IN (:...subjects)', { subjects });
     }
@@ -94,7 +94,7 @@ export class EmailService {
       query.andWhere('email.flgSent = :sent', { sent });
     }
 
-    
+
     if (statuses && statuses.length > 0) {
       const statusConditions = statuses.map(status => {
         if (status === 'sent') return 'email.flgSent = true';
@@ -120,10 +120,10 @@ export class EmailService {
       });
     }
 
-    
+
     query.orderBy(`email.${sortBy}`, sortOrder);
 
-    
+
     const skip = (page - 1) * limit;
     query.skip(skip).take(limit);
 
@@ -137,13 +137,13 @@ export class EmailService {
     };
   }
 
-  
+
   async create(createEmailDto: CreateEmailDto): Promise<Email> {
     const newEmail = this.emailRepository.create(createEmailDto);
     return this.emailRepository.save(newEmail);
   }
 
-  
+
   async findAllTypes(): Promise<string[]> {
     const result = await this.emailRepository
       .createQueryBuilder('email')
@@ -154,7 +154,7 @@ export class EmailService {
     return result.map(r => r.type).filter(Boolean);
   }
 
-  
+
   async findAllSubjects(): Promise<string[]> {
     const result = await this.emailRepository
       .createQueryBuilder('email')
@@ -165,7 +165,7 @@ export class EmailService {
     return result.map(r => r.subject).filter(Boolean);
   }
 
-  
+
   async findAllDestinations(): Promise<string[]> {
     const result = await this.emailRepository
       .createQueryBuilder('email')

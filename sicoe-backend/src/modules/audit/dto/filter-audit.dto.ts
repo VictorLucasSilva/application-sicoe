@@ -6,20 +6,20 @@ export class FilterAuditDto {
   @IsString()
   @Transform(({ value }) => {
     if (typeof value === 'string') {
-      
+
       return value.replace(/[<>'"`;()]/g, '').trim().substring(0, 100);
     }
     return value;
   })
-  search?: string; 
+  search?: string;
 
   @IsOptional()
   @IsString()
-  login?: string; 
+  login?: string;
 
   @IsOptional()
   @IsString()
-  profile?: string; 
+  profile?: string;
 
   @IsOptional()
   @IsArray()
@@ -27,12 +27,12 @@ export class FilterAuditDto {
     if (typeof value === 'string') return value.split(',').map(Number);
     return value;
   })
-  profiles?: number[]; 
+  profiles?: number[];
 
   @IsOptional()
   @IsInt()
   @Type(() => Number)
-  actionId?: number; 
+  actionId?: number;
 
   @IsOptional()
   @IsArray()
@@ -40,12 +40,12 @@ export class FilterAuditDto {
     if (typeof value === 'string') return value.split(',');
     return value;
   })
-  actions?: string[]; 
+  actions?: string[];
 
   @IsOptional()
   @IsInt()
   @Type(() => Number)
-  objectId?: number; 
+  objectId?: number;
 
   @IsOptional()
   @IsArray()
@@ -53,22 +53,22 @@ export class FilterAuditDto {
     if (typeof value === 'string') return value.split(',');
     return value;
   })
-  objects?: string[]; 
+  objects?: string[];
 
   @IsOptional()
   @IsInt()
   @Type(() => Number)
-  userId?: number; 
+  userId?: number;
 
   @IsOptional()
   @IsDateString()
-  startDate?: string; 
+  startDate?: string;
 
   @IsOptional()
   @IsDateString()
-  endDate?: string; 
+  endDate?: string;
 
-  
+
   @IsOptional()
   @IsInt()
   @Type(() => Number)
@@ -82,7 +82,7 @@ export class FilterAuditDto {
   @Max(100)
   limit?: number = 10;
 
-  
+
   @IsOptional()
   @IsString()
   sortBy?: string = 'id';

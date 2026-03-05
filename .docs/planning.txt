@@ -1,0 +1,7 @@
+Processo 1 
+            - Leia e entenda meu projeto, o que ele faz e como faz.
+            - Ajuste o .gitignore do backend e frontend para enviar pro git só o que é necessário. (outro repositório, quero apenas que ajuste o .gitignore n faça conexçoes com o git dessas pastas elas vão pra outro repositório)
+            - faça uma liste com as variaveis de ambiente de desenvolvimento, todas as variaveis. (quero apenas a lista e nada mais)
+            - Verifique se as configurações de conexão com o storage azure e db postgresql azure estão corretas
+            - no meu ambiente local "sicoe-local/docker-compose.yml" ajuste para usar o db(postgresql) e blob storage ambos azure.  
+            - faça teste de integração e outros teste necessários

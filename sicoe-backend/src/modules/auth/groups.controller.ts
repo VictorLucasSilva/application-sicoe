@@ -10,7 +10,7 @@ export class GroupsController {
     private readonly groupRepository: Repository<Group>,
   ) {}
 
-  
+
   @Get()
   async findAll(): Promise<Group[]> {
     return this.groupRepository.find({

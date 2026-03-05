@@ -18,7 +18,7 @@ export function useAsync<T>(
     error: null,
   });
 
-  
+
   const isMountedRef = useRef(true);
 
   useEffect(() => {

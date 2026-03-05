@@ -2,11 +2,9 @@ import { afterEach, vi } from 'vitest';
 import { cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/vitest';
 
-
 afterEach(() => {
   cleanup();
 });
-
 
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
@@ -21,7 +19,6 @@ Object.defineProperty(window, 'matchMedia', {
     dispatchEvent: vi.fn(),
   })),
 });
-
 
 const localStorageMock = {
   getItem: vi.fn(),

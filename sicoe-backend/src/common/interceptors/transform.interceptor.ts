@@ -38,7 +38,7 @@ export class TransformInterceptor<T>
     );
   }
 
-  
+
   private getMessage(method: string, statusCode: number): string {
     if (statusCode >= 200 && statusCode < 300) {
       const messages: Record<string, string> = {

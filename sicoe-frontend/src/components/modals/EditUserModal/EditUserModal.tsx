@@ -32,10 +32,10 @@ export default function EditUserModal({
   const [userStatus, setUserStatus] = useState<(string | number)[]>([]);
   const [error, setError] = useState<string>('');
 
-  
+
   useEffect(() => {
     if (user && isOpen) {
-      
+
       const currentGroup = user.groups?.[0];
       setSelectedGroupId(currentGroup?.id || '');
       setExpirationDate(user.dtExpiration || '');
@@ -45,7 +45,7 @@ export default function EditUserModal({
     }
   }, [user, isOpen]);
 
-  
+
   useEffect(() => {
     if (!isOpen) {
       setSelectedGroupId('');
@@ -61,37 +61,37 @@ export default function EditUserModal({
 
     if (!user) return;
 
-    
+
     if (!selectedGroupId) {
       setError('Perfil é obrigatório');
       return;
     }
 
-    
+
     if (onRequestSave) {
       onRequestSave(async () => {
         if (!user) throw new Error('Usuário não encontrado');
 
-        
+
         await usersService.updateUser(user.id, {
           dtExpiration: expirationDate || undefined,
           flgStatusEmail: emailStatus.includes('enabled'),
           flgActive: userStatus.includes('active')
         });
 
-        
+
         const currentGroupId = user.groups?.[0]?.id;
         if (currentGroupId && currentGroupId !== selectedGroupId) {
-          
+
           await usersService.removeGroup(user.id, currentGroupId);
-          
+
           await usersService.addGroup(user.id, Number(selectedGroupId));
         } else if (!currentGroupId && selectedGroupId) {
-          
+
           await usersService.addGroup(user.id, Number(selectedGroupId));
         }
 
-        
+
         onClose();
         onSuccess();
       });

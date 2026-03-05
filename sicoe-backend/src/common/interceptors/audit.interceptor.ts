@@ -28,7 +28,7 @@ export class AuditInterceptor implements NestInterceptor {
     this.loadMappings();
   }
 
-  
+
   private async loadMappings(): Promise<void> {
     try {
       const actions = await this.audActionRepository.find();
@@ -50,12 +50,12 @@ export class AuditInterceptor implements NestInterceptor {
     const request = context.switchToHttp().getRequest();
     const { method, url, user, ip, headers } = request;
 
-    
+
     if (!['POST', 'PATCH', 'PUT', 'DELETE'].includes(method)) {
       return next.handle();
     }
 
-    
+
     if (url.includes('/auth/login') || url.includes('/auth/register')) {
       return next.handle();
     }
@@ -71,7 +71,7 @@ export class AuditInterceptor implements NestInterceptor {
     );
   }
 
-  
+
   private async createAuditLog(
     request: any,
     method: string,
@@ -80,7 +80,7 @@ export class AuditInterceptor implements NestInterceptor {
     ip: string,
     headers: any,
   ): Promise<void> {
-    
+
     const actionName = this.getActionName(method);
     const fkAction = this.actionMap.get(actionName.toLowerCase());
 
@@ -89,7 +89,7 @@ export class AuditInterceptor implements NestInterceptor {
       return;
     }
 
-    
+
     const objectName = this.getObjectName(url);
     const fkObject = this.objectMap.get(objectName.toLowerCase());
 
@@ -98,19 +98,19 @@ export class AuditInterceptor implements NestInterceptor {
       return;
     }
 
-    
+
     const fkUser = user?.userId || null;
     const txLogin = user?.username || 'anonymous';
     const txProfile = user?.roles?.[0] || 'sem acesso';
 
-    
+
     const txDescription = this.buildDescription(method, url, request.body);
 
-    
+
     const txIpAddress = ip || request.connection?.remoteAddress || 'unknown';
     const txUserAgent = headers['user-agent'] || 'unknown';
 
-    
+
     const auditLog = this.auditRepository.create({
       fkAction,
       fkObject,
@@ -125,7 +125,7 @@ export class AuditInterceptor implements NestInterceptor {
     await this.auditRepository.save(auditLog);
   }
 
-  
+
   private getActionName(method: string): string {
     const methodMap: Record<string, string> = {
       POST: 'Criação',
@@ -137,7 +137,7 @@ export class AuditInterceptor implements NestInterceptor {
     return methodMap[method] || 'Alteração';
   }
 
-  
+
   private getObjectName(url: string): string {
     if (url.includes('/users')) return 'Usuário';
     if (url.includes('/establishments')) return 'Estabelecimento';
@@ -145,10 +145,10 @@ export class AuditInterceptor implements NestInterceptor {
     if (url.includes('/audit')) return 'Relatório';
     if (url.includes('/email')) return 'Relatório';
 
-    return 'Usuário'; 
+    return 'Usuário';
   }
 
-  
+
   private buildDescription(method: string, url: string, body: any): string {
     const action = this.getActionName(method);
     const resource = url.split('/').filter(Boolean).pop();

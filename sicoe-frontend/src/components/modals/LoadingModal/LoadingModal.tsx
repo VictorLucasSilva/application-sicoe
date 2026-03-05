@@ -15,7 +15,7 @@ export default function LoadingModal({
   return (
     <Modal
       isOpen={isOpen}
-      onClose={() => {}} 
+      onClose={() => {}}
       title={message}
       showCloseButton={false}
     >

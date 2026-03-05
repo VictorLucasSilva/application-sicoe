@@ -33,7 +33,7 @@ export class EstabAttachment {
   nmFile: string;
 
   @Column({ name: 'ds_file_path', type: 'text' })
-  dsFilePath: string; 
+  dsFilePath: string;
 
   @Column({ name: 'tx_comments', type: 'text', nullable: true })
   txComments: string;
@@ -53,7 +53,7 @@ export class EstabAttachment {
   @UpdateDateColumn({ name: 'ts_updated', type: 'timestamp' })
   tsUpdated: Date;
 
-  
+
   @ManyToOne(() => EstabStatusAttachment, (status) => status.attachments)
   @JoinColumn({ name: 'fk_status' })
   status: EstabStatusAttachment;

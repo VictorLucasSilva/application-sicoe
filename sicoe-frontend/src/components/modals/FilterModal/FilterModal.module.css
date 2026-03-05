@@ -18,7 +18,7 @@
   right: 0;
   height: 100vh;
   width: 100%;
-  max-width: 350px; 
+  max-width: 350px;
   background: var(--color-white);
   box-shadow: var(--shadow-modal);
   display: flex;
@@ -163,9 +163,8 @@
   background: var(--color-white);
 }
 
-
 .content::-webkit-scrollbar {
-  width: 5px; 
+  width: 5px;
 }
 
 .content::-webkit-scrollbar-track {
@@ -180,7 +179,6 @@
 .content::-webkit-scrollbar-thumb:hover {
   background: var(--color-text-tertiary);
 }
-
 
 @media (max-width: 768px) {
   .modal {

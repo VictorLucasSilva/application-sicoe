@@ -25,13 +25,13 @@ import { Roles } from '../../common/decorators/roles.decorator';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  
+
   @Get('logins')
   async getLogins(): Promise<string[]> {
     return this.usersService.getLogins();
   }
 
-  
+
   @Get()
   async findAll(@Query() filterDto: FilterUserDto): Promise<{
     data: UserResponseDto[];
@@ -42,7 +42,7 @@ export class UsersController {
     return this.usersService.findAll(filterDto);
   }
 
-  
+
   @Get(':id')
   async findOne(
     @Param('id', ParseIntPipe) id: number,
@@ -50,7 +50,7 @@ export class UsersController {
     return this.usersService.findOne(id);
   }
 
-  
+
   @Post()
   @Roles('Administrador')
   @HttpCode(HttpStatus.CREATED)
@@ -58,7 +58,7 @@ export class UsersController {
     return this.usersService.create(createUserDto);
   }
 
-  
+
   @Patch(':id')
   @Roles('Administrador')
   async update(
@@ -68,7 +68,7 @@ export class UsersController {
     return this.usersService.update(id, updateUserDto);
   }
 
-  
+
   @Delete(':id')
   @Roles('Administrador')
   @HttpCode(HttpStatus.OK)
@@ -78,7 +78,7 @@ export class UsersController {
     return this.usersService.remove(id);
   }
 
-  
+
   @Post(':id/groups')
   @Roles('Administrador')
   @HttpCode(HttpStatus.OK)
@@ -89,7 +89,7 @@ export class UsersController {
     return this.usersService.addGroup(id, addGroupDto.groupId);
   }
 
-  
+
   @Delete(':id/groups/:groupId')
   @Roles('Administrador')
   @HttpCode(HttpStatus.OK)
@@ -100,7 +100,7 @@ export class UsersController {
     return this.usersService.removeGroup(id, groupId);
   }
 
-  
+
   @Post(':id/establishments')
   @Roles('Administrador')
   @HttpCode(HttpStatus.OK)
@@ -114,7 +114,7 @@ export class UsersController {
     );
   }
 
-  
+
   @Delete(':id/establishments/:establishmentId')
   @Roles('Administrador')
   @HttpCode(HttpStatus.OK)

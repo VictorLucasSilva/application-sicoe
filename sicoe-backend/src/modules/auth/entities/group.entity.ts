@@ -24,7 +24,7 @@ export class Group {
   @UpdateDateColumn({ name: 'ts_updated', type: 'timestamp' })
   tsUpdated: Date;
 
-  
+
   @ManyToMany(() => User, (user) => user.groups)
   users: User[];
 

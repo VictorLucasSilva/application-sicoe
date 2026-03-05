@@ -19,14 +19,14 @@ export default function Email() {
   const [total, setTotal] = useState(0);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
 
-  
+
   const pagination = usePagination({ initialPage: 1, initialLimit: 10, totalItems: total });
   const { page, limit, changeLimit, goToPage, nextPage, prevPage, pageNumbers, canGoNext, canGoPrev } = pagination;
 
-  
+
   const { sortedData, requestSort, getSortDirection } = useTableSort(emails);
 
-  
+
   const [appliedFilters, setAppliedFilters] = useState<{
     destination?: string;
     types?: string[];
@@ -36,12 +36,12 @@ export default function Email() {
     endDate?: string;
   }>({});
 
-  
+
   const [emailTypes, setEmailTypes] = useState<string[]>([]);
   const [emailSubjects, setEmailSubjects] = useState<string[]>([]);
   const [emailDestinations, setEmailDestinations] = useState<string[]>([]);
 
-  
+
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
   useEffect(() => {
@@ -78,7 +78,7 @@ export default function Email() {
     }
   };
 
-  
+
   const fetchFilterOptions = async () => {
     try {
       const [typesRes, subjectsRes, destinationsRes] = await Promise.all([
@@ -94,13 +94,13 @@ export default function Email() {
     }
   };
 
-  
+
   const showToast = (message: string, type: 'success' | 'error') => {
     setToast({ message, type });
     setTimeout(() => setToast(null), 3000);
   };
 
-  
+
   const handleApplyFilters = (filters: any) => {
     setAppliedFilters({
       destination: filters.destination,
@@ -114,14 +114,14 @@ export default function Email() {
     setIsFilterModalOpen(false);
   };
 
-  
+
   const handleClearFilters = () => {
     setAppliedFilters({});
     goToPage(1);
-    
+
   };
 
-  
+
   const getActiveFiltersCount = () => {
     let count = 0;
     if (appliedFilters.destination) count++;

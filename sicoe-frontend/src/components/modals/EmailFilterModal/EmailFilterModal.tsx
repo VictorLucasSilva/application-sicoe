@@ -23,7 +23,7 @@ interface EmailFilterModalProps {
   onApply: (filters: EmailFilters) => void;
   onClear: () => void;
   initialFilters?: EmailFilters;
-  
+
   destinationOptions?: AutocompleteOption[];
   typeOptions?: ButtonOption[];
   subjectOptions?: ButtonOption[];
@@ -52,7 +52,7 @@ export default function EmailFilterModal({
 
   const debouncedDestination = useDebounce(destination, 300);
 
-  
+
   useEffect(() => {
     if (initialFilters) {
       setDestination(initialFilters.destination || '');
@@ -64,7 +64,7 @@ export default function EmailFilterModal({
     }
   }, [initialFilters]);
 
-  
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -77,7 +77,7 @@ export default function EmailFilterModal({
     };
   }, [isOpen]);
 
-  
+
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {

@@ -14,7 +14,6 @@ import {
 
 import styles from './EstabHome.module.css';
 
-// Ícones SVG inline (serão substituídos pelos SVGs reais depois)
 const HomeIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
     <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
@@ -45,7 +44,6 @@ const SitDocsIcon = () => (
   </svg>
 );
 
-// Ícones para Status Cards
 const CheckIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor">
     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
@@ -95,7 +93,7 @@ export function EstabHome() {
   const [selectedEstabId, setSelectedEstabId] = useState<number | null>(null);
   const [isAttachModalOpen, setIsAttachModalOpen] = useState(false);
   const [selectedDocumentId, setSelectedDocumentId] = useState<number | undefined>(undefined);
-  const [refreshTrigger, setRefreshTrigger] = useState(0); // Contador para forçar reload
+  const [refreshTrigger, setRefreshTrigger] = useState(0);
   const { setLoading } = useLoading();
 
   useEffect(() => {
@@ -114,14 +112,14 @@ export function EstabHome() {
       const statsData = await establishmentStatsService.getStats();
       setStats(statsData);
 
-      // Extrair regiões das estatísticas
+
       const regionsData = statsData.byRegion.map((r) => ({
         id: r.regionId,
         name: r.regionName,
       }));
       setRegions(regionsData);
 
-      // Selecionar primeira região por padrão
+
       if (regionsData.length > 0) {
         setSelectedRegion(regionsData[0].id);
       }
@@ -158,24 +156,24 @@ export function EstabHome() {
 
   const handleOpenAttachModal = (documentId: number) => {
     setSelectedDocumentId(documentId);
-    setIsModalOpen(false); // Fecha EstabModal
-    setIsAttachModalOpen(true); // Abre AttachModal
+    setIsModalOpen(false);
+    setIsAttachModalOpen(true);
   };
 
   const handleCloseAttachModal = () => {
     setIsAttachModalOpen(false);
     setSelectedDocumentId(undefined);
-    // Reabre EstabModal (volta para modal anterior)
+
     setIsModalOpen(true);
   };
 
   const handleAttachSuccess = () => {
-    // Recarregar dados do estabelecimento no modal Estab
+
     console.log('Documento anexado com sucesso!');
-    // Fecha AttachModal e volta para EstabModal
+
     setIsAttachModalOpen(false);
     setIsModalOpen(true);
-    // Incrementa o trigger para forçar reload do EstabModal
+
     setRefreshTrigger(prev => prev + 1);
   };
 
@@ -197,7 +195,7 @@ export function EstabHome() {
         <Sidebar items={sidebarItems} activePath="" />
 
       <main className={styles.content}>
-        {/* Seção 1: Situação dos Documentos */}
+        {}
         <section className={styles.statusSection}>
           <div className={styles.titleWrapper}>
             <div className={styles.iconWrapper}>
@@ -262,7 +260,7 @@ export function EstabHome() {
           </div>
         </section>
 
-        {/* Seção 2: Meus Estabelecimentos */}
+        {}
         <section className={styles.establishmentsSection}>
           <div className={styles.header}>
             <div className={styles.titleWrapper}>
@@ -273,7 +271,7 @@ export function EstabHome() {
               <h2>Meus Estabelecimentos</h2>
             </div>
 
-            {/* Botões de regiões ao lado do título */}
+            {}
             <div className={styles.regionButtons}>
               {regions.map((region) => (
                 <button
@@ -289,7 +287,7 @@ export function EstabHome() {
             </div>
           </div>
 
-          {/* Grid de estabelecimentos com scroll */}
+          {}
           {establishments.length > 0 ? (
             <div className={styles.establishmentsGrid}>
               {establishments.map((estab) => (
@@ -311,7 +309,7 @@ export function EstabHome() {
         </section>
       </main>
 
-      {/* Modal Estab */}
+      {}
       <EstabModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
@@ -320,7 +318,7 @@ export function EstabHome() {
         refreshTrigger={refreshTrigger}
       />
 
-      {/* Modal Attach Doc */}
+      {}
       {selectedEstabId && (
         <AttachDocModal
           isOpen={isAttachModalOpen}

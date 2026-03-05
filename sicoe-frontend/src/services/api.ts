@@ -83,7 +83,7 @@ class ApiClient {
         throw error;
       }
 
-      
+
       if (response.status === 204) {
         return {} as T;
       }
@@ -144,6 +144,5 @@ class ApiClient {
     return this.request<T>(endpoint, { ...config, method: 'DELETE' });
   }
 }
-
 
 export const api = new ApiClient(API_BASE_URL);

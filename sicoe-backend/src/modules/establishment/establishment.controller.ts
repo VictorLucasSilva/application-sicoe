@@ -34,7 +34,6 @@ import { UploadResponseDto } from './dto/upload-response.dto';
 export class EstablishmentController {
   constructor(private readonly establishmentService: EstablishmentService) {}
 
-
   @Get()
   async findAll(@Query() filterDto: FilterEstablishmentDto): Promise<{
     data: Establishment[];
@@ -45,16 +44,12 @@ export class EstablishmentController {
     return this.establishmentService.findAll(filterDto);
   }
 
-  /**
-   * GET /establishments/stats
-   * Retorna estatísticas gerais de estabelecimentos e documentos
-   */
+
   @Get('stats')
   async getStats(): Promise<{ data: StatsResponseDto }> {
     const stats = await this.establishmentService.getStats();
     return { data: stats };
   }
-
 
   @Get(':id')
   async findOne(
@@ -63,10 +58,7 @@ export class EstablishmentController {
     return this.establishmentService.findOne(id);
   }
 
-  /**
-   * GET /establishments/:id/documents
-   * Retorna detalhes do estabelecimento com documentos e responsáveis
-   */
+
   @Get(':id/documents')
   async getEstablishmentDocuments(
     @Param('id', ParseIntPipe) id: number,
@@ -76,10 +68,7 @@ export class EstablishmentController {
     return { data: details };
   }
 
-  /**
-   * GET /establishments/:id/pending-documents
-   * Retorna apenas documentos pendentes do estabelecimento
-   */
+
   @Get(':id/pending-documents')
   async getPendingDocuments(
     @Param('id', ParseIntPipe) id: number,
@@ -88,10 +77,7 @@ export class EstablishmentController {
     return { data: { pending } };
   }
 
-  /**
-   * POST /establishments/:id/attachments
-   * Upload de anexo de documento
-   */
+
   @Post(':id/attachments')
   @UseInterceptors(FileInterceptor('file'))
   @HttpCode(HttpStatus.CREATED)
@@ -125,7 +111,6 @@ export class EstablishmentController {
     };
   }
 
-
   @Post()
   @Roles('Administrador')
   @HttpCode(HttpStatus.CREATED)
@@ -135,7 +120,7 @@ export class EstablishmentController {
     return this.establishmentService.create(createEstablishmentDto);
   }
 
-  
+
   @Patch(':id')
   @Roles('Administrador')
   async update(
@@ -144,7 +129,6 @@ export class EstablishmentController {
   ): Promise<Establishment> {
     return this.establishmentService.update(id, updateEstablishmentDto);
   }
-
 
   @Delete(':id')
   @Roles('Administrador')

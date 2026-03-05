@@ -15,7 +15,6 @@
   height: 1rem;
 }
 
-
 *:hover > .sortIcon {
   color: var(--color-primary-blue);
 }

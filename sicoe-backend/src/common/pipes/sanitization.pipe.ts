@@ -1,6 +1,5 @@
 import { PipeTransform, Injectable, BadRequestException } from '@nestjs/common';
 
-
 @Injectable()
 export class SanitizationPipe implements PipeTransform {
   transform(value: any) {
@@ -15,18 +14,18 @@ export class SanitizationPipe implements PipeTransform {
     return value;
   }
 
-  
+
   private sanitizeString(input: string): string {
-    
+
     let sanitized = input.replace(/\0/g, '');
 
-    
+
     sanitized = sanitized
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
 
-    
-    
+
+
     const dangerousPatterns = [
       /;\s*drop\s/i,
       /;\s*delete\s/i,
@@ -45,7 +44,7 @@ export class SanitizationPipe implements PipeTransform {
     return sanitized;
   }
 
-  
+
   private sanitizeObject(obj: any): any {
     const sanitized: any = Array.isArray(obj) ? [] : {};
 

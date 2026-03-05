@@ -15,10 +15,10 @@ export function LoadingProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (isLoading) {
-      
+
       setProgress(30);
 
-      
+
       const interval = setInterval(() => {
         setProgress((prev) => {
           if (prev >= 90) return prev;
@@ -28,7 +28,7 @@ export function LoadingProvider({ children }: { children: ReactNode }) {
 
       return () => clearInterval(interval);
     } else if (progress > 0 && progress < 100) {
-      
+
       setProgress(100);
     }
   }, [isLoading, progress]);

@@ -28,7 +28,7 @@ export class AuthController {
     private readonly msalStrategy: MsalStrategy,
   ) {}
 
-  
+
   @Public()
   @Post('login')
   @HttpCode(HttpStatus.OK)
@@ -36,7 +36,7 @@ export class AuthController {
     return this.authService.login(loginDto);
   }
 
-  
+
   @Public()
   @Post('register')
   @HttpCode(HttpStatus.CREATED)
@@ -44,7 +44,7 @@ export class AuthController {
     return this.authService.register(registerDto);
   }
 
-  
+
   @Public()
   @Post('refresh')
   @HttpCode(HttpStatus.OK)
@@ -52,7 +52,7 @@ export class AuthController {
     return this.authService.refreshToken(refreshTokenDto.refreshToken);
   }
 
-  
+
   @Get('profile')
   async getProfile(@CurrentUser() user: any): Promise<any> {
     return {
@@ -62,7 +62,7 @@ export class AuthController {
     };
   }
 
-  
+
   @Public()
   @Get('entraid/login')
   async entraidLogin(@Res() res: Response): Promise<void> {
@@ -79,7 +79,7 @@ export class AuthController {
     }
   }
 
-  
+
   @Public()
   @Get('entraid/callback')
   async entraidCallback(
@@ -87,13 +87,13 @@ export class AuthController {
     @Res() res: Response,
   ): Promise<void> {
     try {
-      
+
       const msalUser = await this.msalStrategy.validate(req);
 
-      
+
       const authResponse = await this.authService.loginWithEntraId(msalUser);
 
-      
+
       const frontendUrl = process.env.CORS_ORIGIN || 'http://localhost:5173';
       const redirectUrl = `${frontendUrl}/auth/callback?token=${authResponse.access_token}`;
 

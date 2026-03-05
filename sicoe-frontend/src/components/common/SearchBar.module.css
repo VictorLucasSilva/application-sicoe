@@ -40,8 +40,6 @@
   color: var(--color-text-disabled);
 }
 
-
-
 @media (max-width: 768px) {
   .searchBar {
     max-width: 100%;

@@ -1,4 +1,4 @@
-/* Loading e Error states */
+
 .loading,
 .error {
   display: flex;
@@ -6,13 +6,13 @@
   align-items: center;
   justify-content: center;
   padding: var(--spacing-3xl);
-  min-height: 20rem; /* 300px → 200px */
+  min-height: 20rem;
 }
 
 .spinner {
-  width: 2.68rem; /* 40px → 26.8px */
+  width: 2.68rem;
   height: 2.68rem;
-  border: 0.27rem solid var(--color-divider); /* 4px → 2.7px */
+  border: 0.27rem solid var(--color-divider);
   border-top-color: var(--color-primary-blue);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
@@ -34,7 +34,6 @@
   font-weight: 500;
 }
 
-/* Seções */
 .section {
   margin-bottom: var(--spacing-2xl);
   padding-bottom: var(--spacing-xl);
@@ -64,7 +63,6 @@
   margin: 0;
 }
 
-/* Seção Unidade */
 .infoGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -89,7 +87,6 @@
   color: var(--color-text-primary);
 }
 
-/* Seção Responsáveis */
 .responsiblesList {
   display: flex;
   flex-direction: column;
@@ -135,7 +132,6 @@
   color: var(--color-text-secondary);
 }
 
-/* Seção Pendências */
 .pendenciesList {
   display: flex;
   flex-direction: column;
@@ -157,7 +153,7 @@
 }
 
 .statusIndicator {
-  width: 0.67rem; /* 10px → 6.7px */
+  width: 0.67rem;
   height: 0.67rem;
   border-radius: 50%;
   flex-shrink: 0;
@@ -190,7 +186,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.14rem; /* 32px → 21.4px */
+  width: 2.14rem;
   height: 2.14rem;
   border: none;
   background: transparent;
@@ -211,7 +207,6 @@
   gap: var(--spacing-xs);
 }
 
-/* Empty state */
 .emptyMessage {
   padding: var(--spacing-xl);
   text-align: center;
@@ -219,7 +214,6 @@
   font-size: var(--font-size-base);
 }
 
-/* Footer */
 .footer {
   display: flex;
   align-items: center;
@@ -239,7 +233,7 @@
 
 .progressBar {
   flex: 1;
-  height: 0.54rem; /* 8px → 5.4px */
+  height: 0.54rem;
   background: var(--color-divider);
   border-radius: var(--border-radius-full);
   overflow: hidden;
@@ -256,11 +250,10 @@
   font-size: var(--font-size-lg);
   font-weight: 700;
   color: var(--color-primary-blue);
-  min-width: 3.34rem; /* 50px → 33.4px */
+  min-width: 3.34rem;
   text-align: right;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .infoGrid {
     grid-template-columns: 1fr;

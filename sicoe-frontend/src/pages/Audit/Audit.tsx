@@ -20,20 +20,20 @@ export default function AuditPage() {
   const [total, setTotal] = useState(0);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
 
-  
+
   const [groups, setGroups] = useState<any[]>([]);
   const [actions, setActions] = useState<any[]>([]);
   const [objects, setObjects] = useState<any[]>([]);
   const [logins, setLogins] = useState<string[]>([]);
 
-  
+
   const pagination = usePagination({ initialPage: 1, initialLimit: 10, totalItems: total });
   const { page, limit, changeLimit, goToPage, nextPage, prevPage, pageNumbers, canGoNext, canGoPrev } = pagination;
 
-  
+
   const { sortedData, requestSort, getSortDirection } = useTableSort(audits);
 
-  
+
   const [appliedFilters, setAppliedFilters] = useState<{
     login?: string;
     profiles?: number[];
@@ -43,7 +43,7 @@ export default function AuditPage() {
     endDate?: string;
   }>({});
 
-  
+
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
   useEffect(() => {
@@ -97,13 +97,13 @@ export default function AuditPage() {
     }
   };
 
-  
+
   const showToast = (message: string, type: 'success' | 'error') => {
     setToast({ message, type });
     setTimeout(() => setToast(null), 3000);
   };
 
-  
+
   const handleApplyFilters = (filters: any) => {
     setAppliedFilters({
       login: filters.login,
@@ -117,14 +117,14 @@ export default function AuditPage() {
     setIsFilterModalOpen(false);
   };
 
-  
+
   const handleClearFilters = () => {
     setAppliedFilters({});
     goToPage(1);
-    
+
   };
 
-  
+
   const getActiveFiltersCount = () => {
     let count = 0;
     if (appliedFilters.login) count++;

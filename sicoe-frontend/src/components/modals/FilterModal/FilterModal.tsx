@@ -25,7 +25,7 @@ interface FilterModalProps {
   onApply: (filters: UserFilters) => void;
   onClear: () => void;
   initialFilters?: UserFilters;
-  
+
   nameOptions?: AutocompleteOption[];
   profileOptions?: ButtonOption[];
   statusOptions?: ButtonOption[];
@@ -56,7 +56,7 @@ export default function FilterModal({
 
   const debouncedName = useDebounce(name, 300);
 
-  
+
   useEffect(() => {
     if (initialFilters) {
       setName(initialFilters.name || '');
@@ -70,7 +70,7 @@ export default function FilterModal({
     }
   }, [initialFilters]);
 
-  
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -83,7 +83,7 @@ export default function FilterModal({
     };
   }, [isOpen]);
 
-  
+
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {

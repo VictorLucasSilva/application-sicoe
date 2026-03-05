@@ -10,22 +10,22 @@ interface ProtectedRouteProps {
 export default function ProtectedRoute({ children, allowedRoles }: ProtectedRouteProps) {
   const { isAuthenticated, user } = useAuthStore();
 
-  
+
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
 
-  
+
   if (!allowedRoles || allowedRoles.length === 0) {
     return <>{children}</>;
   }
 
-  
+
   const userRoles = user?.groups?.map((group) => group.nmGroup) || [];
   const hasPermission = allowedRoles.some((role) => userRoles.includes(role));
 
   if (!hasPermission) {
-    
+
     return <Navigate to="/" replace />;
   }
 

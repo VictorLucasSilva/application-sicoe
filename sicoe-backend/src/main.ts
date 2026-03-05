@@ -7,8 +7,6 @@ import * as path from 'path';
 import { AppModule } from './app.module';
 import { getHelmetConfig, getCorsConfig } from './config/security.config';
 
-
-
 import { TransformInterceptor } from './common/interceptors/transform.interceptor';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 
@@ -17,23 +15,21 @@ async function bootstrap() {
 
   const configService = app.get(ConfigService);
 
-  
+
   app.use(helmet(getHelmetConfig()));
 
-  
-  app.enableCors(getCorsConfig(configService));
 
+  app.enableCors(getCorsConfig(configService));
 
   app.setGlobalPrefix('api/v1');
 
-  // Servir pasta media como arquivos estáticos
-  // Usar process.cwd() ao invés de __dirname para funcionar corretamente com código transpilado
+
+
   const mediaPath = path.join(process.cwd(), 'media');
   console.log('📁 Serving static files from:', mediaPath);
   app.useStaticAssets(mediaPath, {
     prefix: '/media/',
   });
-
 
   app.useGlobalPipes(
     new ValidationPipe({
@@ -46,19 +42,19 @@ async function bootstrap() {
     }),
   );
 
-  
-  
-  
-  const reflector = app.get(Reflector);
-  
 
-  
+
+
+  const reflector = app.get(Reflector);
+
+
+
   app.useGlobalInterceptors(
     new ClassSerializerInterceptor(reflector),
     new TransformInterceptor()
   );
 
-  
+
   app.useGlobalFilters(new HttpExceptionFilter());
 
   const port = configService.get<number>('PORT', 3000);

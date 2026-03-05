@@ -23,7 +23,7 @@ export default function MessageModal({
   confirmText = 'OK',
   showIcon = true
 }: MessageModalProps) {
-  
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -36,7 +36,7 @@ export default function MessageModal({
     };
   }, [isOpen]);
 
-  
+
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -61,7 +61,7 @@ export default function MessageModal({
     }
   };
 
-  
+
   const defaultTitle = {
     success: 'Sucesso',
     error: 'Erro',
@@ -71,7 +71,7 @@ export default function MessageModal({
 
   const modalTitle = title || defaultTitle[type];
 
-  
+
   const renderIcon = () => {
     if (!showIcon) return null;
 

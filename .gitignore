@@ -31,3 +31,13 @@ pnpm-debug.log*
 *.tmp
 *.temp
 *.REAL.*
+
+**/logs/
+**/media/
+**/uploads/
+
+sicoe-local/postgres_data/
+sicoe-local/media/
+
+deploy/**/.env
+!deploy/**/.env.example

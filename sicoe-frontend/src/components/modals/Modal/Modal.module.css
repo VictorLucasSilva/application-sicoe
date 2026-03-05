@@ -35,17 +35,16 @@
   animation: slideUp 0.3s ease-out;
 }
 
-/* Tamanhos de modal */
 .small {
-  max-width: 268px; /* 400px - 33% */
+  max-width: 268px;
 }
 
 .medium {
-  max-width: 402px; /* Padrão */
+  max-width: 402px;
 }
 
 .large {
-  max-width: 804px; /* 1200px - 33% */
+  max-width: 804px;
 }
 
 .fullscreen {
@@ -97,7 +96,7 @@
 }
 
 .closeIcon {
-  width: 16px; 
+  width: 16px;
   height: 16px;
   color: var(--color-text-primary);
 }
@@ -116,7 +115,6 @@
   justify-content: flex-end;
   gap: var(--spacing-md);
 }
-
 
 @media (max-width: 768px) {
   .modal {

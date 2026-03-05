@@ -28,9 +28,6 @@
   outline-offset: 2px;
 }
 
-
-
-
 .primary {
   background: var(--color-primary-blue);
   color: var(--color-white);
@@ -46,7 +43,6 @@
   background: #2e42b3;
   transform: translateY(1px);
 }
-
 
 .secondary {
   background: var(--color-primary-blue);
@@ -64,7 +60,6 @@
   transform: translateY(1px);
 }
 
-
 .outline {
   background: transparent;
   color: var(--color-primary-blue);
@@ -81,7 +76,6 @@
   transform: translateY(1px);
 }
 
-
 .ghost {
   background: transparent;
   color: var(--color-text-secondary);
@@ -93,7 +87,6 @@
   background: rgba(0, 0, 0, 0.04);
   color: var(--color-primary-blue);
 }
-
 
 .danger {
   background: var(--color-error);
@@ -110,8 +103,6 @@
   background: #e6587e;
   transform: translateY(1px);
 }
-
-
 
 .small {
   padding: var(--spacing-sm) var(--spacing-lg);
@@ -131,13 +122,9 @@
   gap: var(--spacing-sm);
 }
 
-
-
-
 .fullWidth {
   width: 100%;
 }
-
 
 .loading {
   position: relative;
@@ -160,7 +147,6 @@
   }
 }
 
-
 .icon {
   display: flex;
   align-items: center;
@@ -172,8 +158,6 @@
   width: 1.125rem;
   height: 1.125rem;
 }
-
-
 
 @media (max-width: 768px) {
   .button {

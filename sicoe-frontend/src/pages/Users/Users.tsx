@@ -29,14 +29,14 @@ export default function Users() {
   const debouncedSearch = useDebounce(search, 500);
   const [total, setTotal] = useState(0);
 
-  
+
   const pagination = usePagination({ initialPage: 1, initialLimit: 10, totalItems: total });
   const { page, limit, changeLimit, goToPage, nextPage, prevPage, pageNumbers, canGoNext, canGoPrev } = pagination;
 
-  
+
   const { sortedData, requestSort, getSortDirection } = useTableSort(users);
 
-  
+
   const [isAccessModalOpen, setIsAccessModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isEstablishmentModalOpen, setIsEstablishmentModalOpen] = useState(false);
@@ -49,13 +49,13 @@ export default function Users() {
   const [messageType, setMessageType] = useState<MessageType>('success');
   const [pendingSave, setPendingSave] = useState<(() => Promise<void>) | null>(null);
 
-  
+
   const [selectedUser, setSelectedUser] = useState<UserType | null>(null);
   const [establishments, setEstablishments] = useState<any[]>([]);
   const [groups, setGroups] = useState<any[]>([]);
   const [logins, setLogins] = useState<string[]>([]);
 
-  
+
   const [appliedFilters, setAppliedFilters] = useState<{
     login?: string;
     profiles?: number[];
@@ -67,7 +67,7 @@ export default function Users() {
     expirationEndDate?: string;
   }>({});
 
-  
+
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(
     null
   );
@@ -110,7 +110,7 @@ export default function Users() {
     }
   };
 
-  
+
   const fetchGroups = async () => {
     try {
       const response = await groupsService.getAll();
@@ -120,7 +120,7 @@ export default function Users() {
     }
   };
 
-  
+
   const fetchLogins = async () => {
     try {
       const response = await usersService.getLogins();
@@ -130,7 +130,7 @@ export default function Users() {
     }
   };
 
-  
+
   const fetchEstablishments = async () => {
     try {
       const response = await establishmentService.getEstablishments();
@@ -141,13 +141,13 @@ export default function Users() {
     }
   };
 
-  
+
   const showToast = (message: string, type: 'success' | 'error') => {
     setToast({ message, type });
     setTimeout(() => setToast(null), 3000);
   };
 
-  
+
   const handleApplyFilters = (filters: any) => {
     setAppliedFilters({
       login: filters.name,
@@ -163,14 +163,14 @@ export default function Users() {
     setIsFilterModalOpen(false);
   };
 
-  
+
   const handleClearFilters = () => {
     setAppliedFilters({});
     goToPage(1);
-    
+
   };
 
-  
+
   const getActiveFiltersCount = () => {
     let count = 0;
     if (appliedFilters.login) count++;
@@ -182,24 +182,23 @@ export default function Users() {
     return count;
   };
 
-  
+
   const handleOpenAccessModal = () => {
     setIsAccessModalOpen(true);
   };
 
-  
+
   const handleOpenEditModal = (user: UserType) => {
     setSelectedUser(user);
     setIsEditModalOpen(true);
   };
 
-  
+
   const handleOpenEstablishmentModal = (user: UserType) => {
     setSelectedUser(user);
     fetchEstablishments();
     setIsEstablishmentModalOpen(true);
   };
-
 
   return (
     <Layout userName="Usuário" userRole="Area Gerencial">

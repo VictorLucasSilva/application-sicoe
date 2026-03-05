@@ -49,7 +49,7 @@ export default function Autocomplete({
 
   const debouncedSearchTerm = useDebounce(searchTerm, 300);
 
-  
+
   const filteredOptions = useMemo(() => {
     if (!debouncedSearchTerm) return options;
 
@@ -58,12 +58,12 @@ export default function Autocomplete({
     );
   }, [options, debouncedSearchTerm]);
 
-  
+
   useEffect(() => {
     setInternalSelectedValues(selectedValues);
   }, [selectedValues]);
 
-  
+
   useEffect(() => {
     if (!multiSelect) {
       if (value) {
@@ -72,13 +72,13 @@ export default function Autocomplete({
           setSearchTerm(option.label);
         }
       } else {
-        
+
         setSearchTerm('');
       }
     }
   }, [value, options, multiSelect]);
 
-  
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
@@ -103,7 +103,7 @@ export default function Autocomplete({
     };
   }, [isOpen, value, options, multiSelect]);
 
-  
+
   useEffect(() => {
     if (highlightedIndex >= 0 && listRef.current) {
       const highlightedElement = listRef.current.children[highlightedIndex] as HTMLElement;
@@ -165,7 +165,7 @@ export default function Autocomplete({
     inputRef.current?.focus();
   };
 
-  
+
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (!isOpen && (e.key === 'ArrowDown' || e.key === 'ArrowUp')) {
       setIsOpen(true);

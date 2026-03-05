@@ -16,7 +16,7 @@ export interface AuditObject {
 }
 
 export const auditService = {
-  
+
   async getAudits(params?: FilterAuditParams): Promise<PaginatedResponse<Audit>> {
     const response = await apiService.get<ApiResponse<PaginatedResponse<Audit>>>('/audit', {
       params,
@@ -24,19 +24,19 @@ export const auditService = {
     return response.data.data;
   },
 
-  
+
   async getActions(): Promise<{ data: AuditAction[] }> {
     const response = await apiService.get<ApiResponse<AuditAction[]>>('/audit/actions');
     return { data: response.data.data || [] };
   },
 
-  
+
   async getObjects(): Promise<{ data: AuditObject[] }> {
     const response = await apiService.get<ApiResponse<AuditObject[]>>('/audit/objects');
     return { data: response.data.data || [] };
   },
 
-  
+
   async getLogins(): Promise<{ data: string[] }> {
     const response = await apiService.get<ApiResponse<string[]>>('/audit/logins');
     return { data: response.data.data || [] };

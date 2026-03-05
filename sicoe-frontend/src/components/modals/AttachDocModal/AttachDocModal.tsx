@@ -30,7 +30,7 @@ export default function AttachDocModal({
   documentId,
   onSuccess,
 }: AttachDocModalProps) {
-  // establishmentId será usado na integração com API real (TODO)
+
   const [selectedDocument, setSelectedDocument] = useState<number | null>(
     documentId || null
   );
@@ -40,7 +40,7 @@ export default function AttachDocModal({
   const [uploadProgress, setUploadProgress] = useState(0);
   const [documentTypes, setDocumentTypes] = useState<DocumentOption[]>([]);
 
-  // Estados dos modais do fluxo
+
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
   const [isLoadingModalOpen, setIsLoadingModalOpen] = useState(false);
   const [isMessageModalOpen, setIsMessageModalOpen] = useState(false);
@@ -49,10 +49,10 @@ export default function AttachDocModal({
   >('success');
   const [messageText, setMessageText] = useState('');
 
-  // Carregar tipos de documentos
+
   useEffect(() => {
     if (isOpen) {
-      // TODO: Buscar do backend
+
       setDocumentTypes([
         { value: 1, label: 'Alvará de Funcionamento' },
         { value: 2, label: 'Certificado de Regularidade' },
@@ -63,7 +63,7 @@ export default function AttachDocModal({
     }
   }, [isOpen]);
 
-  // Reset form ao abrir/fechar
+
   useEffect(() => {
     if (!isOpen) {
       setSelectedDocument(documentId || null);
@@ -93,7 +93,7 @@ export default function AttachDocModal({
     setIsLoadingModalOpen(true);
 
     try {
-      // Callback para atualizar progresso
+
       const onUploadProgress = (progressEvent: any) => {
         const percentCompleted = Math.round(
           (progressEvent.loaded * 100) / progressEvent.total
@@ -101,8 +101,8 @@ export default function AttachDocModal({
         setUploadProgress(percentCompleted);
       };
 
-      // DatePicker já retorna em formato ISO (YYYY-MM-DD), então usar diretamente
-      // Fazer upload real via API
+
+
       await establishmentStatsService.uploadAttachment(
         establishmentId,
         selectedDocument!,
@@ -193,7 +193,7 @@ export default function AttachDocModal({
 
             <FileUpload
               accept="application/pdf"
-              maxSize={10 * 1024 * 1024} // 10MB
+              maxSize={10 * 1024 * 1024}
               multiple={false}
               files={files}
               onFilesChange={setFiles}
@@ -220,7 +220,7 @@ export default function AttachDocModal({
         </footer>
       </Modal>
 
-      {/* Modal de Confirmação */}
+      {}
       <ConfirmModal
         isOpen={isConfirmModalOpen}
         onClose={handleCancelUpload}
@@ -231,13 +231,13 @@ export default function AttachDocModal({
         }" ao estabelecimento?`}
       />
 
-      {/* Modal de Loading */}
+      {}
       <LoadingModal
         isOpen={isLoadingModalOpen}
         message={`Enviando documento... ${uploadProgress}%`}
       />
 
-      {/* Modal de Mensagem */}
+      {}
       <MessageModal
         isOpen={isMessageModalOpen}
         onClose={handleCloseMessage}

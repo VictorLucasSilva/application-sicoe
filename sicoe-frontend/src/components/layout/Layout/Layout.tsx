@@ -10,7 +10,7 @@ interface LayoutProps {
   centerContent?: boolean;
   userName?: string;
   userRole?: string;
-  pageTitle?: string; // Título customizado da página
+  pageTitle?: string;
 }
 
 export default function Layout({

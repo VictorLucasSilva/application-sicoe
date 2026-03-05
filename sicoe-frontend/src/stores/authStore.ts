@@ -10,7 +10,7 @@ interface AuthState {
   isLoading: boolean;
   error: string | null;
 
-  
+
   login: (username: string, password: string) => Promise<void>;
   logout: () => void;
   setUser: (user: User | null) => void;
@@ -33,7 +33,7 @@ export const useAuthStore = create<AuthState>()(
         try {
           const response: AuthResponse = await authService.login({ username, password });
 
-          
+
           localStorage.setItem('access_token', response.access_token);
 
           set({

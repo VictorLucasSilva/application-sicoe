@@ -99,7 +99,6 @@
   margin-top: var(--spacing-xs);
 }
 
-
 .calendar {
   position: absolute;
   top: calc(100% + var(--spacing-xs));
@@ -251,7 +250,6 @@
   background: var(--color-primary-blue);
   color: var(--color-white);
 }
-
 
 @media (max-width: 768px) {
   .calendar {

@@ -16,10 +16,9 @@ interface EstabModalProps {
   onClose: () => void;
   establishmentId: number | null;
   onOpenAttachModal?: (documentId: number) => void;
-  refreshTrigger?: number; // Trigger para forçar reload dos dados
+  refreshTrigger?: number;
 }
 
-// Ícones SVG inline
 const BuildingIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
     <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
@@ -53,16 +52,16 @@ const AttachIcon = () => (
 const getStatusColor = (status: string): string => {
   switch (status) {
     case 'regular':
-      return '#465EFF'; // blue
+      return '#465EFF';
     case 'vencido':
-      return '#E53E3E'; // red
+      return '#E53E3E';
     case 'aVencer':
-      return '#DD6B20'; // orange
+      return '#DD6B20';
     case 'emAnalise':
-      return '#D69E2E'; // yellow
+      return '#D69E2E';
     case 'invalid':
     case 'missing':
-      return '#718096'; // gray
+      return '#718096';
     default:
       return '#718096';
   }
@@ -97,7 +96,7 @@ export function EstabModal({
   const [data, setData] = useState<EstablishmentDetails | null>(null);
   const [loading, setLoading] = useState(false);
 
-  // Estados dos modais do fluxo
+
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
   const [isLoadingModalOpen, setIsLoadingModalOpen] = useState(false);
   const [isMessageModalOpen, setIsMessageModalOpen] = useState(false);
@@ -105,7 +104,7 @@ export function EstabModal({
   const [messageText, setMessageText] = useState('');
   const [pendingAction, setPendingAction] = useState<{ type: string; data: any } | null>(null);
 
-  // Estado do modal de PDF
+
   const [isPdfModalOpen, setIsPdfModalOpen] = useState(false);
   const [pdfUrl, setPdfUrl] = useState('');
   const [pdfFileName, setPdfFileName] = useState('');
@@ -114,7 +113,7 @@ export function EstabModal({
     if (isOpen && establishmentId) {
       fetchData();
     }
-  }, [isOpen, establishmentId, refreshTrigger]); // Recarrega quando refreshTrigger muda
+  }, [isOpen, establishmentId, refreshTrigger]);
 
   const fetchData = async () => {
     if (!establishmentId) return;
@@ -145,7 +144,7 @@ export function EstabModal({
   const handleViewDoc = (docId: number) => {
     if (!data) return;
 
-    // Encontrar o documento
+
     const document = data.documents.find(doc => doc.id === docId);
     if (!document || !document.attachments || document.attachments.length === 0) {
       setMessageType('warning');
@@ -154,20 +153,20 @@ export function EstabModal({
       return;
     }
 
-    // Pegar o primeiro anexo (mais recente)
+
     const attachment = document.attachments[0];
 
-    // Construir URL completa do PDF
-    // dsFilePath pode vir como "/media/arquivo.pdf" ou "media/arquivo.pdf"
-    // Precisamos garantir que fique como "/media/arquivo.pdf"
+
+
+
     let filePath = attachment.dsFilePath;
 
-    // Se não começa com /, adiciona
+
     if (!filePath.startsWith('/')) {
       filePath = `/${filePath}`;
     }
 
-    // URL base do backend (usar variável de ambiente em produção)
+
     const backendUrl = import.meta.env.VITE_API_BASE_URL?.replace('/api/v1', '') || 'http://localhost:3000';
     const fullPdfUrl = `${backendUrl}${filePath}`;
 
@@ -185,7 +184,7 @@ export function EstabModal({
   };
 
   const handleViewAll = () => {
-    // Preparar ação pendente
+
     setPendingAction({ type: 'viewAll', data: null });
     setIsConfirmModalOpen(true);
   };
@@ -195,19 +194,19 @@ export function EstabModal({
 
     if (!pendingAction) return;
 
-    // Abrir modal de loading
+
     setIsLoadingModalOpen(true);
 
     try {
-      // Simular operação assíncrona
+
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
       if (pendingAction.type === 'viewAll') {
         console.log('Redirecionar para página de todos os documentos');
-        // TODO: Implementar navegação para página completa
+
       }
 
-      // Fechar loading e mostrar sucesso
+
       setIsLoadingModalOpen(false);
       setMessageType('success');
       setMessageText('Operação realizada com sucesso!');
@@ -229,7 +228,7 @@ export function EstabModal({
 
   const handleCloseMessage = () => {
     setIsMessageModalOpen(false);
-    // Recarregar dados após mensagem de sucesso
+
     if (messageType === 'success') {
       fetchData();
     }
@@ -250,7 +249,7 @@ export function EstabModal({
         </div>
       ) : data ? (
         <>
-          {/* Seção 1: Unidade */}
+          {}
           <section className={styles.section}>
             <div className={styles.sectionHeader}>
               <BuildingIcon />
@@ -284,7 +283,7 @@ export function EstabModal({
             </div>
           </section>
 
-          {/* Seção 2: Responsáveis */}
+          {}
           <section className={styles.section}>
             <div className={styles.sectionHeader}>
               <PersonIcon />
@@ -314,7 +313,7 @@ export function EstabModal({
             )}
           </section>
 
-          {/* Seção 3: Pendências */}
+          {}
           <section className={styles.section}>
             <div className={styles.sectionHeader}>
               <WarningIcon />
@@ -363,7 +362,7 @@ export function EstabModal({
             )}
           </section>
 
-          {/* Footer com progresso */}
+          {}
           <footer className={styles.footer}>
             <div className={styles.progressContainer}>
               <div className={styles.progressBar}>
@@ -385,7 +384,7 @@ export function EstabModal({
         </div>
       )}
 
-      {/* Modal de Confirmação */}
+      {}
       <ConfirmModal
         isOpen={isConfirmModalOpen}
         onClose={handleCancelAction}
@@ -394,13 +393,13 @@ export function EstabModal({
         message="Deseja visualizar todos os documentos deste estabelecimento?"
       />
 
-      {/* Modal de Loading */}
+      {}
       <LoadingModal
         isOpen={isLoadingModalOpen}
         message="Processando solicitação..."
       />
 
-      {/* Modal de Mensagem */}
+      {}
       <MessageModal
         isOpen={isMessageModalOpen}
         onClose={handleCloseMessage}
@@ -408,7 +407,7 @@ export function EstabModal({
         message={messageText}
       />
 
-      {/* Modal de Visualização de PDF */}
+      {}
       <PdfViewerModal
         isOpen={isPdfModalOpen}
         onClose={() => setIsPdfModalOpen(false)}

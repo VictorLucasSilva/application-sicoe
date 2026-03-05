@@ -9,7 +9,7 @@ interface ModalProps {
   children: ReactNode;
   footer?: ReactNode;
   showCloseButton?: boolean;
-  size?: 'small' | 'medium' | 'large' | 'fullscreen'; // Tamanho do modal
+  size?: 'small' | 'medium' | 'large' | 'fullscreen';
 }
 
 export default function Modal({

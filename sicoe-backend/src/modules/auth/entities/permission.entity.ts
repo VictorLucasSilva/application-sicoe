@@ -22,7 +22,7 @@ export class Permission {
   @UpdateDateColumn({ name: 'ts_updated', type: 'timestamp' })
   tsUpdated: Date;
 
-  
+
   @ManyToMany(() => Group, (group) => group.permissions)
   groups: Group[];
 }

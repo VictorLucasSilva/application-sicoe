@@ -12,14 +12,14 @@ export class LoggerService implements NestLoggerService {
     const env = this.configService.get<string>('NODE_ENV') || 'local';
     const isProduction = env === 'production';
 
-    
+
     const productionFormat = winston.format.combine(
       winston.format.timestamp(),
       winston.format.errors({ stack: true }),
       winston.format.json(),
     );
 
-    
+
     const developmentFormat = winston.format.combine(
       winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
       winston.format.errors({ stack: true }),
@@ -31,17 +31,17 @@ export class LoggerService implements NestLoggerService {
       }),
     );
 
-    
+
     const transports: winston.transport[] = [
-      
+
       new winston.transports.Console({
         format: isProduction ? productionFormat : developmentFormat,
       }),
     ];
 
-    
+
     if (isProduction) {
-      
+
       transports.push(
         new DailyRotateFile({
           filename: 'logs/error-%DATE%.log',
@@ -53,7 +53,7 @@ export class LoggerService implements NestLoggerService {
         }),
       );
 
-      
+
       transports.push(
         new DailyRotateFile({
           filename: 'logs/combined-%DATE%.log',
@@ -64,7 +64,7 @@ export class LoggerService implements NestLoggerService {
         }),
       );
 
-      
+
       transports.push(
         new DailyRotateFile({
           filename: 'logs/access-%DATE%.log',
@@ -77,7 +77,7 @@ export class LoggerService implements NestLoggerService {
       );
     }
 
-    
+
     this.logger = winston.createLogger({
       level: isProduction ? 'info' : 'debug',
       format: isProduction ? productionFormat : developmentFormat,
@@ -114,7 +114,7 @@ export class LoggerService implements NestLoggerService {
     this.logger.verbose(message, { context: context || this.context });
   }
 
-  
+
   logHttpAccess(
     method: string,
     url: string,
@@ -132,7 +132,7 @@ export class LoggerService implements NestLoggerService {
     });
   }
 
-  
+
   logAudit(
     action: string,
     resource: string,

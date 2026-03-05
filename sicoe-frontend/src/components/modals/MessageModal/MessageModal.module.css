@@ -60,7 +60,6 @@
   height: 3rem;
 }
 
-
 .modal.success .icon {
   color: var(--color-success);
 }
@@ -101,7 +100,6 @@
   gap: var(--spacing-md);
   justify-content: center;
 }
-
 
 @media (max-width: 768px) {
   .modal {
