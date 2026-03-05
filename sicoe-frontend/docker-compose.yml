@@ -4,14 +4,12 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        # Variáveis de build-time passadas para o Vite
         VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:3000/api/v1}
         VITE_ENV: ${VITE_ENV:-production}
     container_name: sicoe-frontend-standalone
     ports:
       - "${FRONTEND_PORT:-80}:80"
     environment:
-      # Variáveis de runtime
       NODE_ENV: ${NODE_ENV:-production}
     networks:
       - sicoe-network

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import Layout from '@/components/layout/Layout/Layout';
-import logoSicoeV3 from '@/assets/icons/logo-sicoe-v3.svg';
+import logoSicoeV3 from '@/assets/icons/logo-estab.svg';
 import styles from './Home.module.css';
 
 export default function Home() {
