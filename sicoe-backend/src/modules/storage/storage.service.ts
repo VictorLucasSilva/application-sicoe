@@ -13,8 +13,20 @@ export class StorageService {
     this.mediaContainer = this.configService.get<string>('AZURE_STORAGE_MEDIA_CONTAINER', 'media');
     this.genericContainer = this.configService.get<string>('AZURE_STORAGE_GENERIC_CONTAINER', 'storage');
 
-    if (connectionString) {
-      this.blobServiceClient = BlobServiceClient.fromConnectionString(connectionString);
+    // Validar se a connection string é válida (não vazia e não contém placeholders)
+    if (connectionString &&
+        connectionString.trim() !== '' &&
+        !connectionString.includes('<account-name>') &&
+        !connectionString.includes('<account-key>')) {
+      try {
+        this.blobServiceClient = BlobServiceClient.fromConnectionString(connectionString);
+        console.log('✅ Azure Blob Storage configurado com sucesso');
+      } catch (error) {
+        console.error('⚠️  Falha ao conectar Azure Blob Storage:', error.message);
+        console.error('   Storage de arquivos desabilitado para este ambiente');
+      }
+    } else {
+      console.log('⚠️  Azure Blob Storage não configurado - storage de arquivos desabilitado para este ambiente');
     }
   }
 

@@ -29,42 +29,11 @@ services:
       dockerfile: Dockerfile
     container_name: sicoe-backend
     restart: unless-stopped
-    environment:
-      NODE_ENV: ${NODE_ENV:-local}
-      PORT: 3000
-      APP_NAME: SICOE Backend
-
-      DB_TYPE: postgres
-      DB_HOST: ${DB_HOST:-<azure-postgres-host>.postgres.database.azure.com}
-      DB_PORT: ${DB_PORT:-5432}
-      DB_USERNAME: ${DB_USERNAME:-sicoe_dev_user}
-      DB_PASSWORD: ${DB_PASSWORD:-change-password}
-      DB_DATABASE: ${DB_DATABASE:-sicoe_dev_db}
-      DB_SYNCHRONIZE: false
-      DB_LOGGING: ${DB_LOGGING:-true}
-      DB_SSL: ${DB_SSL:-true}
-      DB_SSL_REJECT_UNAUTHORIZED: ${DB_SSL_REJECT_UNAUTHORIZED:-true}
-
-      JWT_SECRET: ${JWT_SECRET:-sicoe-jwt-secret-key-development-2024}
-      JWT_EXPIRATION: 1h
-      JWT_REFRESH_EXPIRATION: 7d
-
-      AZURE_AD_TENANT_ID: ${AZURE_AD_TENANT_ID:-}
-      AZURE_AD_CLIENT_ID: ${AZURE_AD_CLIENT_ID:-}
-      AZURE_AD_CLIENT_SECRET: ${AZURE_AD_CLIENT_SECRET:-}
-      AZURE_AD_REDIRECT_URI: ${AZURE_AD_REDIRECT_URI:-http://localhost:3000/auth/callback}
-
-      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:5173}
-      CORS_CREDENTIALS: true
-
-      THROTTLE_TTL: 60
-      THROTTLE_LIMIT: 10
-
-      AZURE_STORAGE_CONNECTION_STRING: ${AZURE_STORAGE_CONNECTION_STRING:-}
-      AZURE_STORAGE_MEDIA_CONTAINER: ${AZURE_STORAGE_MEDIA_CONTAINER:-media}
-      AZURE_STORAGE_GENERIC_CONTAINER: ${AZURE_STORAGE_GENERIC_CONTAINER:-storage}
-
-      GITHUB_REPOSITORY: ${GITHUB_REPOSITORY:-}
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    env_file:
+      - .env
     ports:
       - "3000:3000"
     networks:

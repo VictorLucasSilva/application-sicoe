@@ -6,7 +6,8 @@
 **/.env
 **/.env.local
 **/.env.*.local
-
+**/.env.local-only
+**/.env.azure-dev
 .vscode/
 .idea/
 *.swp
