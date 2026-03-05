@@ -43,3 +43,4 @@ sicoe-local/media/
 deploy/**/.env
 !deploy/**/.env.example
 
+.docs/error.txt
