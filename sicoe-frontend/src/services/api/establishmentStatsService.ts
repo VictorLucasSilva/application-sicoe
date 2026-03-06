@@ -146,4 +146,13 @@ export const establishmentStatsService = {
 
     return response.data.data;
   },
+
+  async getAttachments(establishmentId: number): Promise<DocumentAttachment[]> {
+    const response = await apiService.get<{ data: DocumentAttachment[] }>(`/establishments/${establishmentId}/attachments`);
+    return response.data.data;
+  },
+
+  getAttachmentDownloadUrl(establishmentId: number, attachmentId: number): string {
+    return `${apiService.getBaseUrl()}/establishments/${establishmentId}/attachments/${attachmentId}/download`;
+  },
 };

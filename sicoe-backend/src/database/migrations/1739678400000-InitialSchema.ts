@@ -123,6 +123,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
         "id" SERIAL PRIMARY KEY,
         "fk_status" INTEGER NOT NULL,
         "fk_document" INTEGER NOT NULL,
+        "fk_establishment" INTEGER,
         "fk_city" INTEGER,
         "fk_region" INTEGER,
         "nm_file" VARCHAR(255) NOT NULL,
@@ -135,6 +136,7 @@ export class InitialSchema1739678400000 implements MigrationInterface {
         "ts_updated" TIMESTAMP NOT NULL DEFAULT now(),
         CONSTRAINT "FK_attachment_status" FOREIGN KEY ("fk_status") REFERENCES "ssv_estab_status_attachment"("id") ON DELETE CASCADE,
         CONSTRAINT "FK_attachment_document" FOREIGN KEY ("fk_document") REFERENCES "ssv_estab_document"("id") ON DELETE CASCADE,
+        CONSTRAINT "FK_attachment_establishment" FOREIGN KEY ("fk_establishment") REFERENCES "ssv_establishment"("id") ON DELETE CASCADE,
         CONSTRAINT "FK_attachment_city" FOREIGN KEY ("fk_city") REFERENCES "ssv_estab_city"("id") ON DELETE SET NULL,
         CONSTRAINT "FK_attachment_region" FOREIGN KEY ("fk_region") REFERENCES "ssv_estab_region"("id") ON DELETE SET NULL
       )

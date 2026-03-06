@@ -7,6 +7,7 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
+import { Establishment } from './establishment.entity';
 import { EstabDocument } from './estab-document.entity';
 import { EstabCity } from './estab-city.entity';
 import { EstabRegion } from './estab-region.entity';
@@ -22,6 +23,9 @@ export class EstabAttachment {
 
   @Column({ name: 'fk_document', type: 'int' })
   fkDocument: number;
+
+  @Column({ name: 'fk_establishment', type: 'int', nullable: true })
+  fkEstablishment: number;
 
   @Column({ name: 'fk_city', type: 'int', nullable: true })
   fkCity: number;
@@ -61,6 +65,10 @@ export class EstabAttachment {
   @ManyToOne(() => EstabDocument, (document) => document.attachments)
   @JoinColumn({ name: 'fk_document' })
   document: EstabDocument;
+
+  @ManyToOne(() => Establishment, (establishment) => establishment.attachments, { nullable: true })
+  @JoinColumn({ name: 'fk_establishment' })
+  establishment: Establishment;
 
   @ManyToOne(() => EstabCity, (city) => city.attachments, { nullable: true })
   @JoinColumn({ name: 'fk_city' })

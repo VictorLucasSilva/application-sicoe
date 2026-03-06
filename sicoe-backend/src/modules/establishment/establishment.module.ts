@@ -1,15 +1,13 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MulterModule } from '@nestjs/platform-express';
-import { diskStorage } from 'multer';
-import * as path from 'path';
-import * as fs from 'fs';
 import { EstablishmentController } from './establishment.controller';
 import { EstablishmentService } from './establishment.service';
 import { Establishment } from './entities/establishment.entity';
 import { EstabDocument } from './entities/estab-document.entity';
 import { EstabAttachment } from './entities/estab-attachment.entity';
 import { EstabRegion } from './entities/estab-region.entity';
+import { StorageModule } from '../storage/storage.module';
 
 @Module({
   imports: [
@@ -20,27 +18,11 @@ import { EstabRegion } from './entities/estab-region.entity';
       EstabRegion,
     ]),
     MulterModule.register({
-      storage: diskStorage({
-        destination: (req, file, cb) => {
-          const uploadPath = path.join(process.cwd(), 'media');
-
-
-          if (!fs.existsSync(uploadPath)) {
-            fs.mkdirSync(uploadPath, { recursive: true });
-          }
-
-          cb(null, uploadPath);
-        },
-        filename: (req, file, cb) => {
-
-          const uniqueName = `${Date.now()}-${file.originalname}`;
-          cb(null, uniqueName);
-        },
-      }),
+      storage: require('multer').memoryStorage(),
       limits: {
         fileSize: 10 * 1024 * 1024,
       },
-      fileFilter: (req, file, cb) => {
+      fileFilter: (_req, file, cb) => {
         if (file.mimetype !== 'application/pdf') {
           return cb(
             new Error('Apenas arquivos PDF são permitidos'),
@@ -50,6 +32,7 @@ import { EstabRegion } from './entities/estab-region.entity';
         cb(null, true);
       },
     }),
+    StorageModule,
   ],
   controllers: [EstablishmentController],
   providers: [EstablishmentService],

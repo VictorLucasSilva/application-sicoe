@@ -142,8 +142,7 @@ export function EstabModal({
   };
 
   const handleViewDoc = (docId: number) => {
-    if (!data) return;
-
+    if (!data || !establishmentId) return;
 
     const document = data.documents.find(doc => doc.id === docId);
     if (!document || !document.attachments || document.attachments.length === 0) {
@@ -153,26 +152,15 @@ export function EstabModal({
       return;
     }
 
-
     const attachment = document.attachments[0];
+    const downloadUrl = establishmentStatsService.getAttachmentDownloadUrl(
+      establishmentId,
+      attachment.id
+    );
 
+    console.log('📄 Abrindo PDF:', downloadUrl);
 
-
-
-    let filePath = attachment.dsFilePath;
-
-
-    if (!filePath.startsWith('/')) {
-      filePath = `/${filePath}`;
-    }
-
-
-    const backendUrl = import.meta.env.VITE_API_BASE_URL?.replace('/api/v1', '') || 'http://localhost:3000';
-    const fullPdfUrl = `${backendUrl}${filePath}`;
-
-    console.log('📄 Abrindo PDF:', fullPdfUrl);
-
-    setPdfUrl(fullPdfUrl);
+    setPdfUrl(downloadUrl);
     setPdfFileName(document.nmDocument);
     setIsPdfModalOpen(true);
   };

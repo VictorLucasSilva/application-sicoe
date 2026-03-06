@@ -27,6 +27,7 @@ import {
   DocumentWithAttachmentsDto,
   AttachmentDto,
 } from './dto/document-status.dto';
+import { StorageService } from '../storage/storage.service';
 
 @Injectable()
 export class EstablishmentService {
@@ -39,6 +40,7 @@ export class EstablishmentService {
     private readonly attachmentRepository: Repository<EstabAttachment>,
     @InjectRepository(EstabRegion)
     private readonly regionRepository: Repository<EstabRegion>,
+    private readonly storageService: StorageService,
   ) {}
 
 
@@ -299,7 +301,7 @@ export class EstablishmentService {
 
     const documents = await this.documentRepository
       .createQueryBuilder('document')
-      .leftJoinAndSelect('document.attachments', 'attachment')
+      .leftJoinAndSelect('document.attachments', 'attachment', 'attachment.fk_establishment = :id', { id })
       .leftJoinAndSelect('document.establishments', 'establishment')
       .where('establishment.id = :id', { id })
       .getMany();
@@ -465,14 +467,26 @@ export class EstablishmentService {
     }
 
 
+    const timestamp = Date.now();
+    const fileName = `pdfs/${establishmentId}_${document.id}_${timestamp}_${file.originalname}`;
 
-    const relativePath = file.path.replace(/\\/g, '/').split('/').slice(-2).join('/');
+    try {
+      await this.storageService.uploadFile(
+        fileName,
+        file.buffer,
+        file.mimetype,
+        'media'
+      );
+    } catch (error) {
+      throw new BadRequestException(`Falha ao fazer upload do arquivo: ${error.message}`);
+    }
 
     const attachment = this.attachmentRepository.create({
       fkDocument: createDto.documentId,
+      fkEstablishment: establishmentId,
       fkStatus: 2,
       nmFile: file.originalname,
-      dsFilePath: relativePath,
+      dsFilePath: fileName,
       dtValidity: new Date(createDto.dtValidity),
       txComments: createDto.txComments,
       tsAttached: new Date(),
@@ -491,5 +505,60 @@ export class EstablishmentService {
     }
 
     return attachmentWithDocument;
+  }
+
+  async getAttachments(establishmentId: number) {
+    const establishment = await this.establishmentRepository.findOne({
+      where: { id: establishmentId },
+    });
+
+    if (!establishment) {
+      throw new NotFoundException('Estabelecimento não encontrado');
+    }
+
+    const attachments = await this.attachmentRepository.find({
+      where: {
+        fkEstablishment: establishmentId,
+      },
+      relations: ['document', 'status'],
+      order: { tsAttached: 'DESC' },
+    });
+
+    return attachments;
+  }
+
+  async downloadAttachment(establishmentId: number, attachmentId: number) {
+    console.log(`🔍 Downloading attachment ${attachmentId} from establishment ${establishmentId}`);
+
+    const attachment = await this.attachmentRepository.findOne({
+      where: { id: attachmentId },
+      relations: ['document'],
+    });
+
+    console.log('📎 Attachment found:', attachment ? 'YES' : 'NO');
+
+    if (!attachment) {
+      throw new NotFoundException('Anexo não encontrado');
+    }
+
+    console.log('📁 File path:', attachment.dsFilePath);
+
+    try {
+      const fileBuffer = await this.storageService.downloadFile(
+        attachment.dsFilePath,
+        'media'
+      );
+
+      console.log('✅ Buffer downloaded, size:', fileBuffer ? fileBuffer.length : 'UNDEFINED');
+
+      return {
+        buffer: fileBuffer,
+        filename: attachment.nmFile,
+        contentType: 'application/pdf',
+      };
+    } catch (error) {
+      console.error('❌ Download error:', error);
+      throw new NotFoundException(`Arquivo não encontrado: ${error.message}`);
+    }
   }
 }

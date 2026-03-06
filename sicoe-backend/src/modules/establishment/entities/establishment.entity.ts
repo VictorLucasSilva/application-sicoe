@@ -6,6 +6,7 @@ import {
   UpdateDateColumn,
   ManyToMany,
   ManyToOne,
+  OneToMany,
   JoinColumn,
   JoinTable,
 } from 'typeorm';
@@ -14,6 +15,7 @@ import { EstabRegion } from './estab-region.entity';
 import { EstabState } from './estab-state.entity';
 import { EstabUnit } from './estab-unit.entity';
 import { EstabDocument } from './estab-document.entity';
+import { EstabAttachment } from './estab-attachment.entity';
 
 @Entity('ssv_establishment')
 export class Establishment {
@@ -81,4 +83,7 @@ export class Establishment {
     inverseJoinColumn: { name: 'fk_document', referencedColumnName: 'id' },
   })
   documents: EstabDocument[];
+
+  @OneToMany(() => EstabAttachment, (attachment) => attachment.establishment)
+  attachments: EstabAttachment[];
 }

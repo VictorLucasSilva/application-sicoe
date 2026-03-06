@@ -52,6 +52,9 @@ class ApiService {
     return this.api;
   }
 
+  public getBaseUrl(): string {
+    return API_BASE_URL;
+  }
 
   public get<T>(url: string, config?: AxiosRequestConfig) {
     return this.api.get<T>(url, config);

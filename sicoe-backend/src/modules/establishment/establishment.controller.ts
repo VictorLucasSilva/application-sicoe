@@ -13,7 +13,10 @@ import {
   UseInterceptors,
   UploadedFile,
   BadRequestException,
+  Res,
+  StreamableFile,
 } from '@nestjs/common';
+import type { Response } from 'express';
 import { FileInterceptor } from '@nestjs/platform-express';
 
 import { EstablishmentService } from './establishment.service';
@@ -109,6 +112,34 @@ export class EstablishmentController {
         },
       },
     };
+  }
+
+  @Get(':id/attachments')
+  async getAttachments(@Param('id', ParseIntPipe) id: number) {
+    const attachments = await this.establishmentService.getAttachments(id);
+    return { data: attachments };
+  }
+
+  @Get(':id/attachments/:attachmentId/download')
+  async downloadAttachment(
+    @Param('id', ParseIntPipe) id: number,
+    @Param('attachmentId', ParseIntPipe) attachmentId: number,
+    @Res() res: Response,
+  ) {
+    try {
+      const result = await this.establishmentService.downloadAttachment(id, attachmentId);
+
+      if (!result || !result.buffer) {
+        return res.status(404).json({ error: 'Buffer is undefined' });
+      }
+
+      res.setHeader('Content-Type', result.contentType);
+      res.setHeader('Content-Disposition', `inline; filename="${result.filename}"`);
+      res.send(result.buffer);
+    } catch (error) {
+      console.error('Download error:', error);
+      res.status(500).json({ error: error.message });
+    }
   }
 
   @Post()
